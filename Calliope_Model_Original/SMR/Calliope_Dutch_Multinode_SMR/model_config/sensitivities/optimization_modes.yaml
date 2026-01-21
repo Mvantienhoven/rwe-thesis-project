@@ -1,0 +1,30 @@
+#-------------------------------------------------COMMENTS KEVIN------------------------------------------------------#
+# Primarily minimizes fuel usage over monetary. (energy content (i.e. TJ) before conversion/efficiency losses)
+# Interesting to define the theoretical lower bound of energy usage in the system. 
+
+# To Consider:
+
+#   Explore fossil-displacement of SMRs (and flex):
+#    opt_for_co2:
+#        objective_options.cost_class.co2: 1
+#        objective_options.cost_class.monetary: 0.01
+
+#   Explore trade-offs and Pareto frontiers, see where SMR+flex are jointly optimal:
+#    opt_for_balanced:
+#        objective_options.cost_class.monetary: 1
+#        objective_options.cost_class.primary_energy: 1
+#        objective_options.cost_class.co2: 1
+
+#   Explore at what CO₂ price or weight SMRs start to displace gas or storage:
+#    opt_for_lowcarbon:
+#        objective_options.cost_class.co2: 0.5
+#        objective_options.cost_class.monetary: 1
+
+#----------------------------------------------------------------------------------------------------------------------#
+
+
+overrides:
+
+    opt_for_efficiency:
+        objective_options.cost_class.primary_energy: 1.0
+        objective_options.cost_class.monetary: 0.01

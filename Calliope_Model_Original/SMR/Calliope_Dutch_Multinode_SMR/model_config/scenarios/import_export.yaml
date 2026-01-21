@@ -1,0 +1,23 @@
+##-----------------------------------------------Comments Kevin-----------------------------------------##
+# Defines specific import constraints ties to eur nat 2050 scenario.
+
+# To do: See if I will use this at all, choose scenarios first.
+##------------------------------------------------------------------------------------------------------##
+
+overrides:
+
+    import_export_ii3050_eur_nat_2050:
+        techs:
+            import_elc_interconnector:
+                constraints:
+                    resource: file=import_export/ii3050_eur_nat_2050/capacity_elc_import.csv
+                costs:
+                    monetary:
+                        om_prod: file=import_export/ii3050_eur_nat_2050/price_elc_import.csv
+            # export_elc_interconnector:
+            #     constraints:
+            #         resource: file=import_export/ii3050_eur_nat_2050/capacity_elc_export.csv
+            #     costs:
+            #         monetary:
+            #             om_con: file=import_export/ii3050_eur_nat_2050/price_elc_export.csv
+

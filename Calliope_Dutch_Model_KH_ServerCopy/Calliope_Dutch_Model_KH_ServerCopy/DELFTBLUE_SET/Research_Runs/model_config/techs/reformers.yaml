@@ -1,0 +1,52 @@
+#-------------------------------------------------COMMENTS KEVIN------------------------------------------------------#
+# Reformers for hydrogen production.
+
+## To do: Check correct/completeness
+#----------------------------------------------------------------------------------------------------------------------#
+
+
+
+techs:
+
+    reformer_smr_ccs:
+        essentials:
+            name: 'CCS Reformer - SMR'
+            color: '#b8bd20' #!
+            parent: reformer_plants
+            carrier_in: 
+        constraints:
+            lifetime: 25 # years
+            energy_eff: 0.75 #isnt this the issue?
+            carrier_ratios:
+                carrier_out:
+                    hydrogen: 1.0
+                carrier_out_2:
+                    co2_emitted: 0.26933333 #0.202 ktCO2/GWh of energy div by 75% efficiency 
+                carrier_out_3:
+                    co2_stored: 0.18045333 #CO2 emitted * 67% capture rate
+        costs:
+            monetary:
+                energy_cap: 769.26  #Meur/GW
+                om_annual: 22.363 # Meur/GW/yr
+                om_prod: 0 # Meur/GWh
+
+    reformer_atr_ccs_96:
+        essentials:
+            name: 'Reformer - ATR /w CCS'
+            color: '#b8bd20' #!
+            parent: reformer_plants
+        constraints:
+            lifetime: 10 # years
+            energy_eff: 0.71
+            carrier_ratios:
+                carrier_out:
+                    hydrogen: 1.0
+                carrier_out_2:
+                    co2_emitted: 0.28450704 #0.202 ktCO2/GWh of energy div by 71% efficiency 
+                carrier_out_3:
+                    co2_stored: 0.27312676 #CO2 emitted * Capture rate of 96% 
+        costs:
+            monetary:
+                energy_cap: 938.234  #Meur/GW CHECK
+                om_annual: 28.431 # Meur/GW/yr CHECK
+                om_prod: 0 # Meur/GWh CHECK 

@@ -1,0 +1,73 @@
+##-----------------------------------------Comments Kevin-----------------------------------------##
+# Various biomass capacities and operational costs scenarios
+
+overrides:
+
+    # Biomass
+
+    biomass_25:
+        techs:
+            pp_biomass_standalone:
+                costs:
+                    monetary:
+                        om_con: 25e-3 #! MEUR/GWh, assumed green ammonia import price
+    biomass_50:
+        techs:
+            pp_biomass_standalone:
+                costs:
+                    monetary:
+                        om_con: 50e-3 #! MEUR/GWh, assumed green ammonia import price
+    biomass_100:
+        techs:
+            pp_biomass_standalone:
+                costs:
+                    monetary:
+                        om_con: 100e-3 #! MEUR/GWh, assumed green ammonia import price
+    biomass_150:
+        techs:
+            pp_biomass_standalone:
+                costs:
+                    monetary:
+                        om_con: 150e-3 #! MEUR/GWh, assumed green ammonia import price
+
+    biomass_cap01:
+        group_constraints:
+            biomass_cap:
+                techs: ['pp_biomass_standalone']
+                carrier_prod_max.electricity: 1.0e3 # GWh/a
+
+    biomass_cap05:
+        group_constraints:
+            biomass_cap:
+                techs: ['pp_biomass_standalone']
+                carrier_prod_max.electricity: 5.0e3 # GWh/a
+
+    biomass_cap10:
+        group_constraints:
+            biomass_cap:
+                techs: ['pp_biomass_standalone']
+                carrier_prod_max.electricity: 10.0e3 # GWh/a
+
+    biomass_cap25:
+        group_constraints:
+            biomass_cap:
+                techs: ['pp_biomass_standalone']
+                carrier_prod_max.electricity: 25.0e3 # GWh/a
+
+    biomass_cap50:
+        group_constraints:
+            biomass_cap:
+                techs: ['pp_biomass_standalone']
+                carrier_prod_max.electricity: 50.0e3 # GWh/a
+
+    biomass_cap100:
+        group_constraints:
+            biomass_cap:
+                techs: ['pp_biomass_standalone']
+                carrier_prod_max.electricity: 100.0e3 # GWh/a
+
+scenarios:
+    biomass_settings: [
+        biomass_50, 
+        biomass_cap25,
+        ]

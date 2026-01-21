@@ -1,0 +1,32 @@
+#-------------------------------------------------COMMENTS KEVIN------------------------------------------------------#
+# Gas & coal supply
+
+
+## To do: Check correct/completeness for 2040
+#----------------------------------------------------------------------------------------------------------------------#
+
+
+techs:
+
+    production_gas_fields:
+        essentials:
+            name: 'Production - Gas fields'
+            parent: firm_supply
+            carrier: gas
+        constraints:
+            lifetime: 100 # years
+            # resource_min_use: 0.4
+        costs:
+            monetary:
+                om_prod: 17e-3 # MEUR/GWh, Longterm avg TTF price, ref: https://www.investing.com/commodities/dutch-ttf-gas-c1-futures-streaming-chart
+
+    coal_supply:
+        essentials:
+            name: 'Production - Coal'
+            parent: firm_supply
+            carrier: coal
+        constraints:
+            lifetime: 100 #years
+        costs: 
+            monetary: 
+                om_prod: 14.8e-3 #MEUR/GWh 

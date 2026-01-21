@@ -1,0 +1,294 @@
+##-----------------------------------------------Comments Kevin-----------------------------------------##
+# Spores code - to check AFTER completion of base analysis 2040.
+
+##------------------------------------------------------------------------------------------------------##
+
+# dEBUG model.get_formatted_array('energy_cap').loc[{'spores':2}].to_pandas()
+
+overrides:
+    activate_spores:
+
+        group_constraints:
+            systemwide_cost_max:
+                cost_max.monetary: 1e9
+                # cost_max: {monetary: 1e9, co2_emitted: 1e9}
+
+        run.mode: spores
+        run.spores_options:
+            score_cost_class: 'spores_score'
+            slack_cost_group: 'systemwide_cost_max'  # The group constraint name in which the `cost_max` constraint is assigned, for use alongside the slack and cost-optimal cost
+            
+            # scoring_method: integer
+            
+            save_per_spore: false
+            save_per_spore_path: "output/_temp/spore_run_{}.nc"
+
+        # run.solver_options.BarConvTol: 1e-4
+        # run.objective_options.cost_class: {'monetary': 1, 'spores_score': 0} #, excl_score: 0
+        # run.objective_options: {'cost_class': {'monetary': 1}, 'sense': 'minimize'}  # Arguments to pass to objective function. If cost-based objective function in use, should include 'cost_class' and 'sense' (maximize/minimize)
+
+
+    all_mode:
+        # run.spores_options.score_cost_class: 'spores_score'  # The cost class to optimise against when generating SPORES
+        run.spores_options.objective_cost_class: {'spores_score': 1, 'monetary': 0} #excl_score: 0,
+        # run.spores_options: 
+            # Select spores_0x case below.
+
+    max_mode:    
+        # run.spores_options.score_cost_class: 'excl_score'  # The cost class to optimise against when generating SPORES
+        # run.spores_options.objective_cost_class: {spores_score: 0.01, monetary: 0, excl_score: -100000}
+        run.spores_options.objective_cost_class: {'spores_score': 0.01, 'monetary': 0, 'excl_score': -100}
+        run.spores_options.spores_number: 10  # The number of SPORES to generate
+
+    min_mode: 
+        # run.spores_options.score_cost_class: 'excl_score'  # The cost class to optimise against when generating SPORES
+        # run.spores_options.objective_cost_class: {'spores_score': 0.01, 'monetary': 0, 'excl_score': 0}
+        # run.spores_options.objective_cost_class: {spores_score: 0.01, monetary: 0, excl_score: 100000}
+        run.spores_options.objective_cost_class: {'spores_score': 0.01, 'monetary': 0, 'excl_score': 100}
+        run.spores_options.spores_number: 10  # The number of SPORES to generate
+
+    # Vary cost slack.
+    slack_03:
+        run.spores_options:
+            slack: 0.03  # The fraction above the cost-optimal cost to set the maximum cost during SPORES
+
+    slack_05:
+        run.spores_options:
+            slack: 0.05  # The fraction above the cost-optimal cost to set the maximum cost during SPORES
+
+    slack_10:
+        run.spores_options:
+            slack: 0.10  # The fraction above the cost-optimal cost to set the maximum cost during SPORES
+
+    slack_15:
+        run.spores_options:
+            slack: 0.15  # The fraction above the cost-optimal cost to set the maximum cost during SPORES
+
+    slack_25:
+        run.spores_options:
+            slack: 0.25  # The fraction above the cost-optimal cost to set the maximum cost during SPORES
+
+    slack_30:
+        run.spores_options:
+            slack: 0.30  # The fraction above the cost-optimal cost to set the maximum cost during SPORES
+
+    slack_50:
+        run.spores_options:
+            slack: 0.50  # The fraction above the cost-optimal cost to set the maximum cost during SPORES
+
+    # Vary no. spores to find.
+    spores_02:
+        run.spores_options:
+            spores_number: 2  # The number of SPORES to generate
+
+    spores_05:
+        run.spores_options:
+            spores_number: 5  # The number of SPORES to generate
+
+    spores_10:
+        run.spores_options:
+            spores_number: 10  # The number of SPORES to generate
+
+    spores_25:
+        run.spores_options:
+            spores_number: 25  # The number of SPORES to generate
+
+    spores_50:
+        run.spores_options:
+            spores_number: 50  # The number of SPORES to generate
+
+    spores_99:
+        run.spores_options:
+            spores_number: 99  # The number of SPORES to generate
+
+
+    method_integer:
+        run.spores_options:
+            scoring_method: 'integer'
+    
+    method_relative:
+        run.spores_options:
+            scoring_method: 'relative_deployment'
+    
+    method_random:
+        run.spores_options:
+            scoring_method: 'random'
+    
+    method_evolving:
+        run.spores_options:
+            scoring_method: 'evolving'
+
+    # Focus on particular technologies.
+
+    # excl_wind_onshore:
+    #     techs.wind_onshore.costs.spores_score.energy_cap: -100
+    #     techs.wind_onshore.costs.spores_score.interest_rate: 1
+
+    # excl_wind_offshore:
+    #     techs.wind_offshore.costs.spores_score.energy_cap: -100
+    #     techs.wind_offshore.costs.spores_score.interest_rate: 1
+
+    excl_wind_onshore:
+        techs.wind_onshore.costs.excl_score.energy_cap: 1
+        techs.wind_onshore.costs.excl_score.interest_rate: 1
+
+    excl_wind_offshore:
+        techs.wind_offshore.costs.excl_score.energy_cap: 1
+        techs.wind_offshore.costs.excl_score.interest_rate: 1
+
+    excl_pv_utility:
+        techs.pv_utility.costs.excl_score.energy_cap: 1
+        techs.pv_utility.costs.excl_score.interest_rate: 1
+
+    excl_pv_rooftop:
+        techs.pv_rooftop.costs.excl_score.energy_cap: 1
+        techs.pv_rooftop.costs.excl_score.interest_rate: 1
+
+    excl_pp_nuclear_smr:
+        techs.pp_nuclear_smr.costs.excl_score.energy_cap: 1
+        techs.pp_nuclear_smr.costs.excl_score.interest_rate: 1
+
+    excl_pp_nuclear_gen3:
+        techs.pp_nuclear_gen3.costs.excl_score.energy_cap: 1
+        techs.pp_nuclear_gen3.costs.excl_score.interest_rate: 1
+
+    excl_electrolyser_alk:
+        techs.electrolyser_alk.costs.excl_score.energy_cap: 1
+        techs.electrolyser_alk.costs.excl_score.interest_rate: 1
+
+    excl_electrolyser_pem:
+        techs.electrolyser_pem.costs.excl_score.energy_cap: 1
+        techs.electrolyser_pem.costs.excl_score.interest_rate: 1
+
+    excl_electrolyser_soe:
+        techs.electrolyser_soe.costs.excl_score.energy_cap: 1
+        techs.electrolyser_soe.costs.excl_score.interest_rate: 1
+
+    excl_bss_liion:
+        techs.bss_liion.costs.excl_score.energy_cap: 1
+        techs.bss_liion.costs.excl_score.interest_rate: 1
+        
+    excl_bss_vanadium:
+        techs.bss_vanadium.costs.excl_score.energy_cap: 1
+        techs.bss_vanadium.costs.excl_score.interest_rate: 1
+        
+    excl_bss_nas:
+        techs.bss_nas.costs.excl_score.energy_cap: 1
+        techs.bss_nas.costs.excl_score.interest_rate: 1
+        
+    excl_reformer_smr:
+        techs.reformer_smr.costs.excl_score.energy_cap: 1
+        techs.reformer_smr.costs.excl_score.interest_rate: 1
+
+    excl_reformer_smr_ccs:
+        techs.reformer_smr_ccs_90.costs.excl_score.energy_cap: 1
+        techs.reformer_smr_ccs_90.costs.excl_score.interest_rate: 1
+
+    excl_reformer_atr_ccs:
+        techs.reformer_atr_ccs_98.costs.excl_score.energy_cap: 1
+        techs.reformer_atr_ccs_98.costs.excl_score.interest_rate: 1
+
+    excl_transmission_hvac:
+        techs.transmission_hvac.costs.excl_score.energy_cap: 1
+        techs.transmission_hvac.costs.excl_score.interest_rate: 1
+
+    excl_transmission_hvdc:
+        techs.transmission_hvdc.costs.excl_score.energy_cap: 1
+        techs.transmission_hvdc.costs.excl_score.interest_rate: 1
+
+    excl_import_ammonia_cracker:
+        techs.import_ammonia_cracker.costs.excl_score.energy_cap: 1
+        techs.import_ammonia_cracker.costs.excl_score.interest_rate: 1
+
+    excl_import_lng_terminal:
+        techs.import_lng_terminal.costs.excl_score.energy_cap: 1
+        techs.import_lng_terminal.costs.excl_score.interest_rate: 1
+
+
+scenarios:
+
+    spores_base_settings: [activate_spores, slack_25]
+
+    # Normal
+    ## All
+    spores_settings: [spores_base_settings, all_mode, spores_50, method_random]
+    spores_all_no100: [spores_base_settings, all_mode, spores_100, method_random]
+    spores_all_no200: [spores_base_settings, all_mode, spores_200, method_random]
+    spores_all_no400: [spores_base_settings, all_mode, spores_400, method_random]
+
+    spores_all_sl10: [activate_spores, slack_10, all_mode, spores_100, method_random]
+    spores_all_sl05: [activate_spores, slack_05, all_mode, spores_100, method_random]
+
+    spores_int: [spores_base_settings, all_mode, spores_100, method_integer]
+    spores_rel: [spores_base_settings, all_mode, spores_100, method_relative]
+    spores_ran: [spores_base_settings, all_mode, spores_100, method_random]
+    spores_evo: [spores_base_settings, all_mode, spores_100, method_evolving]
+
+    spores_min_wind: [spores_base_settings, min_mode, excl_wind_onshore, excl_wind_offshore]
+    spores_max_wind: [spores_base_settings, max_mode, excl_wind_onshore, excl_wind_offshore]
+
+    spores_min_nuclear: [spores_base_settings, min_mode, excl_pp_nuclear_smr, excl_pp_nuclear_gen3]
+    spores_max_nuclear: [spores_base_settings, max_mode, excl_pp_nuclear_smr, excl_pp_nuclear_gen3]
+
+    spores_min_pv: [spores_base_settings, min_mode, excl_pv_rooftop, excl_pv_utility]
+    spores_max_pv: [spores_base_settings, max_mode, excl_pv_rooftop, excl_pv_utility]
+
+    spores_min_electrolyser: [spores_base_settings, min_mode, excl_electrolyser_alk, excl_electrolyser_pem, excl_electrolyser_soe]
+    spores_max_electrolyser: [spores_base_settings, max_mode, excl_electrolyser_alk, excl_electrolyser_pem, excl_electrolyser_soe]
+
+    spores_min_battery: [spores_base_settings, min_mode, excl_bss_liion, excl_bss_vanadium, excl_bss_nas]
+    spores_max_battery: [spores_base_settings, max_mode, excl_bss_liion, excl_bss_vanadium, excl_bss_nas]
+
+    spores_min_reformer: [spores_base_settings, min_mode, excl_reformer_smr, excl_reformer_smr_ccs, excl_reformer_atr_ccs]
+    spores_max_reformer: [spores_base_settings, max_mode, excl_reformer_smr, excl_reformer_smr_ccs, excl_reformer_atr_ccs]
+
+    spores_min_interconnector: [spores_base_settings, min_mode, excl_transmission_hvac,excl_transmission_hvdc]
+    spores_max_interconnector: [spores_base_settings, max_mode, excl_transmission_hvac,excl_transmission_hvdc]
+
+    spores_min_terminal: [spores_base_settings, min_mode, excl_import_ammonia_cracker,excl_import_lng_terminal]
+    spores_max_terminal: [spores_base_settings, max_mode, excl_import_ammonia_cracker,excl_import_lng_terminal]
+
+
+
+
+
+
+
+
+
+
+
+
+    # Min/max
+    ## Wind
+    spores_min_wind_offshore: [spores_base_settings, min_mode, excl_wind_offshore]
+    spores_max_wind_offshore: [spores_base_settings, max_mode, excl_wind_offshore]
+
+    spores_min_wind_onshore: [spores_base_settings, min_mode, excl_wind_onshore]
+    spores_max_wind_onshore: [spores_base_settings, max_mode, excl_wind_onshore]
+
+
+    ## Nuclear
+    spores_min_nuclear_smr: [spores_base_settings, min_mode, excl_pp_nuclear_smr]
+    spores_max_nuclear_smr: [spores_base_settings, max_mode, excl_pp_nuclear_smr]
+
+    spores_min_nuclear_gen3: [spores_base_settings, min_mode, excl_pp_nuclear_gen3]
+    spores_max_nuclear_gen3: [spores_base_settings, max_mode, excl_pp_nuclear_gen3]
+
+
+    ## Solar
+    spores_min_pv_rooftop: [spores_base_settings, min_mode, excl_pv_rooftop]
+    spores_max_pv_rooftop: [spores_base_settings, max_mode, excl_pv_rooftop]
+
+    spores_min_pv_utility: [spores_base_settings, min_mode, excl_pv_utility]
+    spores_max_pv_utility: [spores_base_settings, max_mode, excl_pv_utility]
+
+    
+    # TODO
+    # Electrolysers
+    # SMRs
+    # Interconnectors import/export
+    # Terminals
+    # Batteries
+    # Salt caverns
+    

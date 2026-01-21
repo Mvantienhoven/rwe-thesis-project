@@ -1,0 +1,134 @@
+#-------------------------------------------------COMMENTS KEVIN------------------------------------------------------#
+# Configure:
+#   Included configs
+#   timeseries range and method/resolution
+#   mode (plan/operate/spores)
+#   Objective options (if not from overrides)
+#   Unmet demand (yes/no)
+#   Cyclic storage (yes/no)
+
+## To do:
+##      Check whether to change yaml files, make py run files, or set things in overrides.
+##      Check for optimization of PC hardware with current solver settings.
+#----------------------------------------------------------------------------------------------------------------------#
+
+
+# Info
+# BASELINE model, default scenario for 2040, no overrides.
+
+# Comments
+    # Colors from: https://colorswall.com/palette/105558
+    # When defining scenarios, Calliope doesnt like overriding the same parameter twice, so make sure that e.g. a <loc>.<tech>.costs.<cost>.energy_cap: XX is only defined once when bundeling overrides.
+    # In case optimization parameters (i.e. RHS coefficients) are unfavourable (too high), turn off `force_asynchronous_prod_con` settings of batteries, saltcaverns and power_transmission in `asset_groups.yaml`.
+
+
+import:  # Import other files from paths relative to this file, or absolute paths - FOLLOWS SPECIFIC ORDER
+    ## Asset group definitions
+    - 'model_config/techs/asset_groups.yaml'
+
+    ## Tech definitions
+    - 'model_config/techs/demand.yaml'
+    - 'model_config/techs/supply.yaml'
+    - 'model_config/techs/renewables.yaml'
+    - 'model_config/techs/powerplants.yaml'
+    - 'model_config/techs/transmission.yaml'
+    - 'model_config/techs/import_export.yaml'
+    - 'model_config/techs/storage.yaml'
+    - 'model_config/techs/electrolysers.yaml'
+    - 'model_config/techs/reformers.yaml'
+    - 'model_config/techs/emissions.yaml'
+    #- 'model_config/techs/SMRs.yaml'
+
+    ## Location definitions
+    - 'model_config/locs/locations.yaml'
+    
+    ## Scenario definitions
+    #- 'model_config/scenarios/demand.yaml'
+    #- 'model_config/scenarios/capacities.yaml'
+    #- 'model_config/scenarios/import_export.yaml'
+    #- 'model_config/scenarios/energy_prices.yaml'
+    #- 'model_config/scenarios/emissions.yaml'
+    #- 'model_config/scenarios/biomass.yaml'
+    # - 'model_config/scenarios/technologies.yaml'
+    
+    ## Policy definitions
+    #- 'model_config/scenarios/policies.yaml'
+    ## SPORES definitions
+    #- 'model_config/scenarios/spores.yaml'
+    ## Case defintions
+    #- 'model_config/scenarios/scenarios.yaml'
+
+    ## Sensitivity definitions
+    #- 'model_config/sensitivites/capture_rates.yaml'
+    #- 'model_config/sensitivites/imbalance_price.yaml'
+    #- 'model_config/sensitivites/interest_rates.yaml'
+    #- 'model_config/sensitivites/minimum_loads.yaml'
+    #- 'model_config/sensitivites/optimization_modes.yaml'
+    #- 'model_config/sensitivites/SMR_rates.yaml'
+
+
+model:
+    name: Calliope_Dutch_Multinode_SMR
+ 
+    calliope_version: 0.6.10
+
+    # Time series data path - can either be a path relative to this file, or an absolute path
+    timeseries_data_path: 'timeseries_data'
+
+    subset_time: ['2050-01-01 00:00:00', '2050-01-31 23:00:00']  # Subset of timesteps
+
+    time:
+        function: resample
+        function_options: {'resolution': '1H'}
+
+            
+run:
+    mode: plan  # Choices: plan, operate, spores
+
+    # operation:
+    #     horizon: 8760  # hours
+    #     window: 24  # hours
+
+    solver: gurobi
+    solver_io: python
+    solver_options:
+        # Threads: 20
+        # Method: 3
+        LogFile: calliope_run_gurobi.log
+        # InfUnbdInfo: 1
+        # DualReductions: 0
+        # ResultFile: model.mps`
+        Threads: 12 
+        Method: 2 # use barrier, but do not run simplex in parallel 
+        Crossover: -0 # stop after barrier, do not perform crossover 
+        FeasibilityTol: 1e-3 
+        OptimalityTol: 1e-4 
+        BarConvTol: 1e-4
+        #Presolve: 1  # (Default: -1, 1 = conservative, 2 = aggressive)
+        #PreSparsify: 1  # Reduces nonzeros in the constraint matrix
+
+    ensure_feasibility: true # Switching on unmet demand
+
+    # bigM: 15e0 # MEUR/GWh, equals 15,000 EUR/MWh, ref:
+    objective_options: {
+        'cost_class': {'monetary': 1, 'spores_score': 0, 'excl_score': 0},
+        'sense': 'minimize'
+    }
+    # objective_options:
+    #     # Relative cost of different cost classes.
+    #     # Note if there are no costs for deployment of technologies, even if it is a single tech, the model will be unbounded.
+    #     # Add dummy values to assign some 
+    #     # Units
+    #     #  1.0 monetary = 1.0 MEUR
+    #     #  1.0 dummy = 1.0 MEUR
+    #     #  1.0 primary_energy = 1.0 GWh
+    #     #  1.0 co2 = 1.0 ton CO2
+
+    #     cost_class: {
+    #         monetary: 1, 
+    #         # co2_emitted: 100e-6, # MEUR/ton CO2
+    #         # co2_stored: 50e-6, # MEUR/ton CO2
+    #         primary_energy: 0,
+    #         } # add a dummy cost component for non-cost investments to improve numerical performance. Can be easily separated from real MOnetary cost during postprocessing.
+
+    # cyclic_storage: True

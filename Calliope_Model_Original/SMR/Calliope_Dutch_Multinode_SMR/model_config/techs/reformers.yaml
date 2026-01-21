@@ -1,0 +1,88 @@
+#-------------------------------------------------COMMENTS KEVIN------------------------------------------------------#
+# Reformers for hydrogen production.
+
+## To do: Check correct/completeness
+#----------------------------------------------------------------------------------------------------------------------#
+
+
+
+techs:
+
+    reformer_smr:
+        essentials:
+            name: 'Reformer - SMR'
+            color: '#b8bd20' #!
+            parent: reformer_plants
+        constraints:
+            lifetime: 40 # years, comment: seems small
+            energy_cap_max_systemwide: 0
+            energy_eff: 0.85 # , ref: Hyxchange
+            carrier_ratios.carrier_out_2.co2_emitted: 0.239 # 203 ton/GWh for natural gas at 85% efficiency
+            carrier_ratios.carrier_out_3.co2_pure: 0 # 203 ton/GWh for natural gas at 85% efficiency
+        costs:
+            monetary:
+                energy_cap: 566  # Meur/GW, based on 170 MEUR for a 300 MW plant, ref: IEAGHG https://ieaghg-publications.s3.eu-north-1.amazonaws.com/Technical+Reports/2017-02+Techno+-+Economic+Evaluation+of+SMR+Based+Standalone+(Merchant)+Hydrogen+Plant+with+CCS.pdf
+                om_annual_investment_fraction: 0.044  # *100% of CAPEX/yr, based on 7.5MEUR for a 300MW plant, ref: IEAGHG https://ieaghg-publications.s3.eu-north-1.amazonaws.com/Technical+Reports/2017-02+Techno+-+Economic+Evaluation+of+SMR+Based+Standalone+(Merchant)+Hydrogen+Plant+with+CCS.pdf
+            # co2_stored:
+            #     om_con: 203.0 # ton CO2 / GWh
+
+
+    reformer_smr_ccs_65:
+        essentials:
+            name: 'Reformer - SMR /w CCS'
+            color: '#b8bd20' #!
+            parent: reformer_plants
+        constraints:
+            lifetime: 40 # years, comment: seems small
+            energy_cap_max_systemwide: 0
+            energy_eff: 0.82 # , ref: Hyxchange
+            carrier_ratios.carrier_out_2.co2_emitted: 0.087 #! 203 ton/GWh for natural gas at 65% efficiency
+            carrier_ratios.carrier_out_3.co2_pure: 0.161 #! 203 ton/GWh for natural gas at 65% efficiency
+        costs:
+            monetary:
+                energy_cap: 740  # Meur/GW, based on 228 MEUR for a 300 MW plant, ref: ..
+                om_annual_investment_fraction: 0.050  # *100% of CAPEX/yr, ref: 
+            # co2_emitted:
+            #     om_con: 72.0 # ton CO2/GWh, CO2 capture rate of 65%, ref: Berenschot
+            # co2_stored:
+            #     om_con: 131.0 # ton CO2/GWh, CO2 capture rate of 65%, ref: Berenschot
+
+    reformer_smr_ccs_90:
+        essentials:
+            name: 'Reformer - SMR /w CCS'
+            color: '#b8bd20' #!
+            parent: reformer_plants
+        constraints:
+            lifetime: 40 # years, comment: seems small
+            energy_cap_max_systemwide: 0
+            energy_eff: 0.82 # , ref: Hyxchange
+            carrier_ratios.carrier_out_2.co2_emitted: 0.025 # 203 ton/GWh for natural gas at 90% efficiency
+            carrier_ratios.carrier_out_3.co2_pure: 0.223 # 203 ton/GWh for natural gas at 90% efficiency
+        costs:
+            monetary:
+                energy_cap: 1031  # Meur/GW, based on 228 MEUR for a 300 MW plant, ref: ..
+                om_annual_investment_fraction: 0.035  # *100% of CAPEX/yr, ref: 
+            # co2_emitted:
+            #     om_con: 20.3 # ton CO2/GWh, CO2 capture rate of 65%, ref: IEAGHG https://ieaghg-publications.s3.eu-north-1.amazonaws.com/Technical+Reports/2022-07+Low-Carbon+Hydrogen+from+Natural+Gas+Global+Roadmap.pdf
+            # co2_stored:
+            #     om_con: 182.7 # ton CO2/GWh, CO2 capture rate of 65%, ref: IEAGHG https://ieaghg-publications.s3.eu-north-1.amazonaws.com/Technical+Reports/2022-07+Low-Carbon+Hydrogen+from+Natural+Gas+Global+Roadmap.pdf
+
+    reformer_atr_ccs_98:
+        essentials:
+            name: 'Reformer - ATR /w CCS'
+            color: '#b8bd20' #!
+            parent: reformer_plants
+        constraints:
+            lifetime: 40 # years, comment: seems small
+            energy_cap_max_systemwide: 0
+            energy_eff: 0.85 # , ref: Hyxchange
+            carrier_ratios.carrier_out_2.co2_emitted: 0.005 # 203 ton/GWh for natural gas at 60% efficiency with 98% capture rate
+            carrier_ratios.carrier_out_3.co2_pure: 0.234 # 203 ton/GWh for natural gas at 60% efficiency with 98% capture rate
+        costs:
+            monetary:
+                energy_cap: 968  #! Meur/GW, ref: ..
+                om_annual_investment_fraction: 0.042  # *100% of CAPEX/yr, ref: 
+            # co2_emitted:
+            #     om_con: 4.06 # ton CO2/GWh, CO2 capture rate of 98%, ref: IEAGHG https://ieaghg-publications.s3.eu-north-1.amazonaws.com/Technical+Reports/2022-07+Low-Carbon+Hydrogen+from+Natural+Gas+Global+Roadmap.pdf
+            # co2_stored:
+            #     om_con: 198.94 # ton CO2/GWh, CO2 capture rate of 98%, ref: IEAGHG https://ieaghg-publications.s3.eu-north-1.amazonaws.com/Technical+Reports/2022-07+Low-Carbon+Hydrogen+from+Natural+Gas+Global+Roadmap.pdf

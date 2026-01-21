@@ -1,0 +1,20 @@
+#-------------------------------------------------COMMENTS KEVIN------------------------------------------------------#
+# minimal use of terminals and gas field, unsure if this indirectly forces certain capacities to be built/utilised?
+# Or only for altfuel stuff?
+
+#----------------------------------------------------------------------------------------------------------------------#
+
+
+
+overrides:
+
+    terminals_minload:
+        tech_groups:
+            terminal_import:
+                constraints:
+                    resource_min_use: 0.8
+
+    gasfields_minload:
+        production_gas_fields:
+            constraints:
+                resource_min_use: 0.4

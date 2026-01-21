@@ -1,0 +1,36 @@
+#-------------------------------------------------COMMENTS KEVIN------------------------------------------------------#
+# For tracking/constraining/pricing emissions and storage.
+
+#----------------------------------------------------------------------------------------------------------------------#
+
+
+
+techs:
+
+    co2_atmosphere:
+        essentials:
+            name: 'CO2 - ETS penalty'
+            color: '#ffc107'
+            parent: co2_emissions
+        costs:
+            monetary:
+                om_con: 300e-3 # MEUR/kton CO2
+
+    co2_ets:
+        essentials:
+            name: 'CO2 - ETS Allowed'
+            color: '#ffc107'
+            parent: co2_emissions
+        costs:
+            monetary:
+                om_con: 83e-3 # MEUR/kton CO2: https://www.eea.europa.eu/en/analysis/indicators/use-of-auctioning-revenues-generated#:~:text=The%20price%20reached%20an%20annual,went%20directly%20to%20Member%20States.
+
+
+    co2_storage:
+        essentials:
+            name: 'CO2 - Capture and storage'
+            color: '#ffc107'
+            parent: co2_ccs
+        costs:
+            monetary:
+                om_con: 50e-3 # MEUR/kton CO2

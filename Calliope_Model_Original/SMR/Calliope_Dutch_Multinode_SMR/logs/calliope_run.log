@@ -1,0 +1,388 @@
+Directory C:\Users\bosjgj\OneDrive - TNO\dutch-calliope/dutch_calliope_multi_node-cleaned/output already exists.
+Directory C:\Users\bosjgj\OneDrive - TNO\dutch-calliope/dutch_calliope_multi_node-cleaned/output/test_20250603-093010_dutch_calliope_multi_node-cleaned not found, making one.
+Directory C:\Users\bosjgj\OneDrive - TNO\dutch-calliope/dutch_calliope_multi_node-cleaned/output/test_20250603-093010_dutch_calliope_multi_node-cleaned/reference not found, making one.
+Directory C:\Users\bosjgj\OneDrive - TNO\dutch-calliope/dutch_calliope_multi_node-cleaned/output/test_20250603-093010_dutch_calliope_multi_node-cleaned/reference/netcdfs not found, making one.
+Directory C:\Users\bosjgj\OneDrive - TNO\dutch-calliope/dutch_calliope_multi_node-cleaned/output/test_20250603-093010_dutch_calliope_multi_node-cleaned/reference/plots not found, making one.
+*****************************
+Working on scenario None
+*****************************
+[2025-06-03 09:30:10] INFO     Model: initialising
+[2025-06-03 09:30:12] WARNING  C:\Users\bosjgj\AppData\Local\miniconda3\envs\calliope\lib\site-packages\calliope\exceptions.py:60: ModelWarning:
+
+Possible issues found during model processing:
+ * Monetary cost class with a weight of 1 is still included in the objective. If you want to remove the monetary cost class, add `{"monetary": 0}` to the dictionary nested under  `run.objective_options.cost_class`.
+
+
+[2025-06-03 09:30:12] WARNING  C:\Users\bosjgj\AppData\Local\miniconda3\envs\calliope\lib\site-packages\calliope\exceptions.py:60: ModelWarning:
+
+Possible issues found during model processing:
+ * `monetary` interest rate of zero for technology pv_rooftop, setting depreciation rate as 1/lifetime.
+
+
+[2025-06-03 09:30:13] WARNING  C:\Users\bosjgj\AppData\Local\miniconda3\envs\calliope\lib\site-packages\calliope\exceptions.py:60: ModelWarning:
+
+Possible issues found during model processing:
+ * Cost classes `{'excl_score'}` are defined in the objective options but not defined elsewhere in the model. They will be ignored in the objective function.
+ * `demand_hyd` at `NL11` defines force_resource but not a finite resource, so force_resource will not be applied
+ * `demand_hyd` at `NL12` defines force_resource but not a finite resource, so force_resource will not be applied
+ * `demand_hyd` at `NL13` defines force_resource but not a finite resource, so force_resource will not be applied
+ * `demand_hyd` at `NL21` defines force_resource but not a finite resource, so force_resource will not be applied
+ * `demand_hyd` at `NL22` defines force_resource but not a finite resource, so force_resource will not be applied
+ * `demand_hyd` at `NL23` defines force_resource but not a finite resource, so force_resource will not be applied
+ * `demand_hyd` at `NL31` defines force_resource but not a finite resource, so force_resource will not be applied
+ * `demand_hyd` at `NL32` defines force_resource but not a finite resource, so force_resource will not be applied
+ * `demand_hyd` at `NL33` defines force_resource but not a finite resource, so force_resource will not be applied
+ * `demand_hyd` at `NL34` defines force_resource but not a finite resource, so force_resource will not be applied
+ * `demand_hyd` at `NL41` defines force_resource but not a finite resource, so force_resource will not be applied
+ * `demand_hyd` at `NL42` defines force_resource but not a finite resource, so force_resource will not be applied
+ * `import_ammonia_cracker` at `NL11` defines force_resource but not a finite resource, so force_resource will not be applied
+ * `import_ammonia_cracker` at `NL12` defines force_resource but not a finite resource, so force_resource will not be applied
+ * `import_ammonia_cracker` at `NL13` defines force_resource but not a finite resource, so force_resource will not be applied
+ * `import_ammonia_cracker` at `NL21` defines force_resource but not a finite resource, so force_resource will not be applied
+ * `import_ammonia_cracker` at `NL22` defines force_resource but not a finite resource, so force_resource will not be applied
+ * `import_ammonia_cracker` at `NL23` defines force_resource but not a finite resource, so force_resource will not be applied
+ * `import_ammonia_cracker` at `NL31` defines force_resource but not a finite resource, so force_resource will not be applied
+ * `import_ammonia_cracker` at `NL32` defines force_resource but not a finite resource, so force_resource will not be applied
+ * `import_ammonia_cracker` at `NL33` defines force_resource but not a finite resource, so force_resource will not be applied
+ * `import_ammonia_cracker` at `NL34` defines force_resource but not a finite resource, so force_resource will not be applied
+ * `import_ammonia_cracker` at `NL41` defines force_resource but not a finite resource, so force_resource will not be applied
+ * `import_ammonia_cracker` at `NL42` defines force_resource but not a finite resource, so force_resource will not be applied
+ * `import_ammonia_cracker` at `NL` defines force_resource but not a finite resource, so force_resource will not be applied
+ * `import_lng_terminal` at `NL11` defines force_resource but not a finite resource, so force_resource will not be applied
+ * `import_lng_terminal` at `NL12` defines force_resource but not a finite resource, so force_resource will not be applied
+ * `import_lng_terminal` at `NL13` defines force_resource but not a finite resource, so force_resource will not be applied
+ * `import_lng_terminal` at `NL21` defines force_resource but not a finite resource, so force_resource will not be applied
+ * `import_lng_terminal` at `NL22` defines force_resource but not a finite resource, so force_resource will not be applied
+ * `import_lng_terminal` at `NL23` defines force_resource but not a finite resource, so force_resource will not be applied
+ * `import_lng_terminal` at `NL31` defines force_resource but not a finite resource, so force_resource will not be applied
+ * `import_lng_terminal` at `NL32` defines force_resource but not a finite resource, so force_resource will not be applied
+ * `import_lng_terminal` at `NL33` defines force_resource but not a finite resource, so force_resource will not be applied
+ * `import_lng_terminal` at `NL34` defines force_resource but not a finite resource, so force_resource will not be applied
+ * `import_lng_terminal` at `NL41` defines force_resource but not a finite resource, so force_resource will not be applied
+ * `import_lng_terminal` at `NL42` defines force_resource but not a finite resource, so force_resource will not be applied
+ * `import_lng_terminal` at `NL` defines force_resource but not a finite resource, so force_resource will not be applied
+ * `pp_biomass_standalone` at `NL11` defines force_resource but not a finite resource, so force_resource will not be applied
+ * `pp_biomass_standalone` at `NL12` defines force_resource but not a finite resource, so force_resource will not be applied
+ * `pp_biomass_standalone` at `NL13` defines force_resource but not a finite resource, so force_resource will not be applied
+ * `pp_biomass_standalone` at `NL21` defines force_resource but not a finite resource, so force_resource will not be applied
+ * `pp_biomass_standalone` at `NL22` defines force_resource but not a finite resource, so force_resource will not be applied
+ * `pp_biomass_standalone` at `NL23` defines force_resource but not a finite resource, so force_resource will not be applied
+ * `pp_biomass_standalone` at `NL31` defines force_resource but not a finite resource, so force_resource will not be applied
+ * `pp_biomass_standalone` at `NL32` defines force_resource but not a finite resource, so force_resource will not be applied
+ * `pp_biomass_standalone` at `NL33` defines force_resource but not a finite resource, so force_resource will not be applied
+ * `pp_biomass_standalone` at `NL34` defines force_resource but not a finite resource, so force_resource will not be applied
+ * `pp_biomass_standalone` at `NL41` defines force_resource but not a finite resource, so force_resource will not be applied
+ * `pp_biomass_standalone` at `NL42` defines force_resource but not a finite resource, so force_resource will not be applied
+ * `pp_nuclear_gen3` at `NL11` defines force_resource but not a finite resource, so force_resource will not be applied
+ * `pp_nuclear_gen3` at `NL12` defines force_resource but not a finite resource, so force_resource will not be applied
+ * `pp_nuclear_gen3` at `NL13` defines force_resource but not a finite resource, so force_resource will not be applied
+ * `pp_nuclear_gen3` at `NL21` defines force_resource but not a finite resource, so force_resource will not be applied
+ * `pp_nuclear_gen3` at `NL22` defines force_resource but not a finite resource, so force_resource will not be applied
+ * `pp_nuclear_gen3` at `NL23` defines force_resource but not a finite resource, so force_resource will not be applied
+ * `pp_nuclear_gen3` at `NL31` defines force_resource but not a finite resource, so force_resource will not be applied
+ * `pp_nuclear_gen3` at `NL32` defines force_resource but not a finite resource, so force_resource will not be applied
+ * `pp_nuclear_gen3` at `NL33` defines force_resource but not a finite resource, so force_resource will not be applied
+ * `pp_nuclear_gen3` at `NL34` defines force_resource but not a finite resource, so force_resource will not be applied
+ * `pp_nuclear_gen3` at `NL41` defines force_resource but not a finite resource, so force_resource will not be applied
+ * `pp_nuclear_gen3` at `NL42` defines force_resource but not a finite resource, so force_resource will not be applied
+ * `pp_nuclear_smr` at `NL11` defines force_resource but not a finite resource, so force_resource will not be applied
+ * `pp_nuclear_smr` at `NL12` defines force_resource but not a finite resource, so force_resource will not be applied
+ * `pp_nuclear_smr` at `NL13` defines force_resource but not a finite resource, so force_resource will not be applied
+ * `pp_nuclear_smr` at `NL21` defines force_resource but not a finite resource, so force_resource will not be applied
+ * `pp_nuclear_smr` at `NL22` defines force_resource but not a finite resource, so force_resource will not be applied
+ * `pp_nuclear_smr` at `NL23` defines force_resource but not a finite resource, so force_resource will not be applied
+ * `pp_nuclear_smr` at `NL31` defines force_resource but not a finite resource, so force_resource will not be applied
+ * `pp_nuclear_smr` at `NL32` defines force_resource but not a finite resource, so force_resource will not be applied
+ * `pp_nuclear_smr` at `NL33` defines force_resource but not a finite resource, so force_resource will not be applied
+ * `pp_nuclear_smr` at `NL34` defines force_resource but not a finite resource, so force_resource will not be applied
+ * `pp_nuclear_smr` at `NL41` defines force_resource but not a finite resource, so force_resource will not be applied
+ * `pp_nuclear_smr` at `NL42` defines force_resource but not a finite resource, so force_resource will not be applied
+
+
+[2025-06-03 09:30:13] INFO     Model: preprocessing stage 1 (model_run)
+[2025-06-03 09:30:21] INFO     Model: preprocessing stage 2 (model_data)
+[2025-06-03 09:30:32] INFO     Model: time resampling/clustering complete
+[2025-06-03 09:30:32] WARNING  C:\Users\bosjgj\AppData\Local\miniconda3\envs\calliope\lib\site-packages\calliope\exceptions.py:60: ModelWarning:
+
+Possible issues found during model processing:
+ * Integer and / or binary decision variables are included in this model. This may adversely affect solution time, particularly if you are using a non-commercial solver. To improve solution time, consider changing MILP related solver options (e.g. `mipgap`) or removing MILP constraints.
+
+
+[2025-06-03 09:30:33] INFO     Model: preprocessing complete
+Model name:   dutch_calliope_multi_node
+Model size:   18 locations, 50 technologies, 186 timesteps
+[2025-06-03 09:30:33] INFO     Backend: starting model run
+[2025-06-03 09:30:33] INFO     Loading sets
+[2025-06-03 09:30:33] INFO     Loading parameters
+[2025-06-03 09:30:36] INFO     constraints are loaded in the following order: ['capacity', 'costs', 'dispatch', 'energy_balance', 'network', 'policy', 'conversion', 'conversion_plus', 'group', 'export', 'milp']
+[2025-06-03 09:30:36] INFO     creating capacity constraints
+[2025-06-03 09:30:36] INFO     creating costs constraints
+[2025-06-03 09:31:22] INFO     creating dispatch constraints
+[2025-06-03 09:31:30] INFO     creating energy_balance constraints
+[2025-06-03 09:31:40] INFO     creating network constraints
+[2025-06-03 09:31:40] INFO     creating policy constraints
+[2025-06-03 09:31:40] INFO     creating conversion constraints
+[2025-06-03 09:31:40] INFO     creating conversion_plus constraints
+[2025-06-03 09:31:55] INFO     creating group constraints
+[2025-06-03 09:31:55] INFO     creating export constraints
+[2025-06-03 09:31:55] INFO     creating milp constraints
+[2025-06-03 09:31:56] INFO     Backend: model generated. Time since start of model run: 0:01:23.191216
+[2025-06-03 09:31:56] INFO     Backend: sending model to solver
+[2025-06-03 09:32:55] DEBUG    Set parameter Username
+Academic license - for non-commercial use only - expires 2025-10-07
+[2025-06-03 09:32:56] DEBUG    Read LP format model from file C:\Users\bosjgj\AppData\Local\Temp\tmpck6erzf6.pyomo.lp
+Reading time = 1.40 seconds
+x475384: 526947 rows, 475384 columns, 1304006 nonzeros
+Set parameter BarConvTol to value 0.0001
+Set parameter Crossover to value 0
+Set parameter FeasibilityTol to value 0.001
+Set parameter LogFile to value "calliope_run_gurobi.log"
+Set parameter Method to value 2
+Set parameter OptimalityTol to value 0.0001
+Set parameter Threads to value 6
+Gurobi Optimizer version 11.0.3 build v11.0.3rc0 (win64 - Windows 11.0 (22631.2))
+
+CPU model: AMD Ryzen 7 PRO 5850U with Radeon Graphics, instruction set [SSE2|AVX|AVX2]
+Thread count: 8 physical cores, 16 logical processors, using up to 6 threads
+
+Optimize a model with 526947 rows, 475384 columns and 1304006 nonzeros
+Model fingerprint: 0x00bcec55
+Variable types: 466828 continuous, 8556 integer (8556 binary)
+Coefficient statistics:
+  Matrix range     [3e-06, 1e+09]
+  Objective range  [1e+00, 1e+09]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [7e-01, 1e+09]
+Warning: Model contains large matrix coefficient range
+         Consider reformulating model or setting NumericFocus parameter
+         to avoid numerical issues.
+[2025-06-03 09:32:56] DEBUG    Found heuristic solution: objective 4.297420e+13
+[2025-06-03 09:32:58] DEBUG    Presolve removed 403344 rows and 359115 columns
+Presolve time: 1.34s
+Presolved: 123603 rows, 116269 columns, 399766 nonzeros
+[2025-06-03 09:32:58] DEBUG    Variable types: 107713 continuous, 8556 integer (8556 binary)
+[2025-06-03 09:32:58] DEBUG    Root barrier log...
+[2025-06-03 09:32:59] DEBUG    Ordering time: 0.79s
+[2025-06-03 09:32:59] DEBUG    Barrier statistics:
+ Dense cols : 368
+ AA' NZ     : 3.917e+05
+ Factor NZ  : 3.061e+06 (roughly 110 MB of memory)
+ Factor Ops : 1.377e+09 (less than 1 second per iteration)
+ Threads    : 6
+[2025-06-03 09:32:59] DEBUG    Objective                Residual
+Iter       Primal          Dual         Primal    Dual     Compl     Time
+   0  -1.26953292e+22 -1.39845162e+21  2.40e+09 1.54e+10  1.57e+18     3s
+   1  -1.02557303e+22 -4.84413081e+21  1.63e+09 2.06e+09  6.60e+17     3s
+[2025-06-03 09:32:59] DEBUG    2  -4.55729773e+21 -3.37378957e+21  7.29e+08 2.96e+08  2.73e+17     3s
+[2025-06-03 09:32:59] DEBUG    3  -1.99710671e+19 -8.12635676e+20  3.68e+06 9.76e+06  4.69e+15     3s
+[2025-06-03 09:33:00] DEBUG    4   1.40544389e+17 -8.23628061e+18  5.23e+04 2.84e+03  4.91e+13     3s
+   5   1.96482662e+17 -3.52347676e+18  3.75e+04 1.18e+03  2.54e+13     4s
+[2025-06-03 09:33:00] DEBUG    6   2.09466058e+17 -1.73672193e+18  9.15e+02 5.27e+02  7.60e+12     4s
+[2025-06-03 09:33:00] DEBUG    7   1.67651372e+17 -7.02118823e+17  4.11e+02 2.26e+02  3.37e+12     4s
+[2025-06-03 09:33:00] DEBUG    8   3.03528012e+16 -9.17806182e+16  1.72e+01 2.22e+01  4.65e+11     4s
+   9   1.90166531e+15 -1.34641084e+16  1.63e+00 8.17e-01  5.81e+10     4s
+[2025-06-03 09:33:00] DEBUG    10   1.16664095e+15 -1.30114377e+15  1.11e+00 5.55e-02  9.37e+09     4s
+[2025-06-03 09:33:00] DEBUG    11   2.08758738e+14 -3.40301252e+14  2.06e-01 1.40e-02  2.08e+09     4s
+  12   2.49294167e+13 -4.02280538e+12  2.34e-02 1.27e-03  1.10e+08     4s
+[2025-06-03 09:33:00] DEBUG    13   2.39929633e+12 -4.04177746e+11  2.21e-03 1.59e-04  1.06e+07     4s
+[2025-06-03 09:33:00] DEBUG    14   1.65637811e+10 -1.88648341e+11  1.11e-06 7.53e-05  7.71e+05     4s
+[2025-06-03 09:33:00] DEBUG    15   6.63256115e+09 -1.20739453e+11  6.29e-08 4.72e-05  4.78e+05     4s
+[2025-06-03 09:33:01] DEBUG    16   2.82935238e+09 -7.02744873e+10  3.60e-08 2.64e-05  2.75e+05     5s
+[2025-06-03 09:33:01] DEBUG    17   1.15698349e+09 -3.34299545e+10  2.51e-08 1.20e-05  1.30e+05     5s
+[2025-06-03 09:33:01] DEBUG    18   5.13740289e+08 -1.74910069e+10  3.09e-08 1.91e-05  6.76e+04     5s
+[2025-06-03 09:33:01] DEBUG    19   2.10321281e+08 -1.61478925e+09  2.51e-08 3.24e-05  6.84e+03     5s
+[2025-06-03 09:33:01] DEBUG    20   6.47154568e+07 -8.11380415e+08  2.64e-07 1.53e-05  3.29e+03     5s
+[2025-06-03 09:33:01] DEBUG    21   5.06608648e+07 -2.59764479e+08  4.96e-10 7.63e-06  1.17e+03     5s
+[2025-06-03 09:33:02] DEBUG    22   1.74818568e+07 -3.35107192e+07  3.58e-09 5.72e-06  1.92e+02     6s
+[2025-06-03 09:33:02] DEBUG    23   7.69420882e+06 -1.50259192e+07  2.67e-08 5.72e-06  8.55e+01     6s
+  24   1.96294482e+06 -4.96767918e+06  5.43e-09 5.72e-06  2.61e+01     6s
+[2025-06-03 09:33:02] DEBUG    25   2.87616823e+05 -1.95462318e+06  4.19e-10 5.72e-06  8.53e+00     6s
+[2025-06-03 09:33:02] DEBUG    26   1.76064823e+05 -3.15647177e+05  1.32e-09 5.72e-06  1.94e+00     6s
+[2025-06-03 09:33:02] DEBUG    27   3.12968228e+04 -7.36631772e+04  7.55e-09 5.72e-06  4.11e-01     6s
+[2025-06-03 09:33:02] DEBUG    28   1.86888228e+04 -1.54231772e+04  1.32e-09 7.63e-06  9.42e-02     6s
+[2025-06-03 09:33:02] DEBUG    29   1.49768228e+04 -4.86317720e+03  8.60e-10 3.81e-06  4.75e-02     6s
+[2025-06-03 09:33:03] DEBUG    30   1.25448228e+04 -2.55177203e+02  4.15e-10 3.81e-06  2.20e-02     6s
+[2025-06-03 09:33:03] DEBUG    31   1.17128228e+04  5.88882280e+03  2.39e-10 5.72e-06  1.32e-02     7s
+  32   1.15208228e+04  3.58482280e+03  1.84e-10 7.63e-06  1.01e-02     7s
+[2025-06-03 09:33:03] DEBUG    33   1.12008228e+04  5.37682280e+03  1.43e-10 5.72e-06  8.12e-03     7s
+[2025-06-03 09:33:03] DEBUG    34   1.11368228e+04  5.88882280e+03  1.04e-10 9.54e-06  6.19e-03     7s
+[2025-06-03 09:33:03] DEBUG    35   1.10728228e+04  5.56882280e+03  7.69e-11 1.53e-05  4.38e-03     7s
+[2025-06-03 09:33:03] DEBUG    36   1.06888228e+04  5.24882280e+03  1.04e-09 1.72e-05  3.18e-03     7s
+[2025-06-03 09:33:03] DEBUG    37   1.06248228e+04  5.37682280e+03  8.15e-10 2.29e-05  2.52e-03     7s
+  38   1.06248228e+04  7.10482280e+03  6.84e-09 2.29e-05  2.04e-03     7s
+[2025-06-03 09:33:03] DEBUG    39   1.06248228e+04  9.85682280e+03  6.12e-09 3.24e-05  1.54e-03     7s
+[2025-06-03 09:33:04] DEBUG    40   1.06248228e+04  9.85682280e+03  7.02e-09 3.19e-05  1.27e-03     8s
+[2025-06-03 09:33:04] DEBUG    41   1.06248228e+04  1.04968228e+04  5.02e-09 4.92e-05  9.44e-04     8s
+[2025-06-03 09:33:04] DEBUG    42   1.06248228e+04  5.88882280e+03  4.53e-09 4.58e-05  8.23e-04     8s
+[2025-06-03 09:33:04] DEBUG    43   1.06248228e+04  4.80082280e+03  5.56e-09 6.87e-05  6.29e-04     8s
+  44   1.06248228e+04  6.01682280e+03  6.03e-09 1.09e-04  4.87e-04     8s
+[2025-06-03 09:33:04] DEBUG    45   1.06248228e+04  7.23282280e+03  1.01e-08 9.52e-05  3.74e-04     8s
+[2025-06-03 09:33:04] DEBUG    46   1.06248228e+04  8.83282280e+03  1.21e-08 1.41e-04  3.00e-04     8s
+[2025-06-03 09:33:04] DEBUG    47   1.06248228e+04  7.93682280e+03  1.15e-08 1.75e-04  2.48e-04     8s
+[2025-06-03 09:33:05] DEBUG    48   1.06248228e+04  9.02482280e+03  1.02e-08 1.93e-04  2.09e-04     8s
+[2025-06-03 09:33:05] DEBUG    49   1.06248228e+04  9.66482280e+03  1.07e-08 2.04e-04  1.80e-04     9s
+[2025-06-03 09:33:05] DEBUG    50   1.06248228e+04  8.25682280e+03  2.83e-08 3.28e-04  1.36e-04     9s
+[2025-06-03 09:33:05] DEBUG    51   1.06248228e+04  9.08882280e+03  3.22e-08 2.94e-04  1.19e-04     9s
+[2025-06-03 09:33:05] DEBUG    52   1.06248228e+04  7.16882280e+03  2.64e-08 3.17e-04  1.11e-04     9s
+[2025-06-03 09:33:05] DEBUG    53   1.06248228e+04  4.48822797e+02  2.59e-08 3.01e-04  1.02e-04     9s
+[2025-06-03 09:33:05] DEBUG    54   1.06248228e+04 -2.55177203e+02  2.19e-08 3.32e-04  8.71e-05     9s
+[2025-06-03 09:33:05] DEBUG    55   1.06248228e+04 -5.11177203e+02  2.26e-08 3.22e-04  8.10e-05     9s
+[2025-06-03 09:33:05] DEBUG    56   1.06248228e+04 -8.95177203e+02  2.21e-08 4.88e-04  7.16e-05     9s
+[2025-06-03 09:33:06] DEBUG    57   1.06248228e+04 -3.19177203e+02  1.75e-08 7.78e-04  5.42e-05     9s
+[2025-06-03 09:33:06] DEBUG    58   1.06248228e+04  3.20822797e+02  1.38e-07 8.26e-04  4.20e-05    10s
+[2025-06-03 09:33:06] DEBUG    59   1.06248228e+04  4.48822797e+02  1.02e-07 9.33e-04  3.15e-05    10s
+[2025-06-03 09:33:06] DEBUG    60   1.06248228e+04 -2.68717720e+03  8.70e-08 1.70e-03  2.42e-05    10s
+[2025-06-03 09:33:06] DEBUG    61   1.06248228e+04 -2.55917720e+03  7.88e-08 1.46e-03  2.18e-05    10s
+[2025-06-03 09:33:06] DEBUG    62   1.06248228e+04 -1.98317720e+03  7.39e-08 1.36e-03  1.98e-05    10s
+[2025-06-03 09:33:06] DEBUG    63   1.06248228e+04 -1.02317720e+03  5.26e-08 1.46e-03  1.46e-05    10s
+[2025-06-03 09:33:06] DEBUG    64   1.06248228e+04 -1.27917720e+03  4.54e-08 1.49e-03  1.32e-05    10s
+[2025-06-03 09:33:06] DEBUG    65   1.06248228e+04 -1.91917720e+03  3.34e-08 2.51e-03  8.91e-06    10s
+[2025-06-03 09:33:07] DEBUG    66   1.06248228e+04 -3.45517720e+03  1.10e-07 4.34e-03  5.62e-06    10s
+[2025-06-03 09:33:07] DEBUG    67   1.06248228e+04 -6.97517720e+03  8.32e-08 6.31e-03  3.89e-06    11s
+[2025-06-03 09:33:07] DEBUG    68   1.06248228e+04 -8.06317720e+03  7.09e-08 7.84e-03  2.82e-06    11s
+[2025-06-03 09:33:07] DEBUG    69   1.06248228e+04 -1.06871772e+04  7.28e-08 7.12e-03  2.52e-06    11s
+[2025-06-03 09:33:07] DEBUG    70   1.06248228e+04 -1.27991772e+04  4.85e-08 1.19e-02  1.59e-06    11s
+[2025-06-03 09:33:07] DEBUG    71   1.06248228e+04 -8.19117720e+03  3.94e-07 1.40e-02  9.17e-07    11s
+[2025-06-03 09:33:07] DEBUG    72   1.06248228e+04 -7.23191772e+04  2.96e-06 3.93e-02  3.54e-07    11s
+  73   1.06248228e+04 -2.35511772e+04  7.52e-07 1.30e-02  1.70e-07    11s
+[2025-06-03 09:33:07] DEBUG    74   1.06248228e+04 -7.67917720e+03  1.36e-06 4.33e-03  6.13e-08    11s
+  75   1.06248228e+04 -3.83177203e+02  2.29e-07 2.80e-04  5.15e-09    11s
+[2025-06-03 09:33:07] DEBUG    76   1.06248228e+04 -2.55177203e+02  8.38e-09 5.72e-05  4.31e-10    11s
+[2025-06-03 09:33:08] DEBUG    77   1.06248228e+04  6.40822797e+02  1.09e-09 3.81e-06  1.59e-13    11s
+  78   1.06248228e+04 -1.27177203e+02  3.86e-09 3.81e-06  1.03e-13    11s
+[2025-06-03 09:33:08] DEBUG    79   1.06248228e+04 -1.91177203e+02  3.20e-09 3.81e-06  8.41e-14    12s
+[2025-06-03 09:33:08] DEBUG    80   1.06248228e+04  6.48227967e+01  6.25e-09 3.81e-06  8.22e-14    12s
+[2025-06-03 09:33:08] DEBUG    81   1.06248228e+04 -3.83177203e+02  4.86e-09 3.81e-06  5.04e-14    12s
+[2025-06-03 09:33:08] DEBUG    82   1.06248228e+04 -1.59917720e+03  3.97e-09 3.81e-06  4.04e-14    12s
+[2025-06-03 09:33:08] DEBUG    83   1.06248228e+04 -1.15117720e+03  2.18e-09 3.81e-06  2.27e-14    12s
+[2025-06-03 09:33:08] DEBUG    84   1.04968228e+04 -1.27177203e+02  1.41e-09 3.81e-06  1.33e-14    12s
+[2025-06-03 09:33:08] DEBUG    85   1.00488228e+04  1.08882280e+03  1.04e-09 3.81e-06  9.77e-15    12s
+  86   1.00488228e+04  1.15282280e+03  1.03e-09 3.81e-06  9.77e-15    12s
+[2025-06-03 09:33:08] DEBUG    87   1.00488228e+04  9.60822797e+02  9.68e-10 3.81e-06  9.13e-15    12s
+[2025-06-03 09:33:08] DEBUG    88   9.60082280e+03  1.28082280e+03  5.74e-10 3.81e-06  6.18e-15    12s
+[2025-06-03 09:33:09] DEBUG    89   8.76882280e+03  2.24082280e+03  3.63e-10 3.81e-06  4.01e-15    13s
+[2025-06-03 09:33:09] DEBUG    90   7.93682280e+03  2.36882280e+03  2.77e-10 3.81e-06  2.95e-15    13s
+[2025-06-03 09:33:09] DEBUG    91   7.93682280e+03  2.36882280e+03  6.08e-10 3.81e-06  2.70e-15    13s
+[2025-06-03 09:33:09] DEBUG    92   7.93682280e+03  2.30482280e+03  1.73e-09 3.81e-06  2.70e-15    13s
+[2025-06-03 09:33:09] DEBUG    93   7.87282280e+03  2.24082280e+03  1.22e-09 3.81e-06  2.23e-15    13s
+[2025-06-03 09:33:09] DEBUG    94   7.87282280e+03  1.98482280e+03  1.12e-09 3.81e-06  2.12e-15    13s
+  95   7.61682280e+03  2.62482280e+03  8.63e-10 3.81e-06  1.66e-15    13s
+[2025-06-03 09:33:09] DEBUG    Barrier solved model in 95 iterations and 13.12 seconds (12.12 work units)
+Optimal objective 7.61682280e+03
+
+
+Root simplex log...
+
+Iteration    Objective       Primal Inf.    Dual Inf.      Time
+       0   -8.9280000e+15   2.389769e+07   0.000000e+00     13s
+[2025-06-03 09:33:11] DEBUG    41340    3.1260832e+02   5.378973e+05   0.000000e+00     15s
+[2025-06-03 09:33:16] DEBUG    61576    3.5776199e+02   3.805494e+06   0.000000e+00     20s
+[2025-06-03 09:33:21] DEBUG    70980    4.7209996e+02   2.185982e+06   0.000000e+00     25s
+[2025-06-03 09:33:26] DEBUG    77310    5.4273423e+02   3.997492e+06   0.000000e+00     30s
+[2025-06-03 09:33:31] DEBUG    84824    6.4050735e+02   4.974050e+07   0.000000e+00     35s
+[2025-06-03 09:33:36] DEBUG    91205    7.3501126e+02   4.090403e+06   0.000000e+00     40s
+[2025-06-03 09:33:41] DEBUG    98438    7.9520239e+02   2.427923e+07   0.000000e+00     45s
+[2025-06-03 09:33:46] DEBUG    102828    8.8042460e+02   4.031161e+08   0.000000e+00     50s
+[2025-06-03 09:33:51] DEBUG    104836    9.0912740e+02   6.654070e+06   0.000000e+00     55s
+[2025-06-03 09:33:56] DEBUG    106686    9.3417893e+02   7.116504e+05   0.000000e+00     60s
+[2025-06-03 09:34:01] DEBUG    108006    9.8938871e+02   9.637660e+06   0.000000e+00     65s
+[2025-06-03 09:34:06] DEBUG    109336    1.0433678e+03   7.607614e+06   0.000000e+00     70s
+[2025-06-03 09:34:11] DEBUG    111526    1.0765308e+03   6.342630e+06   0.000000e+00     75s
+[2025-06-03 09:34:16] DEBUG    114416    1.0973448e+03   8.229225e+06   0.000000e+00     80s
+[2025-06-03 09:34:21] DEBUG    118156    1.2126776e+03   4.302041e+07   0.000000e+00     85s
+[2025-06-03 09:34:26] DEBUG    119756    1.5013710e+03   1.442405e+07   0.000000e+00     90s
+[2025-06-03 09:34:31] DEBUG    128467    1.5910893e+03   8.925683e+04   0.000000e+00     95s
+[2025-06-03 09:34:36] DEBUG    138659    1.6326881e+03   5.781250e+05   0.000000e+00    100s
+[2025-06-03 09:34:41] DEBUG    141799    1.6408642e+03   1.186528e+06   0.000000e+00    105s
+[2025-06-03 09:34:46] DEBUG    144369    1.6577603e+03   7.055916e+06   0.000000e+00    110s
+[2025-06-03 09:34:51] DEBUG    146789    1.6707224e+03   1.413094e+06   0.000000e+00    115s
+[2025-06-03 09:34:56] DEBUG    148549    1.6767266e+03   1.913177e+06   0.000000e+00    120s
+[2025-06-03 09:35:01] DEBUG    149979    1.6859707e+03   1.285249e+07   0.000000e+00    125s
+[2025-06-03 09:35:06] DEBUG    151119    1.6937558e+03   1.174700e+07   0.000000e+00    130s
+[2025-06-03 09:35:11] DEBUG    152509    1.7040823e+03   4.964095e+06   0.000000e+00    135s
+[2025-06-03 09:35:16] DEBUG    153619    1.7105108e+03   2.609217e+06   0.000000e+00    140s
+[2025-06-03 09:35:22] DEBUG    154559    1.7180489e+03   3.171644e+06   0.000000e+00    146s
+[2025-06-03 09:35:26] DEBUG    155279    1.7305446e+03   1.614564e+06   0.000000e+00    150s
+[2025-06-03 09:35:31] DEBUG    156239    1.7509182e+03   2.213687e+06   0.000000e+00    155s
+[2025-06-03 09:35:37] DEBUG    157079    1.7722540e+03   7.859102e+06   0.000000e+00    160s
+[2025-06-03 09:35:41] DEBUG    157919    1.7907580e+03   5.384358e+06   0.000000e+00    165s
+[2025-06-03 09:35:46] DEBUG    158759    1.8130285e+03   2.611664e+07   0.000000e+00    170s
+[2025-06-03 09:35:51] DEBUG    159599    1.8368349e+03   1.425776e+06   0.000000e+00    175s
+[2025-06-03 09:35:56] DEBUG    160439    1.8670418e+03   9.659779e+06   0.000000e+00    180s
+[2025-06-03 09:36:02] DEBUG    161279    1.8871640e+03   6.519267e+06   0.000000e+00    186s
+[2025-06-03 09:36:07] DEBUG    162099    1.9084728e+03   1.746991e+06   0.000000e+00    190s
+[2025-06-03 09:36:11] DEBUG    163019    1.9270851e+03   5.264218e+06   0.000000e+00    195s
+[2025-06-03 09:36:16] DEBUG    163809    1.9443569e+03   4.483828e+06   0.000000e+00    200s
+[2025-06-03 09:36:21] DEBUG    164599    1.9598163e+03   2.959683e+06   0.000000e+00    205s
+[2025-06-03 09:36:27] DEBUG    165499    1.9762305e+03   8.862817e+06   0.000000e+00    211s
+[2025-06-03 09:36:32] DEBUG    166279    1.9936371e+03   9.259115e+06   0.000000e+00    216s
+[2025-06-03 09:36:36] DEBUG    167059    2.0214806e+03   8.261978e+06   0.000000e+00    220s
+[2025-06-03 09:36:42] DEBUG    168089    2.0483383e+03   4.766635e+05   0.000000e+00    225s
+[2025-06-03 09:36:46] DEBUG    168989    2.0716221e+03   4.613923e+06   0.000000e+00    230s
+[2025-06-03 09:36:52] DEBUG    170169    2.1035070e+03   1.124173e+06   0.000000e+00    235s
+[2025-06-03 09:36:56] DEBUG    171229    2.1278711e+03   1.941078e+07   0.000000e+00    240s
+[2025-06-03 09:37:01] DEBUG    172309    2.1620584e+03   6.952160e+06   0.000000e+00    245s
+[2025-06-03 09:37:07] DEBUG    173509    2.2106145e+03   1.405211e+06   0.000000e+00    251s
+[2025-06-03 09:37:11] DEBUG    174589    2.2610149e+03   1.027680e+06   0.000000e+00    255s
+[2025-06-03 09:37:16] DEBUG    175669    2.3019081e+03   7.928935e+05   0.000000e+00    260s
+[2025-06-03 09:37:21] DEBUG    176749    2.3265385e+03   9.727448e+05   0.000000e+00    265s
+[2025-06-03 09:37:26] DEBUG    177799    2.3444774e+03   3.839996e+05   0.000000e+00    270s
+[2025-06-03 09:37:31] DEBUG    178879    2.3704713e+03   1.457017e+06   0.000000e+00    275s
+[2025-06-03 09:37:36] DEBUG    179909    2.3969277e+03   8.831019e+07   0.000000e+00    280s
+[2025-06-03 09:37:41] DEBUG    181089    2.4351905e+03   2.165537e+07   0.000000e+00    285s
+[2025-06-03 09:37:46] DEBUG    182159    2.4787752e+03   3.285455e+06   0.000000e+00    290s
+[2025-06-03 09:37:51] DEBUG    183229    2.5212357e+03   1.717590e+06   0.000000e+00    295s
+[2025-06-03 09:37:57] DEBUG    184299    2.5556844e+03   2.763238e+06   0.000000e+00    300s
+[2025-06-03 09:38:02] DEBUG    185269    2.5782184e+03   2.516819e+06   0.000000e+00    305s
+[2025-06-03 09:38:07] DEBUG    186339    2.6002098e+03   1.140733e+06   0.000000e+00    310s
+[2025-06-03 09:38:11] DEBUG    187359    2.6200329e+03   2.030577e+06   0.000000e+00    315s
+[2025-06-03 09:38:16] DEBUG    188599    2.6391861e+03   7.819717e+05   0.000000e+00    320s
+[2025-06-03 09:38:21] DEBUG    189759    2.6593713e+03   5.853199e+06   0.000000e+00    325s
+[2025-06-03 09:38:27] DEBUG    190929    2.6803747e+03   1.283904e+07   0.000000e+00    330s
+[2025-06-03 09:38:32] DEBUG    191829    2.7022023e+03   5.391287e+07   0.000000e+00    336s
+[2025-06-03 09:38:36] DEBUG    192619    2.7143919e+03   4.112095e+06   0.000000e+00    340s
+[2025-06-03 09:38:41] DEBUG    193929    2.7278890e+03   3.747376e+07   0.000000e+00    345s
+[2025-06-03 09:38:46] DEBUG    195629    2.7381881e+03   4.677297e+06   0.000000e+00    350s
+[2025-06-03 09:38:52] DEBUG    197439    2.7481035e+03   3.416899e+07   0.000000e+00    355s
+[2025-06-03 09:38:56] DEBUG    198799    2.7535578e+03   4.234064e+06   0.000000e+00    360s
+[2025-06-03 09:39:01] DEBUG    200839    2.7630104e+03   3.026827e+05   0.000000e+00    365s
+[2025-06-03 09:39:06] DEBUG    203309    2.7714690e+03   4.977245e+05   0.000000e+00    370s
+[2025-06-03 09:39:11] DEBUG    205479    2.7773697e+03   1.703798e+06   0.000000e+00    375s
+[2025-06-03 09:39:16] DEBUG    208089    2.7835009e+03   2.276382e+06   0.000000e+00    380s
+[2025-06-03 09:39:21] DEBUG    210629    2.7877529e+03   9.324806e+05   0.000000e+00    385s
+[2025-06-03 09:39:26] DEBUG    213309    2.7936683e+03   8.661852e+04   0.000000e+00    390s
+[2025-06-03 09:39:31] DEBUG    216419    2.7999920e+03   6.993973e+04   0.000000e+00    395s
+[2025-06-03 09:39:36] DEBUG    218109    2.8017776e+03   3.594696e+04   0.000000e+00    400s
+[2025-06-03 09:39:42] DEBUG    219749    2.8031586e+03   1.102495e+04   0.000000e+00    405s
+[2025-06-03 09:39:46] DEBUG    221809    2.8047208e+03   1.118413e+04   0.000000e+00    410s
+[2025-06-03 09:39:51] DEBUG    223699    2.8069584e+03   8.357330e+02   0.000000e+00    415s
+[2025-06-03 09:39:56] DEBUG    225529    2.8074256e+03   2.128620e+02   0.000000e+00    420s
+[2025-06-03 09:40:00] DEBUG    227367    2.8045980e+03   0.000000e+00   0.000000e+00    424s
+[2025-06-03 09:40:00] DEBUG    227367    2.8045980e+03   0.000000e+00   0.000000e+00    424s
+
+Root relaxation: objective 2.804598e+03, 227367 iterations, 422.12 seconds (357.33 work units)
+
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+
+*    0     0               0    2804.5979879 2804.59799  0.00%     -  424s
+[2025-06-03 09:40:00] DEBUG    Explored 1 nodes (227367 simplex iterations) in 424.11 seconds (360.06 work units)
+Thread count was 6 (of 16 available processors)
+
+Solution count 2: 2804.6 4.29742e+13 
+
+Optimal solution found (tolerance 1.00e-04)
+Warning: max constraint violation (9.4535e-03) exceeds tolerance
+Best objective 2.804597987892e+03, best bound 2.804597987892e+03, gap 0.0000%
+[2025-06-03 09:40:14] INFO     Backend: solver finished running. Time since start of model run: 0:09:41.441517
+[2025-06-03 09:40:15] INFO     Backend: loaded results
+[2025-06-03 09:40:29] INFO     Backend: generated solution array. Time since start of model run: 0:09:55.672732
+[2025-06-03 09:40:29] INFO     Postprocessing: started
+[2025-06-03 09:40:29] INFO     Postprocessing: All values < 1e-10 set to 0 in system_balance
+[2025-06-03 09:40:29] INFO     Postprocessing: ended. Time since start of model run: 0:09:56.235630
+***************
+Finished model 
+Model name:   dutch_calliope_multi_node
+Model size:   18 locations, 50 technologies, 186 timesteps
+None
+***************

@@ -1,0 +1,230 @@
+#-------------------------------------------------COMMENTS KEVIN------------------------------------------------------#
+# Includes the specific power plant techs and their params:
+#   - Nuclear Gen III
+#   - Nuclear SMR
+#   - CCGT Gas
+#   - CCGT Gas /w CCS
+#   - CCGT Hydrogen
+#   - OCGT Gas
+#   - OCGT Hydrogen
+#   - Biomass Standalone
+#   - Waste Incinerator
+#   - Waste Incinerator /w CCS
+#   - Hard Coal
+
+## To do: 
+##   check accuracy of costs and constraints for 2040 (and later future years)
+##   Add SMR techs? Perhaps make separate SMR tech file and add in config.
+
+#----------------------------------------------------------------------------------------------------------------------#
+
+
+# Sources:
+#   https://pdf.sciencedirectassets.com/277910/1-s2.0-S1876610213X00074/1-s2.0-S1876610213003937/main.pdf?X-Amz-Security-Token=IQoJb3JpZ2luX2VjEN7%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEaCXVzLWVhc3QtMSJIMEYCIQD1U45HdkjhYVA84twcGTWHrffogGdDfo28xJzlRk3VkgIhAOSUw1EIcsn3zoompC7bvcfIQi7k9M%2F9PPVbernmBGpHKrsFCNf%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEQBRoMMDU5MDAzNTQ2ODY1IgyQPvCT9kHy8NftNowqjwVV7c79d1G9RfdKFJCr%2BrIkEFoybGRf4eYmxWLjUfWcMrg%2FDqp%2Fx%2BjA6n3xM%2BMQNPqAKTXFRM5LH7DCPzUBB4ciRYg8%2F5lWyQC60aLKg3j0zLBXDoFTcmYRM89kfl1FqC4mNfHcopkoNIUrueJqxUaW0CqOpIwtPbhdKxV9tvRZS97AhXD14XfuInZyx408i8TdygAkYZa8A8sldZTQv3Q3o2ptZ7QqgU9iaGeM%2FEHfc5dlkneR5LXVif9Uj1fwyBA2RKb%2F%2B3irSNa1aPBkw58UnvYB9n4TtMO5Q3KF5VA2iu1ZU5vKBG9l2SAESoGP4FxJ00LaEOB6Mm%2B%2BpSn%2B1W3LtsbBHwEec19qNwyBHvn10kJ%2Fyhyt3yAhuKy70O1StupWkdta8khF%2FK8IPHITm7ql9gctYlxno%2B3tH70znCcbKQO64fN5gw5FhSnLCYykYror832TpYzmNmPq5Ci%2FYcfEhilv5L7Bjs8qdnGhHlE456JYZRG5CAURnYfJBBprGPBrMRPvjKWCnrHHhWWsn1Tzah7ahftxn%2FSy3qDykRQ%2FNhX0WA%2F3G8XhEaxsA%2Fy3P1WVmwXiukgYvInOooZQtqYOrDZ7fIbV76m%2Bz9CIvS6Q5dpCZQ8n3Rn7VhhvrsFxYJaUTFS2MXcmdoDuMtq85j97V8ItXN1kUW%2FfVfAHjRfBHRzS2S45gyp8YfbDelvgfvygXwRDhXpH5UfE5tuszkKeQQ%2B2f0fTrAxgUTyD%2BDNvqiNzwJurwUksXbDTUQxuEQRYDX1yNXl6PsocBSc9HmSwk7QOkNCon38FAiih6IZBMEZcVUdKscg1PDkgp7%2BzITlyCZfTZPqvbbY0qULlrNwQnTDhfoQZkak38E%2FoxqgzMOyK%2BLUGOrABPm8iLPVMt%2BxcgCDOeX9cPYsAqnvtAwrIU6nNuavD%2FtH5zK3C0N19J3vafozY88%2FiaIkjayjH7iyalxze8r25CzJAYIa%2FEthgykxQOV%2FrZZKLYIyW6zfvz3%2BhBABhMAuCipZVlkX8UICKzGVf%2F5mLiufDD9a3NFcBsaeKZvRSWxbV4%2By6GVkuT22SIK0pe6%2Fp9xQuwGOT%2BevZVxWyyyyP2Wu8QipeudM0yGgAl3Fm50M%3D&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20240815T151828Z&X-Amz-SignedHeaders=host&X-Amz-Expires=300&X-Amz-Credential=ASIAQ3PHCVTYUKMNLA75%2F20240815%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Signature=8a9be62d03707693a5455da12409e01b9590c1979ec1f2a955c3f97372c2c7fd&hash=739b99435dfc6bbdf12989a750740fafbbf9b3d119a101f1d0c60d11919658be&host=68042c943591013ac2b2430a89b270f6af2c76d8dfd086a07176afe7c76c2c61&pii=S1876610213003937&tid=spdf-530c5fd9-37bb-4674-ba01-1936a948793f&sid=aae818184b0a61420179b36526d8ce01588cgxrqb&type=client&tsoh=d3d3LnNjaWVuY2VkaXJlY3QuY29t&ua=080f560c5107545b5607&rr=8b3a284c8bc99fc4&cc=nl
+# https://www.sciencedirect.com/science/article/pii/S0306261918304288
+
+techs:
+
+
+    # Nuclear
+    pp_nuclear_gen3:
+        essentials:
+            name: 'Nuclear - Gen III'
+            color: '#00bcd4' #
+            parent: nuclear_power_plants
+        constraints:
+            energy_cap_min_use: 1
+            lifetime: 60 # years
+            energy_eff: 0.32
+        costs:
+            monetary:
+                energy_cap: 9571  # Meur/GW, ref: ..
+                om_annual: 165  # Meur/GW/yr, ref: ..
+                om_con: 17.8e-3  # Meur/GWh, note: Uranium fuel price 69 EUR/kg assuming 3.456e6 MJ/kg, ref: 
+
+    pp_nuclear_smr:
+        essentials:
+            name: 'Nuclear - SMR'
+            color: '#009688' #
+            parent: nuclear_power_plants
+        constraints:
+            lifetime: 60 # years
+            energy_eff: 0.36
+        costs:
+            monetary:
+                energy_cap: 8822  # Meur/GW, ref: ..
+                om_annual: 129  # Meur/GW/yr, ref: ..
+                om_con: 17.8e-3 # Meur/GhW, note: Uranium fuel price 69 EUR/kg assuming 3.456e6 MJ/kg, ref: 
+
+    # CCGT
+    pp_ccgt_gas:
+        essentials:
+            name: 'CCGT - Gas'
+            # color: '#b8bd20' #!
+            parent: gas_fired_power_plants
+            carrier_in: gas
+        constraints:
+            lifetime: 25 # years, comment: seems small
+            energy_eff: 0.6
+            # energy_cap_min_use: 0.25 # force operational lower limit of 40% for CCGTs
+            carrier_ratios.carrier_out_2.co2_emitted: 0.338 # 203 ton/GWh for natural gas at 60% efficiency 
+            carrier_ratios.carrier_out_3.co2_pure: 0
+        costs:
+            monetary:
+                energy_cap: 1060  # Meur/GW, ref: GNESTE 2020-2024
+                om_annual: 16.3  # Meur/GW/yr, ref: GNESTE 2020-2024
+               # om_con: 38e-3
+            # co2_emitted:
+            #     om_con: 203.0 # ton CO2 / GWh, ref: https://www.rvo.nl/sites/default/files/2023-08/The%20Netherlands%20list%20of%20fuels%20and%20standard%20CO2%20emission%20factors%20January%202022.pdf
+
+    pp_ccgt_gas_ccs:
+        essentials:
+            name: 'CCGT - Gas /w CCS'
+            # color: '#b8bd20' #!
+            parent: gas_fired_power_plants
+            carrier_in: gas
+        constraints:
+            lifetime: 25 # years, comment: seems small
+            energy_eff: 0.6
+            # energy_cap_min_use: 0.25 # force operational lower limit of 40% for CCGTs
+            carrier_ratios.carrier_out_2.co2_emitted: 0.051 # 203 ton/GWh for natural gas at 60% efficiency with 85% capture rate
+            carrier_ratios.carrier_out_3.co2_pure: 0.288 # 203 ton/GWh for natural gas at 60% efficiency with 85% capture rate
+        costs:
+            monetary:
+                energy_cap: 2853  # !Meur/GW, ref: ..
+                om_annual: 41  # Meur/GW/yr, ref: ..
+               # om_con: 38e-3
+            # co2_emitted:
+            #     om_con: 30.4 # ton CO2 / GWh, assuming 85% postcombustion capture rate, ref: https://www.rvo.nl/sites/default/files/2023-08/The%20Netherlands%20list%20of%20fuels%20and%20standard%20CO2%20emission%20factors%20January%202022.pdf | https://ieaghg.org/publications/towards-zero-emissions-ccs-from-power-stations-using-higher-capture-rates-or-biomass/
+            # co2_stored:
+            #     om_con: 172.6 # ton CO2/GWh, CO2 capture rate of 85%, ref: Berenschot
+
+    pp_ccgt_hyd:
+        essentials:
+            name: 'CCGT - Hydrogen'
+            # color: '#b8bd20' #!
+            parent: gas_fired_power_plants
+            carrier_in: hydrogen
+        constraints:
+            lifetime: 25 # years, comment: seems small
+            energy_eff: 0.6
+            # energy_cap_min_use: 0.25 # force operational lower limit of 40% for CCGTs
+            carrier_ratios.carrier_out_2.co2_emitted: 0
+            carrier_ratios.carrier_out_3.co2_pure: 0
+        costs:
+            monetary:
+                energy_cap: 1060  # Meur/GW, ref: GNESTE 2020-2024
+                om_annual: 16.3  # Meur/GW/yr, ref: GNESTE 2020-2024
+
+    # OCGT
+    pp_ocgt_gas:
+        essentials:
+            name: 'OCGT - Gas'
+            # color: '#b8bd20' #!
+            parent: gas_fired_power_plants
+            carrier_in: gas
+        constraints:
+            lifetime: 25 # years, comment: seems small
+            energy_eff: 0.34
+            carrier_ratios.carrier_out_2.co2_emitted: 0.597 # 203 ton/GWh for natural gas at 34% efficiency 
+            carrier_ratios.carrier_out_3.co2_pure: 0
+        costs:
+            monetary:
+                energy_cap: 659  # Meur/GW, ref: ..
+                om_annual: 12.8  # Meur/GW/yr, ref: .. 
+               # om_con: 38e-3
+            # co2_emitted:
+            #     om_con: 203.0 # ton CO2 / GWh, ref: https://www.rvo.nl/sites/default/files/2023-08/The%20Netherlands%20list%20of%20fuels%20and%20standard%20CO2%20emission%20factors%20January%202022.pdf
+
+    pp_ocgt_hyd:
+        essentials:
+            name: 'OCGT - Hydrogen'
+            # color: '#b8bd20' #!
+            parent: gas_fired_power_plants
+            carrier_in: hydrogen
+        constraints:
+            lifetime: 25 # years, comment: seems small
+            energy_eff: 0.34
+            carrier_ratios.carrier_out_2.co2_emitted: 0
+            carrier_ratios.carrier_out_3.co2_pure: 0
+        costs:
+            monetary:
+                energy_cap: 659  # Meur/GW, ref: ..
+                om_annual: 12.8  # Meur/GW/yr, ref: .. 
+            # co2_emitted:
+            #     om_con: 0.0 # ton CO2 / GWh
+
+    # biomass/waste
+    pp_biomass_standalone:
+        essentials:
+            name: 'Biomass - Standalone'
+            color: '#795548' #
+            parent: solid_fuel_power_plants
+        constraints:
+            lifetime: 40 # years, comment: seems small
+            energy_eff: 0.42
+            # energy_cap_max_systemwide: 1.0 #! GW, ref: Arbitrary
+        costs:
+            monetary:
+                energy_cap: 2000  # Meur/GW, ref: ..
+                om_annual: 48  # Meur/GW/yr, ref: ..
+                om_con: 50.8e-3 # Meur/GhW, : 
+
+    pp_waste_incinerator:
+        essentials:
+            name: 'Waste incinerator'
+            color: '#795548' #
+            parent: solid_fuel_power_plants
+        constraints:
+            lifetime: 40 # years, comment: seems small
+            energy_eff: 1.11e-3 # GWh electricity / ton waste, assume 2.64e-3 GWh energy per ton of waste, and a turbine-generator electrical efficiency of 0.42 (equal to biomass plant), ref: https://www.rvo.nl/sites/default/files/2023-08/The%20Netherlands%20list%20of%20fuels%20and%20standard%20CO2%20emission%20factors%20January%202022.pdf. 
+            force_resource: True 
+            resource: 1.0
+            resource_unit: energy_per_cap
+            #energy_cap_equals: 0.786 # GW, same as reference, ref:
+            carrier_ratios.carrier_out_2.co2_emitted: 0.908 # 106 ton/GWh for MSW at 42% efficiency with 0% capture rate
+            carrier_ratios.carrier_out_3.co2_pure: 0 # 106 ton/GWh for MSW at 42% efficiency with 0% capture rate
+        costs:
+            monetary:
+                energy_cap: 2000  # Meur/GW, ref: ..
+                om_annual: 48  # Meur/GW/yr, ref: ..
+            # co2_emitted:
+            #     om_con: 0.152 # ton CO2 / ton of waste, which equals 137 ton CO2/GWh electricity, ref: https://www.rvo.nl/sites/default/files/2023-08/The%20Netherlands%20list%20of%20fuels%20and%20standard%20CO2%20emission%20factors%20January%202022.pdf
+
+    pp_waste_incinerator_ccs:
+        essentials:
+            name: 'Waste incinerator /w CCS'
+            color: '#795548' #
+            parent: solid_fuel_power_plants
+        constraints:
+            lifetime: 40 # years, comment: seems small
+            energy_eff: 1.11e-3 # GWh electricity / ton waste, assume 2.64e-3 GWh energy per ton of waste, and a turbine-generator electrical efficiency of 0.42 (equal to biomass plant), ref: https://www.rvo.nl/sites/default/files/2023-08/The%20Netherlands%20list%20of%20fuels%20and%20standard%20CO2%20emission%20factors%20January%202022.pdf. 
+            force_resource: True
+            resource: 1.0
+            resource_unit: energy_per_cap
+            energy_cap_equals: 0.786 # GW, same as reference, ref:
+            carrier_ratios.carrier_out_2.co2_emitted: 0.136 # 106 ton/GWh for MSW at 42% efficiency with 85% capture rate
+            carrier_ratios.carrier_out_3.co2_pure: 0.772 # 106 ton/GWh for MSW at 42% efficiency with 85% capture rate
+        costs:
+            monetary:
+                energy_cap: 6910  # Meur/GW, ref: ..
+                om_annual: 83  # Meur/GW/yr, ref: ..
+            # co2_emitted:
+            #     om_con: 0.023 # ton CO2 / ton of waste, assuming 85% post combustion capture rate , ref: https://www.rvo.nl/sites/default/files/2023-08/The%20Netherlands%20list%20of%20fuels%20and%20standard%20CO2%20emission%20factors%20January%202022.pdf
+            # co2_stored:
+            #     om_con: 0.004 # ton CO2/GWh, CO2 capture rate of 85%, ref: Berenschot
+
+    pp_hard_coal:
+        essentials:
+            name: 'Hard coal'
+            # color: '#b8bd20' #!
+            parent: coal_fired_power_plants
+        constraints:
+            lifetime: 40 # Let wel uitfasering gepland 2030
+            energy_eff: 0.395
+            carrier_ratios.carrier_out_2.co2_emitted: 0.83 # 830 ton/GWh forhard coal source: https://www.cbs.nl/nl-nl/longread/discussion-papers/2023/emissiefactoren-van-elektriciteit-uit-steenkool-en-aardgas-2000-2021/6-resultaat
+            carrier_ratios.carrier_out_3.co2_pure: 0
+        costs:
+            monetary:
+                energy_cap: 2145.6  # Meur/GW, ref: GNESTE 2020-2024: 2235 USD/kW for capex, 53.5 USD/kW/yr for fixed O&M,
+                om_annual: 51.36  # Meur/GW/yr ref: https://www.sciencedirect.com/science/article/pii/S235234092400636X

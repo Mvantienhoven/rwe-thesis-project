@@ -1,0 +1,41 @@
+#-------------------------------------------------COMMENTS KEVIN------------------------------------------------------#
+# Sets costs for imbalance electricity (and thus often for curtailment)
+# Perhaps useful in further quantification of SMR construction delays
+
+#----------------------------------------------------------------------------------------------------------------------#
+
+
+
+overrides:
+
+
+    im_0:
+        techs:
+            curtailment_electricity:
+                costs:
+                    monetary:
+                        om_con: 0  # MEUR/GWh, ..
+    im_100:
+        techs:
+            curtailment_electricity:
+                costs:
+                    monetary:
+                        om_con: 100e-3  # MEUR/GWh, ..
+    im_250:
+        techs:
+            curtailment_electricity:
+                costs:
+                    monetary:
+                        om_con: 250e-3  # MEUR/GWh, ..
+    im_500:
+        techs:
+            curtailment_electricity:
+                costs:
+                    monetary:
+                        om_con: 500e-3  # MEUR/GWh, ..
+    im_1000:
+        techs:
+            curtailment_electricity:
+                costs:
+                    monetary:
+                        om_con: 1000e-3  # MEUR/GWh, ..

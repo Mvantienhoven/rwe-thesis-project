@@ -1,0 +1,144 @@
+##-----------------------------------------------Comments Kevin-----------------------------------------##
+# Various scenarios for testing, mostly for spores. 
+
+# To do: Consider whether to make my own scenarios file.
+##------------------------------------------------------------------------------------------------------##
+
+scenarios:
+
+    emissions_test:
+        group_constraints:
+            co2_emissions_cap:
+                techs: [co2_atmosphere, co2_ets]
+                carrier_con_max: 17820
+
+    # available overrides
+        # scenarios
+            # capacities.yaml
+                # unlock_capacities
+            # demand.yaml
+                # demand_ii3050_eur_2050
+                # demand_ii3050_nat_2050
+            # energy_prices.yaml
+                # <empty>
+            # import_export.yaml
+                # import_export_ii3050_eur_nat_2050
+            # technologies.yaml
+                # <empty>
+        # spores
+            # spores.yaml
+                # slack_03
+                # slack_05
+                # slack_10
+                # slack_15
+                # slack_25
+
+                # spores_02
+                # spores_05
+                # spores_10
+                # spores_25
+                # spores_50
+                # spores_99
+
+                # min_wind_onshore:
+                # ..
+                
+                # max_wind_onshore:
+                # ..
+
+# KIP ANDERS 2024 ############################################################################################
+
+    ## This is the reference optimalisation case, NO SPORES.
+    reference_opt: [demand_ii3050_eur_2050, energy_price_settings, emission_settings, biomass_settings]
+
+    ## We create the reference spores case by adding SPORES settings
+    reference_spores: [spores_settings, reference_opt]
+
+    ## Next we toggle different technology SPORES scoring to find the min/max values in the reference case.
+    # Wind
+    reference_max_wind: [spores_max_wind, reference_opt]
+    reference_min_wind: [spores_min_wind, reference_opt]
+    # Nuclear
+    reference_max_nuclear: [spores_max_nuclear, reference_opt]
+    reference_min_nuclear: [spores_min_nuclear, reference_opt]
+    # Solar
+    reference_max_pv: [spores_max_pv, reference_opt]
+    reference_min_pv: [spores_min_pv, reference_opt]
+    # Storage
+    reference_max_battery: [spores_max_battery, reference_opt]
+    reference_min_battery: [spores_min_battery, reference_opt]
+    # Electrolysers
+    reference_max_electrolyser: [spores_max_electrolyser, reference_opt]
+    reference_min_electrolyser: [spores_min_electrolyser, reference_opt]
+    # Reformers
+    reference_max_reformer: [spores_max_reformer, reference_opt]
+    reference_min_reformer: [spores_min_reformer, reference_opt]
+    # Interconnection
+    reference_max_interconnector: [spores_max_interconnector, reference_opt]
+    reference_min_interconnector: [spores_min_interconnector, reference_opt]
+    # Import terminals
+    reference_max_terminal: [spores_max_terminal, reference_opt]
+    reference_min_terminal: [spores_min_terminal, reference_opt]
+    
+    ## We can test other scoring methods. Scoring method `random` is the default.
+    spores_method_int: [spores_int, reference_opt]
+    spores_method_rel: [spores_rel, reference_opt]
+    spores_method_evoavg: [spores_evo, reference_opt]
+    # spores_method_random: [spores_rand, reference_opt] # default
+
+    ## Test different number of (no) SPORES. Default is 100 spores.
+    # spores_no_100: [spores_all_100, reference_opt] # default
+    spores_no_200: [spores_all_200, reference_opt]
+    spores_no_400: [spores_all_400, reference_opt]
+
+    ## Test different slack values. Default is 25%.
+    spores_slack_10: [spores_all_sl10, reference_opt]
+    spores_slack_05: [spores_all_sl05, reference_opt]
+    
+    ## Test SPORES with fixed nuclear (GEN III) capacities.
+    spores_fix_nuclear_1GW: [spores_settings, reference_opt, fix_nuclear_1GW]
+    spores_fix_nuclear_2GW: [spores_settings, reference_opt, fix_nuclear_2GW]
+    spores_fix_nuclear_4GW: [spores_settings, reference_opt, fix_nuclear_4GW]
+    
+
+
+# TESTING ############################################################################################
+
+    operate_hist_2023: [capacities_historic_2023, emission_settings]
+
+    spores_hist_2023: [spores_settings, emission_settings]
+    # spores_hist_2023: [spores_settings]
+
+    spores_eur_2050: [spores_settings, demand_ii3050_eur_2050, energy_price_settings, emission_settings, biomass_settings]
+    spores_eur_2050_max_wind_onshore: [spores_max_wind_onshore, demand_ii3050_eur_2050, energy_price_settings, emission_settings, biomass_settings]
+    spores_eur_2050_min_wind_onshore: [spores_min_wind_onshore, demand_ii3050_eur_2050, energy_price_settings, emission_settings, biomass_settings]
+    spores_eur_2050_max_wind: [spores_max_wind, demand_ii3050_eur_2050, energy_price_settings, emission_settings, biomass_settings]
+    spores_eur_2050_min_wind: [spores_min_wind, demand_ii3050_eur_2050, energy_price_settings, emission_settings, biomass_settings]
+    spores_eur_2050_max_nuclear: [spores_max_nuclear, demand_ii3050_eur_2050, energy_price_settings, emission_settings, biomass_settings]
+    spores_eur_2050_min_nuclear: [spores_min_nuclear, demand_ii3050_eur_2050, energy_price_settings, emission_settings, biomass_settings]
+    spores_eur_2050_max_pv: [spores_max_pv, demand_ii3050_eur_2050, energy_price_settings, emission_settings, biomass_settings]
+    spores_eur_2050_min_pv: [spores_min_pv, demand_ii3050_eur_2050, energy_price_settings, emission_settings, biomass_settings]
+
+    spores_nat_2050: [spores_settings, demand_ii3050_nat_2050, energy_price_settings, emission_settings]
+    spores_nat_2050_max_wind_onshore: [spores_max_wind_onshore, demand_ii3050_nat_2050, energy_price_settings, emission_settings]
+    spores_nat_2050_min_wind_onshore: [spores_min_wind_onshore, demand_ii3050_nat_2050, energy_price_settings, emission_settings]
+    spores_nat_2050_max_wind: [spores_max_wind, demand_ii3050_nat_2050, energy_price_settings, emission_settings]
+    spores_nat_2050_min_wind: [spores_min_wind, demand_ii3050_nat_2050, energy_price_settings, emission_settings]
+    spores_nat_2050_max_nuclear: [spores_max_nuclear, demand_ii3050_nat_2050, energy_price_settings, emission_settings]
+    spores_nat_2050_min_nuclear: [spores_min_nuclear, demand_ii3050_nat_2050, energy_price_settings, emission_settings]
+
+
+
+
+    
+
+
+# OLD ############################################################################################
+
+    scenario_sporestest: [activate_spores, unlock_capacities, slack_25, spores_10, all_mode]
+    
+    scenario_sporestest_excl: [activate_spores, unlock_capacities, slack_25, spores_02, excl_mode]
+
+    scenario_opttest: [unlock_capacities, demand_ii3050_eur_2050]
+
+    

@@ -1,0 +1,95 @@
+#-------------------------------------------------COMMENTS KEVIN------------------------------------------------------#
+# import and export tech classes.
+
+#----------------------------------------------------------------------------------------------------------------------#
+
+
+
+techs:
+
+    # TODO: Crossborder export 
+    
+    # Crossborder
+    import_elc_interconnector:
+        essentials:
+            name: 'Import - Electricity interconnection'
+            color: '#ffc107'
+            parent: crossborder_import
+            carrier: electricity
+        constraints:
+            resource: file=import_export/2050_historic_2023/capacity_elc_import.csv
+        #     resource_unit: energy_per_cap
+        costs:
+            monetary:
+                #om_con: file=import_export/historic_2023/price_elc_import.csv # apply price to resource consumption rather than electricity supply.
+                om_con: 100e-3 # Dummy value until profile is implemented @Isai
+                #om_prod: 10e-3 # Induce price difference to prevent infinite import/export. Can be considered as a trading premium.
+    export_elc_interconnector:
+        essentials:
+            name: 'Export - Electricity interconnection'
+            color: '#ffc108'
+            parent: crossborder_export
+            carrier: electricity
+        # constraints:
+            #resource: file=import_export/historic_2023/capacity_elc_import.csv # is the same as for import ?
+            # resource: -1000 # GW
+            # resource_unit: energy_per_cap
+        costs:
+            monetary:
+                om_con: file=import_export/2050_historic_2023/price_elc_export.csv
+                #om_con: -60e-3 # Negative (!) dummy value until profile is implemented @Isai
+    # import_hyd_interconnector:
+    #     essentials:
+    #         name: 'Import - Hydrogen interconnection'
+    #         parent: crossborder_import
+    #         carrier: hydrogen
+    #     costs:
+    #         monetary:
+    #             om_prod: 75e-3 #! MEUR/GWh, assumed hydrogen import price
+    # import_gas_interconnector:
+    #     essentials:
+    #         name: 'Import - Gas interconnection'
+    #         parent: crossborder_import
+    #         carrier: gas
+    #     costs:
+    #         monetary:
+    #             om_prod: 36e-3 #! MEUR/GWh
+
+    # ## This way of defining import/export may run into trouble because of cyclic storage constraint!!
+    # interconnector_elc:
+    #     essentials:
+    #         name: 'Interconnector - Electricity'
+    #         color: '#ffc107'
+    #         parent: storage
+    #         carrier: electricity
+    #     constraints:
+    #         energy_cap_per_storage_cap_max: 1
+    #         storage_cap_equals: 1e6 # infite capacity
+    #         lifetime: 100
+    #         force_asynchronous_prod_con: false # prevent dissipation of energy through nonphysical flows
+    #         # energy_eff: 0.999 # 0.035%/km https://iea-etsap.org/E-TechDS/PDF/E12_el-t&d_KV_Apr2014_GSOK.pdf
+    #     costs:
+    #         monetary:
+    #             om_prod: 60e-3 # file=import_export/historic_2023/price_elc_import.csv
+    #             om_con: -60e-3 # file=import_export/historic_2023/price_elc_export.csv
+    # Terminals
+    import_ammonia_cracker:
+        essentials:
+            name: 'Import - Ammonia cracker'
+            parent: terminal_import
+            carrier: hydrogen
+        costs:
+            monetary:
+                energy_cap: 946 #! MEUR/GW, calculated from: https://iopscience.iop.org/article/10.1088/1755-1315/983/1/012051/pdf
+                om_annual_investment_fraction: 0.03  # *100% of CAPEX/yr, TNO estimate
+                om_prod: 100e-3 #! MEUR/GWh, assumed green ammonia import price
+    import_lng_terminal:
+        essentials:
+            name: 'Import - LNG terminal'
+            parent: terminal_import
+            carrier: gas
+        costs:
+            monetary:
+                energy_cap: 946 #! MEUR/GW, calculated from: https://iopscience.iop.org/article/10.1088/1755-1315/983/1/012051/pdf
+                om_annual_investment_fraction: 0.03  # *100% of CAPEX/yr, TNO estimate
+                om_prod: 38e-3 # MEUR/GWh, recent avg TTF price 2023 - 2024

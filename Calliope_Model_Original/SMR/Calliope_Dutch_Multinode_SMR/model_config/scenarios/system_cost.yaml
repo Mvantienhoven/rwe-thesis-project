@@ -1,0 +1,155 @@
+##-----------------------------------------------Comments Kevin-----------------------------------------##
+# Sets manual TSC constraints, possibly to be used with spores after running in Plan mode?
+
+##------------------------------------------------------------------------------------------------------##
+
+# here you can set a system wide constraint on monetary costs to explore the near cost optimal decision space while optimizing for lineload or CO2. Change the value to for example 101, 105 or 110% of the costs in the cost optimal solution.
+
+overrides:
+    # within 101% max 
+    central_nd_101:
+        group_constraints:
+            central_nd_101:
+                cost_max:
+                    monetary: 4.316e+04 # +1%
+
+    central_ka_101:
+        group_constraints:
+            central_ka_101:
+                cost_max:
+                    monetary: 4.175e+04 # +1%
+
+    central_ia_101:
+        group_constraints:
+            central_ia_101:
+                cost_max:
+                    monetary: 4.006e+04 # +1%
+
+    flex_nd_101:
+        group_constraints:
+            flex_nd_101:
+                cost_max:
+                    monetary: 4.281e+04 # +1%
+
+    flex_ka_101:
+        group_constraints:
+            flex_ka_101:
+                cost_max:
+                    monetary: 4.137e+04 # +1%
+
+    flex_ia_101:
+        group_constraints:
+            flex_ia_101:
+                cost_max:
+                    monetary: 3.924e+04 # +1%
+
+    # within 105% max 
+    central_nd_105:
+        group_constraints:
+            central_nd_105:
+                cost_max:
+                    monetary: 4.487e+04 # +5%
+
+    central_ka_105:
+        group_constraints:
+            central_ka_105:
+                cost_max:
+                    monetary: 4.340e+04 # +5%
+
+    central_ia_105:
+        group_constraints:
+            central_ia_105:
+                cost_max:
+                    monetary: 4.164e+04 # +5%
+
+    flex_nd_105:
+        group_constraints:
+            flex_nd_105:
+                cost_max:
+                    monetary: 4.450e+04 # +5%
+
+    flex_ka_105:
+        group_constraints:
+            flex_ka_105:
+                cost_max:
+                    monetary: 4.300e+04 # +5%
+
+    flex_ia_105:
+        group_constraints:
+            flex_ia_105:
+                cost_max:
+                    monetary: 4.079e+04 # +5%
+
+    # within 110% max 
+    central_nd_110:
+        group_constraints:
+            central_nd_110:
+                cost_max:
+                    monetary: 4.701e+04 # +10%
+
+    central_ka_110:
+        group_constraints:
+            central_ka_110:
+                cost_max:
+                    monetary: 4.547e+04 # +10%
+
+    central_ia_110:
+        group_constraints:
+            central_ia_110:
+                cost_max:
+                    monetary: 4.363e+04 # +10%
+
+    flex_nd_110:
+        group_constraints:
+            flex_nd_110:
+                cost_max:
+                    monetary: 4.662e+04 # +10%
+
+    flex_ka_110:
+        group_constraints:
+            flex_ka_110:
+                cost_max:
+                    monetary: 4.505e+04 # +10%
+
+    flex_ia_110:
+        group_constraints:
+            flex_ia_110:
+                cost_max:
+                    monetary: 4.273e+04 # +10%
+
+#within 1% pv max
+    central_nd_pv1:
+        group_constraints:
+            central_nd_10:
+                cost_max:
+                    monetary: 4.31828264e+4 #+1%
+
+    central_ia_pv1:
+        group_constraints:
+            central_ia_10:
+                cost_max:
+                    monetary: 4.00646163e+4 #+1%
+
+    central_ka_pv1:
+        group_constraints:
+            central_ka_10:
+                cost_max:
+                    monetary: 4.179409994e+4 #+1%
+
+    flex_nd_pv1:
+        group_constraints:
+            flex_nd_10:
+                cost_max:
+                    monetary: 4.287203924e+4 #+1%
+
+    flex_ia_pv1:
+        group_constraints:
+            flex_ia_10:
+                cost_max:
+                    monetary: 3.924935097e+4 #+1%
+
+    flex_ka_pv1:
+        group_constraints:
+            flex_ka_10:
+                cost_max:
+                    monetary: 4.142773787e+4 #+1%

@@ -1,0 +1,22 @@
+#SCENARIOS
+
+scenarios:
+    base_run_EV: [  capacities_BL_EV,
+                    demand_NBNL_EV_2040] 
+
+    base_run_GB: [
+                    capacities_BL_GB,
+                    demand_NBNL_GB_2040,
+                    ets_discount] 
+
+    
+    base_run_HA: [
+                    capacities_BL_HA,
+                    demand_NBNL_HA_2040,
+                    ets_discount] 
+    
+
+    base_run_KM: [
+                    capacities_BL_KM,
+                    demand_NBNL_KM_2040,
+                    ets_discount] 

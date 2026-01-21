@@ -1,0 +1,89 @@
+#-------------------------------------------------COMMENTS KEVIN------------------------------------------------------#
+# Transmission techs:
+#   transmission_hvac, transmission_hvdc, gas, hydrogen
+
+
+
+## To do: Check correct/completeness for 2040
+#----------------------------------------------------------------------------------------------------------------------#
+
+
+
+techs:
+
+    transmission_hvac:
+        essentials:
+            name: 'Transmission - Electricity HVAC'
+            parent: power_transmission
+            color: '#795548'
+        constraints:
+            lifetime: 30
+            energy_eff_per_distance: 0.99965 # 0.0035%/km https://iea-etsap.org/E-TechDS/PDF/E12_el-t&d_KV_Apr2014_GSOK.pdf
+            # energy_cap_equals: see locations.yaml
+            force_asynchronous_prod_con: false
+        costs:
+            monetary:
+                energy_cap_per_distance: 2.12  # Meur/GW/km, ref: 
+                # om_prod: 1e-3
+
+    transmission_hvdc:
+        essentials:
+            name: 'Transmission - Electricity HVDC'
+            parent: power_transmission
+            color: '#9c27b0'
+        constraints:
+            lifetime: 30
+            energy_eff_per_distance: 0.999967 # 0.0033%/km, ref:
+            force_asynchronous_prod_con: false
+            # energy_cap_equals: see locations.yaml
+        costs:
+            monetary:
+                energy_cap_per_distance: 1.13  # Meur/GW/km, ref: 
+                # om_prod: 1e-3
+
+    free_transmission:
+        essentials:
+            name: 'Free power transmission'
+            parent: power_transmission
+            color: '#808080'
+        constraints:
+            force_asynchronous_prod_con: false
+            lifetime: 100
+            energy_cap_equals: 1000 # GW
+        # costs:
+        #     monetary:
+        #         energy_cap: 1e-4  # Meur/MW, ref: dummy value
+        #         energy_cap_per_distance: 1e-4  # Meur/GW/km, ref: 
+        #         # om_prod: 1e-4
+
+    free_gas_transmission:
+        essentials:
+            name: 'Free gas transmission'
+            parent: gas_transmission
+            carrier: gas
+            color: '#808080'
+        constraints:
+            force_asynchronous_prod_con: false
+            lifetime: 100
+            energy_cap_equals: 1000 # GW
+        # costs:
+        #     monetary:
+        #         energy_cap: 1e-4  # Meur/MW, ref: dummy value
+        #         energy_cap_per_distance: 1e-4  # Meur/GW/km, ref: 
+        #         # om_prod: 1e-4
+
+    free_hyd_transmission:
+        essentials:
+            name: 'Free hydrogen transmission'
+            parent: gas_transmission
+            carrier: hyd
+            color: '#808080'
+        constraints:
+            force_asynchronous_prod_con: false
+            lifetime: 100
+            energy_cap_equals: 1000 # GW
+        # costs:
+        #     monetary:
+        #         energy_cap: 1e-4  # Meur/MW, ref: dummy value
+        #         energy_cap_per_distance: 1e-4  # Meur/GW/km, ref: 
+        #         # om_prod: 1e-4

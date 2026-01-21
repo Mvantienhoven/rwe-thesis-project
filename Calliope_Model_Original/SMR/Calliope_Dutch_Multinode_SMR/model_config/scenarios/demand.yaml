@@ -1,0 +1,82 @@
+##----------------------------------------COMMENTS KEVIN-----------------------------------------##
+# Includes demand scenarios:
+        # demand_ii3050_eur_2050
+        # demand_ii3050_nat_2050
+        # demand_ip2024_ia_2030
+        # demand_ip2024_nd_2030
+        # demand_ip2024_ka_2030
+        # demand_2040_nl
+
+# SET CORRECT DEMAND SCENARIO OVERRIDES
+# To do: Check validity of 2040 scenario... file contains 2050 data
+#------------------------------------------------------------------------------------------------------##
+
+
+
+overrides:
+
+    demand_ii3050_eur_2050:
+        techs:
+            demand_elc:
+                constraints:
+                    resource: file=demand/ii3050_eur_2050/demand_elc.csv
+
+            demand_gas:
+                constraints:
+                    resource: file=demand/ii3050_eur_2050/demand_gas.csv
+
+            demand_hyd:
+                constraints:
+                    resource: file=demand/ii3050_eur_2050/demand_hyd.csv
+                
+    demand_ii3050_nat_2050:
+        techs:
+            demand_elc:
+                constraints:
+                    resource: file=demand/ii3050_nat_2050/demand_elc.csv
+
+            demand_gas:
+                constraints:
+                    resource: file=demand/ii3050_nat_2050/demand_gas.csv
+
+            demand_hyd:
+                constraints:
+                    resource: file=demand/ii3050_nat_2050/demand_hyd.csv
+
+    demand_ip2024_ia_2030:
+        techs:
+            demand_elc:
+                constraints:
+                    resource: file=demand/ip2024_ia_2030/aggregated_demand_NUTS2_ia_2030.csv
+
+    demand_ip2024_nd_2030:
+        techs:
+            demand_elc:
+                constraints:
+                    resource: file=demand/ip2024_nd_2030/aggregated_demand_NUTS2_nd_2030.csv
+
+    demand_ip2024_ka_2030:
+        techs:
+            demand_elc:
+                constraints:
+                    resource: file=demand/ip2024_ka_2030/aggregated_demand_NUTS2_ka_2030.csv
+
+# demand 2040 National leadership
+
+    demand_2040_nl:
+        techs:
+            demand_elc:
+                constraints:
+                    resource: file=demand/2040_nl/demand_elc.csv
+
+            demand_gas:
+                constraints:
+                    resource: file=demand/2040_nl/demand_gas.csv
+            
+            demand_hyd:
+                constraints:
+                    resource: file=demand/2040_nl/demand_hyd.csv
+
+
+scenarios:
+    #demand_settings: [demand_2040_nl]

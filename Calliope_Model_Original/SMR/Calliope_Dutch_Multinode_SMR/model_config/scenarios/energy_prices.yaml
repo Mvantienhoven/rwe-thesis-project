@@ -1,0 +1,143 @@
+##-----------------------------------------------Comments Kevin-----------------------------------------##
+# Various import price scenarios for ammonia and LNG
+
+# SET CORRECT OVERRIDES FOR SCENARIO
+
+# To do: Check logic of how these scenarios are used in the model. What about uranium
+##------------------------------------------------------------------------------------------------------##
+
+overrides:
+
+    prices_2050:
+        techs:
+            # Terminals
+            import_ammonia_cracker:
+                costs:
+                    monetary:
+                        om_prod: 100e-3 #! MEUR/GWh, assumed green ammonia import price
+            import_lng_terminal:
+                costs:
+                    monetary:
+                        om_prod: 30e-3 # MEUR/GWh, Avg TTF price 2023
+
+    # Ammonia import prices (incl cracking)
+    ammonia_25:
+        techs:
+            import_ammonia_cracker:
+                costs:
+                    monetary:
+                        om_prod: 25e-3 #! MEUR/GWh, assumed green ammonia import price
+
+    ammonia_50:
+        techs:
+            import_ammonia_cracker:
+                costs:
+                    monetary:
+                        om_prod: 50e-3 #! MEUR/GWh, assumed green ammonia import price
+
+    ammonia_75:
+        techs:
+            import_ammonia_cracker:
+                costs:
+                    monetary:
+                        om_prod: 75e-3 #! MEUR/GWh, assumed green ammonia import price
+
+    ammonia_100:
+        techs:
+            import_ammonia_cracker:
+                costs:
+                    monetary:
+                        om_prod: 100e-3 #! MEUR/GWh, assumed green ammonia import price
+
+    ammonia_150:
+        techs:
+            import_ammonia_cracker:
+                costs:
+                    monetary:
+                        om_prod: 150e-3 #! MEUR/GWh, assumed green ammonia import price
+
+    ammonia_300:
+        techs:
+            import_ammonia_cracker:
+                costs:
+                    monetary:
+                        om_prod: 300e-3 #! MEUR/GWh, assumed green ammonia import price
+
+    ammonia_500:
+        techs:
+            import_ammonia_cracker:
+                costs:
+                    monetary:
+                        om_prod: 500e-3 #! MEUR/GWh, assumed green ammonia import price
+
+    ammonia_1000:
+        techs:
+            import_ammonia_cracker:
+                costs:
+                    monetary:
+                        om_prod: 1000e-3 #! MEUR/GWh, assumed green ammonia import price
+
+    # LNG import prices
+    lng_25:
+        techs:
+            import_lng_terminal:
+                costs:
+                    monetary:
+                        om_prod: 25e-3 #! MEUR/GWh, assumed green ammonia import price
+
+    lng_50:
+        techs:
+            import_lng_terminal:
+                costs:
+                    monetary:
+                        om_prod: 50e-3 #! MEUR/GWh, assumed green ammonia import price
+
+    lng_75:
+        techs:
+            import_lng_terminal:
+                costs:
+                    monetary:
+                        om_prod: 75e-3 #! MEUR/GWh, assumed green ammonia import price
+
+    lng_100:
+        techs:
+            import_lng_terminal:
+                costs:
+                    monetary:
+                        om_prod: 100e-3 #! MEUR/GWh, assumed green ammonia import price
+
+    lng_150:
+        techs:
+            import_lng_terminal:
+                costs:
+                    monetary:
+                        om_prod: 150e-3 #! MEUR/GWh, assumed green ammonia import price
+
+    lng_300:
+        techs:
+            import_lng_terminal:
+                costs:
+                    monetary:
+                        om_prod: 300e-3 #! MEUR/GWh, assumed green ammonia import price
+
+    lng_500:
+        techs:
+            import_lng_terminal:
+                costs:
+                    monetary:
+                        om_prod: 500e-3 #! MEUR/GWh, assumed green ammonia import price
+
+    lng_1000:
+        techs:
+            import_lng_terminal:
+                costs:
+                    monetary:
+                        om_prod: 1000e-3 #! MEUR/GWh, assumed green ammonia import price
+
+
+                        
+scenarios:
+    energy_price_settings: [
+        ammonia_100, 
+        lng_50,
+        ]

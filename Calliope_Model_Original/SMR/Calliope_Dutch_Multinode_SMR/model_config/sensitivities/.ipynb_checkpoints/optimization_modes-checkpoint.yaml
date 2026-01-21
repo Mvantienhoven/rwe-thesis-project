@@ -1,0 +1,5 @@
+overrides:
+
+    opt_for_efficiency:
+        objective_options.cost_class.primary_energy: 1.0
+        objective_options.cost_class.monetary: 0.01

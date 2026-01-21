@@ -1,0 +1,4666 @@
+#-------------------------------------------------COMMENTS KEVIN------------------------------------------------------#
+### TRANSMISSION do NOT have fixed capacity, but have defined OM_prod per Net Transfer Capacity (NTC)
+#----------------------------------------------------------------------------------------------------------------------#
+
+locations:
+
+    NL:
+        coordinates: {lat: 52.0883, lon: 5.3291}
+        techs:
+            #import_ammonia_cracker: 
+            saltcavern_hyd: 
+            production_gas_fields:
+                constraints:
+                    energy_cap_equals: 11.4 #GW
+            saltcavern_gas:
+                constraints:
+                    energy_cap_equals: 60 # 60 GW
+                    storage_cap_equals: 9999 # GWh
+            import_lng_terminal:
+                constraints:
+                    energy_cap_equals: 35 # GW
+            import_gas_interconnector:
+            import_hyd_interconnector:
+            
+            #Artificial techs:
+            export_demand:
+            fake_supply_solid_fuel:
+            co2_storage:
+            ets_budget_cap:
+            co2_emissions_sink:
+            ets_exceedance:
+
+    E-BGM: #1, Bergum, NL12, Friesland
+        coordinates: {lat: 53.2125, lon: 6.0287}
+        techs: 
+
+            # Demand
+            demand_elc:
+            #load_shedding_elc:
+            
+            demand_hyd:
+            #load_shedding_hyd:
+
+            demand_gas:
+            #load_shedding_gas:
+
+            demand_pth: 
+            ## Renewables
+            # Market players
+            wind_offshore:
+            wind_onshore:
+            pv_utility:
+            hydro_RoR:
+
+            # Consumers
+            pv_rooftop:
+            #curtailment_elc:
+
+            # Other curtailment
+            #curtailment_hyd:
+            #curtailment_gas:
+
+            # Power plants
+            pp_waste_incinerator:
+            # pp_waste_incinerator_ccs:
+            pp_biomass_standalone:
+            #pp_hard_coal:
+
+            ## Nuclear
+            pp_nuclear_conventional:
+            #pp_nuclear_smr:
+            #pp_SMR_CHP_generic:
+            #pp_SMR_Hitachi_CHP_1:
+            #pp_SMR_Hitachi_CHP_2:
+            # pp_SMR_Hitachi_CHP_3:
+            #pp_SMR_RollsRoyce_CHP_1:
+            #pp_SMR_RollsRoyce_CHP_2:
+            # pp_SMR_RollsRoyce_CHP_3:
+            #pp_SMR_Thorizon_CHP_1:
+            #pp_SMR_Thorizon_CHP_2:
+            #pp_SMR_Thorizon_CHP_3:
+            # pp_SMR_RollsRoyce_CH2P_1:
+            # pp_SMR_RollsRoyce_CH2P_2:
+            # pp_SMR_RollsRoyce_CH2P_3:
+            # pp_SMR_Thorizon_CH2P_1:
+            # pp_SMR_Thorizon_CH2P_2:
+            # pp_SMR_Thorizon_CH2P_3:
+            # pp_SMR_Hitachi_CH2P_1:
+            # pp_SMR_Hitachi_CH2P_2:
+            # pp_SMR_Hitachi_CH2P_3:
+            # pp_SMR_RollsRoyce_CHH2P_1:
+            # pp_SMR_RollsRoyce_CHH2P_2:
+            # pp_SMR_RollsRoyce_CHH2P_3:
+            # pp_SMR_Thorizon_CHH2P_1:
+            # pp_SMR_Thorizon_CHH2P_2:
+            # pp_SMR_Thorizon_CHH2P_3:
+            pp_SMR_Hitachi_CHH2P_1:
+            # pp_SMR_Hitachi_CHH2P_2:
+            #pp_SMR_Hitachi_CHH2P_3:
+
+
+            # ## CCGT
+            pp_ccgt_gas:
+            #pp_ccgt_gas_ccs:
+            pp_ccgt_hyd:
+
+            # # # OCGT
+            pp_ocgt_gas:
+            pp_ocgt_hyd:
+
+            #Heat
+            pth_electric_boiler:
+
+            #CHP
+            #pp_chp_gas:
+            #pp_chp_biomass:
+
+            ## Battery storage systems
+            ES_BESS_households:
+            ES_BESS_IDES:
+            ES_BESS_MDES:
+            #ES_pumped_hydro:
+
+            # ## Salt cavern storage systems
+            saltcavern_gas:
+            saltcavern_hyd:
+
+            # ## Electrolyser
+            pp_elektrolyser_onshore:
+            pp_elektrolyser_offshore:
+
+            ## Reformers
+            #reformer_smr_ccs: 
+            #reformer_atr_ccs_96:
+
+            ## Import
+            #import_ammonia_cracker:
+            import_lng_terminal:
+
+
+    E-BVW: #2, Beverwijk, NL32, Noord-Holland
+        coordinates: {lat: 52.4737, lon: 4.6796}
+        techs: 
+            # Demand
+            demand_elc:
+            #load_shedding_elc:
+            
+            demand_hyd:
+            #load_shedding_hyd:
+
+            demand_gas:
+            #load_shedding_gas:
+
+            demand_pth: 
+            ## Renewables
+            # Market players
+            wind_offshore:
+            wind_onshore:
+            pv_utility:
+            hydro_RoR:
+            
+            # Consumers
+            pv_rooftop:
+            #curtailment_elc:
+
+            # Other curtailment
+            #curtailment_hyd:
+            #curtailment_gas:
+
+            # Power plants
+            pp_waste_incinerator:
+            # pp_waste_incinerator_ccs:
+            pp_biomass_standalone:
+            #pp_hard_coal:
+
+            ## Nuclear
+            pp_nuclear_conventional:
+            #pp_nuclear_smr:
+            #pp_SMR_CHP_generic:
+            #pp_SMR_Hitachi_CHP_1:
+            #pp_SMR_Hitachi_CHP_2:
+            # pp_SMR_Hitachi_CHP_3:
+            #pp_SMR_RollsRoyce_CHP_1:
+            #pp_SMR_RollsRoyce_CHP_2:
+            # pp_SMR_RollsRoyce_CHP_3:
+            #pp_SMR_Thorizon_CHP_1:
+            #pp_SMR_Thorizon_CHP_2:
+            #pp_SMR_Thorizon_CHP_3:
+            # pp_SMR_RollsRoyce_CH2P_1:
+            # pp_SMR_RollsRoyce_CH2P_2:
+            # pp_SMR_RollsRoyce_CH2P_3:
+            # pp_SMR_Thorizon_CH2P_1:
+            # pp_SMR_Thorizon_CH2P_2:
+            # pp_SMR_Thorizon_CH2P_3:
+            # pp_SMR_Hitachi_CH2P_1:
+            # pp_SMR_Hitachi_CH2P_2:
+            # pp_SMR_Hitachi_CH2P_3:
+            # pp_SMR_RollsRoyce_CHH2P_1:
+            # pp_SMR_RollsRoyce_CHH2P_2:
+            # pp_SMR_RollsRoyce_CHH2P_3:
+            # pp_SMR_Thorizon_CHH2P_1:
+            # pp_SMR_Thorizon_CHH2P_2:
+            # pp_SMR_Thorizon_CHH2P_3:
+            pp_SMR_Hitachi_CHH2P_1:
+            # pp_SMR_Hitachi_CHH2P_2:
+            #pp_SMR_Hitachi_CHH2P_3:
+
+
+            # ## CCGT
+            pp_ccgt_gas:
+            #pp_ccgt_gas_ccs:
+            pp_ccgt_hyd:
+
+            # # # OCGT
+            pp_ocgt_gas:
+            pp_ocgt_hyd:
+
+            #Heat
+            pth_electric_boiler:
+
+            #CHP
+            #pp_chp_gas:
+            #pp_chp_biomass:
+
+            ## Battery storage systems
+            ES_BESS_households:
+            ES_BESS_IDES:
+            ES_BESS_MDES:
+            #ES_pumped_hydro:
+
+            # ## Salt cavern storage systems
+            saltcavern_gas:
+            saltcavern_hyd:
+
+            # ## Electrolyser
+            pp_elektrolyser_onshore:
+            pp_elektrolyser_offshore:
+
+            ## Reformers
+            #reformer_smr_ccs: 
+            #reformer_atr_ccs_96:
+
+            ## Import
+            #import_ammonia_cracker:
+            import_lng_terminal:
+
+
+
+
+    E-BWK: #3, Bleiswijk, NL33, Zuid-Holland
+        coordinates: {lat: 52.0371, lon: 4.5295}
+        techs: 
+
+            # Demand
+            demand_elc:
+            #load_shedding_elc:
+            
+            demand_hyd:
+            #load_shedding_hyd:
+
+            demand_gas:
+            #load_shedding_gas:
+
+            demand_pth: 
+            ## Renewables
+            # Market players
+            wind_offshore:
+            wind_onshore:
+            pv_utility:
+            hydro_RoR:
+            
+            # Consumers
+            pv_rooftop:
+            #curtailment_elc:
+
+            # Other curtailment
+            #curtailment_hyd:
+            #curtailment_gas:
+
+            # Power plants
+            pp_waste_incinerator:
+            # pp_waste_incinerator_ccs:
+            pp_biomass_standalone:
+            #pp_hard_coal:
+
+            ## Nuclear
+            pp_nuclear_conventional:
+            #pp_nuclear_smr:
+            #pp_SMR_CHP_generic:
+            #pp_SMR_Hitachi_CHP_1:
+            #pp_SMR_Hitachi_CHP_2:
+            # pp_SMR_Hitachi_CHP_3:
+            #pp_SMR_RollsRoyce_CHP_1:
+            #pp_SMR_RollsRoyce_CHP_2:
+            # pp_SMR_RollsRoyce_CHP_3:
+            #pp_SMR_Thorizon_CHP_1:
+            #pp_SMR_Thorizon_CHP_2:
+            #pp_SMR_Thorizon_CHP_3:
+            # pp_SMR_RollsRoyce_CH2P_1:
+            # pp_SMR_RollsRoyce_CH2P_2:
+            # pp_SMR_RollsRoyce_CH2P_3:
+            # pp_SMR_Thorizon_CH2P_1:
+            # pp_SMR_Thorizon_CH2P_2:
+            # pp_SMR_Thorizon_CH2P_3:
+            # pp_SMR_Hitachi_CH2P_1:
+            # pp_SMR_Hitachi_CH2P_2:
+            # pp_SMR_Hitachi_CH2P_3:
+            # pp_SMR_RollsRoyce_CHH2P_1:
+            # pp_SMR_RollsRoyce_CHH2P_2:
+            # pp_SMR_RollsRoyce_CHH2P_3:
+            # pp_SMR_Thorizon_CHH2P_1:
+            # pp_SMR_Thorizon_CHH2P_2:
+            # pp_SMR_Thorizon_CHH2P_3:
+            pp_SMR_Hitachi_CHH2P_1:
+            # pp_SMR_Hitachi_CHH2P_2:
+            #pp_SMR_Hitachi_CHH2P_3:
+            
+            # ## CCGT
+            pp_ccgt_gas:
+            #pp_ccgt_gas_ccs:
+            pp_ccgt_hyd:
+
+            # # # OCGT
+            pp_ocgt_gas:
+            pp_ocgt_hyd:
+
+            #Heat
+            pth_electric_boiler:
+
+            #CHP
+            #pp_chp_gas:
+            #pp_chp_biomass:
+
+            ## Battery storage systems
+            ES_BESS_households:
+            ES_BESS_IDES:
+            ES_BESS_MDES:
+            #ES_pumped_hydro:
+
+            # ## Salt cavern storage systems
+            saltcavern_gas:
+            saltcavern_hyd:
+
+            # ## Electrolyser
+            pp_elektrolyser_onshore:
+            pp_elektrolyser_offshore:
+
+            ## Reformers
+            #reformer_smr_ccs: 
+            #reformer_atr_ccs_96:
+
+            ## Import
+            #import_ammonia_cracker:
+            import_lng_terminal:
+
+
+
+
+    E-BSL: #4, Borssele, NL34, Zeeland
+        coordinates: {lat: 51.4334, lon: 3.7276}
+        techs: 
+
+            # Demand
+            demand_elc:
+            #load_shedding_elc:
+            
+            demand_hyd:
+            #load_shedding_hyd:
+
+            demand_gas:
+            #load_shedding_gas:
+
+            demand_pth: 
+            ## Renewables
+            # Market players
+            wind_offshore:
+            wind_onshore:
+            pv_utility:
+            hydro_RoR:
+            
+            # Consumers
+            pv_rooftop:
+            #curtailment_elc:
+
+            # Other curtailment
+            #curtailment_hyd:
+            #curtailment_gas:
+
+            # Power plants
+            pp_waste_incinerator:
+            # pp_waste_incinerator_ccs:
+            pp_biomass_standalone:
+            #pp_hard_coal:
+
+            ## Nuclear
+            pp_nuclear_conventional:
+            #pp_nuclear_smr:
+            #pp_SMR_CHP_generic:
+            #pp_SMR_Hitachi_CHP_1:
+            #pp_SMR_Hitachi_CHP_2:
+            # pp_SMR_Hitachi_CHP_3:
+            #pp_SMR_RollsRoyce_CHP_1:
+            #pp_SMR_RollsRoyce_CHP_2:
+            # pp_SMR_RollsRoyce_CHP_3:
+            #pp_SMR_Thorizon_CHP_1:
+            #pp_SMR_Thorizon_CHP_2:
+            #pp_SMR_Thorizon_CHP_3:
+            # pp_SMR_RollsRoyce_CH2P_1:
+            # pp_SMR_RollsRoyce_CH2P_2:
+            # pp_SMR_RollsRoyce_CH2P_3:
+            # pp_SMR_Thorizon_CH2P_1:
+            # pp_SMR_Thorizon_CH2P_2:
+            # pp_SMR_Thorizon_CH2P_3:
+            # pp_SMR_Hitachi_CH2P_1:
+            # pp_SMR_Hitachi_CH2P_2:
+            # pp_SMR_Hitachi_CH2P_3:
+            # pp_SMR_RollsRoyce_CHH2P_1:
+            # pp_SMR_RollsRoyce_CHH2P_2:
+            # pp_SMR_RollsRoyce_CHH2P_3:
+            # pp_SMR_Thorizon_CHH2P_1:
+            # pp_SMR_Thorizon_CHH2P_2:
+            # pp_SMR_Thorizon_CHH2P_3:
+            pp_SMR_Hitachi_CHH2P_1:
+            # pp_SMR_Hitachi_CHH2P_2:
+            #pp_SMR_Hitachi_CHH2P_3:
+
+
+            # ## CCGT
+            pp_ccgt_gas:
+            #pp_ccgt_gas_ccs:
+            pp_ccgt_hyd:
+
+            # # # OCGT
+            pp_ocgt_gas:
+            pp_ocgt_hyd:
+
+            #Heat
+            pth_electric_boiler:
+
+            #CHP
+            #pp_chp_gas:
+            #pp_chp_biomass:
+
+            ## Battery storage systems
+            ES_BESS_households:
+            ES_BESS_IDES:
+            ES_BESS_MDES:
+            #ES_pumped_hydro:
+
+            # ## Salt cavern storage systems
+            saltcavern_gas:
+            saltcavern_hyd:
+
+            # ## Electrolyser
+            pp_elektrolyser_onshore:
+            pp_elektrolyser_offshore:
+
+            ## Reformers
+            #reformer_smr_ccs: 
+            #reformer_atr_ccs_96:
+
+            ## Import
+            #import_ammonia_cracker:
+            import_lng_terminal:
+
+
+
+
+    E-BMR: #5, Boxmeer, NL41, Noord-Brabant
+        coordinates: {lat: 51.6386, lon: 5.9129}
+        techs: 
+            # Demand
+            demand_elc:
+            #load_shedding_elc:
+            
+            demand_hyd:
+            #load_shedding_hyd:
+
+            demand_gas:
+            #load_shedding_gas:
+
+            demand_pth: 
+            ## Renewables
+            # Market players
+            wind_offshore:
+            wind_onshore:
+            pv_utility:
+            hydro_RoR:
+            
+            # Consumers
+            pv_rooftop:
+            #curtailment_elc:
+
+            # Other curtailment
+            #curtailment_hyd:
+            #curtailment_gas:
+
+            # Power plants
+            pp_waste_incinerator:
+            # pp_waste_incinerator_ccs:
+            pp_biomass_standalone:
+            #pp_hard_coal:
+
+            ## Nuclear
+            pp_nuclear_conventional:
+            #pp_nuclear_smr:
+            #pp_SMR_CHP_generic:
+            #pp_SMR_Hitachi_CHP_1:
+            #pp_SMR_Hitachi_CHP_2:
+            # pp_SMR_Hitachi_CHP_3:
+            #pp_SMR_RollsRoyce_CHP_1:
+            #pp_SMR_RollsRoyce_CHP_2:
+            # pp_SMR_RollsRoyce_CHP_3:
+            #pp_SMR_Thorizon_CHP_1:
+            #pp_SMR_Thorizon_CHP_2:
+            #pp_SMR_Thorizon_CHP_3:
+            # pp_SMR_RollsRoyce_CH2P_1:
+            # pp_SMR_RollsRoyce_CH2P_2:
+            # pp_SMR_RollsRoyce_CH2P_3:
+            # pp_SMR_Thorizon_CH2P_1:
+            # pp_SMR_Thorizon_CH2P_2:
+            # pp_SMR_Thorizon_CH2P_3:
+            # pp_SMR_Hitachi_CH2P_1:
+            # pp_SMR_Hitachi_CH2P_2:
+            # pp_SMR_Hitachi_CH2P_3:
+            # pp_SMR_RollsRoyce_CHH2P_1:
+            # pp_SMR_RollsRoyce_CHH2P_2:
+            # pp_SMR_RollsRoyce_CHH2P_3:
+            # pp_SMR_Thorizon_CHH2P_1:
+            # pp_SMR_Thorizon_CHH2P_2:
+            # pp_SMR_Thorizon_CHH2P_3:
+            pp_SMR_Hitachi_CHH2P_1:
+            # pp_SMR_Hitachi_CHH2P_2:
+            #pp_SMR_Hitachi_CHH2P_3:
+
+
+            # ## CCGT
+            pp_ccgt_gas:
+            #pp_ccgt_gas_ccs:
+            pp_ccgt_hyd:
+
+            # # # OCGT
+            pp_ocgt_gas:
+            pp_ocgt_hyd:
+
+            #Heat
+            pth_electric_boiler:
+
+            #CHP
+            #pp_chp_gas:
+            #pp_chp_biomass:
+
+            ## Battery storage systems
+            ES_BESS_households:
+            ES_BESS_IDES:
+            ES_BESS_MDES:
+            #ES_pumped_hydro:
+
+            # ## Salt cavern storage systems
+            saltcavern_gas:
+            saltcavern_hyd:
+
+            # ## Electrolyser
+            pp_elektrolyser_onshore:
+            pp_elektrolyser_offshore:
+
+            ## Reformers
+            #reformer_smr_ccs: 
+            #reformer_atr_ccs_96:
+
+            ## Import
+            #import_ammonia_cracker:
+            import_lng_terminal:
+
+
+
+
+    E-CST: #6, Crayestein, NL33, Zuid-Holland
+        coordinates: {lat: 51.8141, lon: 4.7486}
+        techs: 
+            # Demand
+            demand_elc:
+            #load_shedding_elc:
+            
+            demand_hyd:
+            #load_shedding_hyd:
+
+            demand_gas:
+            #load_shedding_gas:
+
+            demand_pth: 
+            ## Renewables
+            # Market players
+            wind_offshore:
+            wind_onshore:
+            pv_utility:
+            hydro_RoR:
+            
+            # Consumers
+            pv_rooftop:
+            #curtailment_elc:
+
+            # Other curtailment
+            #curtailment_hyd:
+            #curtailment_gas:
+
+            # Power plants
+            pp_waste_incinerator:
+            # pp_waste_incinerator_ccs:
+            pp_biomass_standalone:
+            #pp_hard_coal:
+
+            ## Nuclear
+            pp_nuclear_conventional:
+            #pp_nuclear_smr:
+            #pp_SMR_CHP_generic:
+            #pp_SMR_Hitachi_CHP_1:
+            #pp_SMR_Hitachi_CHP_2:
+            # pp_SMR_Hitachi_CHP_3:
+            #pp_SMR_RollsRoyce_CHP_1:
+            #pp_SMR_RollsRoyce_CHP_2:
+            # pp_SMR_RollsRoyce_CHP_3:
+            #pp_SMR_Thorizon_CHP_1:
+            #pp_SMR_Thorizon_CHP_2:
+            #pp_SMR_Thorizon_CHP_3:
+            # pp_SMR_RollsRoyce_CH2P_1:
+            # pp_SMR_RollsRoyce_CH2P_2:
+            # pp_SMR_RollsRoyce_CH2P_3:
+            # pp_SMR_Thorizon_CH2P_1:
+            # pp_SMR_Thorizon_CH2P_2:
+            # pp_SMR_Thorizon_CH2P_3:
+            # pp_SMR_Hitachi_CH2P_1:
+            # pp_SMR_Hitachi_CH2P_2:
+            # pp_SMR_Hitachi_CH2P_3:
+            # pp_SMR_RollsRoyce_CHH2P_1:
+            # pp_SMR_RollsRoyce_CHH2P_2:
+            # pp_SMR_RollsRoyce_CHH2P_3:
+            # pp_SMR_Thorizon_CHH2P_1:
+            # pp_SMR_Thorizon_CHH2P_2:
+            # pp_SMR_Thorizon_CHH2P_3:
+            pp_SMR_Hitachi_CHH2P_1:
+            # pp_SMR_Hitachi_CHH2P_2:
+            #pp_SMR_Hitachi_CHH2P_3:
+
+
+            # ## CCGT
+            pp_ccgt_gas:
+            #pp_ccgt_gas_ccs:
+            pp_ccgt_hyd:
+
+            # # # OCGT
+            pp_ocgt_gas:
+            pp_ocgt_hyd:
+
+            #Heat
+            pth_electric_boiler:
+
+            #CHP
+            #pp_chp_gas:
+            #pp_chp_biomass:
+
+            ## Battery storage systems
+            ES_BESS_households:
+            ES_BESS_IDES:
+            ES_BESS_MDES:
+            #ES_pumped_hydro:
+
+            # ## Salt cavern storage systems
+            saltcavern_gas:
+            saltcavern_hyd:
+
+            # ## Electrolyser
+            pp_elektrolyser_onshore:
+            pp_elektrolyser_offshore:
+
+            ## Reformers
+            #reformer_smr_ccs: 
+            #reformer_atr_ccs_96:
+
+            ## Import
+            #import_ammonia_cracker:
+            import_lng_terminal:
+
+
+
+    E-DIM: #8, Diemen, NL32, Noord-Holland
+        coordinates: {lat: 52.3369, lon: 5.0143}
+        techs: 
+            # Demand
+            demand_elc:
+            #load_shedding_elc:
+            
+            demand_hyd:
+            #load_shedding_hyd:
+
+            demand_gas:
+            #load_shedding_gas:
+
+            demand_pth: 
+            ## Renewables
+            # Market players
+            wind_offshore:
+            wind_onshore:
+            pv_utility:
+            hydro_RoR:
+            
+            # Consumers
+            pv_rooftop:
+            #curtailment_elc:
+
+            # Other curtailment
+            #curtailment_hyd:
+            #curtailment_gas:
+
+            # Power plants
+            pp_waste_incinerator:
+            # pp_waste_incinerator_ccs:
+            pp_biomass_standalone:
+            #pp_hard_coal:
+
+            ## Nuclear
+            pp_nuclear_conventional:
+            #pp_nuclear_smr:
+            #pp_SMR_CHP_generic:
+            #pp_SMR_Hitachi_CHP_1:
+            #pp_SMR_Hitachi_CHP_2:
+            # pp_SMR_Hitachi_CHP_3:
+            #pp_SMR_RollsRoyce_CHP_1:
+            #pp_SMR_RollsRoyce_CHP_2:
+            # pp_SMR_RollsRoyce_CHP_3:
+            #pp_SMR_Thorizon_CHP_1:
+            #pp_SMR_Thorizon_CHP_2:
+            #pp_SMR_Thorizon_CHP_3:
+            # pp_SMR_RollsRoyce_CH2P_1:
+            # pp_SMR_RollsRoyce_CH2P_2:
+            # pp_SMR_RollsRoyce_CH2P_3:
+            # pp_SMR_Thorizon_CH2P_1:
+            # pp_SMR_Thorizon_CH2P_2:
+            # pp_SMR_Thorizon_CH2P_3:
+            # pp_SMR_Hitachi_CH2P_1:
+            # pp_SMR_Hitachi_CH2P_2:
+            # pp_SMR_Hitachi_CH2P_3:
+            # pp_SMR_RollsRoyce_CHH2P_1:
+            # pp_SMR_RollsRoyce_CHH2P_2:
+            # pp_SMR_RollsRoyce_CHH2P_3:
+            # pp_SMR_Thorizon_CHH2P_1:
+            # pp_SMR_Thorizon_CHH2P_2:
+            # pp_SMR_Thorizon_CHH2P_3:
+            pp_SMR_Hitachi_CHH2P_1:
+            # pp_SMR_Hitachi_CHH2P_2:
+            #pp_SMR_Hitachi_CHH2P_3:
+
+
+            # ## CCGT
+            pp_ccgt_gas:
+            #pp_ccgt_gas_ccs:
+            pp_ccgt_hyd:
+
+            # # # OCGT
+            pp_ocgt_gas:
+            pp_ocgt_hyd:
+
+            #Heat
+            pth_electric_boiler:
+
+            #CHP
+            #pp_chp_gas:
+            #pp_chp_biomass:
+
+            ## Battery storage systems
+            ES_BESS_households:
+            ES_BESS_IDES:
+            ES_BESS_MDES:
+            #ES_pumped_hydro:
+
+            # ## Salt cavern storage systems
+            saltcavern_gas:
+            saltcavern_hyd:
+
+            # ## Electrolyser
+            pp_elektrolyser_onshore:
+            pp_elektrolyser_offshore:
+
+            ## Reformers
+            #reformer_smr_ccs: 
+            #reformer_atr_ccs_96:
+
+            ## Import
+            #import_ammonia_cracker:
+            import_lng_terminal:
+
+
+
+    E-DOD: #9, Dodewaard, NL22, Gelderland
+        coordinates: {lat: 51.9268, lon: 5.6638}
+        techs: 
+            # Demand
+            demand_elc:
+            #load_shedding_elc:
+            
+            demand_hyd:
+            #load_shedding_hyd:
+
+            demand_gas:
+            #load_shedding_gas:
+
+            demand_pth: 
+            ## Renewables
+            # Market players
+            wind_offshore:
+            wind_onshore:
+            pv_utility:
+            hydro_RoR:
+            
+            # Consumers
+            pv_rooftop:
+            #curtailment_elc:
+
+            # Other curtailment
+            #curtailment_hyd:
+            #curtailment_gas:
+
+            # Power plants
+            pp_waste_incinerator:
+            # pp_waste_incinerator_ccs:
+            pp_biomass_standalone:
+            #pp_hard_coal:
+
+            ## Nuclear
+            pp_nuclear_conventional:
+            #pp_nuclear_smr:
+            #pp_SMR_CHP_generic:
+            #pp_SMR_Hitachi_CHP_1:
+            #pp_SMR_Hitachi_CHP_2:
+            # pp_SMR_Hitachi_CHP_3:
+            #pp_SMR_RollsRoyce_CHP_1:
+            #pp_SMR_RollsRoyce_CHP_2:
+            # pp_SMR_RollsRoyce_CHP_3:
+            #pp_SMR_Thorizon_CHP_1:
+            #pp_SMR_Thorizon_CHP_2:
+            #pp_SMR_Thorizon_CHP_3:
+            # pp_SMR_RollsRoyce_CH2P_1:
+            # pp_SMR_RollsRoyce_CH2P_2:
+            # pp_SMR_RollsRoyce_CH2P_3:
+            # pp_SMR_Thorizon_CH2P_1:
+            # pp_SMR_Thorizon_CH2P_2:
+            # pp_SMR_Thorizon_CH2P_3:
+            # pp_SMR_Hitachi_CH2P_1:
+            # pp_SMR_Hitachi_CH2P_2:
+            # pp_SMR_Hitachi_CH2P_3:
+            # pp_SMR_RollsRoyce_CHH2P_1:
+            # pp_SMR_RollsRoyce_CHH2P_2:
+            # pp_SMR_RollsRoyce_CHH2P_3:
+            # pp_SMR_Thorizon_CHH2P_1:
+            # pp_SMR_Thorizon_CHH2P_2:
+            # pp_SMR_Thorizon_CHH2P_3:
+            pp_SMR_Hitachi_CHH2P_1:
+            # pp_SMR_Hitachi_CHH2P_2:
+            #pp_SMR_Hitachi_CHH2P_3:
+
+
+            # ## CCGT
+            pp_ccgt_gas:
+            #pp_ccgt_gas_ccs:
+            pp_ccgt_hyd:
+
+            # # # OCGT
+            pp_ocgt_gas:
+            pp_ocgt_hyd:
+
+            #Heat
+            pth_electric_boiler:
+
+            #CHP
+            #pp_chp_gas:
+            #pp_chp_biomass:
+
+            ## Battery storage systems
+            ES_BESS_households:
+            ES_BESS_IDES:
+            ES_BESS_MDES:
+            #ES_pumped_hydro:
+
+            # ## Salt cavern storage systems
+            saltcavern_gas:
+            saltcavern_hyd:
+
+            # ## Electrolyser
+            pp_elektrolyser_onshore:
+            pp_elektrolyser_offshore:
+
+            ## Reformers
+            #reformer_smr_ccs: 
+            #reformer_atr_ccs_96:
+
+            ## Import
+            #import_ammonia_cracker:
+            import_lng_terminal:
+
+
+
+    E-DTC: #10, Doetinchem, NL22, Gelderland
+        coordinates: {lat: 51.9820, lon: 6.2523}
+        techs: 
+            # Demand
+            demand_elc:
+            #load_shedding_elc:
+            
+            demand_hyd:
+            #load_shedding_hyd:
+
+            demand_gas:
+            #load_shedding_gas:
+
+            demand_pth: 
+            ## Renewables
+            # Market players
+            wind_offshore:
+            wind_onshore:
+            pv_utility:
+            hydro_RoR:
+            
+            # Consumers
+            pv_rooftop:
+            #curtailment_elc:
+
+            # Other curtailment
+            #curtailment_hyd:
+            #curtailment_gas:
+
+            # Power plants
+            pp_waste_incinerator:
+            # pp_waste_incinerator_ccs:
+            pp_biomass_standalone:
+            #pp_hard_coal:
+
+            ## Nuclear
+            pp_nuclear_conventional:
+            #pp_nuclear_smr:
+            #pp_SMR_CHP_generic:
+            #pp_SMR_Hitachi_CHP_1:
+            #pp_SMR_Hitachi_CHP_2:
+            # pp_SMR_Hitachi_CHP_3:
+            #pp_SMR_RollsRoyce_CHP_1:
+            #pp_SMR_RollsRoyce_CHP_2:
+            # pp_SMR_RollsRoyce_CHP_3:
+            #pp_SMR_Thorizon_CHP_1:
+            #pp_SMR_Thorizon_CHP_2:
+            #pp_SMR_Thorizon_CHP_3:
+            # pp_SMR_RollsRoyce_CH2P_1:
+            # pp_SMR_RollsRoyce_CH2P_2:
+            # pp_SMR_RollsRoyce_CH2P_3:
+            # pp_SMR_Thorizon_CH2P_1:
+            # pp_SMR_Thorizon_CH2P_2:
+            # pp_SMR_Thorizon_CH2P_3:
+            # pp_SMR_Hitachi_CH2P_1:
+            # pp_SMR_Hitachi_CH2P_2:
+            # pp_SMR_Hitachi_CH2P_3:
+            # pp_SMR_RollsRoyce_CHH2P_1:
+            # pp_SMR_RollsRoyce_CHH2P_2:
+            # pp_SMR_RollsRoyce_CHH2P_3:
+            # pp_SMR_Thorizon_CHH2P_1:
+            # pp_SMR_Thorizon_CHH2P_2:
+            # pp_SMR_Thorizon_CHH2P_3:
+            pp_SMR_Hitachi_CHH2P_1:
+            # pp_SMR_Hitachi_CHH2P_2:
+            #pp_SMR_Hitachi_CHH2P_3:
+
+
+            # ## CCGT
+            pp_ccgt_gas:
+            #pp_ccgt_gas_ccs:
+            pp_ccgt_hyd:
+
+            # # # OCGT
+            pp_ocgt_gas:
+            pp_ocgt_hyd:
+
+            #Heat
+            pth_electric_boiler:
+
+            #CHP
+            #pp_chp_gas:
+            #pp_chp_biomass:
+
+            ## Battery storage systems
+            ES_BESS_households:
+            ES_BESS_IDES:
+            ES_BESS_MDES:
+            #ES_pumped_hydro:
+
+            # ## Salt cavern storage systems
+            saltcavern_gas:
+            saltcavern_hyd:
+
+            # ## Electrolyser
+            pp_elektrolyser_onshore:
+            pp_elektrolyser_offshore:
+
+            ## Reformers
+            #reformer_smr_ccs: 
+            #reformer_atr_ccs_96:
+
+            ## Import
+            #import_ammonia_cracker:
+            import_lng_terminal:
+
+
+
+    E-EEM: #11, Eemshaven, NL11, Groningen
+        coordinates: {lat: 53.4254, lon: 6.8742}
+        techs: 
+            # Demand
+            demand_elc:
+            #load_shedding_elc:
+            
+            demand_hyd:
+            #load_shedding_hyd:
+
+            demand_gas:
+            #load_shedding_gas:
+
+            demand_pth: 
+
+
+            ## Renewables
+            # Market players
+            wind_offshore:
+            wind_onshore:
+            pv_utility:
+            hydro_RoR:
+            
+            # Consumers
+            pv_rooftop:
+            #curtailment_elc:
+
+            # Other curtailment
+            #curtailment_hyd:
+            #curtailment_gas:
+
+            # Power plants
+            pp_waste_incinerator:
+            # pp_waste_incinerator_ccs:
+            pp_biomass_standalone:
+            #pp_hard_coal:
+
+            ## Nuclear
+            pp_nuclear_conventional:
+            #pp_nuclear_smr:
+            #pp_SMR_CHP_generic:
+            #pp_SMR_Hitachi_CHP_1:
+            #pp_SMR_Hitachi_CHP_2:
+            # pp_SMR_Hitachi_CHP_3:
+            #pp_SMR_RollsRoyce_CHP_1:
+            #pp_SMR_RollsRoyce_CHP_2:
+            # pp_SMR_RollsRoyce_CHP_3:
+            #pp_SMR_Thorizon_CHP_1:
+            #pp_SMR_Thorizon_CHP_2:
+            #pp_SMR_Thorizon_CHP_3:
+            # pp_SMR_RollsRoyce_CH2P_1:
+            # pp_SMR_RollsRoyce_CH2P_2:
+            # pp_SMR_RollsRoyce_CH2P_3:
+            # pp_SMR_Thorizon_CH2P_1:
+            # pp_SMR_Thorizon_CH2P_2:
+            # pp_SMR_Thorizon_CH2P_3:
+            # pp_SMR_Hitachi_CH2P_1:
+            # pp_SMR_Hitachi_CH2P_2:
+            # pp_SMR_Hitachi_CH2P_3:
+            # pp_SMR_RollsRoyce_CHH2P_1:
+            # pp_SMR_RollsRoyce_CHH2P_2:
+            # pp_SMR_RollsRoyce_CHH2P_3:
+            # pp_SMR_Thorizon_CHH2P_1:
+            # pp_SMR_Thorizon_CHH2P_2:
+            # pp_SMR_Thorizon_CHH2P_3:
+            pp_SMR_Hitachi_CHH2P_1:
+            # pp_SMR_Hitachi_CHH2P_2:
+            #pp_SMR_Hitachi_CHH2P_3:
+
+
+            # ## CCGT
+            pp_ccgt_gas:
+            #pp_ccgt_gas_ccs:
+            pp_ccgt_hyd:
+
+            # # # OCGT
+            pp_ocgt_gas:
+            pp_ocgt_hyd:
+
+            #Heat
+            pth_electric_boiler:
+
+            #CHP
+            #pp_chp_gas:
+            #pp_chp_biomass:
+
+            ## Battery storage systems
+            ES_BESS_households:
+            ES_BESS_IDES:
+            ES_BESS_MDES:
+            #ES_pumped_hydro:
+
+            # ## Salt cavern storage systems
+            saltcavern_gas:
+            saltcavern_hyd:
+
+            # ## Electrolyser
+            pp_elektrolyser_onshore:
+            pp_elektrolyser_offshore:
+
+            ## Reformers
+            #reformer_smr_ccs: 
+            #reformer_atr_ccs_96:
+
+            ## Import
+            #import_ammonia_cracker:
+            import_lng_terminal:
+
+
+
+    E-EHV: #12, Eindhoven, NL41, Noord-Brabant
+        coordinates: {lat: 51.4466, lon: 5.5326}
+        techs: 
+            # Demand
+            demand_elc:
+            #load_shedding_elc:
+            
+            demand_hyd:
+            #load_shedding_hyd:
+
+            demand_gas:
+            #load_shedding_gas:
+
+            demand_pth: 
+            ## Renewables
+            # Market players
+            wind_offshore:
+            wind_onshore:
+            pv_utility:
+            hydro_RoR:
+            
+            # Consumers
+            pv_rooftop:
+            #curtailment_elc:
+
+            # Other curtailment
+            #curtailment_hyd:
+            #curtailment_gas:
+
+            # Power plants
+            pp_waste_incinerator:
+            # pp_waste_incinerator_ccs:
+            pp_biomass_standalone:
+            #pp_hard_coal:
+
+            ## Nuclear
+            pp_nuclear_conventional:
+            #pp_nuclear_smr:
+            #pp_SMR_CHP_generic:
+            #pp_SMR_Hitachi_CHP_1:
+            #pp_SMR_Hitachi_CHP_2:
+            # pp_SMR_Hitachi_CHP_3:
+            #pp_SMR_RollsRoyce_CHP_1:
+            #pp_SMR_RollsRoyce_CHP_2:
+            # pp_SMR_RollsRoyce_CHP_3:
+            #pp_SMR_Thorizon_CHP_1:
+            #pp_SMR_Thorizon_CHP_2:
+            #pp_SMR_Thorizon_CHP_3:
+            # pp_SMR_RollsRoyce_CH2P_1:
+            # pp_SMR_RollsRoyce_CH2P_2:
+            # pp_SMR_RollsRoyce_CH2P_3:
+            # pp_SMR_Thorizon_CH2P_1:
+            # pp_SMR_Thorizon_CH2P_2:
+            # pp_SMR_Thorizon_CH2P_3:
+            # pp_SMR_Hitachi_CH2P_1:
+            # pp_SMR_Hitachi_CH2P_2:
+            # pp_SMR_Hitachi_CH2P_3:
+            # pp_SMR_RollsRoyce_CHH2P_1:
+            # pp_SMR_RollsRoyce_CHH2P_2:
+            # pp_SMR_RollsRoyce_CHH2P_3:
+            # pp_SMR_Thorizon_CHH2P_1:
+            # pp_SMR_Thorizon_CHH2P_2:
+            # pp_SMR_Thorizon_CHH2P_3:
+            pp_SMR_Hitachi_CHH2P_1:
+            # pp_SMR_Hitachi_CHH2P_2:
+            #pp_SMR_Hitachi_CHH2P_3:
+
+
+            # ## CCGT
+            pp_ccgt_gas:
+            #pp_ccgt_gas_ccs:
+            pp_ccgt_hyd:
+
+            # # # OCGT
+            pp_ocgt_gas:
+            pp_ocgt_hyd:
+
+            #Heat
+            pth_electric_boiler:
+
+            #CHP
+            #pp_chp_gas:
+            #pp_chp_biomass:
+
+            ## Battery storage systems
+            ES_BESS_households:
+            ES_BESS_IDES:
+            ES_BESS_MDES:
+            #ES_pumped_hydro:
+
+            # ## Salt cavern storage systems
+            saltcavern_gas:
+            saltcavern_hyd:
+
+            # ## Electrolyser
+            pp_elektrolyser_onshore:
+            pp_elektrolyser_offshore:
+
+            ## Reformers
+            #reformer_smr_ccs: 
+            #reformer_atr_ccs_96:
+
+            ## Import
+            #import_ammonia_cracker:
+            import_lng_terminal:
+
+
+
+    E-ENS: #13, Ens, NL23, Flevoland
+        coordinates: {lat: 52.6172, lon: 5.8088}
+        techs: 
+            # Demand
+            demand_elc:
+            #load_shedding_elc:
+            
+            demand_hyd:
+            #load_shedding_hyd:
+
+            demand_gas:
+            #load_shedding_gas:
+
+            demand_pth: 
+            ## Renewables
+            # Market players
+            wind_offshore:
+            wind_onshore:
+            pv_utility:
+            hydro_RoR:
+            
+            # Consumers
+            pv_rooftop:
+            #curtailment_elc:
+
+            # Other curtailment
+            #curtailment_hyd:
+            #curtailment_gas:
+
+            # Power plants
+            pp_waste_incinerator:
+            # pp_waste_incinerator_ccs:
+            pp_biomass_standalone:
+            #pp_hard_coal:
+
+            ## Nuclear
+            pp_nuclear_conventional:
+            #pp_nuclear_smr:
+            #pp_SMR_CHP_generic:
+            #pp_SMR_Hitachi_CHP_1:
+            #pp_SMR_Hitachi_CHP_2:
+            # pp_SMR_Hitachi_CHP_3:
+            #pp_SMR_RollsRoyce_CHP_1:
+            #pp_SMR_RollsRoyce_CHP_2:
+            # pp_SMR_RollsRoyce_CHP_3:
+            #pp_SMR_Thorizon_CHP_1:
+            #pp_SMR_Thorizon_CHP_2:
+            #pp_SMR_Thorizon_CHP_3:
+            # pp_SMR_RollsRoyce_CH2P_1:
+            # pp_SMR_RollsRoyce_CH2P_2:
+            # pp_SMR_RollsRoyce_CH2P_3:
+            # pp_SMR_Thorizon_CH2P_1:
+            # pp_SMR_Thorizon_CH2P_2:
+            # pp_SMR_Thorizon_CH2P_3:
+            # pp_SMR_Hitachi_CH2P_1:
+            # pp_SMR_Hitachi_CH2P_2:
+            # pp_SMR_Hitachi_CH2P_3:
+            # pp_SMR_RollsRoyce_CHH2P_1:
+            # pp_SMR_RollsRoyce_CHH2P_2:
+            # pp_SMR_RollsRoyce_CHH2P_3:
+            # pp_SMR_Thorizon_CHH2P_1:
+            # pp_SMR_Thorizon_CHH2P_2:
+            # pp_SMR_Thorizon_CHH2P_3:
+            pp_SMR_Hitachi_CHH2P_1:
+            # pp_SMR_Hitachi_CHH2P_2:
+            #pp_SMR_Hitachi_CHH2P_3:
+
+
+            # ## CCGT
+            pp_ccgt_gas:
+            #pp_ccgt_gas_ccs:
+            pp_ccgt_hyd:
+
+            # # # OCGT
+            pp_ocgt_gas:
+            pp_ocgt_hyd:
+
+            #Heat
+            pth_electric_boiler:
+
+            #CHP
+            #pp_chp_gas:
+            #pp_chp_biomass:
+
+            ## Battery storage systems
+            ES_BESS_households:
+            ES_BESS_IDES:
+            ES_BESS_MDES:
+            #ES_pumped_hydro:
+
+            # ## Salt cavern storage systems
+            saltcavern_gas:
+            saltcavern_hyd:
+
+            # ## Electrolyser
+            pp_elektrolyser_onshore:
+            pp_elektrolyser_offshore:
+
+            ## Reformers
+            #reformer_smr_ccs: 
+            #reformer_atr_ccs_96:
+
+            ## Import
+            #import_ammonia_cracker:
+            import_lng_terminal:
+
+
+
+    E-GER: #14, Geertruidenberg, NL41, Noord-Brabant
+        coordinates: {lat: 51.7009, lon: 4.8331}
+        techs: 
+            # Demand
+            demand_elc:
+            #load_shedding_elc:
+            
+            demand_hyd:
+            #load_shedding_hyd:
+
+            demand_gas:
+            #load_shedding_gas:
+
+            demand_pth: 
+            ## Renewables
+            # Market players
+            wind_offshore:
+            wind_onshore:
+            pv_utility:
+            hydro_RoR:
+            
+            # Consumers
+            pv_rooftop:
+            #curtailment_elc:
+
+            # Other curtailment
+            #curtailment_hyd:
+            #curtailment_gas:
+
+            # Power plants
+            pp_waste_incinerator:
+            # pp_waste_incinerator_ccs:
+            pp_biomass_standalone:
+            #pp_hard_coal:
+
+            ## Nuclear
+            pp_nuclear_conventional:
+            #pp_nuclear_smr:
+            #pp_SMR_CHP_generic:
+            #pp_SMR_Hitachi_CHP_1:
+            #pp_SMR_Hitachi_CHP_2:
+            # pp_SMR_Hitachi_CHP_3:
+            #pp_SMR_RollsRoyce_CHP_1:
+            #pp_SMR_RollsRoyce_CHP_2:
+            # pp_SMR_RollsRoyce_CHP_3:
+            #pp_SMR_Thorizon_CHP_1:
+            #pp_SMR_Thorizon_CHP_2:
+            #pp_SMR_Thorizon_CHP_3:
+            # pp_SMR_RollsRoyce_CH2P_1:
+            # pp_SMR_RollsRoyce_CH2P_2:
+            # pp_SMR_RollsRoyce_CH2P_3:
+            # pp_SMR_Thorizon_CH2P_1:
+            # pp_SMR_Thorizon_CH2P_2:
+            # pp_SMR_Thorizon_CH2P_3:
+            # pp_SMR_Hitachi_CH2P_1:
+            # pp_SMR_Hitachi_CH2P_2:
+            # pp_SMR_Hitachi_CH2P_3:
+            # pp_SMR_RollsRoyce_CHH2P_1:
+            # pp_SMR_RollsRoyce_CHH2P_2:
+            # pp_SMR_RollsRoyce_CHH2P_3:
+            # pp_SMR_Thorizon_CHH2P_1:
+            # pp_SMR_Thorizon_CHH2P_2:
+            # pp_SMR_Thorizon_CHH2P_3:
+            pp_SMR_Hitachi_CHH2P_1:
+            # pp_SMR_Hitachi_CHH2P_2:
+            #pp_SMR_Hitachi_CHH2P_3:
+
+
+            # ## CCGT
+            pp_ccgt_gas:
+            #pp_ccgt_gas_ccs:
+            pp_ccgt_hyd:
+
+            # # # OCGT
+            pp_ocgt_gas:
+            pp_ocgt_hyd:
+
+            #Heat
+            pth_electric_boiler:
+
+            #CHP
+            #pp_chp_gas:
+            #pp_chp_biomass:
+
+            ## Battery storage systems
+            ES_BESS_households:
+            ES_BESS_IDES:
+            ES_BESS_MDES:
+            #ES_pumped_hydro:
+
+            # ## Salt cavern storage systems
+            saltcavern_gas:
+            saltcavern_hyd:
+
+            # ## Electrolyser
+            pp_elektrolyser_onshore:
+            pp_elektrolyser_offshore:
+
+            ## Reformers
+            #reformer_smr_ccs: 
+            #reformer_atr_ccs_96:
+
+            ## Import
+            #import_ammonia_cracker:
+            import_lng_terminal:
+
+
+
+    E-HGL: #16, Hengelo, NL21, Overijssel
+        coordinates: {lat: 52.2488, lon: 6.7591}
+        techs: 
+               # Demand
+            demand_elc:
+            #load_shedding_elc:
+            
+            demand_hyd:
+            #load_shedding_hyd:
+
+            demand_gas:
+            #load_shedding_gas:
+
+            demand_pth: 
+
+
+            ## Renewables
+            # Market players
+            wind_offshore:
+            wind_onshore:
+            pv_utility:
+            hydro_RoR:
+            
+            # Consumers
+            pv_rooftop:
+            #curtailment_elc:
+
+            # Other curtailment
+            #curtailment_hyd:
+            #curtailment_gas:
+
+            # Power plants
+            pp_waste_incinerator:
+            # pp_waste_incinerator_ccs:
+            pp_biomass_standalone:
+            #pp_hard_coal:
+
+            ## Nuclear
+            pp_nuclear_conventional:
+            #pp_nuclear_smr:
+            #pp_SMR_CHP_generic:
+            #pp_SMR_Hitachi_CHP_1:
+            #pp_SMR_Hitachi_CHP_2:
+            # pp_SMR_Hitachi_CHP_3:
+            #pp_SMR_RollsRoyce_CHP_1:
+            #pp_SMR_RollsRoyce_CHP_2:
+            # pp_SMR_RollsRoyce_CHP_3:
+            #pp_SMR_Thorizon_CHP_1:
+            #pp_SMR_Thorizon_CHP_2:
+            #pp_SMR_Thorizon_CHP_3:
+            # pp_SMR_RollsRoyce_CH2P_1:
+            # pp_SMR_RollsRoyce_CH2P_2:
+            # pp_SMR_RollsRoyce_CH2P_3:
+            # pp_SMR_Thorizon_CH2P_1:
+            # pp_SMR_Thorizon_CH2P_2:
+            # pp_SMR_Thorizon_CH2P_3:
+            # pp_SMR_Hitachi_CH2P_1:
+            # pp_SMR_Hitachi_CH2P_2:
+            # pp_SMR_Hitachi_CH2P_3:
+            # pp_SMR_RollsRoyce_CHH2P_1:
+            # pp_SMR_RollsRoyce_CHH2P_2:
+            # pp_SMR_RollsRoyce_CHH2P_3:
+            # pp_SMR_Thorizon_CHH2P_1:
+            # pp_SMR_Thorizon_CHH2P_2:
+            # pp_SMR_Thorizon_CHH2P_3:
+            pp_SMR_Hitachi_CHH2P_1:
+            # pp_SMR_Hitachi_CHH2P_2:
+            #pp_SMR_Hitachi_CHH2P_3:
+
+
+            # ## CCGT
+            pp_ccgt_gas:
+            #pp_ccgt_gas_ccs:
+            pp_ccgt_hyd:
+
+            # # # OCGT
+            pp_ocgt_gas:
+            pp_ocgt_hyd:
+
+            #Heat
+            pth_electric_boiler:
+
+            #CHP
+            #pp_chp_gas:
+            #pp_chp_biomass:
+
+            ## Battery storage systems
+            ES_BESS_households:
+            ES_BESS_IDES:
+            ES_BESS_MDES:
+            #ES_pumped_hydro:
+
+            # ## Salt cavern storage systems
+            saltcavern_gas:
+            saltcavern_hyd:
+
+            # ## Electrolyser
+            pp_elektrolyser_onshore:
+            pp_elektrolyser_offshore:
+
+            ## Reformers
+            #reformer_smr_ccs: 
+            #reformer_atr_ccs_96:
+
+            ## Import
+            #import_ammonia_cracker:
+            import_lng_terminal:
+
+
+
+    E-KIJ: #18, Krimpen, NL33, Zuid-Holland
+        coordinates: {lat: 51.9143, lon: 4.6309}
+        techs: 
+            # Demand
+            demand_elc:
+            #load_shedding_elc:
+            
+            demand_hyd:
+            #load_shedding_hyd:
+
+            demand_gas:
+            #load_shedding_gas:
+
+            demand_pth: 
+            ## Renewables
+            # Market players
+            wind_offshore:
+            wind_onshore:
+            pv_utility:
+            hydro_RoR:
+            
+            # Consumers
+            pv_rooftop:
+            #curtailment_elc:
+
+            # Other curtailment
+            #curtailment_hyd:
+            #curtailment_gas:
+
+            # Power plants
+            pp_waste_incinerator:
+            # pp_waste_incinerator_ccs:
+            pp_biomass_standalone:
+            #pp_hard_coal:
+
+            ## Nuclear
+            pp_nuclear_conventional:
+            #pp_nuclear_smr:
+            #pp_SMR_CHP_generic:
+            #pp_SMR_Hitachi_CHP_1:
+            #pp_SMR_Hitachi_CHP_2:
+            # pp_SMR_Hitachi_CHP_3:
+            #pp_SMR_RollsRoyce_CHP_1:
+            #pp_SMR_RollsRoyce_CHP_2:
+            # pp_SMR_RollsRoyce_CHP_3:
+            #pp_SMR_Thorizon_CHP_1:
+            #pp_SMR_Thorizon_CHP_2:
+            #pp_SMR_Thorizon_CHP_3:
+            # pp_SMR_RollsRoyce_CH2P_1:
+            # pp_SMR_RollsRoyce_CH2P_2:
+            # pp_SMR_RollsRoyce_CH2P_3:
+            # pp_SMR_Thorizon_CH2P_1:
+            # pp_SMR_Thorizon_CH2P_2:
+            # pp_SMR_Thorizon_CH2P_3:
+            # pp_SMR_Hitachi_CH2P_1:
+            # pp_SMR_Hitachi_CH2P_2:
+            # pp_SMR_Hitachi_CH2P_3:
+            # pp_SMR_RollsRoyce_CHH2P_1:
+            # pp_SMR_RollsRoyce_CHH2P_2:
+            # pp_SMR_RollsRoyce_CHH2P_3:
+            # pp_SMR_Thorizon_CHH2P_1:
+            # pp_SMR_Thorizon_CHH2P_2:
+            # pp_SMR_Thorizon_CHH2P_3:
+            pp_SMR_Hitachi_CHH2P_1:
+            # pp_SMR_Hitachi_CHH2P_2:
+            #pp_SMR_Hitachi_CHH2P_3:
+
+
+            # ## CCGT
+            pp_ccgt_gas:
+            #pp_ccgt_gas_ccs:
+            pp_ccgt_hyd:
+
+            # # # OCGT
+            pp_ocgt_gas:
+            pp_ocgt_hyd:
+
+            #Heat
+            pth_electric_boiler:
+
+            #CHP
+            #pp_chp_gas:
+            #pp_chp_biomass:
+
+            ## Battery storage systems
+            ES_BESS_households:
+            ES_BESS_IDES:
+            ES_BESS_MDES:
+            #ES_pumped_hydro:
+
+            # ## Salt cavern storage systems
+            saltcavern_gas:
+            saltcavern_hyd:
+
+            # ## Electrolyser
+            pp_elektrolyser_onshore:
+            pp_elektrolyser_offshore:
+
+            ## Reformers
+            #reformer_smr_ccs: 
+            #reformer_atr_ccs_96:
+
+            ## Import
+            #import_ammonia_cracker:
+            import_lng_terminal:
+
+
+
+    E-LLS: #19, Lelystad, NL23, Flevoland
+        coordinates: {lat: 52.5767, lon: 5.5387}
+        techs: 
+            # Demand
+            demand_elc:
+            #load_shedding_elc:
+            
+            demand_hyd:
+            #load_shedding_hyd:
+
+            demand_gas:
+            #load_shedding_gas:
+
+            demand_pth: 
+            ## Renewables
+            # Market players
+            wind_offshore:
+            wind_onshore:
+            pv_utility:
+            hydro_RoR:
+            
+            # Consumers
+            pv_rooftop:
+            #curtailment_elc:
+
+            # Other curtailment
+            #curtailment_hyd:
+            #curtailment_gas:
+
+            # Power plants
+            pp_waste_incinerator:
+            # pp_waste_incinerator_ccs:
+            pp_biomass_standalone:
+            #pp_hard_coal:
+
+            ## Nuclear
+            pp_nuclear_conventional:
+            #pp_nuclear_smr:
+            #pp_SMR_CHP_generic:
+            #pp_SMR_Hitachi_CHP_1:
+            #pp_SMR_Hitachi_CHP_2:
+            # pp_SMR_Hitachi_CHP_3:
+            #pp_SMR_RollsRoyce_CHP_1:
+            #pp_SMR_RollsRoyce_CHP_2:
+            # pp_SMR_RollsRoyce_CHP_3:
+            #pp_SMR_Thorizon_CHP_1:
+            #pp_SMR_Thorizon_CHP_2:
+            #pp_SMR_Thorizon_CHP_3:
+            # pp_SMR_RollsRoyce_CH2P_1:
+            # pp_SMR_RollsRoyce_CH2P_2:
+            # pp_SMR_RollsRoyce_CH2P_3:
+            # pp_SMR_Thorizon_CH2P_1:
+            # pp_SMR_Thorizon_CH2P_2:
+            # pp_SMR_Thorizon_CH2P_3:
+            # pp_SMR_Hitachi_CH2P_1:
+            # pp_SMR_Hitachi_CH2P_2:
+            # pp_SMR_Hitachi_CH2P_3:
+            # pp_SMR_RollsRoyce_CHH2P_1:
+            # pp_SMR_RollsRoyce_CHH2P_2:
+            # pp_SMR_RollsRoyce_CHH2P_3:
+            # pp_SMR_Thorizon_CHH2P_1:
+            # pp_SMR_Thorizon_CHH2P_2:
+            # pp_SMR_Thorizon_CHH2P_3:
+            pp_SMR_Hitachi_CHH2P_1:
+            # pp_SMR_Hitachi_CHH2P_2:
+            #pp_SMR_Hitachi_CHH2P_3:
+
+
+            # ## CCGT
+            pp_ccgt_gas:
+            #pp_ccgt_gas_ccs:
+            pp_ccgt_hyd:
+
+            # # # OCGT
+            pp_ocgt_gas:
+            pp_ocgt_hyd:
+
+            #Heat
+            pth_electric_boiler:
+
+            #CHP
+            #pp_chp_gas:
+            #pp_chp_biomass:
+
+            ## Battery storage systems
+            ES_BESS_households:
+            ES_BESS_IDES:
+            ES_BESS_MDES:
+            #ES_pumped_hydro:
+
+            # ## Salt cavern storage systems
+            saltcavern_gas:
+            saltcavern_hyd:
+
+            # ## Electrolyser
+            pp_elektrolyser_onshore:
+            pp_elektrolyser_offshore:
+
+            ## Reformers
+            #reformer_smr_ccs: 
+            #reformer_atr_ccs_96:
+
+            ## Import
+            #import_ammonia_cracker:
+            import_lng_terminal:
+
+
+
+    E-LSM: #20, Louwsmeer, NL12, Friesland
+        coordinates: {lat: 53.1899, lon: 5.8756}
+        techs: 
+            # Demand
+            demand_elc:
+            #load_shedding_elc:
+            
+            demand_hyd:
+            #load_shedding_hyd:
+
+            demand_gas:
+            #load_shedding_gas:
+
+            demand_pth: 
+            ## Renewables
+            # Market players
+            wind_offshore:
+            wind_onshore:
+            pv_utility:
+            hydro_RoR:
+            
+            # Consumers
+            pv_rooftop:
+            #curtailment_elc:
+
+            # Other curtailment
+            #curtailment_hyd:
+            #curtailment_gas:
+
+            # Power plants
+            pp_waste_incinerator:
+            # pp_waste_incinerator_ccs:
+            pp_biomass_standalone:
+            #pp_hard_coal:
+
+            ## Nuclear
+            pp_nuclear_conventional:
+            #pp_nuclear_smr:
+            #pp_SMR_CHP_generic:
+            #pp_SMR_Hitachi_CHP_1:
+            #pp_SMR_Hitachi_CHP_2:
+            # pp_SMR_Hitachi_CHP_3:
+            #pp_SMR_RollsRoyce_CHP_1:
+            #pp_SMR_RollsRoyce_CHP_2:
+            # pp_SMR_RollsRoyce_CHP_3:
+            #pp_SMR_Thorizon_CHP_1:
+            #pp_SMR_Thorizon_CHP_2:
+            #pp_SMR_Thorizon_CHP_3:
+            # pp_SMR_RollsRoyce_CH2P_1:
+            # pp_SMR_RollsRoyce_CH2P_2:
+            # pp_SMR_RollsRoyce_CH2P_3:
+            # pp_SMR_Thorizon_CH2P_1:
+            # pp_SMR_Thorizon_CH2P_2:
+            # pp_SMR_Thorizon_CH2P_3:
+            # pp_SMR_Hitachi_CH2P_1:
+            # pp_SMR_Hitachi_CH2P_2:
+            # pp_SMR_Hitachi_CH2P_3:
+            # pp_SMR_RollsRoyce_CHH2P_1:
+            # pp_SMR_RollsRoyce_CHH2P_2:
+            # pp_SMR_RollsRoyce_CHH2P_3:
+            # pp_SMR_Thorizon_CHH2P_1:
+            # pp_SMR_Thorizon_CHH2P_2:
+            # pp_SMR_Thorizon_CHH2P_3:
+            pp_SMR_Hitachi_CHH2P_1:
+            # pp_SMR_Hitachi_CHH2P_2:
+            #pp_SMR_Hitachi_CHH2P_3:
+
+
+            # ## CCGT
+            pp_ccgt_gas:
+            #pp_ccgt_gas_ccs:
+            pp_ccgt_hyd:
+
+            # # # OCGT
+            pp_ocgt_gas:
+            pp_ocgt_hyd:
+
+            #Heat
+            pth_electric_boiler:
+
+            #CHP
+            #pp_chp_gas:
+            #pp_chp_biomass:
+
+            ## Battery storage systems
+            ES_BESS_households:
+            ES_BESS_IDES:
+            ES_BESS_MDES:
+            #ES_pumped_hydro:
+
+            # ## Salt cavern storage systems
+            saltcavern_gas:
+            saltcavern_hyd:
+
+            # ## Electrolyser
+            pp_elektrolyser_onshore:
+            pp_elektrolyser_offshore:
+
+            ## Reformers
+            #reformer_smr_ccs: 
+            #reformer_atr_ccs_96:
+
+            ## Import
+            #import_ammonia_cracker:
+            import_lng_terminal:
+
+
+
+    E-MBT: #21, Maasbracht, NL42, Limburg
+        coordinates: {lat: 51.1489, lon: 5.9190}
+        techs: 
+            # Demand
+            demand_elc:
+            #load_shedding_elc:
+            
+            demand_hyd:
+            #load_shedding_hyd:
+
+            demand_gas:
+            #load_shedding_gas:
+
+            demand_pth: 
+
+
+            ## Renewables
+            # Market players
+            wind_offshore:
+            wind_onshore:
+            pv_utility:
+            hydro_RoR:
+            
+            # Consumers
+            pv_rooftop:
+            #curtailment_elc:
+
+            # Other curtailment
+            #curtailment_hyd:
+            #curtailment_gas:
+
+            # Power plants
+            pp_waste_incinerator:
+            # pp_waste_incinerator_ccs:
+            pp_biomass_standalone:
+            #pp_hard_coal:
+
+            ## Nuclear
+            pp_nuclear_conventional:
+            #pp_nuclear_smr:
+            #pp_SMR_CHP_generic:
+            #pp_SMR_Hitachi_CHP_1:
+            #pp_SMR_Hitachi_CHP_2:
+            # pp_SMR_Hitachi_CHP_3:
+            #pp_SMR_RollsRoyce_CHP_1:
+            #pp_SMR_RollsRoyce_CHP_2:
+            # pp_SMR_RollsRoyce_CHP_3:
+            #pp_SMR_Thorizon_CHP_1:
+            #pp_SMR_Thorizon_CHP_2:
+            #pp_SMR_Thorizon_CHP_3:
+            # pp_SMR_RollsRoyce_CH2P_1:
+            # pp_SMR_RollsRoyce_CH2P_2:
+            # pp_SMR_RollsRoyce_CH2P_3:
+            # pp_SMR_Thorizon_CH2P_1:
+            # pp_SMR_Thorizon_CH2P_2:
+            # pp_SMR_Thorizon_CH2P_3:
+            # pp_SMR_Hitachi_CH2P_1:
+            # pp_SMR_Hitachi_CH2P_2:
+            # pp_SMR_Hitachi_CH2P_3:
+            # pp_SMR_RollsRoyce_CHH2P_1:
+            # pp_SMR_RollsRoyce_CHH2P_2:
+            # pp_SMR_RollsRoyce_CHH2P_3:
+            # pp_SMR_Thorizon_CHH2P_1:
+            # pp_SMR_Thorizon_CHH2P_2:
+            # pp_SMR_Thorizon_CHH2P_3:
+            pp_SMR_Hitachi_CHH2P_1:
+            # pp_SMR_Hitachi_CHH2P_2:
+            #pp_SMR_Hitachi_CHH2P_3:
+
+
+            # ## CCGT
+            pp_ccgt_gas:
+            #pp_ccgt_gas_ccs:
+            pp_ccgt_hyd:
+
+            # # # OCGT
+            pp_ocgt_gas:
+            pp_ocgt_hyd:
+
+            #Heat
+            pth_electric_boiler:
+
+            #CHP
+            #pp_chp_gas:
+            #pp_chp_biomass:
+
+            ## Battery storage systems
+            ES_BESS_households:
+            ES_BESS_IDES:
+            ES_BESS_MDES:
+            #ES_pumped_hydro:
+
+            # ## Salt cavern storage systems
+            saltcavern_gas:
+            saltcavern_hyd:
+
+            # ## Electrolyser
+            pp_elektrolyser_onshore:
+            pp_elektrolyser_offshore:
+
+            ## Reformers
+            #reformer_smr_ccs: 
+            #reformer_atr_ccs_96:
+
+            ## Import
+            #import_ammonia_cracker:
+            import_lng_terminal:
+
+
+
+    E-MVL: #22, Maasvlakte, NL33, Zuid-Holland
+        coordinates: {lat: 51.9557, lon: 4.0220}
+        techs: 
+            # Demand
+            demand_elc:
+            #load_shedding_elc:
+            
+            demand_hyd:
+            #load_shedding_hyd:
+
+            demand_gas:
+            #load_shedding_gas:
+
+            demand_pth: 
+            ## Renewables
+            # Market players
+            wind_offshore:
+            wind_onshore:
+            pv_utility:
+            hydro_RoR:
+            
+            # Consumers
+            pv_rooftop:
+            #curtailment_elc:
+
+            # Other curtailment
+            #curtailment_hyd:
+            #curtailment_gas:
+
+            # Power plants
+            pp_waste_incinerator:
+            # pp_waste_incinerator_ccs:
+            pp_biomass_standalone:
+            #pp_hard_coal:
+
+            ## Nuclear
+            pp_nuclear_conventional:
+            #pp_nuclear_smr:
+            #pp_SMR_CHP_generic:
+            #pp_SMR_Hitachi_CHP_1:
+            #pp_SMR_Hitachi_CHP_2:
+            # pp_SMR_Hitachi_CHP_3:
+            #pp_SMR_RollsRoyce_CHP_1:
+            #pp_SMR_RollsRoyce_CHP_2:
+            # pp_SMR_RollsRoyce_CHP_3:
+            #pp_SMR_Thorizon_CHP_1:
+            #pp_SMR_Thorizon_CHP_2:
+            #pp_SMR_Thorizon_CHP_3:
+            # pp_SMR_RollsRoyce_CH2P_1:
+            # pp_SMR_RollsRoyce_CH2P_2:
+            # pp_SMR_RollsRoyce_CH2P_3:
+            # pp_SMR_Thorizon_CH2P_1:
+            # pp_SMR_Thorizon_CH2P_2:
+            # pp_SMR_Thorizon_CH2P_3:
+            # pp_SMR_Hitachi_CH2P_1:
+            # pp_SMR_Hitachi_CH2P_2:
+            # pp_SMR_Hitachi_CH2P_3:
+            # pp_SMR_RollsRoyce_CHH2P_1:
+            # pp_SMR_RollsRoyce_CHH2P_2:
+            # pp_SMR_RollsRoyce_CHH2P_3:
+            # pp_SMR_Thorizon_CHH2P_1:
+            # pp_SMR_Thorizon_CHH2P_2:
+            # pp_SMR_Thorizon_CHH2P_3:
+            pp_SMR_Hitachi_CHH2P_1:
+            # pp_SMR_Hitachi_CHH2P_2:
+            #pp_SMR_Hitachi_CHH2P_3:
+
+
+            # ## CCGT
+            pp_ccgt_gas:
+            #pp_ccgt_gas_ccs:
+            pp_ccgt_hyd:
+
+            # # # OCGT
+            pp_ocgt_gas:
+            pp_ocgt_hyd:
+
+            #Heat
+            pth_electric_boiler:
+
+            #CHP
+            #pp_chp_gas:
+            #pp_chp_biomass:
+
+            ## Battery storage systems
+            ES_BESS_households:
+            ES_BESS_IDES:
+            ES_BESS_MDES:
+            #ES_pumped_hydro:
+
+            # ## Salt cavern storage systems
+            saltcavern_gas:
+            saltcavern_hyd:
+
+            # ## Electrolyser
+            pp_elektrolyser_onshore:
+            pp_elektrolyser_offshore:
+
+            ## Reformers
+            #reformer_smr_ccs: 
+            #reformer_atr_ccs_96:
+
+            ## Import
+            #import_ammonia_cracker:
+            import_lng_terminal:
+
+
+
+    E-MEE: #23, Meeden, NL11, Groningen
+        coordinates: {lat: 53.1235, lon: 6.9497}
+        techs: 
+            # Demand
+            demand_elc:
+            #load_shedding_elc:
+            
+            demand_hyd:
+            #load_shedding_hyd:
+
+            demand_gas:
+            #load_shedding_gas:
+
+            demand_pth: 
+            ## Renewables
+            # Market players
+            wind_offshore:
+            wind_onshore:
+            pv_utility:
+            hydro_RoR:
+            
+            # Consumers
+            pv_rooftop:
+            #curtailment_elc:
+
+            # Other curtailment
+            #curtailment_hyd:
+            #curtailment_gas:
+
+            # Power plants
+            pp_waste_incinerator:
+            # pp_waste_incinerator_ccs:
+            pp_biomass_standalone:
+            #pp_hard_coal:
+
+            ## Nuclear
+            pp_nuclear_conventional:
+            #pp_nuclear_smr:
+            #pp_SMR_CHP_generic:
+            #pp_SMR_Hitachi_CHP_1:
+            #pp_SMR_Hitachi_CHP_2:
+            # pp_SMR_Hitachi_CHP_3:
+            #pp_SMR_RollsRoyce_CHP_1:
+            #pp_SMR_RollsRoyce_CHP_2:
+            # pp_SMR_RollsRoyce_CHP_3:
+            #pp_SMR_Thorizon_CHP_1:
+            #pp_SMR_Thorizon_CHP_2:
+            #pp_SMR_Thorizon_CHP_3:
+            # pp_SMR_RollsRoyce_CH2P_1:
+            # pp_SMR_RollsRoyce_CH2P_2:
+            # pp_SMR_RollsRoyce_CH2P_3:
+            # pp_SMR_Thorizon_CH2P_1:
+            # pp_SMR_Thorizon_CH2P_2:
+            # pp_SMR_Thorizon_CH2P_3:
+            # pp_SMR_Hitachi_CH2P_1:
+            # pp_SMR_Hitachi_CH2P_2:
+            # pp_SMR_Hitachi_CH2P_3:
+            # pp_SMR_RollsRoyce_CHH2P_1:
+            # pp_SMR_RollsRoyce_CHH2P_2:
+            # pp_SMR_RollsRoyce_CHH2P_3:
+            # pp_SMR_Thorizon_CHH2P_1:
+            # pp_SMR_Thorizon_CHH2P_2:
+            # pp_SMR_Thorizon_CHH2P_3:
+            pp_SMR_Hitachi_CHH2P_1:
+            # pp_SMR_Hitachi_CHH2P_2:
+            #pp_SMR_Hitachi_CHH2P_3:
+
+
+            # ## CCGT
+            pp_ccgt_gas:
+            #pp_ccgt_gas_ccs:
+            pp_ccgt_hyd:
+
+            # # # OCGT
+            pp_ocgt_gas:
+            pp_ocgt_hyd:
+
+            #Heat
+            pth_electric_boiler:
+
+            #CHP
+            #pp_chp_gas:
+            #pp_chp_biomass:
+
+            ## Battery storage systems
+            ES_BESS_households:
+            ES_BESS_IDES:
+            ES_BESS_MDES:
+            #ES_pumped_hydro:
+
+            # ## Salt cavern storage systems
+            saltcavern_gas:
+            saltcavern_hyd:
+
+            # ## Electrolyser
+            pp_elektrolyser_onshore:
+            pp_elektrolyser_offshore:
+
+            ## Reformers
+            #reformer_smr_ccs: 
+            #reformer_atr_ccs_96:
+
+            ## Import
+            #import_ammonia_cracker:
+            import_lng_terminal:
+
+
+
+    E-OZN: #24, Oostzaan, NL32, Noord-Holland
+        coordinates: {lat: 52.4288, lon: 4.8762}
+        techs: 
+            # Demand
+            demand_elc:
+            #load_shedding_elc:
+            
+            demand_hyd:
+            #load_shedding_hyd:
+
+            demand_gas:
+            #load_shedding_gas:
+
+            demand_pth: 
+            ## Renewables
+            # Market players
+            wind_offshore:
+            wind_onshore:
+            pv_utility:
+            hydro_RoR:
+            
+            # Consumers
+            pv_rooftop:
+            #curtailment_elc:
+
+            # Other curtailment
+            #curtailment_hyd:
+            #curtailment_gas:
+
+            # Power plants
+            pp_waste_incinerator:
+            # pp_waste_incinerator_ccs:
+            pp_biomass_standalone:
+            #pp_hard_coal:
+
+            ## Nuclear
+            pp_nuclear_conventional:
+            #pp_nuclear_smr:
+            #pp_SMR_CHP_generic:
+            #pp_SMR_Hitachi_CHP_1:
+            #pp_SMR_Hitachi_CHP_2:
+            # pp_SMR_Hitachi_CHP_3:
+            #pp_SMR_RollsRoyce_CHP_1:
+            #pp_SMR_RollsRoyce_CHP_2:
+            # pp_SMR_RollsRoyce_CHP_3:
+            #pp_SMR_Thorizon_CHP_1:
+            #pp_SMR_Thorizon_CHP_2:
+            #pp_SMR_Thorizon_CHP_3:
+            # pp_SMR_RollsRoyce_CH2P_1:
+            # pp_SMR_RollsRoyce_CH2P_2:
+            # pp_SMR_RollsRoyce_CH2P_3:
+            # pp_SMR_Thorizon_CH2P_1:
+            # pp_SMR_Thorizon_CH2P_2:
+            # pp_SMR_Thorizon_CH2P_3:
+            # pp_SMR_Hitachi_CH2P_1:
+            # pp_SMR_Hitachi_CH2P_2:
+            # pp_SMR_Hitachi_CH2P_3:
+            # pp_SMR_RollsRoyce_CHH2P_1:
+            # pp_SMR_RollsRoyce_CHH2P_2:
+            # pp_SMR_RollsRoyce_CHH2P_3:
+            # pp_SMR_Thorizon_CHH2P_1:
+            # pp_SMR_Thorizon_CHH2P_2:
+            # pp_SMR_Thorizon_CHH2P_3:
+            pp_SMR_Hitachi_CHH2P_1:
+            # pp_SMR_Hitachi_CHH2P_2:
+            #pp_SMR_Hitachi_CHH2P_3:
+
+
+            # ## CCGT
+            pp_ccgt_gas:
+            #pp_ccgt_gas_ccs:
+            pp_ccgt_hyd:
+
+            # # # OCGT
+            pp_ocgt_gas:
+            pp_ocgt_hyd:
+
+            #Heat
+            pth_electric_boiler:
+
+            #CHP
+            #pp_chp_gas:
+            #pp_chp_biomass:
+
+            ## Battery storage systems
+            ES_BESS_households:
+            ES_BESS_IDES:
+            ES_BESS_MDES:
+            #ES_pumped_hydro:
+
+            # ## Salt cavern storage systems
+            saltcavern_gas:
+            saltcavern_hyd:
+
+            # ## Electrolyser
+            pp_elektrolyser_onshore:
+            pp_elektrolyser_offshore:
+
+            ## Reformers
+            #reformer_smr_ccs: 
+            #reformer_atr_ccs_96:
+
+            ## Import
+            #import_ammonia_cracker:
+            import_lng_terminal:
+
+
+
+    E-OHK: #25, Oudehaske, NL12, Friesland
+        coordinates: {lat: 52.9733, lon: 5.8716}
+        techs: 
+            # Demand
+            demand_elc:
+            #load_shedding_elc:
+            
+            demand_hyd:
+            #load_shedding_hyd:
+
+            demand_gas:
+            #load_shedding_gas:
+
+            demand_pth: 
+            ## Renewables
+            # Market players
+            wind_offshore:
+            wind_onshore:
+            pv_utility:
+            hydro_RoR:
+            
+            # Consumers
+            pv_rooftop:
+            #curtailment_elc:
+
+            # Other curtailment
+            #curtailment_hyd:
+            #curtailment_gas:
+
+            # Power plants
+            pp_waste_incinerator:
+            # pp_waste_incinerator_ccs:
+            pp_biomass_standalone:
+            #pp_hard_coal:
+
+            ## Nuclear
+            pp_nuclear_conventional:
+            #pp_nuclear_smr:
+            #pp_SMR_CHP_generic:
+            #pp_SMR_Hitachi_CHP_1:
+            #pp_SMR_Hitachi_CHP_2:
+            # pp_SMR_Hitachi_CHP_3:
+            #pp_SMR_RollsRoyce_CHP_1:
+            #pp_SMR_RollsRoyce_CHP_2:
+            # pp_SMR_RollsRoyce_CHP_3:
+            #pp_SMR_Thorizon_CHP_1:
+            #pp_SMR_Thorizon_CHP_2:
+            #pp_SMR_Thorizon_CHP_3:
+            # pp_SMR_RollsRoyce_CH2P_1:
+            # pp_SMR_RollsRoyce_CH2P_2:
+            # pp_SMR_RollsRoyce_CH2P_3:
+            # pp_SMR_Thorizon_CH2P_1:
+            # pp_SMR_Thorizon_CH2P_2:
+            # pp_SMR_Thorizon_CH2P_3:
+            # pp_SMR_Hitachi_CH2P_1:
+            # pp_SMR_Hitachi_CH2P_2:
+            # pp_SMR_Hitachi_CH2P_3:
+            # pp_SMR_RollsRoyce_CHH2P_1:
+            # pp_SMR_RollsRoyce_CHH2P_2:
+            # pp_SMR_RollsRoyce_CHH2P_3:
+            # pp_SMR_Thorizon_CHH2P_1:
+            # pp_SMR_Thorizon_CHH2P_2:
+            # pp_SMR_Thorizon_CHH2P_3:
+            pp_SMR_Hitachi_CHH2P_1:
+            # pp_SMR_Hitachi_CHH2P_2:
+            #pp_SMR_Hitachi_CHH2P_3:
+
+
+            # ## CCGT
+            pp_ccgt_gas:
+            #pp_ccgt_gas_ccs:
+            pp_ccgt_hyd:
+
+            # # # OCGT
+            pp_ocgt_gas:
+            pp_ocgt_hyd:
+
+            #Heat
+            pth_electric_boiler:
+
+            #CHP
+            #pp_chp_gas:
+            #pp_chp_biomass:
+
+            ## Battery storage systems
+            ES_BESS_households:
+            ES_BESS_IDES:
+            ES_BESS_MDES:
+            #ES_pumped_hydro:
+
+            # ## Salt cavern storage systems
+            saltcavern_gas:
+            saltcavern_hyd:
+
+            # ## Electrolyser
+            pp_elektrolyser_onshore:
+            pp_elektrolyser_offshore:
+
+            ## Reformers
+            #reformer_smr_ccs: 
+            #reformer_atr_ccs_96:
+
+            ## Import
+            #import_ammonia_cracker:
+            import_lng_terminal:
+
+
+
+    E-RIL: #26, Rilland, NL34, Zeeland
+        coordinates: {lat: 51.4245, lon: 4.2182}
+        techs: 
+            # Demand
+            demand_elc:
+            #load_shedding_elc:
+            
+            demand_hyd:
+            #load_shedding_hyd:
+
+            demand_gas:
+            #load_shedding_gas:
+
+            demand_pth: 
+            ## Renewables
+            # Market players
+            wind_offshore:
+            wind_onshore:
+            pv_utility:
+            hydro_RoR:
+            
+            # Consumers
+            pv_rooftop:
+            #curtailment_elc:
+
+            # Other curtailment
+            #curtailment_hyd:
+            #curtailment_gas:
+
+            # Power plants
+            pp_waste_incinerator:
+            # pp_waste_incinerator_ccs:
+            pp_biomass_standalone:
+            #pp_hard_coal:
+
+            ## Nuclear
+            pp_nuclear_conventional:
+            #pp_nuclear_smr:
+            #pp_SMR_CHP_generic:
+            #pp_SMR_Hitachi_CHP_1:
+            #pp_SMR_Hitachi_CHP_2:
+            # pp_SMR_Hitachi_CHP_3:
+            #pp_SMR_RollsRoyce_CHP_1:
+            #pp_SMR_RollsRoyce_CHP_2:
+            # pp_SMR_RollsRoyce_CHP_3:
+            #pp_SMR_Thorizon_CHP_1:
+            #pp_SMR_Thorizon_CHP_2:
+            #pp_SMR_Thorizon_CHP_3:
+            # pp_SMR_RollsRoyce_CH2P_1:
+            # pp_SMR_RollsRoyce_CH2P_2:
+            # pp_SMR_RollsRoyce_CH2P_3:
+            # pp_SMR_Thorizon_CH2P_1:
+            # pp_SMR_Thorizon_CH2P_2:
+            # pp_SMR_Thorizon_CH2P_3:
+            # pp_SMR_Hitachi_CH2P_1:
+            # pp_SMR_Hitachi_CH2P_2:
+            # pp_SMR_Hitachi_CH2P_3:
+            # pp_SMR_RollsRoyce_CHH2P_1:
+            # pp_SMR_RollsRoyce_CHH2P_2:
+            # pp_SMR_RollsRoyce_CHH2P_3:
+            # pp_SMR_Thorizon_CHH2P_1:
+            # pp_SMR_Thorizon_CHH2P_2:
+            # pp_SMR_Thorizon_CHH2P_3:
+            pp_SMR_Hitachi_CHH2P_1:
+            # pp_SMR_Hitachi_CHH2P_2:
+            #pp_SMR_Hitachi_CHH2P_3:
+
+
+            # ## CCGT
+            pp_ccgt_gas:
+            #pp_ccgt_gas_ccs:
+            pp_ccgt_hyd:
+
+            # # # OCGT
+            pp_ocgt_gas:
+            pp_ocgt_hyd:
+
+            #Heat
+            pth_electric_boiler:
+
+            #CHP
+            #pp_chp_gas:
+            #pp_chp_biomass:
+
+            ## Battery storage systems
+            ES_BESS_households:
+            ES_BESS_IDES:
+            ES_BESS_MDES:
+            #ES_pumped_hydro:
+
+            # ## Salt cavern storage systems
+            saltcavern_gas:
+            saltcavern_hyd:
+
+            # ## Electrolyser
+            pp_elektrolyser_onshore:
+            pp_elektrolyser_offshore:
+
+            ## Reformers
+            #reformer_smr_ccs: 
+            #reformer_atr_ccs_96:
+
+            ## Import
+            #import_ammonia_cracker:
+            import_lng_terminal:
+
+
+
+    E-SMH: #28, Simonshaven, NL33, Zuid-Holland
+        coordinates: {lat: 51.8392, lon: 4.2655}
+        techs: 
+            # Demand
+            demand_elc:
+            #load_shedding_elc:
+            
+            demand_hyd:
+            #load_shedding_hyd:
+
+            demand_gas:
+            #load_shedding_gas:
+
+            demand_pth: 
+            ## Renewables
+            # Market players
+            wind_offshore:
+            wind_onshore:
+            pv_utility:
+            hydro_RoR:
+            
+            # Consumers
+            pv_rooftop:
+            #curtailment_elc:
+
+            # Other curtailment
+            #curtailment_hyd:
+            #curtailment_gas:
+
+            # Power plants
+            pp_waste_incinerator:
+            # pp_waste_incinerator_ccs:
+            pp_biomass_standalone:
+            #pp_hard_coal:
+
+            ## Nuclear
+            pp_nuclear_conventional:
+            #pp_nuclear_smr:
+            #pp_SMR_CHP_generic:
+            #pp_SMR_Hitachi_CHP_1:
+            #pp_SMR_Hitachi_CHP_2:
+            # pp_SMR_Hitachi_CHP_3:
+            #pp_SMR_RollsRoyce_CHP_1:
+            #pp_SMR_RollsRoyce_CHP_2:
+            # pp_SMR_RollsRoyce_CHP_3:
+            #pp_SMR_Thorizon_CHP_1:
+            #pp_SMR_Thorizon_CHP_2:
+            #pp_SMR_Thorizon_CHP_3:
+            # pp_SMR_RollsRoyce_CH2P_1:
+            # pp_SMR_RollsRoyce_CH2P_2:
+            # pp_SMR_RollsRoyce_CH2P_3:
+            # pp_SMR_Thorizon_CH2P_1:
+            # pp_SMR_Thorizon_CH2P_2:
+            # pp_SMR_Thorizon_CH2P_3:
+            # pp_SMR_Hitachi_CH2P_1:
+            # pp_SMR_Hitachi_CH2P_2:
+            # pp_SMR_Hitachi_CH2P_3:
+            # pp_SMR_RollsRoyce_CHH2P_1:
+            # pp_SMR_RollsRoyce_CHH2P_2:
+            # pp_SMR_RollsRoyce_CHH2P_3:
+            # pp_SMR_Thorizon_CHH2P_1:
+            # pp_SMR_Thorizon_CHH2P_2:
+            # pp_SMR_Thorizon_CHH2P_3:
+            pp_SMR_Hitachi_CHH2P_1:
+            # pp_SMR_Hitachi_CHH2P_2:
+            #pp_SMR_Hitachi_CHH2P_3:
+
+
+            # ## CCGT
+            pp_ccgt_gas:
+            #pp_ccgt_gas_ccs:
+            pp_ccgt_hyd:
+
+            # # # OCGT
+            pp_ocgt_gas:
+            pp_ocgt_hyd:
+
+            #Heat
+            pth_electric_boiler:
+
+            #CHP
+            #pp_chp_gas:
+            #pp_chp_biomass:
+
+            ## Battery storage systems
+            ES_BESS_households:
+            ES_BESS_IDES:
+            ES_BESS_MDES:
+            #ES_pumped_hydro:
+
+            # ## Salt cavern storage systems
+            saltcavern_gas:
+            saltcavern_hyd:
+
+            # ## Electrolyser
+            pp_elektrolyser_onshore:
+            pp_elektrolyser_offshore:
+
+            ## Reformers
+            #reformer_smr_ccs: 
+            #reformer_atr_ccs_96:
+
+            ## Import
+            #import_ammonia_cracker:
+            import_lng_terminal:
+
+
+
+    E-TIL: #29, Tilburg, NL41, Noord-Brabant
+        coordinates: {lat: 51.5555, lon: 5.0913}
+        techs: 
+            # Demand
+            demand_elc:
+            #load_shedding_elc:
+            
+            demand_hyd:
+            #load_shedding_hyd:
+
+            demand_gas:
+            #load_shedding_gas:
+
+            demand_pth: 
+            ## Renewables
+            # Market players
+            wind_offshore:
+            wind_onshore:
+            pv_utility:
+            hydro_RoR:
+            
+            # Consumers
+            pv_rooftop:
+            #curtailment_elc:
+
+            # Other curtailment
+            #curtailment_hyd:
+            #curtailment_gas:
+
+            # Power plants
+            pp_waste_incinerator:
+            # pp_waste_incinerator_ccs:
+            pp_biomass_standalone:
+            #pp_hard_coal:
+
+            ## Nuclear
+            pp_nuclear_conventional:
+            #pp_nuclear_smr:
+            #pp_SMR_CHP_generic:
+            #pp_SMR_Hitachi_CHP_1:
+            #pp_SMR_Hitachi_CHP_2:
+            # pp_SMR_Hitachi_CHP_3:
+            #pp_SMR_RollsRoyce_CHP_1:
+            #pp_SMR_RollsRoyce_CHP_2:
+            # pp_SMR_RollsRoyce_CHP_3:
+            #pp_SMR_Thorizon_CHP_1:
+            #pp_SMR_Thorizon_CHP_2:
+            #pp_SMR_Thorizon_CHP_3:
+            # pp_SMR_RollsRoyce_CH2P_1:
+            # pp_SMR_RollsRoyce_CH2P_2:
+            # pp_SMR_RollsRoyce_CH2P_3:
+            # pp_SMR_Thorizon_CH2P_1:
+            # pp_SMR_Thorizon_CH2P_2:
+            # pp_SMR_Thorizon_CH2P_3:
+            # pp_SMR_Hitachi_CH2P_1:
+            # pp_SMR_Hitachi_CH2P_2:
+            # pp_SMR_Hitachi_CH2P_3:
+            # pp_SMR_RollsRoyce_CHH2P_1:
+            # pp_SMR_RollsRoyce_CHH2P_2:
+            # pp_SMR_RollsRoyce_CHH2P_3:
+            # pp_SMR_Thorizon_CHH2P_1:
+            # pp_SMR_Thorizon_CHH2P_2:
+            # pp_SMR_Thorizon_CHH2P_3:
+            pp_SMR_Hitachi_CHH2P_1:
+            # pp_SMR_Hitachi_CHH2P_2:
+            #pp_SMR_Hitachi_CHH2P_3:
+
+
+            # ## CCGT
+            pp_ccgt_gas:
+            #pp_ccgt_gas_ccs:
+            pp_ccgt_hyd:
+
+            # # # OCGT
+            pp_ocgt_gas:
+            pp_ocgt_hyd:
+
+            #Heat
+            pth_electric_boiler:
+
+            #CHP
+            #pp_chp_gas:
+            #pp_chp_biomass:
+
+            ## Battery storage systems
+            ES_BESS_households:
+            ES_BESS_IDES:
+            ES_BESS_MDES:
+            #ES_pumped_hydro:
+
+            # ## Salt cavern storage systems
+            saltcavern_gas:
+            saltcavern_hyd:
+
+            # ## Electrolyser
+            pp_elektrolyser_onshore:
+            pp_elektrolyser_offshore:
+
+            ## Reformers
+            #reformer_smr_ccs: 
+            #reformer_atr_ccs_96:
+
+            ## Import
+            #import_ammonia_cracker:
+            import_lng_terminal:
+
+
+
+    E-VVL: #31, Vierverlaten, NL11, Groningen
+        coordinates: {lat: 53.2135, lon: 6.4752}
+        techs: 
+            # Demand
+            demand_elc:
+            #load_shedding_elc:
+            
+            demand_hyd:
+            #load_shedding_hyd:
+
+            demand_gas:
+            #load_shedding_gas:
+
+            demand_pth: 
+            ## Renewables
+            # Market players
+            wind_offshore:
+            wind_onshore:
+            pv_utility:
+            hydro_RoR:
+            
+            # Consumers
+            pv_rooftop:
+            #curtailment_elc:
+
+            # Other curtailment
+            #curtailment_hyd:
+            #curtailment_gas:
+
+            # Power plants
+            pp_waste_incinerator:
+            # pp_waste_incinerator_ccs:
+            pp_biomass_standalone:
+            #pp_hard_coal:
+
+            ## Nuclear
+            pp_nuclear_conventional:
+            #pp_nuclear_smr:
+            #pp_SMR_CHP_generic:
+            #pp_SMR_Hitachi_CHP_1:
+            #pp_SMR_Hitachi_CHP_2:
+            # pp_SMR_Hitachi_CHP_3:
+            #pp_SMR_RollsRoyce_CHP_1:
+            #pp_SMR_RollsRoyce_CHP_2:
+            # pp_SMR_RollsRoyce_CHP_3:
+            #pp_SMR_Thorizon_CHP_1:
+            #pp_SMR_Thorizon_CHP_2:
+            #pp_SMR_Thorizon_CHP_3:
+            # pp_SMR_RollsRoyce_CH2P_1:
+            # pp_SMR_RollsRoyce_CH2P_2:
+            # pp_SMR_RollsRoyce_CH2P_3:
+            # pp_SMR_Thorizon_CH2P_1:
+            # pp_SMR_Thorizon_CH2P_2:
+            # pp_SMR_Thorizon_CH2P_3:
+            # pp_SMR_Hitachi_CH2P_1:
+            # pp_SMR_Hitachi_CH2P_2:
+            # pp_SMR_Hitachi_CH2P_3:
+            # pp_SMR_RollsRoyce_CHH2P_1:
+            # pp_SMR_RollsRoyce_CHH2P_2:
+            # pp_SMR_RollsRoyce_CHH2P_3:
+            # pp_SMR_Thorizon_CHH2P_1:
+            # pp_SMR_Thorizon_CHH2P_2:
+            # pp_SMR_Thorizon_CHH2P_3:
+            pp_SMR_Hitachi_CHH2P_1:
+            # pp_SMR_Hitachi_CHH2P_2:
+            #pp_SMR_Hitachi_CHH2P_3:
+
+
+            # ## CCGT
+            pp_ccgt_gas:
+            #pp_ccgt_gas_ccs:
+            pp_ccgt_hyd:
+
+            # # # OCGT
+            pp_ocgt_gas:
+            pp_ocgt_hyd:
+
+            #Heat
+            pth_electric_boiler:
+
+            #CHP
+            #pp_chp_gas:
+            #pp_chp_biomass:
+
+            ## Battery storage systems
+            ES_BESS_households:
+            ES_BESS_IDES:
+            ES_BESS_MDES:
+            #ES_pumped_hydro:
+
+            # ## Salt cavern storage systems
+            saltcavern_gas:
+            saltcavern_hyd:
+
+            # ## Electrolyser
+            pp_elektrolyser_onshore:
+            pp_elektrolyser_offshore:
+
+            ## Reformers
+            #reformer_smr_ccs: 
+            #reformer_atr_ccs_96:
+
+            ## Import
+            #import_ammonia_cracker:
+            import_lng_terminal:
+
+
+
+    E-VHZ: #32, Vijfhuizen, NL32, Noord-Holland
+        coordinates: {lat: 52.3737, lon: 4.6948}
+        techs: 
+            # Demand
+            demand_elc:
+            #load_shedding_elc:
+            
+            demand_hyd:
+            #load_shedding_hyd:
+
+            demand_gas:
+            #load_shedding_gas:
+
+            demand_pth: 
+            ## Renewables
+            # Market players
+            wind_offshore:
+            wind_onshore:
+            pv_utility:
+            hydro_RoR:
+            
+            # Consumers
+            pv_rooftop:
+            #curtailment_elc:
+
+            # Other curtailment
+            #curtailment_hyd:
+            #curtailment_gas:
+
+            # Power plants
+            pp_waste_incinerator:
+            # pp_waste_incinerator_ccs:
+            pp_biomass_standalone:
+            #pp_hard_coal:
+
+            ## Nuclear
+            pp_nuclear_conventional:
+            #pp_nuclear_smr:
+            #pp_SMR_CHP_generic:
+            #pp_SMR_Hitachi_CHP_1:
+            #pp_SMR_Hitachi_CHP_2:
+            # pp_SMR_Hitachi_CHP_3:
+            #pp_SMR_RollsRoyce_CHP_1:
+            #pp_SMR_RollsRoyce_CHP_2:
+            # pp_SMR_RollsRoyce_CHP_3:
+            #pp_SMR_Thorizon_CHP_1:
+            #pp_SMR_Thorizon_CHP_2:
+            #pp_SMR_Thorizon_CHP_3:
+            # pp_SMR_RollsRoyce_CH2P_1:
+            # pp_SMR_RollsRoyce_CH2P_2:
+            # pp_SMR_RollsRoyce_CH2P_3:
+            # pp_SMR_Thorizon_CH2P_1:
+            # pp_SMR_Thorizon_CH2P_2:
+            # pp_SMR_Thorizon_CH2P_3:
+            # pp_SMR_Hitachi_CH2P_1:
+            # pp_SMR_Hitachi_CH2P_2:
+            # pp_SMR_Hitachi_CH2P_3:
+            # pp_SMR_RollsRoyce_CHH2P_1:
+            # pp_SMR_RollsRoyce_CHH2P_2:
+            # pp_SMR_RollsRoyce_CHH2P_3:
+            # pp_SMR_Thorizon_CHH2P_1:
+            # pp_SMR_Thorizon_CHH2P_2:
+            # pp_SMR_Thorizon_CHH2P_3:
+            pp_SMR_Hitachi_CHH2P_1:
+            # pp_SMR_Hitachi_CHH2P_2:
+            #pp_SMR_Hitachi_CHH2P_3:
+
+
+            # ## CCGT
+            pp_ccgt_gas:
+            #pp_ccgt_gas_ccs:
+            pp_ccgt_hyd:
+
+            # # # OCGT
+            pp_ocgt_gas:
+            pp_ocgt_hyd:
+
+            #Heat
+            pth_electric_boiler:
+
+            #CHP
+            #pp_chp_gas:
+            #pp_chp_biomass:
+
+            ## Battery storage systems
+            ES_BESS_households:
+            ES_BESS_IDES:
+            ES_BESS_MDES:
+            #ES_pumped_hydro:
+
+            # ## Salt cavern storage systems
+            saltcavern_gas:
+            saltcavern_hyd:
+
+            # ## Electrolyser
+            pp_elektrolyser_onshore:
+            pp_elektrolyser_offshore:
+
+            ## Reformers
+            #reformer_smr_ccs: 
+            #reformer_atr_ccs_96:
+
+            ## Import
+            #import_ammonia_cracker:
+            import_lng_terminal:
+
+
+
+    E-WTR: #33, Wateringen, NL33, Zuid-Holland
+        coordinates: {lat: 52.0159, lon: 4.3067}
+        techs: 
+            # Demand
+            demand_elc:
+            #load_shedding_elc:
+            
+            demand_hyd:
+            #load_shedding_hyd:
+
+            demand_gas:
+            #load_shedding_gas:
+
+            demand_pth: 
+            ## Renewables
+            # Market players
+            wind_offshore:
+            wind_onshore:
+            pv_utility:
+            hydro_RoR:
+            
+            # Consumers
+            pv_rooftop:
+            #curtailment_elc:
+
+            # Other curtailment
+            #curtailment_hyd:
+            #curtailment_gas:
+
+            # Power plants
+            pp_waste_incinerator:
+            # pp_waste_incinerator_ccs:
+            pp_biomass_standalone:
+            #pp_hard_coal:
+
+            ## Nuclear
+            pp_nuclear_conventional:
+            #pp_nuclear_smr:
+            #pp_SMR_CHP_generic:
+            #pp_SMR_Hitachi_CHP_1:
+            #pp_SMR_Hitachi_CHP_2:
+            # pp_SMR_Hitachi_CHP_3:
+            #pp_SMR_RollsRoyce_CHP_1:
+            #pp_SMR_RollsRoyce_CHP_2:
+            # pp_SMR_RollsRoyce_CHP_3:
+            #pp_SMR_Thorizon_CHP_1:
+            #pp_SMR_Thorizon_CHP_2:
+            #pp_SMR_Thorizon_CHP_3:
+            # pp_SMR_RollsRoyce_CH2P_1:
+            # pp_SMR_RollsRoyce_CH2P_2:
+            # pp_SMR_RollsRoyce_CH2P_3:
+            # pp_SMR_Thorizon_CH2P_1:
+            # pp_SMR_Thorizon_CH2P_2:
+            # pp_SMR_Thorizon_CH2P_3:
+            # pp_SMR_Hitachi_CH2P_1:
+            # pp_SMR_Hitachi_CH2P_2:
+            # pp_SMR_Hitachi_CH2P_3:
+            # pp_SMR_RollsRoyce_CHH2P_1:
+            # pp_SMR_RollsRoyce_CHH2P_2:
+            # pp_SMR_RollsRoyce_CHH2P_3:
+            # pp_SMR_Thorizon_CHH2P_1:
+            # pp_SMR_Thorizon_CHH2P_2:
+            # pp_SMR_Thorizon_CHH2P_3:
+            pp_SMR_Hitachi_CHH2P_1:
+            # pp_SMR_Hitachi_CHH2P_2:
+            #pp_SMR_Hitachi_CHH2P_3:
+
+
+            # ## CCGT
+            pp_ccgt_gas:
+            #pp_ccgt_gas_ccs:
+            pp_ccgt_hyd:
+
+            # # # OCGT
+            pp_ocgt_gas:
+            pp_ocgt_hyd:
+
+            #Heat
+            pth_electric_boiler:
+
+            #CHP
+            #pp_chp_gas:
+            #pp_chp_biomass:
+
+            ## Battery storage systems
+            ES_BESS_households:
+            ES_BESS_IDES:
+            ES_BESS_MDES:
+            #ES_pumped_hydro:
+
+            # ## Salt cavern storage systems
+            saltcavern_gas:
+            saltcavern_hyd:
+
+            # ## Electrolyser
+            pp_elektrolyser_onshore:
+            pp_elektrolyser_offshore:
+
+            ## Reformers
+            #reformer_smr_ccs: 
+            #reformer_atr_ccs_96:
+
+            ## Import
+            #import_ammonia_cracker:
+            import_lng_terminal:
+
+
+
+    E-WEW: #34, Weiwerd, NL11, Groningen
+        coordinates: {lat: 53.3034, lon: 6.9566}
+        techs: 
+            # Demand
+            demand_elc:
+            #load_shedding_elc:
+            
+            demand_hyd:
+            #load_shedding_hyd:
+
+            demand_gas:
+            #load_shedding_gas:
+
+            demand_pth: 
+            ## Renewables
+            # Market players
+            wind_offshore:
+            wind_onshore:
+            pv_utility:
+            hydro_RoR:
+            
+            # Consumers
+            pv_rooftop:
+            #curtailment_elc:
+
+            # Other curtailment
+            #curtailment_hyd:
+            #curtailment_gas:
+
+            # Power plants
+            pp_waste_incinerator:
+            # pp_waste_incinerator_ccs:
+            pp_biomass_standalone:
+            #pp_hard_coal:
+
+            ## Nuclear
+            pp_nuclear_conventional:
+            #pp_nuclear_smr:
+            #pp_SMR_CHP_generic:
+            #pp_SMR_Hitachi_CHP_1:
+            #pp_SMR_Hitachi_CHP_2:
+            # pp_SMR_Hitachi_CHP_3:
+            #pp_SMR_RollsRoyce_CHP_1:
+            #pp_SMR_RollsRoyce_CHP_2:
+            # pp_SMR_RollsRoyce_CHP_3:
+            #pp_SMR_Thorizon_CHP_1:
+            #pp_SMR_Thorizon_CHP_2:
+            #pp_SMR_Thorizon_CHP_3:
+            # pp_SMR_RollsRoyce_CH2P_1:
+            # pp_SMR_RollsRoyce_CH2P_2:
+            # pp_SMR_RollsRoyce_CH2P_3:
+            # pp_SMR_Thorizon_CH2P_1:
+            # pp_SMR_Thorizon_CH2P_2:
+            # pp_SMR_Thorizon_CH2P_3:
+            # pp_SMR_Hitachi_CH2P_1:
+            # pp_SMR_Hitachi_CH2P_2:
+            # pp_SMR_Hitachi_CH2P_3:
+            # pp_SMR_RollsRoyce_CHH2P_1:
+            # pp_SMR_RollsRoyce_CHH2P_2:
+            # pp_SMR_RollsRoyce_CHH2P_3:
+            # pp_SMR_Thorizon_CHH2P_1:
+            # pp_SMR_Thorizon_CHH2P_2:
+            # pp_SMR_Thorizon_CHH2P_3:
+            pp_SMR_Hitachi_CHH2P_1:
+            # pp_SMR_Hitachi_CHH2P_2:
+            #pp_SMR_Hitachi_CHH2P_3:
+
+
+            # ## CCGT
+            pp_ccgt_gas:
+            #pp_ccgt_gas_ccs:
+            pp_ccgt_hyd:
+
+            # # # OCGT
+            pp_ocgt_gas:
+            pp_ocgt_hyd:
+
+            #Heat
+            pth_electric_boiler:
+
+            #CHP
+            #pp_chp_gas:
+            #pp_chp_biomass:
+
+            ## Battery storage systems
+            ES_BESS_households:
+            ES_BESS_IDES:
+            ES_BESS_MDES:
+            #ES_pumped_hydro:
+
+            # ## Salt cavern storage systems
+            saltcavern_gas:
+            saltcavern_hyd:
+
+            # ## Electrolyser
+            pp_elektrolyser_onshore:
+            pp_elektrolyser_offshore:
+
+            ## Reformers
+            #reformer_smr_ccs: 
+            #reformer_atr_ccs_96:
+
+            ## Import
+            #import_ammonia_cracker:
+            import_lng_terminal:
+
+
+
+    E-WES: #35, Westerlee, NL11, Groningen
+        coordinates: {lat: 51.9825, lon: 4.2242}
+        techs: 
+            # Demand
+            demand_elc:
+            #load_shedding_elc:
+            
+            demand_hyd:
+            #load_shedding_hyd:
+
+            demand_gas:
+            #load_shedding_gas:
+
+            demand_pth: 
+            ## Renewables
+            # Market players
+            wind_offshore:
+            wind_onshore:
+            pv_utility:
+            hydro_RoR:
+            
+            # Consumers
+            pv_rooftop:
+            #curtailment_elc:
+
+            # Other curtailment
+            #curtailment_hyd:
+            #curtailment_gas:
+
+            # Power plants
+            pp_waste_incinerator:
+            # pp_waste_incinerator_ccs:
+            pp_biomass_standalone:
+            #pp_hard_coal:
+
+            ## Nuclear
+            pp_nuclear_conventional:
+            #pp_nuclear_smr:
+            #pp_SMR_CHP_generic:
+            #pp_SMR_Hitachi_CHP_1:
+            #pp_SMR_Hitachi_CHP_2:
+            # pp_SMR_Hitachi_CHP_3:
+            #pp_SMR_RollsRoyce_CHP_1:
+            #pp_SMR_RollsRoyce_CHP_2:
+            # pp_SMR_RollsRoyce_CHP_3:
+            #pp_SMR_Thorizon_CHP_1:
+            #pp_SMR_Thorizon_CHP_2:
+            #pp_SMR_Thorizon_CHP_3:
+            # pp_SMR_RollsRoyce_CH2P_1:
+            # pp_SMR_RollsRoyce_CH2P_2:
+            # pp_SMR_RollsRoyce_CH2P_3:
+            # pp_SMR_Thorizon_CH2P_1:
+            # pp_SMR_Thorizon_CH2P_2:
+            # pp_SMR_Thorizon_CH2P_3:
+            # pp_SMR_Hitachi_CH2P_1:
+            # pp_SMR_Hitachi_CH2P_2:
+            # pp_SMR_Hitachi_CH2P_3:
+            # pp_SMR_RollsRoyce_CHH2P_1:
+            # pp_SMR_RollsRoyce_CHH2P_2:
+            # pp_SMR_RollsRoyce_CHH2P_3:
+            # pp_SMR_Thorizon_CHH2P_1:
+            # pp_SMR_Thorizon_CHH2P_2:
+            # pp_SMR_Thorizon_CHH2P_3:
+            pp_SMR_Hitachi_CHH2P_1:
+            # pp_SMR_Hitachi_CHH2P_2:
+            #pp_SMR_Hitachi_CHH2P_3:
+
+
+            # ## CCGT
+            pp_ccgt_gas:
+            #pp_ccgt_gas_ccs:
+            pp_ccgt_hyd:
+
+            # # # OCGT
+            pp_ocgt_gas:
+            pp_ocgt_hyd:
+
+            #Heat
+            pth_electric_boiler:
+
+            #CHP
+            #pp_chp_gas:
+            #pp_chp_biomass:
+
+            ## Battery storage systems
+            ES_BESS_households:
+            ES_BESS_IDES:
+            ES_BESS_MDES:
+            #ES_pumped_hydro:
+
+            # ## Salt cavern storage systems
+            saltcavern_gas:
+            saltcavern_hyd:
+
+            # ## Electrolyser
+            pp_elektrolyser_onshore:
+            pp_elektrolyser_offshore:
+
+            ## Reformers
+            #reformer_smr_ccs: 
+            #reformer_atr_ccs_96:
+
+            ## Import
+            #import_ammonia_cracker:
+            import_lng_terminal:
+
+
+
+    E-ZYV: #37, Zeyerveen, NL13, Drenthe
+        coordinates: {lat: 53.0097, lon: 6.5240}
+        techs: 
+            # Demand
+            demand_elc:
+            #load_shedding_elc:
+            
+            demand_hyd:
+            #load_shedding_hyd:
+
+            demand_gas:
+            #load_shedding_gas:
+
+            demand_pth: 
+            ## Renewables
+            # Market players
+            wind_offshore:
+            wind_onshore:
+            pv_utility:
+            hydro_RoR:
+            
+            # Consumers
+            pv_rooftop:
+            #curtailment_elc:
+
+            # Other curtailment
+            #curtailment_hyd:
+            #curtailment_gas:
+
+            # Power plants
+            pp_waste_incinerator:
+            # pp_waste_incinerator_ccs:
+            pp_biomass_standalone:
+            #pp_hard_coal:
+
+            ## Nuclear
+            pp_nuclear_conventional:
+            #pp_nuclear_smr:
+            #pp_SMR_CHP_generic:
+            #pp_SMR_Hitachi_CHP_1:
+            #pp_SMR_Hitachi_CHP_2:
+            # pp_SMR_Hitachi_CHP_3:
+            #pp_SMR_RollsRoyce_CHP_1:
+            #pp_SMR_RollsRoyce_CHP_2:
+            # pp_SMR_RollsRoyce_CHP_3:
+            #pp_SMR_Thorizon_CHP_1:
+            #pp_SMR_Thorizon_CHP_2:
+            #pp_SMR_Thorizon_CHP_3:
+            # pp_SMR_RollsRoyce_CH2P_1:
+            # pp_SMR_RollsRoyce_CH2P_2:
+            # pp_SMR_RollsRoyce_CH2P_3:
+            # pp_SMR_Thorizon_CH2P_1:
+            # pp_SMR_Thorizon_CH2P_2:
+            # pp_SMR_Thorizon_CH2P_3:
+            # pp_SMR_Hitachi_CH2P_1:
+            # pp_SMR_Hitachi_CH2P_2:
+            # pp_SMR_Hitachi_CH2P_3:
+            # pp_SMR_RollsRoyce_CHH2P_1:
+            # pp_SMR_RollsRoyce_CHH2P_2:
+            # pp_SMR_RollsRoyce_CHH2P_3:
+            # pp_SMR_Thorizon_CHH2P_1:
+            # pp_SMR_Thorizon_CHH2P_2:
+            # pp_SMR_Thorizon_CHH2P_3:
+            pp_SMR_Hitachi_CHH2P_1:
+            # pp_SMR_Hitachi_CHH2P_2:
+            #pp_SMR_Hitachi_CHH2P_3:
+
+
+            # ## CCGT
+            pp_ccgt_gas:
+            #pp_ccgt_gas_ccs:
+            pp_ccgt_hyd:
+
+            # # # OCGT
+            pp_ocgt_gas:
+            pp_ocgt_hyd:
+
+            #Heat
+            pth_electric_boiler:
+
+            #CHP
+            #pp_chp_gas:
+            #pp_chp_biomass:
+
+            ## Battery storage systems
+            ES_BESS_households:
+            ES_BESS_IDES:
+            ES_BESS_MDES:
+            #ES_pumped_hydro:
+
+            # ## Salt cavern storage systems
+            saltcavern_gas:
+            saltcavern_hyd:
+
+            # ## Electrolyser
+            pp_elektrolyser_onshore:
+            pp_elektrolyser_offshore:
+
+            ## Reformers
+            #reformer_smr_ccs: 
+            #reformer_atr_ccs_96:
+
+            ## Import
+            #import_ammonia_cracker:
+            import_lng_terminal:
+
+
+
+    E-ZWO: #38, Zwolle, NL21, Overijssel
+        coordinates: {lat: 52.5299, lon: 6.1902}
+        techs: 
+            # Demand
+            demand_elc:
+            #load_shedding_elc:
+            
+            demand_hyd:
+            #load_shedding_hyd:
+
+            demand_gas:
+            #load_shedding_gas:
+
+            demand_pth: 
+            ## Renewables
+            # Market players
+            wind_offshore:
+            wind_onshore:
+            pv_utility:
+            hydro_RoR:
+            
+            # Consumers
+            pv_rooftop:
+            #curtailment_elc:
+
+            # Other curtailment
+            #curtailment_hyd:
+            #curtailment_gas:
+
+            # Power plants
+            pp_waste_incinerator:
+            # pp_waste_incinerator_ccs:
+            pp_biomass_standalone:
+            #pp_hard_coal:
+
+            ## Nuclear
+            pp_nuclear_conventional:
+            #pp_nuclear_smr:
+            #pp_SMR_CHP_generic:
+            #pp_SMR_Hitachi_CHP_1:
+            #pp_SMR_Hitachi_CHP_2:
+            # pp_SMR_Hitachi_CHP_3:
+            #pp_SMR_RollsRoyce_CHP_1:
+            #pp_SMR_RollsRoyce_CHP_2:
+            # pp_SMR_RollsRoyce_CHP_3:
+            #pp_SMR_Thorizon_CHP_1:
+            #pp_SMR_Thorizon_CHP_2:
+            #pp_SMR_Thorizon_CHP_3:
+            # pp_SMR_RollsRoyce_CH2P_1:
+            # pp_SMR_RollsRoyce_CH2P_2:
+            # pp_SMR_RollsRoyce_CH2P_3:
+            # pp_SMR_Thorizon_CH2P_1:
+            # pp_SMR_Thorizon_CH2P_2:
+            # pp_SMR_Thorizon_CH2P_3:
+            # pp_SMR_Hitachi_CH2P_1:
+            # pp_SMR_Hitachi_CH2P_2:
+            # pp_SMR_Hitachi_CH2P_3:
+            # pp_SMR_RollsRoyce_CHH2P_1:
+            # pp_SMR_RollsRoyce_CHH2P_2:
+            # pp_SMR_RollsRoyce_CHH2P_3:
+            # pp_SMR_Thorizon_CHH2P_1:
+            # pp_SMR_Thorizon_CHH2P_2:
+            # pp_SMR_Thorizon_CHH2P_3:
+            pp_SMR_Hitachi_CHH2P_1:
+            # pp_SMR_Hitachi_CHH2P_2:
+            #pp_SMR_Hitachi_CHH2P_3:
+
+
+            # ## CCGT
+            pp_ccgt_gas:
+            #pp_ccgt_gas_ccs:
+            pp_ccgt_hyd:
+
+            # # # OCGT
+            pp_ocgt_gas:
+            pp_ocgt_hyd:
+
+            #Heat
+            pth_electric_boiler:
+
+            #CHP
+            #pp_chp_gas:
+            #pp_chp_biomass:
+
+            ## Battery storage systems
+            ES_BESS_households:
+            ES_BESS_IDES:
+            ES_BESS_MDES:
+            #ES_pumped_hydro:
+
+            # ## Salt cavern storage systems
+            saltcavern_gas:
+            saltcavern_hyd:
+
+            # ## Electrolyser
+            pp_elektrolyser_onshore:
+            pp_elektrolyser_offshore:
+
+            ## Reformers
+            #reformer_smr_ccs: 
+            #reformer_atr_ccs_96:
+
+            ## Import
+            #import_ammonia_cracker:
+            import_lng_terminal:
+
+
+
+    E-BRK: #46, Breukelen, NL31, Utrecht
+        coordinates: {lat: 52.1603, lon: 4.9870}
+        techs: 
+            # Demand
+            demand_elc:
+            #load_shedding_elc:
+            
+            demand_hyd:
+            #load_shedding_hyd:
+
+            demand_gas:
+            #load_shedding_gas:
+
+            demand_pth: 
+            ## Renewables
+            # Market players
+            wind_offshore:
+            wind_onshore:
+            pv_utility:
+            hydro_RoR:
+            
+            # Consumers
+            pv_rooftop:
+            #curtailment_elc:
+
+            # Other curtailment
+            #curtailment_hyd:
+            #curtailment_gas:
+
+            # Power plants
+            pp_waste_incinerator:
+            # pp_waste_incinerator_ccs:
+            pp_biomass_standalone:
+            #pp_hard_coal:
+
+            ## Nuclear
+            pp_nuclear_conventional:
+            #pp_nuclear_smr:
+            #pp_SMR_CHP_generic:
+            #pp_SMR_Hitachi_CHP_1:
+            #pp_SMR_Hitachi_CHP_2:
+            # pp_SMR_Hitachi_CHP_3:
+            #pp_SMR_RollsRoyce_CHP_1:
+            #pp_SMR_RollsRoyce_CHP_2:
+            # pp_SMR_RollsRoyce_CHP_3:
+            #pp_SMR_Thorizon_CHP_1:
+            #pp_SMR_Thorizon_CHP_2:
+            #pp_SMR_Thorizon_CHP_3:
+            # pp_SMR_RollsRoyce_CH2P_1:
+            # pp_SMR_RollsRoyce_CH2P_2:
+            # pp_SMR_RollsRoyce_CH2P_3:
+            # pp_SMR_Thorizon_CH2P_1:
+            # pp_SMR_Thorizon_CH2P_2:
+            # pp_SMR_Thorizon_CH2P_3:
+            # pp_SMR_Hitachi_CH2P_1:
+            # pp_SMR_Hitachi_CH2P_2:
+            # pp_SMR_Hitachi_CH2P_3:
+            # pp_SMR_RollsRoyce_CHH2P_1:
+            # pp_SMR_RollsRoyce_CHH2P_2:
+            # pp_SMR_RollsRoyce_CHH2P_3:
+            # pp_SMR_Thorizon_CHH2P_1:
+            # pp_SMR_Thorizon_CHH2P_2:
+            # pp_SMR_Thorizon_CHH2P_3:
+            pp_SMR_Hitachi_CHH2P_1:
+            # pp_SMR_Hitachi_CHH2P_2:
+            #pp_SMR_Hitachi_CHH2P_3:
+
+
+            # ## CCGT
+            pp_ccgt_gas:
+            #pp_ccgt_gas_ccs:
+            pp_ccgt_hyd:
+
+            # # # OCGT
+            pp_ocgt_gas:
+            pp_ocgt_hyd:
+
+            #Heat
+            pth_electric_boiler:
+
+            #CHP
+            #pp_chp_gas:
+            #pp_chp_biomass:
+
+            ## Battery storage systems
+            ES_BESS_households:
+            ES_BESS_IDES:
+            ES_BESS_MDES:
+            #ES_pumped_hydro:
+
+            # ## Salt cavern storage systems
+            saltcavern_gas:
+            saltcavern_hyd:
+
+            # ## Electrolyser
+            pp_elektrolyser_onshore:
+            pp_elektrolyser_offshore:
+
+            ## Reformers
+            #reformer_smr_ccs: 
+            #reformer_atr_ccs_96:
+
+            ## Import
+            #import_ammonia_cracker:
+            import_lng_terminal:
+
+
+
+    # Neighboring countries:----------------------------------------------#
+
+    # Germany
+    E-DE-DIE: #7, Diele, Germany, Groningen
+        coordinates: {lat: 53.1258, lon: 7.3131}
+        techs: 
+            interconnector_base:
+            import_DIE:
+            export_DIE:
+
+    E-DE-GRO: #15, Gronau, Germany, Overijssel
+        coordinates: {lat: 52.2034, lon: 7.0346}
+        techs: 
+            interconnector_base:
+            import_GRO:
+            export_GRO:
+
+    E-DE-SIE: #27, Siersdorf, Germany, Limburg
+        coordinates: {lat: 50.9123, lon: 6.2161}
+        techs: 
+            interconnector_base:
+            import_SIE:
+            export_SIE:
+
+    E-DE-WSL: #42, Wesel, Germany, Gelderland
+        coordinates: {lat: 51.6577, lon: 6.6171}
+        techs: 
+            interconnector_base:
+            import_WSL:
+            export_WSL:
+
+    # Belgium
+    E-BE-EYC: #30, Van Eyck / Kinrooi, Belgium, Limburg
+        coordinates: {lat: 51.1211, lon: 5.7742}
+        techs: 
+            interconnector_base:
+            import_EYC:
+            export_EYC:
+
+    E-BE-ZAN: #36, Zandvliet, Belgium, Zeeland
+        coordinates: {lat: 51.3689, lon: 4.2486}
+        techs: 
+            interconnector_base:
+            import_ZAN:
+            export_ZAN:
+
+    # United Kingdom
+    E-UK: #43, Isle of Grain, UK, Maasvlakte
+        coordinates: {lat: 51.4406, lon: 0.7157}
+        techs: 
+            interconnector_base:
+            import_UK:
+            export_UK:
+            
+    # Norway
+    E-NOR: #44, Feda, Norway, Eemshaven
+        coordinates: {lat: 58.2827, lon: 6.8672}
+        techs: 
+            interconnector_base:
+            import_NOR:
+            export_NOR:
+
+    # Denmark
+    E-DEN: #45, Endrup, Denmark, Eemshaven
+        coordinates: {lat: 55.5301, lon: 8.7047}
+        techs: 
+            interconnector_base:
+            import_DEN:
+            export_DEN:
+
+##---------------------------------------------------Links-----------------------------------------------------------##
+
+links:
+    E-BGM,E-LSM: #1, Status: In Operation
+        techs:
+            transmission_hvac:
+                distance: 10.9 #km
+                constraints: 
+                    energy_eff_per_distance: 0.99965
+                    energy_cap_min:  1.90525588832576 #GW IO2050 - 2017 data
+                    energy_cap_max: 1.90525588832576 #GW IO2050 all measures 2050#
+#                costs:
+#                    line_load:
+#                        om_prod: 0.000758 # 1/NTC
+
+    E-BGM,E-VVL: #2, Status: In Operation
+        techs:
+            transmission_hvac:
+                distance: 32.5 #km
+                constraints: 
+                    energy_eff_per_distance: 0.99965
+                    energy_cap_min:  1.905255888325765 #GW IO2050 - 2017 data
+                    energy_cap_max: 1.905255888325765 #GW IO2050 all measures 2050#
+#                costs:
+#                    line_load:
+#                        om_prod: 0.000758 # 1/NTC
+
+    E-BMR,E-DOD: #3, Status: In Operation
+        techs:
+            transmission_hvac:
+                distance: 42.0 #km
+                constraints: 
+                    energy_eff_per_distance: 0.99965
+                    energy_cap_min:  3.290896534380867 #GW IO2050 - 2017 data
+                    energy_cap_max: 3.464101615137754 #GW IO2050 all measures 2050#
+#                costs:
+#                    line_load:
+#                        om_prod: 0.000758 # 1/NTC
+
+    E-BMR,E-MBT: #4, Status: In Operation
+        techs:
+            transmission_hvac:
+                distance: 58.0 #km
+                constraints: 
+                    energy_eff_per_distance: 0.99965
+                    energy_cap_min:  3.290896534380867 #GW IO2050 - 2017 data
+                    energy_cap_max: 3.464101615137754 #GW IO2050 all measures 2050#
+#                costs:
+#                    line_load:
+#                        om_prod: 0.000758 # 1/NTC
+
+    E-BSL,E-RIL: #5, Status: In Planning
+        techs:
+            transmission_hvac:
+                distance: 39.1 #km
+                constraints: 
+                    energy_eff_per_distance: 0.99965
+                    energy_cap_min:  3.290896534380867 #GW IO2050 - 2017 data
+                    energy_cap_max: 11.08512516844081 #GW IO2050 all measures 2050#
+#                costs:
+#                    line_load:
+#                        om_prod: 0.000758 # 1/NTC
+
+    E-BVW,E-BWK: #6, Status: In Operation
+        techs:
+            transmission_hvac:
+                distance: 60.0 #km
+                constraints: 
+                    energy_eff_per_distance: 0.99965
+                    energy_cap_min:  3.94907584125704 #GW IO2050 - 2017 data
+                    energy_cap_max: 4.156921938165306 #GW IO2050 all measures 2050#
+#                costs:
+#                    line_load:
+#                        om_prod: 0.000758 # 1/NTC
+
+    E-BVW,E-OZN: #7, Status: In Operation
+        techs:
+            transmission_hvac:
+                distance: 16.1 #km
+                constraints: 
+                    energy_eff_per_distance: 0.99965
+                    energy_cap_min:  3.817439979881805 #GW IO2050 - 2017 data
+                    energy_cap_max: 4.156921938165306 #GW IO2050 all measures 2050#
+#                costs:
+#                    line_load:
+#                        om_prod: 0.000758 # 1/NTC
+
+    E-BVW,E-VHZ: #8, Status: In Operation
+        techs:
+            transmission_hvac:
+                distance: 15.0 #km
+                constraints: 
+                    energy_eff_per_distance: 0.99965
+                    energy_cap_min:  3.94907584125704 #GW IO2050 - 2017 data
+                    energy_cap_max: 4.156921938165306 #GW IO2050 all measures 2050#
+#                costs:
+#                    line_load:
+#                        om_prod: 0.000758 # 1/NTC
+
+    E-BWK,E-KIJ: #9, Status: In Operation
+        techs:
+            transmission_hvac:
+                distance: 17.5 #km
+                constraints:    
+                    energy_eff_per_distance: 0.99965
+                    energy_cap_min:  5.265434455009387 #GW IO2050 - 2017 data
+                    energy_cap_max: 5.542562584220407 #GW IO2050 all measures 2050#
+#                costs:
+#                    line_load:
+#                        om_prod: 0.000758 # 1/NTC
+
+    E-BWK,E-VHZ: #10, Status: In Operation
+        techs:
+            transmission_hvac:
+                distance: 45.0 #km
+                constraints: 
+                    energy_eff_per_distance: 0.99965
+                    energy_cap_min:  3.94907584125704 #GW IO2050 - 2017 data
+                    energy_cap_max: 4.156921938165306 #GW IO2050 all measures 2050#
+#                costs:
+#                    line_load:
+#                        om_prod: 0.000758 # 1/NTC
+
+    E-BWK,E-WTR: #11, Status: In Operation
+        techs:
+            transmission_hvac:
+                distance: 21.9 #km
+                constraints: 
+                    energy_eff_per_distance: 0.99965
+                    energy_cap_min:  5.265434455009387 #GW IO2050 - 2017 data
+                    energy_cap_max: 5.542562584220407 #GW IO2050 all measures 2050#
+#                costs:
+#                    line_load:
+#                        om_prod: 0.000758 # 1/NTC
+
+    E-CST,E-KIJ: #12, Status: In Operation
+        techs:
+            transmission_hvac:
+                distance: 14.8 #km
+                constraints: 
+                    energy_eff_per_distance: 0.99965
+                    energy_cap_min:  5.265434455009387 #GW IO2050 - 2017 data
+                    energy_cap_max: 5.542562584220407 #GW IO2050 all measures 2050#
+#                costs:
+#                    line_load:
+#                        om_prod: 0.000758 # 1/NTC
+
+    E-CST,E-SMH: #13, Status: In Operation
+        techs:
+            transmission_hvac:
+                distance: 43.0 #km
+                constraints: 
+                    energy_eff_per_distance: 0.99965
+                    energy_cap_min:  5.265434455009387 #GW IO2050 - 2017 data
+                    energy_cap_max: 5.542562584220407 #GW IO2050 all measures 2050#
+#                costs:
+#                    line_load:
+#                        om_prod: 0.000758 # 1/NTC
+
+    E-DIM,E-KIJ: #15, Status: In Operation
+        techs:
+            transmission_hvac:
+                distance: 57.5 #km
+                constraints: 
+                    energy_eff_per_distance: 0.99965
+                    energy_cap_min:  3.290896534380867 #GW IO2050 - 2017 data
+                    energy_cap_max: 3.464101615137754 #GW IO2050 all measures 2050#
+#                costs:
+#                    line_load:
+#                        om_prod: 0.000758 # 1/NTC
+
+    E-DIM,E-LLS: #16, Status: In Operation
+        techs:
+            transmission_hvac:
+                distance: 51.7 #km
+                constraints: 
+                    energy_eff_per_distance: 0.99965
+                    energy_cap_min:  3.290896534380867 #GW IO2050 - 2017 data
+                    energy_cap_max: 11.08512516844081 #GW IO2050 all measures 2050#
+#                costs:
+#                    line_load:
+#                        om_prod: 0.000758 # 1/NTC
+
+    E-DIM,E-OZN: #17, Status: In Operation
+        techs:
+            transmission_hvac:
+                distance: 15.5 #km
+                constraints: 
+                    energy_eff_per_distance: 0.99965
+                    energy_cap_min:  3.817439979881805 #GW IO2050 - 2017 data
+                    energy_cap_max: 4.156921938165306 #GW IO2050 all measures 2050#
+#                costs:
+#                    line_load:
+#                        om_prod: 0.000758 # 1/NTC
+
+    E-DOD,E-DTC: #18, Status: In Operation
+        techs:
+            transmission_hvac:
+                distance: 44.6 #km
+                constraints: 
+                    energy_eff_per_distance: 0.99965
+                    energy_cap_min:  3.290896534380867 #GW IO2050 - 2017 data
+                    energy_cap_max: 4.156921938165306 #GW IO2050 all measures 2050#
+#                costs:
+#                    line_load:
+#                        om_prod: 0.000758 # 1/NTC
+
+    E-DTC,E-HGL: #19, Status: In Operation
+        techs:
+            transmission_hvac:
+                distance: 58.7 #km
+                constraints: 
+                    energy_eff_per_distance: 0.99965
+                    energy_cap_min:  3.290896534380867 #GW IO2050 - 2017 data
+                    energy_cap_max: 4.156921938165306 #GW IO2050 all measures 2050#
+#                costs:
+#                    line_load:
+#                        om_prod: 0.000758 # 1/NTC
+
+    E-EEM,E-MEE: #20, Status: In Operation
+        techs:
+            transmission_hvac:
+                distance: 37.6 #km
+                constraints: 
+                    energy_eff_per_distance: 0.99965
+                    energy_cap_min:  5.265434455009387 #GW IO2050 - 2017 data
+                    energy_cap_max: 5.542562584220407 #GW IO2050 all measures 2050#
+#                costs:
+#                    line_load:
+#                        om_prod: 0.000758 # 1/NTC
+
+    E-EEM,E-VVL: #21, Status: In Operation
+        techs:
+            transmission_hvac:
+                distance: 39.9 #km
+                constraints: 
+                    energy_eff_per_distance: 0.99965
+                    energy_cap_min:  3.505670834519407 #GW IO2050 - 2017 data
+                    energy_cap_max: 11.08512516844081 #GW IO2050 all measures 2050#
+#                costs:
+#                    line_load:
+#                        om_prod: 0.000758 # 1/NTC
+
+    E-EEM,E-WEW: #22, Status: In Operation
+        techs:
+            transmission_hvac:
+                distance: 24.3 #km
+                constraints: 
+                    energy_eff_per_distance: 0.99965
+                    energy_cap_min:  1.752835417259704 #GW IO2050 - 2017 data
+                    energy_cap_max: 1.752835417259704 #GW IO2050 all measures 2050#
+#                costs:
+#                    line_load:
+#                        om_prod: 0.000758 # 1/NTC
+
+    E-EHV,E-MBT: #23, Status: In Operation
+        techs:
+            transmission_hvac:
+                distance: 48.8 #km
+                constraints: 
+                    energy_eff_per_distance: 0.99965
+                    energy_cap_min:  3.94907584125704 #GW IO2050 - 2017 data
+                    energy_cap_max: 5.542562584220407 #GW IO2050 all measures 2050#
+#                costs:
+#                    line_load:
+#                        om_prod: 0.000758 # 1/NTC
+
+    E-EHV,E-TIL: #24, Status: In Planning
+        techs:
+            transmission_hvac:
+                distance: 40.0 #km
+                constraints: 
+                    energy_eff_per_distance: 0.99965
+                    energy_cap_min:  0.001 #GW IO2050 - 2017 data
+                    energy_cap_max: 5.196152422706632 #GW IO2050 all measures 2050#
+#                costs:
+#                    line_load:
+#                        om_prod: 0.000758 # 1/NTC
+
+    E-ENS,E-LLS: #26, Status: In Operation
+        techs:
+            transmission_hvac:
+                distance: 20.0 #km
+                constraints: 
+                    energy_eff_per_distance: 0.99965
+                    energy_cap_min:  3.94907584125704 #GW IO2050 - 2017 data
+                    energy_cap_max: 11.08512516844081 #GW IO2050 all measures 2050#
+#                costs:
+#                    line_load:
+#                        om_prod: 0.000758 # 1/NTC
+
+    E-ENS,E-OHK: #27, Status: In Operation
+        techs:
+            transmission_hvac:
+                distance: 43.4 #km
+                constraints: 
+                    energy_eff_per_distance: 0.99965
+                    energy_cap_min:  1.905255888325765 #GW IO2050 - 2017 data
+                    energy_cap_max: 1.905255888325765 #GW IO2050 all measures 2050#
+#                costs:
+#                    line_load:
+#                        om_prod: 0.000758 # 1/NTC
+
+    E-ENS,E-VVL: #28, Status: In Planning
+        techs:
+            transmission_hvac:
+                distance: 115.0 #km
+                constraints: 
+                    energy_eff_per_distance: 0.99965
+                    energy_cap_min:  0.001 #MW IO2050 - 2017 data
+                    energy_cap_max: 5.542562584220407 #GW IO2050 all measures 2050#
+#                costs:
+#                    line_load:
+#                        om_prod: 0.000758 # 1/NTC
+
+    E-ENS,E-ZWO: #29, Status: In Operation + ENS-HSW
+        techs:
+            transmission_hvac:
+                distance: 31.7 #km
+                constraints: 
+                    energy_eff_per_distance: 0.99965
+                    energy_cap_min:  5.200 #GW IO2050 - 2017 data [ENS-ZWO + 1900 ENS-HSW]
+                    energy_cap_max: 7.500 #GW IO2050 all measures 2050#
+#                costs:
+#                    line_load:
+#                        om_prod: 0.000758 # 1/NTC
+
+     #E-ENS,E-ZWO: #25, Status: In Operation | IS ACTUALLY HSW, BUT FOR SIMPLICITY NOW CONNECTED TO ZWOLLE
+         #techs:
+             #transmission_hvac:
+                 #distance: 31.4 #km
+                 #constraints: 
+                     #energy_eff_per_distance: 0.99965
+                     #energy_cap_min:  1905.255888325765 #MW IO2050 - 2017 data
+                     #energy_cap_max: 1905.255888325765 #MW IO2050 all measures 2050
+                 #costs:
+                     #line_load:
+                         #om_prod: 0.000758 # 1/NTC
+
+    E-GER,E-KIJ: #31, Status: In Operation
+        techs:
+            transmission_hvac:
+                distance: 34.0 #km
+                constraints: 
+                    energy_eff_per_distance: 0.99965
+                    energy_cap_min:  3.94907584125704 #GW IO2050 - 2017 data
+                    energy_cap_max: 11.08512516844081 #GW IO2050 all measures 2050#
+#                costs:
+#                    line_load:
+#                        om_prod: 0.000758 # 1/NTC
+
+    E-GER,E-RIL: #32, Status: In Planning
+        techs:
+            transmission_hvac:
+                distance: 60.3 #km
+                constraints: 
+                    energy_eff_per_distance: 0.99965
+                    energy_cap_min:  3.290896534380867 #GW IO2050 - 2017 data
+                    energy_cap_max: 5.542562584220407 #GW IO2050 all measures 2050#
+#                costs:
+#                    line_load:
+#                        om_prod: 0.000758 # 1/NTC
+
+    E-GER,E-TIL: #33, Status: In Planning
+        techs:
+            transmission_hvac:
+                distance: 24.0 #km
+                constraints: 
+                    energy_eff_per_distance: 0.99965
+                    energy_cap_min:  0.001 #MW IO2050 - 2017 data
+                    energy_cap_max: 5.196152422706632 #GW IO2050 all measures 2050#
+#                costs:
+#                    line_load:
+#                        om_prod: 0.000758 # 1/NTC
+
+    E-HGL,E-ZWO: #35, Status: In Operation
+        techs:
+            transmission_hvac:
+                distance: 60.7 #km
+                constraints: 
+                    energy_eff_per_distance: 0.99965
+                    energy_cap_min:  3.290896534380867 #GW IO2050 - 2017 data
+                    energy_cap_max: 5.542562584220407 #GW IO2050 all measures 2050#
+#                costs:
+#                    line_load:
+#                        om_prod: 0.000758 # 1/NTC
+
+    E-ZWO,E-ZYV: #36, Status: In Operation | IS ACTUALLY CONNECTED TO HSW, BUT FOR SIMPLICITY NOW ZWOLLE
+        techs:
+            transmission_hvac:
+                distance: 63.9 #km
+                constraints: 
+                    energy_eff_per_distance: 0.99965
+                    energy_cap_min:  1.905255888325765 #GW IO2050 - 2017 data
+                    energy_cap_max: 1.905255888325765 #GW IO2050 all measures 2050#
+#                costs:
+#                    line_load:
+#                        om_prod: 0.000758 # 1/NTC
+
+    E-LSM,E-OHK: #37, Status: In Operation
+        techs:
+            transmission_hvac:
+                distance: 28.5 #km
+                constraints: 
+                    energy_eff_per_distance: 0.99965
+                    energy_cap_min:  1.905255888325765 #GW IO2050 - 2017 data
+                    energy_cap_max: 1.905255888325765 #GW IO2050 all measures 2050#
+#                costs:
+#                    line_load:
+#                        om_prod: 0.000758 # 1/NTC
+
+    E-MEE,E-WEW: #39, Status: In Operation
+        techs:
+            transmission_hvac:
+                distance: 29.3 #km
+                constraints: 
+                    energy_eff_per_distance: 0.99965
+                    energy_cap_min:  1.752835417259704 #GW IO2050 - 2017 data
+                    energy_cap_max: 1.752835417259704 #GW IO2050 all measures 2050#
+#                costs:
+#                    line_load:
+#                        om_prod: 0.000758 # 1/NTC
+
+    E-MEE,E-ZWO: #40, Status: In Operation
+        techs:
+            transmission_hvac:
+                distance: 107.8 #km
+                constraints: 
+                    energy_eff_per_distance: 0.99965
+                    energy_cap_min:  5.265434455009387 #GW IO2050 - 2017 data
+                    energy_cap_max: 5.542562584220407 #GW IO2050 all measures 2050#
+#                costs:
+#                    line_load:
+#                        om_prod: 0.000758 # 1/NTC
+
+    E-MVL,E-SMH: #41, Status: In Operation
+        techs:
+            transmission_hvac:
+                distance: 23.0 #km
+                constraints: 
+                    energy_eff_per_distance: 0.99965
+                    energy_cap_min:  5.265434455009387 #GW IO2050 - 2017 data
+                    energy_cap_max: 5.542562584220407 #GW IO2050 all measures 2050#
+#                costs:
+#                    line_load:
+#                        om_prod: 0.000758 # 1/NTC
+
+    E-MVL,E-WES: #42, Status: In Operation
+        techs:
+            transmission_hvac:
+                distance: 20.2 #km
+                constraints: 
+                    energy_eff_per_distance: 0.99965
+                    energy_cap_min:  5.265434455009387 #GW IO2050 - 2017 data
+                    energy_cap_max: 5.542562584220407 #GW IO2050 all measures 2050#
+#                costs:
+#                    line_load:
+#                        om_prod: 0.000758 # 1/NTC
+
+    E-RIL,E-TIL: #43, Status: In Planning
+        techs:
+            transmission_hvac:
+                distance: 85.0 #km
+                constraints: 
+                    energy_eff_per_distance: 0.99965
+                    energy_cap_min:  0.001 #MW IO2050 - 2017 data
+                    energy_cap_max: 5.542562584220407 #GW IO2050 all measures 2050#
+#                costs:
+#                    line_load:
+#                        om_prod: 0.000758 # 1/NTC
+
+    E-VVL,E-ZYV: #45, Status: In Operation
+        techs:
+            transmission_hvac:
+                distance: 23.7 #km
+                constraints: 
+                    energy_eff_per_distance: 0.99965
+                    energy_cap_min:  1.905255888325765 #GW IO2050 - 2017 data
+                    energy_cap_max: 1.905255888325765 #GW IO2050 all measures 2050#
+#                costs:
+#                    line_load:
+#                        om_prod: 0.000758 # 1/NTC
+
+    E-WES,E-WTR: #46, Status: In Operation
+        techs:
+            transmission_hvac:
+                distance: 6.8 #km
+                constraints: 
+                    energy_eff_per_distance: 0.99965
+                    energy_cap_min:  5.265434455009387 #GW IO2050 - 2017 data
+                    energy_cap_max: 5.542562584220407 #GW IO2050 all measures 2050#
+#                costs:
+#                    line_load:
+#                        om_prod: 0.000758 # 1/NTC
+
+    E-BRK,E-KIJ: #47, Status: In Operation |UTRECHT
+        techs:
+            transmission_hvac:
+                distance: 37.61 #km https://webkaart.hoogspanningsnet.com/index2.php#14/52.1476/4.9990
+                constraints: 
+                    energy_eff_per_distance: 0.99965
+                    energy_cap_min:  1.500 #GW https://webkaart.hoogspanningsnet.com/index2.php#14/52.1476/4.9990
+                    energy_cap_max:  2.000 #GW Arbitrary#
+#                costs:
+#                    line_load:
+#                        om_prod: 0.000758 # 1/NTC
+    
+    E-BRK,E-DIM: #48, Status: In Operation |UTRECHT
+        techs:
+            transmission_hvac:
+                distance: 20.07 #km https://webkaart.hoogspanningsnet.com/index2.php#14/52.1476/4.9990
+                constraints: 
+                    energy_eff_per_distance: 0.99965
+                    energy_cap_min:  1.500 #GW https://webkaart.hoogspanningsnet.com/index2.php#14/52.1476/4.9990
+                    energy_cap_max:  2.000 #GW Arbitrary#
+#                costs:
+#                    line_load:
+#                        om_prod: 0.000758 # 1/NTC
+
+##--------------------------------------------Dummy nodes gas & hydrogen-----------------------------------------------------##
+    NL,E-BGM:
+        techs:
+            free_gas_transmission:
+            free_hyd_transmission:
+            free_solid_fuel_transmission:
+            free_co2_transmission:
+            free_ets_budget_transmission:
+            free_ets_penalty_transmission:
+            free_co2_stored_transmission:
+
+
+    NL,E-BVW:
+        techs:
+            free_gas_transmission:
+            free_hyd_transmission:
+            free_solid_fuel_transmission:
+            free_co2_transmission:
+            free_ets_budget_transmission:
+            free_ets_penalty_transmission:
+            free_co2_stored_transmission:
+
+
+    NL,E-BWK:
+        techs:
+            free_gas_transmission:
+            free_hyd_transmission:
+            free_solid_fuel_transmission:
+            free_co2_transmission:
+            free_ets_budget_transmission:
+            free_ets_penalty_transmission:
+            free_co2_stored_transmission:
+
+
+    NL,E-BSL:
+        techs:
+            free_gas_transmission:
+            free_hyd_transmission:
+            free_solid_fuel_transmission:
+            free_co2_transmission:
+            free_ets_budget_transmission:
+            free_ets_penalty_transmission:
+            free_co2_stored_transmission:
+
+            
+    NL,E-BMR:
+        techs:
+            free_gas_transmission:
+            free_hyd_transmission:
+            free_solid_fuel_transmission:
+            free_co2_transmission:
+            free_ets_budget_transmission:
+            free_ets_penalty_transmission:
+            free_co2_stored_transmission:
+
+
+    NL,E-BRK:
+        techs:
+            free_gas_transmission:
+            free_hyd_transmission:
+            free_solid_fuel_transmission:
+            free_co2_transmission:
+            free_ets_budget_transmission:
+            free_ets_penalty_transmission:
+            free_co2_stored_transmission:
+
+            
+    NL,E-CST:
+        techs:
+            free_gas_transmission:
+            free_hyd_transmission:
+            free_solid_fuel_transmission:
+            free_co2_transmission:
+            free_ets_budget_transmission:
+            free_ets_penalty_transmission:
+            free_co2_stored_transmission:
+
+
+    NL,E-DIM:
+        techs:
+            free_gas_transmission:
+            free_hyd_transmission:
+            free_solid_fuel_transmission:
+            free_co2_transmission:
+            free_ets_budget_transmission:
+            free_ets_penalty_transmission:
+            free_co2_stored_transmission:
+
+
+    NL,E-DOD:
+        techs:
+            free_gas_transmission:
+            free_hyd_transmission:
+            free_solid_fuel_transmission:
+            free_co2_transmission:
+            free_ets_budget_transmission:
+            free_ets_penalty_transmission:
+            free_co2_stored_transmission:
+
+
+    NL,E-DTC:
+        techs:
+            free_gas_transmission:
+            free_hyd_transmission:
+            free_solid_fuel_transmission:
+            free_co2_transmission:
+            free_ets_budget_transmission:
+            free_ets_penalty_transmission:
+            free_co2_stored_transmission:
+
+
+    NL,E-EEM:
+        techs:
+            free_gas_transmission:
+            free_hyd_transmission:
+            free_solid_fuel_transmission:
+            free_co2_transmission:
+            free_ets_budget_transmission:
+            free_ets_penalty_transmission:
+            free_co2_stored_transmission:
+
+
+    NL,E-EHV:
+        techs:
+            free_gas_transmission:
+            free_hyd_transmission:
+            free_solid_fuel_transmission:
+            free_co2_transmission:
+            free_ets_budget_transmission:
+            free_ets_penalty_transmission:
+            free_co2_stored_transmission:
+
+
+    NL,E-ENS:
+        techs:
+            free_gas_transmission:
+            free_hyd_transmission:
+            free_solid_fuel_transmission:
+            free_co2_transmission:
+            free_ets_budget_transmission:
+            free_ets_penalty_transmission:
+            free_co2_stored_transmission:
+
+
+    NL,E-GER:
+        techs:
+            free_gas_transmission:
+            free_hyd_transmission:
+            free_solid_fuel_transmission:
+            free_co2_transmission:
+            free_ets_budget_transmission:
+            free_ets_penalty_transmission:
+            free_co2_stored_transmission:
+
+
+    NL,E-HGL:
+        techs:
+            free_gas_transmission:
+            free_hyd_transmission:
+            free_solid_fuel_transmission:
+            free_co2_transmission:
+            free_ets_budget_transmission:
+            free_ets_penalty_transmission:
+            free_co2_stored_transmission:
+
+
+    NL,E-KIJ:
+        techs:
+            free_gas_transmission:
+            free_hyd_transmission:
+            free_solid_fuel_transmission:
+            free_co2_transmission:
+            free_ets_budget_transmission:
+            free_ets_penalty_transmission:
+            free_co2_stored_transmission:
+
+
+    NL,E-LLS:
+        techs:
+            free_gas_transmission:
+            free_hyd_transmission:
+            free_solid_fuel_transmission:
+            free_co2_transmission:
+            free_ets_budget_transmission:
+            free_ets_penalty_transmission:
+            free_co2_stored_transmission:
+
+
+    NL,E-LSM:
+        techs:
+            free_gas_transmission:
+            free_hyd_transmission:
+            free_solid_fuel_transmission:
+            free_co2_transmission:
+            free_ets_budget_transmission:
+            free_ets_penalty_transmission:
+            free_co2_stored_transmission:
+
+
+    NL,E-MBT:
+        techs:
+            free_gas_transmission:
+            free_hyd_transmission:
+            free_solid_fuel_transmission:
+            free_co2_transmission:
+            free_ets_budget_transmission:
+            free_ets_penalty_transmission:
+            free_co2_stored_transmission:
+
+
+    NL,E-MVL:
+        techs:
+            free_gas_transmission:
+            free_hyd_transmission:
+            free_solid_fuel_transmission:
+            free_co2_transmission:
+            free_ets_budget_transmission:
+            free_ets_penalty_transmission:
+            free_co2_stored_transmission:
+
+
+    NL,E-MEE:
+        techs:
+            free_gas_transmission:
+            free_hyd_transmission:
+            free_solid_fuel_transmission:
+            free_co2_transmission:
+            free_ets_budget_transmission:
+            free_ets_penalty_transmission:
+            free_co2_stored_transmission:
+
+
+    NL,E-OZN:
+        techs:
+            free_gas_transmission:
+            free_hyd_transmission:
+            free_solid_fuel_transmission:
+            free_co2_transmission:
+            free_ets_budget_transmission:
+            free_ets_penalty_transmission:
+            free_co2_stored_transmission:
+
+
+    NL,E-OHK:
+        techs:
+            free_gas_transmission:
+            free_hyd_transmission:
+            free_solid_fuel_transmission:
+            free_co2_transmission:
+            free_ets_budget_transmission:
+            free_ets_penalty_transmission:
+            free_co2_stored_transmission:
+
+
+    NL,E-RIL:
+        techs:
+            free_gas_transmission:
+            free_hyd_transmission:
+            free_solid_fuel_transmission:
+            free_co2_transmission:
+            free_ets_budget_transmission:
+            free_ets_penalty_transmission:
+            free_co2_stored_transmission:
+
+
+    NL,E-SMH:
+        techs:
+            free_gas_transmission:
+            free_hyd_transmission:
+            free_solid_fuel_transmission:
+            free_co2_transmission:
+            free_ets_budget_transmission:
+            free_ets_penalty_transmission:
+            free_co2_stored_transmission:
+
+
+    NL,E-TIL:
+        techs:
+            free_gas_transmission:
+            free_hyd_transmission:
+            free_solid_fuel_transmission:
+            free_co2_transmission:
+            free_ets_budget_transmission:
+            free_ets_penalty_transmission:
+            free_co2_stored_transmission:
+
+
+    NL,E-VVL:
+        techs:
+            free_gas_transmission:
+            free_hyd_transmission:
+            free_solid_fuel_transmission:
+            free_co2_transmission:
+            free_ets_budget_transmission:
+            free_ets_penalty_transmission:
+            free_co2_stored_transmission:
+
+
+    NL,E-VHZ:
+        techs:
+            free_gas_transmission:
+            free_hyd_transmission:
+            free_solid_fuel_transmission:
+            free_co2_transmission:
+            free_ets_budget_transmission:
+            free_ets_penalty_transmission:
+            free_co2_stored_transmission:
+
+
+    NL,E-WTR:
+        techs:
+            free_gas_transmission:
+            free_hyd_transmission:
+            free_solid_fuel_transmission:
+            free_co2_transmission:
+            free_ets_budget_transmission:
+            free_ets_penalty_transmission:
+            free_co2_stored_transmission:
+
+
+    NL,E-WEW:
+        techs:
+            free_gas_transmission:
+            free_hyd_transmission:
+            free_solid_fuel_transmission:
+            free_co2_transmission:
+            free_ets_budget_transmission:
+            free_ets_penalty_transmission:
+            free_co2_stored_transmission:
+
+
+    NL,E-WES:
+        techs:
+            free_gas_transmission:
+            free_hyd_transmission:
+            free_solid_fuel_transmission:
+            free_co2_transmission:
+            free_ets_budget_transmission:
+            free_ets_penalty_transmission:
+            free_co2_stored_transmission:
+
+
+    NL,E-ZYV:
+        techs:
+            free_gas_transmission:
+            free_hyd_transmission:
+            free_solid_fuel_transmission:
+            free_co2_transmission:
+            free_ets_budget_transmission:
+            free_ets_penalty_transmission:
+            free_co2_stored_transmission:
+
+
+    NL,E-ZWO:
+        techs:
+            free_gas_transmission:
+            free_hyd_transmission:
+            free_solid_fuel_transmission:
+            free_co2_transmission:
+            free_ets_budget_transmission:
+            free_ets_penalty_transmission:
+            free_co2_stored_transmission:
+
+    NL,E-BE-EYC:
+        techs:
+            free_sink_transmission:
+    
+    NL,E-BE-ZAN:
+        techs:
+            free_sink_transmission:
+    
+    NL,E-DE-DIE:
+        techs:
+            free_sink_transmission:
+    
+    NL,E-DE-GRO:
+        techs:
+            free_sink_transmission:
+    
+    NL,E-DE-SIE:
+        techs:
+            free_sink_transmission:
+    NL,E-DE-WSL:
+        techs:
+            free_sink_transmission:
+    
+    NL,E-UK:
+        techs:
+            free_sink_transmission:
+
+    NL,E-NOR:
+        techs:  
+            free_sink_transmission:
+    
+    NL,E-DEN:
+        techs:  
+            free_sink_transmission:    
+
+##--------------------------------------------Interconnectors-----------------------------------------------------##
+    E-DE-DIE,E-MEE: #1, Status: In Operation GERMANY
+        techs:
+            interconnector_base:
+                distance: 28.0 #km
+                constraints:
+                    energy_cap_equals: 1.200 #GW https://www.hoogspanningsnet.com/artikel/mvdm-01-2021/
+                    energy_eff_per_distance: 0.99965
+                
+    E-BE-ZAN,E-RIL: #2, Status: In Planning - BELGIUM
+        techs:
+            interconnector_base:
+                distance: 6.7 #km
+                constraints:
+                    energy_cap_equals: 2.350 #GW https://webkaart.hoogspanningsnet.com/index2.php#12/51.3944/4.2864
+                    energy_eff_per_distance: 0.99965
+
+    E-DE-SIE,E-MBT: #3, Status: In Operation GERMANY
+        techs:
+            interconnector_base:
+                distance: 27.23 #km https://webkaart.hoogspanningsnet.com/index2.php#11/51.0874/5.7925
+                constraints:
+                    energy_cap_equals: 1.500 #GW https://webkaart.hoogspanningsnet.com/index2.php#11/51.0874/5.7925
+                    energy_eff_per_distance: 0.99965
+
+    E-DE-GRO,E-HGL: #4, Status: In Operation GERMANY
+        techs:
+            interconnector_base:
+                distance: 16.51 #km https://webkaart.hoogspanningsnet.com/index2.php#11/52.1286/6.8665
+                constraints:
+                    energy_cap_equals: 1.600 #GW https://webkaart.hoogspanningsnet.com/index2.php#11/52.1286/6.8665
+                    energy_eff_per_distance: 0.99965
+
+    E-BE-EYC,E-MBT: #5, Status: In Operation | BELGIUM
+        techs:
+            interconnector_base:
+                distance: 8.51 #km
+                constraints:
+                    energy_cap_equals: 1.200 #GW https://www.tvl.be/nieuws/ondergrondse-kabel-van-kinrooi-tot-maasbracht-levert-nederlandse-stroom-aan-ons-land-73724
+                    energy_eff_per_distance: 0.99965
+
+    E-DE-WSL,E-DTC: #6, Status: In Operation | GERMANY
+        techs:
+            interconnector_base:
+                distance: 22.56 #km
+                constraints:
+                    energy_cap_equals: 2.350 #GW ?? 
+                    energy_eff_per_distance: 0.99965
+
+    E-UK,E-MVL: #7, Status: In Operation | UK
+        techs:
+            interconnector_base:
+                distance: 260.0 #km https://www.tennet.eu/nl/projecten/britned
+                constraints:
+                    energy_cap_equals: 1.0 #GW https://www.tennet.eu/nl/projecten/britned
+                    energy_eff_per_distance: 0.99965
+
+    E-NOR,E-EEM: #8, Status: In Operation | NORWAY
+        techs:
+            interconnector_base:
+                distance: 580 #km https://www.tennet.eu/nl/projecten/norned
+                constraints:
+                    energy_cap_equals: 0.700 #GW https://www.tennet.eu/nl/projecten/norned
+                    energy_eff_per_distance: 0.99965
+
+    E-DEN,E-EEM: #9, Status: In Operation | DENMARK
+        techs:
+            interconnector_base:
+                distance: 325 #km https://www.tennet.eu/nl/projecten/cobracable
+                constraints:
+                    energy_cap_equals: 0.700 #GW https://www.tennet.eu/nl/projecten/cobracable
+                    energy_eff_per_distance: 0.99965

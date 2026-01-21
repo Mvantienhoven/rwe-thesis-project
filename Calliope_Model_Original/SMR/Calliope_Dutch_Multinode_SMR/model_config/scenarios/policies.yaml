@@ -1,0 +1,63 @@
+##-----------------------------------------------Comments Kevin-----------------------------------------##
+# Sets target shares/ for renewables and green hydrogen
+# Sets minimum nuclear capacity
+
+# To do: Check if I want to use any polices.
+##------------------------------------------------------------------------------------------------------##
+
+#policies
+
+overrides:
+
+    renewable_75%_policy:
+        group_constraints:
+            renewable_minimum_share:
+                techs: ['wind_onshore', 'wind_offshore','pv_utility','pv_rooftop']
+                # locs:['NL']
+                demand_share_min:electricity: 0.75
+
+    renewable_max_policy:
+        group_constraints:
+            pv_minimum_share:
+                techs: ['pv_utility','pv_rooftop']
+                #locs:['NL']
+                demand_share_min:electricity: 0.2
+
+            wind_minimum_maximum_share:
+                techs: ['wind_onshore', 'wind_offshore']
+                #locs:['NL']
+                demand_share_min:electricity: 0.4
+                demand_share_max:electricity: 0.6
+    
+    greenhydrogen_50%_policy:
+        group_constraints:
+            electrolysis_minimum_share:
+                techs: ['electrolyser_alk','electrolyser_pem','electrolyser_soe']
+                #locs:['NL']
+                demand_share_min:hydrogen: 0.5
+
+    nuclear_2GW_policy:
+        group_constraints:
+            nuclear_minimum_cap:
+                techs: ['pp_nuclear_gen3','pp_nuclear_smr']
+                #locs:['NL']
+                energy_cap_equals: 2.0
+
+    nuclear_4GW_policy:
+        group_constraints:
+            nuclear_minimum_cap:
+                techs: ['pp_nuclear_gen3','pp_nuclear_smr']
+                #locs:['NL']
+                energy_cap_equals: 4.0
+        
+    nuclear_6GW_policy:
+        group_constraints:
+            nuclear_minimum_cap:
+                techs: ['pp_nuclear_gen3','pp_nuclear_smr']
+                #locs:['NL']
+                energy_cap_equals: 6.0
+
+    flexible_rooftop_pv:
+        # disable mustrun for pv_rooftop
+
+

@@ -1,0 +1,3372 @@
+##-----------------------------------------------Comments Kevin-----------------------------------------##
+# Includes 'tennet_bess_max' with BESS capacity equals per region 
+# Includes 'capacities historic 2023' with tech caps per region, with:
+    #'Links_tennet_10' with transmission & interconn cap equals per link for 'links' and 'links_default'
+    # Same for Links_StClair
+    # Same for 'linkes_tennet'
+# Includes 'capacities_2040' with tech per region, with:
+    # mostly energy_cap_min, some energy_cap_equals 0 for offshore wind inland, All regions allow for pp_smr
+    # Includes 'links_expansion' with min/max cap per link and cap_equals per interconnector 
+        #includes HVDC Connections
+
+# !! SET CORRECT OVERRIDES FOR SCENARIO !! 
+
+# To do: check reasoning behind links_expansion min/max caps
+
+##------------------------------------------------------------------------------------------------------##
+
+
+overrides:
+
+    # capacities_historic_2023:
+
+    fix_nuclear_1GW:
+        locations.NL.techs.pp_nuclear_gen3.constraints.energy_cap_equals: 1.0 # GW
+
+    fix_nuclear_2GW:
+        locations.NL.techs.pp_nuclear_gen3.constraints.energy_cap_equals: 2.0 # GW
+
+    fix_nuclear_4GW:
+        locations.NL.techs.pp_nuclear_gen3.constraints.energy_cap_equals: 4.0 # GW
+
+    routekaart_wind_at_sea:
+        locations.NL11.techs.wind_offshore.constraints.energy_cap_equals: 2.700 #GW
+        locations.NL32.techs.wind_offshore.constraints.energy_cap_equals: 3.067 #GW
+        locations.NL34.techs.wind_offshore.constraints.energy_cap_equals: 3.503 #GW 
+        locations.NL33.techs.wind_offshore.constraints.energy_cap_equals: 11.649 #GW
+
+    pv_rooftop_max:
+        locations.NL13.techs.pv_rooftop.constraints.energy_cap_max: 5.15 #7.725 #GW equals 10% of 1.5 times the national capacity in IP2024. 
+        locations.NL12.techs.pv_rooftop.constraints.energy_cap_max: 5.15 #7.725 #GW
+        locations.NL11.techs.pv_rooftop.constraints.energy_cap_max: 5.15 #7.725 #GW
+        locations.NL21.techs.pv_rooftop.constraints.energy_cap_max: 5.15 #7.725 #GW
+        locations.NL22.techs.pv_rooftop.constraints.energy_cap_max: 5.15 #7.725 #GW
+        locations.NL23.techs.pv_rooftop.constraints.energy_cap_max: 5.15 #7.725 #GW
+        locations.NL31.techs.pv_rooftop.constraints.energy_cap_max: 5.15 #7.725 #GW
+        locations.NL32.techs.pv_rooftop.constraints.energy_cap_max: 5.15 #7.725 #GW
+        locations.NL33.techs.pv_rooftop.constraints.energy_cap_max: 5.15 #7.725 #GW
+        locations.NL34.techs.pv_rooftop.constraints.energy_cap_max: 5.15 #7.725 #GW
+        locations.NL41.techs.pv_rooftop.constraints.energy_cap_max: 5.15 #7.725 #GW
+        locations.NL42.techs.pv_rooftop.constraints.energy_cap_max: 5.15 #7.725 #GW
+
+    pv_utility_max:
+        locations.NL13.techs.pv_utility.constraints.energy_cap_max: 3.7 #GW equals 10% of 5 times the national capacity in IP2024
+        locations.NL12.techs.pv_utility.constraints.energy_cap_max: 3.7 #GW
+        locations.NL11.techs.pv_utility.constraints.energy_cap_max: 3.7 #GW
+        locations.NL21.techs.pv_utility.constraints.energy_cap_max: 3.7 #GW
+        locations.NL22.techs.pv_utility.constraints.energy_cap_max: 3.7 #GW
+        locations.NL23.techs.pv_utility.constraints.energy_cap_max: 3.7 #GW
+        locations.NL31.techs.pv_utility.constraints.energy_cap_max: 3.7 #GW
+        locations.NL32.techs.pv_utility.constraints.energy_cap_max: 3.7 #GW
+        locations.NL33.techs.pv_utility.constraints.energy_cap_max: 3.7 #GW
+        locations.NL34.techs.pv_utility.constraints.energy_cap_max: 3.7 #GW
+        locations.NL41.techs.pv_utility.constraints.energy_cap_max: 3.7 #GW
+        locations.NL42.techs.pv_utility.constraints.energy_cap_max: 3.7 #GW
+
+    tennet_bess_max:
+        locations:
+            NL13: #Drenthe
+                techs:
+                    bss_liion:
+                        constraints:
+                            energy_cap_equals: 1 # GW assuming a discharge time of 4 hours 
+                            storage_cap_equals: 4 # GWh
+            NL12: #friesland
+                techs:
+                    bss_liion:
+                        constraints:
+                            energy_cap_equals: 1 # GW
+                            storage_cap_equals: 4 # GWh
+            NL11: #groningen
+                techs:
+                    bss_liion:
+                        constraints:
+                            energy_cap_equals: 2 # GW
+                            storage_cap_equals: 8 # GWh
+            NL21: #overijssel
+                techs:
+                    bss_liion:
+                        constraints:
+                            energy_cap_equals: 1 # TODO: Distribute capacity from 0.150 GW
+                            storage_cap_equals: 4 # TODO: Distribute capacity from 0.150 GWh
+            NL22: #gelderland
+                techs:
+                    bss_liion:
+                        constraints:
+                            energy_cap_equals: 1 # GW
+                            storage_cap_equals: 4 # GWh
+            NL23: #Flevoland
+                techs:
+                    bss_liion:
+                        constraints:
+                            energy_cap_equals: 2 # GW
+                            storage_cap_equals: 8 # GWh
+            NL31:
+                techs:
+                    bss_liion:
+                        constraints:
+                            energy_cap_equals: 0.2 # GW
+                            storage_cap_equals: 0.8 # GWh
+            NL32: #nh
+                techs:
+                    bss_liion:
+                        constraints:
+                            energy_cap_equals: 0.556 # GW according to energystorage nl
+                            storage_cap_equals: 1.907 # GWh
+            NL33: #zh
+                techs:
+                    bss_liion:
+                        constraints:
+                            energy_cap_equals: 0.265 # TODO: Distribute capacity from 0.150 GW
+                            storage_cap_equals: 0.830 # TODO: Distribute capacity from 0.150 GWh
+            NL34: #zeeland
+                techs:
+                    bss_liion:
+                        constraints:
+                            energy_cap_equals: 1 # TODO: Distribute capacity from 0.150 GW
+                            storage_cap_equals: 4 # TODO: Distribute capacity from 0.150 GWh
+            NL41: #noord-brabant
+                techs:
+                    bss_liion:
+                        constraints:
+                            energy_cap_equals: 2 # GW
+                            storage_cap_equals: 8 # GWh
+            NL42: #limburg
+                techs:
+                    bss_liion:
+                        constraints:
+                            energy_cap_equals: 1 # GW
+                            storage_cap_equals: 4 # TODO: GWh
+
+    capacities_historic_2023:
+
+    # Unlock energy_cap variables
+        locations:
+            NL13: # Drenthe
+                techs:
+                ## Renewables
+                    wind_offshore:
+                        constraints:
+                            energy_cap_equals: 0 # GW
+                    wind_onshore:
+                        constraints:
+                            energy_cap_equals: 0.2715 # Opgesteld vermogen from klimaat monitor databank at https://klimaatmonitor.databank.nl/dashboard/dashboard/hernieuwbare-energie-per-techniek
+                    pv_rooftop:
+                        constraints:
+                            energy_cap_equals: 0.468 #GW CBS 2023: https://opendata.cbs.nl/portal.html?_la=nl&_catalog=CBS&tableId=85005NED&_theme=292
+                    pv_utility:
+                        constraints:
+                            energy_cap_equals: 1.174 #GW CBS 2023: https://opendata.cbs.nl/portal.html?_la=nl&_catalog=CBS&tableId=85005NED&_theme=292
+                    curtailment_elc:
+
+                    ## Solid power plants
+                    pp_biomass_standalone:
+                        constraints:
+                            energy_cap_equals: 0 # GW, ref: ENTSOE 2024
+                    #pp_waste_incinerator:
+                       # constraints:
+                         #   energy_cap_equals: 0 # GW, ref: ENTSOE 2024
+                    pp_hard_coal:
+                        constraints:
+                            energy_cap_equals: 0 #GW  from global power plant database
+
+                    ## Nuclear
+                    pp_nuclear_gen3:
+                        constraints:
+                            energy_cap_equals: 0 
+                    pp_nuclear_smr:
+                        constraints:
+                            energy_cap_equals: 0 # GW
+
+                    ## CCGT
+                    pp_ccgt_gas:
+                        constraints:
+                            energy_cap_equals: 0.128 # 2024 from Entso-e transparancy platform https://newtransparency.entsoe.eu/generation/installed/perUnit?appState=%7B%22sa%22%3A%5B%22BZN%7C10YNL----------L%22%5D%2C%22st%22%3A%22BZN%22%2C%22mm%22%3Atrue%2C%22ma%22%3Afalse%2C%22sp%22%3A%22HALF%22%2C%22dt%22%3A%22TABLE%22%2C%22df%22%3A%222024%22%2C%22tz%22%3A%22CET%22%7D
+                    pp_ccgt_gas_ccs:
+                        constraints:
+                            energy_cap_equals: 0 # GW
+                    pp_ccgt_hyd:
+                        constraints:
+                            energy_cap_equals: 0 # GW
+
+                    ## OCGT
+                    pp_ocgt_gas:
+                        constraints:
+                            energy_cap_equals: 0 # TODO: Distribute capacity from 0.918 GW
+                    pp_ocgt_hyd:
+                        constraints:
+                            energy_cap_equals: 0 # GW
+
+                    ## Battery storage systems
+                    bss_liion:
+                        constraints:
+                            energy_cap_equals: 0.012 # GW From energy storage NL via Boris Vos
+                            storage_cap_equals: 0.012 # GWh From energy storage NL via Boris Vos
+                    bss_vanadium:
+                        constraints:
+                            energy_cap_equals: 0 # GW
+                            storage_cap_equals: 0 # GWh
+                    bss_nas:
+                        constraints:
+                            energy_cap_equals: 0 # GW
+                            storage_cap_equals: 0 # GWh
+
+                    ## Salt cavern storage systems
+                    #saltcavern_gas:
+                       # constraints:
+                           # energy_cap_equals: 0 # TODO: Distribute capacity from 60 GW
+                           # storage_cap_equals: 0 # TODO: Distribute capacity from 144,000 GWh
+                    saltcavern_hyd:
+                        constraints:
+                            energy_cap_equals: 0 # GW
+                            storage_cap_equals: 0 # GWh
+
+                    ## Electrolyser
+                    electrolyser_alk:
+                        constraints:
+                            energy_cap_equals: 0 # GW
+                    electrolyser_pem:
+                        constraints:
+                            energy_cap_equals: 0 # GW
+                    electrolyser_soe:
+                        constraints:
+                            energy_cap_equals: 0 # GW
+
+                    ## Production
+                   # production_gas_fields:
+                       # constraints:
+                           # energy_cap_equals:  # TODO: Distribute capacity from 11.4 GW
+
+                    ## Import
+                    import_ammonia_cracker:
+                        constraints:
+                            energy_cap_equals: 0 # GW
+                    #import_lng_terminal:
+                     #   constraints:
+                           # energy_cap_equals: 0 # TODO: Distribute capacity from 35.0 GW
+
+            NL23: # Flevoland
+                techs:
+                ## Renewables
+                    wind_offshore:
+                        constraints:
+                            energy_cap_equals: 0 # TODO: Distribute capacity from 4.0 GW
+                    wind_onshore:
+                        constraints:
+                            energy_cap_equals: 2.1619 # Klimaat monitor databank
+                    pv_rooftop:
+                        constraints:
+                            energy_cap_equals: 0.285 # TODO: Distribute capacity from 10.1 GW
+                    pv_utility:
+                        constraints:
+                            energy_cap_equals: 0.900 # TODO: Distribute capacity from 14.2 GW
+                    curtailment_elc:
+
+                    ## Solid power plants
+                    pp_biomass_standalone:
+                        constraints:
+                            energy_cap_equals: 0 # GW, ref: ENTSOE 2024
+                    #pp_waste_incinerator:
+                       # constraints:
+                          #  energy_cap_equals: 0 # GW, ref: ENTSOE 2024
+                    pp_hard_coal:
+                        constraints:
+                            energy_cap_equals: 0 #GW 
+
+                    ## Nuclear
+                    pp_nuclear_gen3:
+                        constraints:
+                            energy_cap_equals: 0 
+                    pp_nuclear_smr:
+                        constraints:
+                            energy_cap_equals: 0 # GW
+
+                    ## CCGT
+                    pp_ccgt_gas:
+                        constraints:
+                            energy_cap_equals: 0.907 # TODO: Distribute capacity from 13.608 GW
+                    pp_ccgt_gas_ccs:
+                        constraints:
+                            energy_cap_equals: 0 # GW
+                    pp_ccgt_hyd:
+                        constraints:
+                            energy_cap_equals: 0 # GW
+
+                    ## OCGT
+                    pp_ocgt_gas:
+                        constraints:
+                            energy_cap_equals: 0 # TODO: Distribute capacity from 0.918 GW
+                    pp_ocgt_hyd:
+                        constraints:
+                            energy_cap_equals: 0 # GW
+
+                    ## Battery storage systems
+                    bss_liion:
+                        constraints:
+                            energy_cap_equals: 0.037 # GW
+                            storage_cap_equals: 0.056 # GWh
+                    bss_vanadium:
+                        constraints:
+                            energy_cap_equals: 0 # GW
+                            storage_cap_equals: 0 # GWh
+                    bss_nas:
+                        constraints:
+                            energy_cap_equals: 0 # GW
+                            storage_cap_equals: 0 # GWh
+
+                    ## Salt cavern storage systems
+                    #saltcavern_gas:
+                        #constraints:
+                          #  energy_cap_equals: 0 # TODO: Distribute capacity from 60 GW
+                           # storage_cap_equals: 0 # TODO: Distribute capacity from 144,000 GWh
+                    saltcavern_hyd:
+                        constraints:
+                            energy_cap_equals: 0 # GW
+                            storage_cap_equals: 0 # GWh
+
+                    ## Electrolyser
+                    electrolyser_alk:
+                        constraints:
+                            energy_cap_equals: 0 # GW
+                    electrolyser_pem:
+                        constraints:
+                            energy_cap_equals: 0 # GW
+                    electrolyser_soe:
+                        constraints:
+                            energy_cap_equals: 0 # GW
+
+                    ## Production
+                    #production_gas_fields:
+                       # constraints:
+                         #   energy_cap_equals:  # TODO: Distribute capacity from 11.4 GW
+
+                    ## Import
+                    import_ammonia_cracker:
+                        constraints:
+                            energy_cap_equals: 0 # GW
+                    import_lng_terminal:
+                        constraints:
+                            energy_cap_equals: 0 # TODO: Distribute capacity from 35.0 GW            
+            NL12: # Friesland
+                techs:
+                ## Renewables
+                    wind_offshore:
+                        constraints:
+                            energy_cap_equals: 0 # or 0.383 GW from https://deafsluitdijk.nl/projecten/windpark-fryslan/#:~:text=Windpark%20Frysl%C3%A2n%20is%20gebouwd%20in,in%20een%20binnenwater%20is%20gebouwd.
+                    wind_onshore:
+                        constraints:
+                            energy_cap_equals: 0.6177 # Klimaat monitor databank
+                    pv_rooftop:
+                        constraints:
+                            energy_cap_equals: 0.5396 # TODO: Distribute capacity from 10.1 GW
+                    pv_utility:
+                        constraints:
+                            energy_cap_equals: 0.7089 # TODO: Distribute capacity from 14.2 GW
+                    curtailment_elc:
+
+                    ## Solid power plants
+                    pp_biomass_standalone:
+                        constraints:
+                            energy_cap_equals: 0 # GW, ref: ENTSOE 2024
+                    #pp_waste_incinerator:
+                      #  constraints:
+                        #    energy_cap_equals: 0 # GW, ref: ENTSOE 2024
+                    pp_hard_coal:
+                        constraints:
+                            energy_cap_equals: 0 #GW 
+
+                    ## Nuclear
+                    pp_nuclear_gen3:
+                        constraints:
+                            energy_cap_equals: 0 
+                    pp_nuclear_smr:
+                        constraints:
+                            energy_cap_equals: 0 # GW
+
+                    ## CCGT
+                    pp_ccgt_gas:
+                        constraints:
+                            energy_cap_equals: 0.144 # TODO: Distribute capacity from 13.608 GW
+                    pp_ccgt_gas_ccs:
+                        constraints:
+                            energy_cap_equals: 0 # GW
+                    pp_ccgt_hyd:
+                        constraints:
+                            energy_cap_equals: 0 # GW
+
+                    ## OCGT
+                    pp_ocgt_gas:
+                        constraints:
+                            energy_cap_equals: 0 # TODO: Distribute capacity from 0.918 GW
+                    pp_ocgt_hyd:
+                        constraints:
+                            energy_cap_equals: 0 # GW
+
+                    ## Battery storage systems
+                    bss_liion:
+                        constraints:
+                            energy_cap_equals: 0 # GW
+                            storage_cap_equals: 0 # GWh
+                    bss_vanadium:
+                        constraints:
+                            energy_cap_equals: 0 # GW
+                            storage_cap_equals: 0 # GWh
+                    bss_nas:
+                        constraints:
+                            energy_cap_equals: 0 # GW
+                            storage_cap_equals: 0 # GWh
+
+                    ## Salt cavern storage systems
+                    saltcavern_gas:
+                        constraints:
+                            energy_cap_equals: 0 # TODO: Distribute capacity from 60 GW
+                            storage_cap_equals: 0 # TODO: Distribute capacity from 144,000 GWh
+                    saltcavern_hyd:
+                        constraints:
+                            energy_cap_equals: 0 # GW
+                            storage_cap_equals: 0 # GWh
+
+                    ## Electrolyser
+                    electrolyser_alk:
+                        constraints:
+                            energy_cap_equals: 0 # GW
+                    electrolyser_pem:
+                        constraints:
+                            energy_cap_equals: 0 # GW
+                    electrolyser_soe:
+                        constraints:
+                            energy_cap_equals: 0 # GW
+
+                    ## Production
+                   # production_gas_fields:
+                     #   constraints:
+                       #     energy_cap_equals:  # TODO: Distribute capacity from 11.4 GW
+
+                    ## Import
+                    import_ammonia_cracker:
+                        constraints:
+                            energy_cap_equals:  # GW
+                    import_lng_terminal:
+                        constraints:
+                            energy_cap_equals: 0 # TODO: Distribute capacity from 35.0 GW
+            NL22: # Gelderland
+                techs:
+                ## Renewables
+                    wind_offshore:
+                        constraints:
+                            energy_cap_equals: 0 # GW
+                    wind_onshore:
+                        constraints:
+                            energy_cap_equals: 0.2434 # Klimaat monitor databank
+                    pv_rooftop:
+                        constraints:
+                            energy_cap_equals: 1.4904 # TODO: Distribute capacity from 10.1 GW
+                    pv_utility:
+                        constraints:
+                            energy_cap_equals: 1.6348 # TODO: Distribute capacity from 14.2 GW
+                    curtailment_elc:
+
+                    ## Solid power plants
+                    pp_biomass_standalone:
+                        constraints:
+                            energy_cap_equals: 0.028 # GW, ref: ENTSOE 2024
+                   # pp_waste_incinerator:
+                    #    constraints:
+                       #     energy_cap_equals: 0.045 # GW, ref: ENTSOE 2024
+                    pp_hard_coal:
+                        constraints:
+                            energy_cap_equals: 0 #GW 
+
+                    ## Nuclear
+                    pp_nuclear_gen3:
+                        constraints:
+                            energy_cap_equals: 0 
+                    pp_nuclear_smr:
+                        constraints:
+                            energy_cap_equals: 0 # GW
+
+                    ## CCGT
+                    pp_ccgt_gas:
+                        constraints:
+                            energy_cap_equals: 0 # GW
+                    pp_ccgt_gas_ccs:
+                        constraints:
+                            energy_cap_equals: 0 # GW
+                    pp_ccgt_hyd:
+                        constraints:
+                            energy_cap_equals: 0 # GW
+
+                    ## OCGT
+                    pp_ocgt_gas:
+                        constraints:
+                            energy_cap_equals: 0 # TODO: Distribute capacity from 0.918 GW
+                    pp_ocgt_hyd:
+                        constraints:
+                            energy_cap_equals: 0 # GW
+
+                    ## Battery storage systems
+                    bss_liion:
+                        constraints:
+                            energy_cap_equals: 0 # GW
+                            storage_cap_equals: 0 # GWh
+                    bss_vanadium:
+                        constraints:
+                            energy_cap_equals: 0 # GW
+                            storage_cap_equals: 0 # GWh
+                    bss_nas:
+                        constraints:
+                            energy_cap_equals: 0 # GW
+                            storage_cap_equals: 0 # GWh
+
+                    ## Salt cavern storage systems
+                    saltcavern_gas:
+                        constraints:
+                            energy_cap_equals: 0 # TODO: Distribute capacity from 60 GW
+                            storage_cap_equals: 0 # TODO: Distribute capacity from 144,000 GWh
+                    saltcavern_hyd:
+                        constraints:
+                            energy_cap_equals: 0 # GW
+                            storage_cap_equals: 0 # GWh
+
+                    ## Electrolyser
+                    electrolyser_alk:
+                        constraints:
+                            energy_cap_equals: 0 # GW
+                    electrolyser_pem:
+                        constraints:
+                            energy_cap_equals: 0 # GW
+                    electrolyser_soe:
+                        constraints:
+                            energy_cap_equals: 0 # GW
+
+                    ## Production
+                    #production_gas_fields:
+                       # constraints:
+                        #    energy_cap_equals:  # TODO: Distribute capacity from 11.4 GW
+
+                    ## Import
+                    import_ammonia_cracker:
+                        constraints:
+                            energy_cap_equals:  # GW
+                    import_lng_terminal:
+                        constraints:
+                            energy_cap_equals: 0 # TODO: Distribute capacity from 35.0 GW
+
+            NL11: # Groningen
+                techs:
+                ## Renewables
+                    wind_offshore:
+                        constraints:
+                            energy_cap_equals: 0.6 # GW from https://www.rijksoverheid.nl/onderwerpen/duurzame-energie/windenergie-op-zee
+                    wind_onshore:
+                        constraints:
+                            energy_cap_equals: 0.9068 # Klimaat monitor databank
+                    pv_rooftop:
+                        constraints:
+                            energy_cap_equals: 0.4476 # TODO: Distribute capacity from 10.1 GW
+                    pv_utility:
+                        constraints:
+                            energy_cap_equals: 1.1837 # TODO: Distribute capacity from 14.2 GW
+                    curtailment_elc:
+
+                    ## Solid power plants
+                    pp_biomass_standalone:
+                        constraints:
+                            energy_cap_equals: 0 # GW, ref: ENTSOE 2024
+                   # pp_waste_incinerator:
+                     #   constraints:
+                          #  energy_cap_equals: 0 # GW, ref: ENTSOE 2024
+                    pp_hard_coal:
+                        constraints:
+                            energy_cap_equals: 1.600 #GW 
+                    coal_supply:
+                        constraints:
+                            energy_cap_equals: 
+
+                    ## Nuclear
+                    pp_nuclear_gen3:
+                        constraints:
+                            energy_cap_equals: 0 
+                    pp_nuclear_smr:
+                        constraints:
+                            energy_cap_equals: 0 # GW
+
+                    ## CCGT
+                    pp_ccgt_gas:
+                        constraints:
+                            energy_cap_equals: 5.264 # GW
+                    pp_ccgt_gas_ccs:
+                        constraints:
+                            energy_cap_equals: 0 # GW
+                    pp_ccgt_hyd:
+                        constraints:
+                            energy_cap_equals: 0 # GW
+
+                    ## OCGT
+                    pp_ocgt_gas:
+                        constraints:
+                            energy_cap_equals: 0 # TODO: Distribute capacity from 0.918 GW
+                    pp_ocgt_hyd:
+                        constraints:
+                            energy_cap_equals: 0 # GW
+
+                    ## Battery storage systems
+                    bss_liion:
+                        constraints:
+                            energy_cap_equals: 0 # GW
+                            storage_cap_equals: 0 # GWh
+                    bss_vanadium:
+                        constraints:
+                            energy_cap_equals: 0 # GW
+                            storage_cap_equals: 0 # GWh
+                    bss_nas:
+                        constraints:
+                            energy_cap_equals: 0 # GW
+                            storage_cap_equals: 0 # GWh
+
+                    ## Salt cavern storage systems
+                    saltcavern_gas:
+                        constraints:
+                            energy_cap_equals: 0 # TODO: Distribute capacity from 60 GW
+                            storage_cap_equals: 0 # TODO: Distribute capacity from 144,000 GWh
+                    saltcavern_hyd:
+                        constraints:
+                            energy_cap_equals: 0 # GW
+                            storage_cap_equals: 0 # GWh
+
+                    ## Electrolyser
+                    electrolyser_alk:
+                        constraints:
+                            energy_cap_equals: 0 # GW
+                    electrolyser_pem:
+                        constraints:
+                            energy_cap_equals: 0 # GW
+                    electrolyser_soe:
+                        constraints:
+                            energy_cap_equals: 0 # GW
+
+                    ## Production
+                    #production_gas_fields:
+                      #  constraints:
+                         #   energy_cap_equals:  # TODO: Distribute capacity from 11.4 GW
+
+                    ## Import
+                    import_ammonia_cracker:
+                        constraints:
+                            energy_cap_equals: 0 # GW
+                    import_lng_terminal:
+                        constraints:
+                            energy_cap_equals: 0 # TODO: Distribute capacity from 35.0 GW
+
+            NL42: # Limburg
+                techs:
+                ## Renewables
+                    wind_offshore:
+                        constraints:
+                            energy_cap_equals: 0 # GW
+                    wind_onshore:
+                        constraints:
+                            energy_cap_equals: 0.1253 # Klimaat monitor databank
+                    pv_rooftop:
+                        constraints:
+                            energy_cap_equals: 0.9323 # TODO: Distribute capacity from 10.1 GW
+                    pv_utility:
+                        constraints:
+                            energy_cap_equals: 0.9323 # TODO: Distribute capacity from 14.2 GW
+                    curtailment_elc:
+
+                    ## Solid power plants
+                    pp_biomass_standalone:
+                        constraints:
+                            energy_cap_equals: 0.002 # GW, ref: ENTSOE 2024
+                  #  pp_waste_incinerator:
+                      #  constraints:
+                       #     energy_cap_equals: 0.004 # GW, ref: ENTSOE 2024
+                    pp_hard_coal:
+                        constraints:
+                            energy_cap_equals: 0 #GW 
+
+                    ## Nuclear
+                    pp_nuclear_gen3:
+                        constraints:
+                            energy_cap_equals: 0 
+                    pp_nuclear_smr:
+                        constraints:
+                            energy_cap_equals: 0 # GW
+
+                    ## CCGT
+                    pp_ccgt_gas:
+                        constraints:
+                            energy_cap_equals: 1.304 # GW
+                    pp_ccgt_gas_ccs:
+                        constraints:
+                            energy_cap_equals: 0 # GW
+                    pp_ccgt_hyd:
+                        constraints:
+                            energy_cap_equals: 0 # GW
+
+                    ## OCGT
+                    pp_ocgt_gas:
+                        constraints:
+                            energy_cap_equals: 0 # TODO: Distribute capacity from 0.918 GW
+                    pp_ocgt_hyd:
+                        constraints:
+                            energy_cap_equals: 0 # GW
+
+                    ## Battery storage systems
+                    bss_liion:
+                        constraints:
+                            energy_cap_equals: 0 # GW
+                            storage_cap_equals: 0 # TODO: GWh
+                    bss_vanadium:
+                        constraints:
+                            energy_cap_equals: 0 # GW
+                            storage_cap_equals: 0 # GWh
+                    bss_nas:
+                        constraints:
+                            energy_cap_equals: 0 # GW
+                            storage_cap_equals: 0 # GWh
+
+                    ## Salt cavern storage systems
+                    saltcavern_gas:
+                        constraints:
+                            energy_cap_equals: 0 # TODO: Distribute capacity from 60 GW
+                            storage_cap_equals: 0 # TODO: Distribute capacity from 144,000 GWh
+                    saltcavern_hyd:
+                        constraints:
+                            energy_cap_equals: 0 # GW
+                            storage_cap_equals: 0 # GWh
+
+                    ## Electrolyser
+                    electrolyser_alk:
+                        constraints:
+                            energy_cap_equals: 0 # GW
+                    electrolyser_pem:
+                        constraints:
+                            energy_cap_equals: 0 # GW
+                    electrolyser_soe:
+                        constraints:
+                            energy_cap_equals: 0 # GW
+
+                    ## Production
+                   # production_gas_fields:
+                     #   constraints:
+                        #    energy_cap_equals:  # TODO: Distribute capacity from 11.4 GW
+
+                    ## Import
+                    import_ammonia_cracker:
+                        constraints:
+                            energy_cap_equals: 0 # GW
+                    import_lng_terminal:
+                        constraints:
+                            energy_cap_equals: 0 # TODO: Distribute capacity from 35.0 GW
+
+            NL41: # Noord-Brabant
+                techs:
+                ## Renewables
+                    wind_offshore:
+                        constraints:
+                            energy_cap_equals: 0 # GW
+                    wind_onshore:
+                        constraints:
+                            energy_cap_equals: 0.4254 # Klimaat monitor databank
+                    pv_rooftop:
+                        constraints:
+                            energy_cap_equals: 1.9137 # TODO: Distribute capacity from 10.1 GW
+                    pv_utility:
+                        constraints:
+                            energy_cap_equals: 2.2425 # TODO: Distribute capacity from 14.2 GW
+                    curtailment_elc:
+
+                    ## Solid power plants
+                    pp_biomass_standalone:
+                        constraints:
+                            energy_cap_equals: 0.107 # GW, ref: ENTSOE 2024
+                   # pp_waste_incinerator:
+                        #constraints:
+                         #   energy_cap_equals: 0.171 # GW, ref: ENTSOE 2024
+                    pp_hard_coal:
+                        constraints:
+                            energy_cap_equals: 0 #GW 
+
+                    ## Nuclear
+                    pp_nuclear_gen3:
+                        constraints:
+                            energy_cap_equals: 0 
+                    pp_nuclear_smr:
+                        constraints:
+                            energy_cap_equals: 0 # GW
+
+                    ## CCGT
+                    pp_ccgt_gas:
+                        constraints:
+                            energy_cap_equals: 0.766 # GW
+                    pp_ccgt_gas_ccs:
+                        constraints:
+                            energy_cap_equals: 0 # GW
+                    pp_ccgt_hyd:
+                        constraints:
+                            energy_cap_equals: 0 # GW
+
+                    ## OCGT
+                    pp_ocgt_gas:
+                        constraints:
+                            energy_cap_equals: 0 # TODO: Distribute capacity from 0.918 GW
+                    pp_ocgt_hyd:
+                        constraints:
+                            energy_cap_equals: 0 # GW
+
+                    ## Battery storage systems
+                    bss_liion:
+                        constraints:
+                            energy_cap_equals: 0 # GW
+                            storage_cap_equals: 0 # GWh
+                    bss_vanadium:
+                        constraints:
+                            energy_cap_equals: 0 # GW
+                            storage_cap_equals: 0 # GWh
+                    bss_nas:
+                        constraints:
+                            energy_cap_equals: 0 # GW
+                            storage_cap_equals: 0 # GWh
+
+                    ## Salt cavern storage systems
+                    saltcavern_gas:
+                        constraints:
+                            energy_cap_equals: 0 # TODO: Distribute capacity from 60 GW
+                            storage_cap_equals: 0 # TODO: Distribute capacity from 144,000 GWh
+                    saltcavern_hyd:
+                        constraints:
+                            energy_cap_equals: 0 # GW
+                            storage_cap_equals: 0 # GWh
+
+                    ## Electrolyser
+                    electrolyser_alk:
+                        constraints:
+                            energy_cap_equals: 0 # GW
+                    electrolyser_pem:
+                        constraints:
+                            energy_cap_equals: 0 # GW
+                    electrolyser_soe:
+                        constraints:
+                            energy_cap_equals: 0 # GW
+
+                    ## Production
+                   # production_gas_fields:
+                       # constraints:
+                           # energy_cap_equals:  # TODO: Distribute capacity from 11.4 GW
+
+                    ## Import
+                    import_ammonia_cracker:
+                        constraints:
+                            energy_cap_equals: 0 # GW
+                    import_lng_terminal:
+                        constraints:
+                            energy_cap_equals: 0 # TODO: Distribute capacity from 35.0 GW
+
+            NL32: # Noord-Holland
+                techs:
+                ## Renewables
+                    wind_offshore:
+                        constraints:
+                            energy_cap_equals: 2.507 # GW including under construction from https://www.rijksoverheid.nl/onderwerpen/duurzame-energie/windenergie-op-zee
+                    wind_onshore:
+                        constraints:
+                            energy_cap_equals: 0.7197 # Klimaat monitor databank
+                    pv_rooftop:
+                        constraints:
+                            energy_cap_equals: 1.1909 # TODO: Distribute capacity from 10.1 GW
+                    pv_utility:
+                        constraints:
+                            energy_cap_equals: 1.1114 # TODO: Distribute capacity from 14.2 GW
+                    curtailment_elc:
+
+                    ## Solid power plants
+                    pp_biomass_standalone:
+                        constraints:
+                            energy_cap_equals: 0.126 # GW, ref: ENTSOE 2024
+                    #pp_waste_incinerator:
+                     #   constraints:
+                       #     energy_cap_equals: 0.202 # GW, ref: ENTSOE 2024
+                    pp_hard_coal:
+                        constraints:
+                            energy_cap_equals: 0 #GW 
+
+                    ## Nuclear
+                    pp_nuclear_gen3:
+                        constraints:
+                            energy_cap_equals: 0 
+                    pp_nuclear_smr:
+                        constraints:
+                            energy_cap_equals: 0 # GW
+
+                    ## CCGT
+                    pp_ccgt_gas:
+                        constraints:
+                            energy_cap_equals: 1.803 # GW
+                    pp_ccgt_gas_ccs:
+                        constraints:
+                            energy_cap_equals: 0 # GW
+                    pp_ccgt_hyd:
+                        constraints:
+                            energy_cap_equals: 0 # GW
+
+                    ## OCGT
+                    pp_ocgt_gas:
+                        constraints:
+                            energy_cap_equals: 0 # TODO: Distribute capacity from 0.918 GW
+                    pp_ocgt_hyd:
+                        constraints:
+                            energy_cap_equals: 0 # GW
+
+                    ## Battery storage systems
+                    bss_liion:
+                        constraints:
+                            energy_cap_equals: 0.156 # GW
+                            storage_cap_equals: 0.307 # GWh
+                    bss_vanadium:
+                        constraints:
+                            energy_cap_equals: 0 # GW
+                            storage_cap_equals: 0 # GWh
+                    bss_nas:
+                        constraints:
+                            energy_cap_equals: 0 # GW
+                            storage_cap_equals: 0 # GWh
+
+                    ## Salt cavern storage systems
+                    saltcavern_gas:
+                        constraints:
+                            energy_cap_equals: 0 # TODO: Distribute capacity from 60 GW
+                            storage_cap_equals: 0 # TODO: Distribute capacity from 144,000 GWh
+                    saltcavern_hyd:
+                        constraints:
+                            energy_cap_equals: 0 # GW
+                            storage_cap_equals: 0 # GWh
+
+                    ## Electrolyser
+                    electrolyser_alk:
+                        constraints:
+                            energy_cap_equals: 0 # GW
+                    electrolyser_pem:
+                        constraints:
+                            energy_cap_equals: 0 # GW
+                    electrolyser_soe:
+                        constraints:
+                            energy_cap_equals: 0 # GW
+
+                    ## Production
+                   # production_gas_fields:
+                      #  constraints:
+                        #    energy_cap_equals:  # TODO: Distribute capacity from 11.4 GW
+
+                    ## Import
+                    import_ammonia_cracker:
+                        constraints:
+                            energy_cap_equals: 0 # GW
+                    import_lng_terminal:
+                        constraints:
+                            energy_cap_equals: 0 # TODO: Distribute capacity from 35.0 GW
+
+            NL21: # Overijssel
+                techs:
+                ## Renewables
+                    wind_offshore:
+                        constraints:
+                            energy_cap_equals: 0 # GW
+                    wind_onshore:
+                        constraints:
+                            energy_cap_equals: 0.0881 # Klimaat monitor databank
+                    pv_rooftop:
+                        constraints:
+                            energy_cap_equals: 0.8831 # TODO: Distribute capacity from 10.1 GW
+                    pv_utility:
+                        constraints:
+                            energy_cap_equals: 1.0743 # TODO: Distribute capacity from 14.2 GW
+                    curtailment_elc:
+ 
+                    ## Solid power plants
+                    pp_biomass_standalone:
+                        constraints:
+                            energy_cap_equals: 0.034 # GW, ref: ENTSOE 2024
+                    #pp_waste_incinerator:
+                      #  constraints:
+                           # energy_cap_equals: 0.054 # GW, ref: ENTSOE 2024
+                    pp_hard_coal:
+                        constraints:
+                            energy_cap_equals: 0 #GW 
+
+                    ## Nuclear
+                    pp_nuclear_gen3:
+                        constraints:
+                            energy_cap_equals: 0 
+                    pp_nuclear_smr:
+                        constraints:
+                            energy_cap_equals: 0 # GW
+
+                    ## CCGT
+                    pp_ccgt_gas:
+                        constraints:
+                            energy_cap_equals: 0 # GW
+                    pp_ccgt_gas_ccs:
+                        constraints:
+                            energy_cap_equals: 0 # GW
+                    pp_ccgt_hyd:
+                        constraints:
+                            energy_cap_equals: 0 # GW
+
+                    ## OCGT
+                    pp_ocgt_gas:
+                        constraints:
+                            energy_cap_equals: 0 # TODO: Distribute capacity from 0.918 GW
+                    pp_ocgt_hyd:
+                        constraints:
+                            energy_cap_equals: 0 # GW
+
+                    ## Battery storage systems
+                    bss_liion:
+                        constraints:
+                            energy_cap_equals: 0 # TODO: Distribute capacity from 0.150 GW
+                            storage_cap_equals: 0 # TODO: Distribute capacity from 0.150 GWh
+                    bss_vanadium:
+                        constraints:
+                            energy_cap_equals: 0 # GW
+                            storage_cap_equals: 0 # GWh
+                    bss_nas:
+                        constraints:
+                            energy_cap_equals: 0 # GW
+                            storage_cap_equals: 0 # GWh
+
+                    ## Salt cavern storage systems
+                    saltcavern_gas:
+                        constraints:
+                            energy_cap_equals: 0 # TODO: Distribute capacity from 60 GW
+                            storage_cap_equals: 0 # TODO: Distribute capacity from 144,000 GWh
+                    saltcavern_hyd:
+                        constraints:
+                            energy_cap_equals: 0 # GW
+                            storage_cap_equals: 0 # GWh
+
+                    ## Electrolyser
+                    electrolyser_alk:
+                        constraints:
+                            energy_cap_equals: 0 # GW
+                    electrolyser_pem:
+                        constraints:
+                            energy_cap_equals: 0 # GW
+                    electrolyser_soe:
+                        constraints:
+                            energy_cap_equals: 0 # GW
+
+                    ## Production
+                   # production_gas_fields:
+                       # constraints:
+                          #  energy_cap_equals:  # TODO: Distribute capacity from 11.4 GW
+
+                    ## Import
+                    import_ammonia_cracker:
+                        constraints:
+                            energy_cap_equals: 0 # GW
+                    import_lng_terminal:
+                        constraints:
+                            energy_cap_equals: 0 # TODO: Distribute capacity from 35.0 GW
+
+            NL31: # Utrecht
+                techs:
+                ## Renewables
+                    wind_offshore:
+                        constraints:
+                            energy_cap_equals: 0 # GW
+                    wind_onshore:
+                        constraints:
+                            energy_cap_equals: 0.0341 # Klimaat monitor databank opgesteld vermogen 2024
+                    pv_rooftop:
+                        constraints:
+                            energy_cap_equals: 0.7804 # TODO: Distribute capacity from 10.1 GW
+                    pv_utility:
+                        constraints:
+                            energy_cap_equals: 0.5332 # TODO: Distribute capacity from 14.2 GW
+                    curtailment_elc:
+
+                    ## Solid power plants
+                    pp_biomass_standalone:
+                        constraints:
+                            energy_cap_equals: 0 # GW, ref: ENTSOE 2024
+                   # pp_waste_incinerator:
+                     #   constraints:
+                        #    energy_cap_equals: 0 # GW, ref: ENTSOE 2024
+                    pp_hard_coal:
+                        constraints:
+                            energy_cap_equals: 0 #GW 
+
+                    ## Nuclear
+                    pp_nuclear_gen3:
+                        constraints:
+                            energy_cap_equals: 0 
+                    pp_nuclear_smr:
+                        constraints:
+                            energy_cap_equals: 0 # GW
+
+                    ## CCGT
+                    pp_ccgt_gas:
+                        constraints:
+                            energy_cap_equals: 0.473 # GW
+                    pp_ccgt_gas_ccs:
+                        constraints:
+                            energy_cap_equals: 0 # GW
+                    pp_ccgt_hyd:
+                        constraints:
+                            energy_cap_equals: 0 # GW
+
+                    ## OCGT
+                    pp_ocgt_gas:
+                        constraints:
+                            energy_cap_equals: 0 # TODO: Distribute capacity from 0.918 GW
+                    pp_ocgt_hyd:
+                        constraints:
+                            energy_cap_equals: 0 # GW
+
+                    ## Battery storage systems
+                    bss_liion:
+                        constraints:
+                            energy_cap_equals: 0 # GW
+                            storage_cap_equals: 0 # GWh
+                    bss_vanadium:
+                        constraints:
+                            energy_cap_equals: 0 # GW
+                            storage_cap_equals: 0 # GWh
+                    bss_nas:
+                        constraints:
+                            energy_cap_equals: 0 # GW
+                            storage_cap_equals: 0 # GWh
+
+                    ## Salt cavern storage systems
+                    saltcavern_gas:
+                        constraints:
+                            energy_cap_equals: 0 # TODO: Distribute capacity from 60 GW
+                            storage_cap_equals: 0 # TODO: Distribute capacity from 144,000 GWh
+                    saltcavern_hyd:
+                        constraints:
+                            energy_cap_equals: 0 # GW
+                            storage_cap_equals: 0 # GWh
+
+                    ## Electrolyser
+                    electrolyser_alk:
+                        constraints:
+                            energy_cap_equals: 0 # GW
+                    electrolyser_pem:
+                        constraints:
+                            energy_cap_equals: 0 # GW
+                    electrolyser_soe:
+                        constraints:
+                            energy_cap_equals: 0 # GW
+
+                    ## Production
+                  #  production_gas_fields:
+                      #  constraints:
+                         #   energy_cap_equals:  # TODO: Distribute capacity from 11.4 GW
+
+                    ## Import
+                    import_ammonia_cracker:
+                        constraints:
+                            energy_cap_equals: 0 # GW
+                    import_lng_terminal:
+                        constraints:
+                            energy_cap_equals: 0 # TODO: Distribute capacity from 35.0 GW
+
+            NL34: # Zeeland
+                techs:
+                ## Renewables
+                    wind_offshore:
+                        constraints:
+                            energy_cap_equals: 3.503 # GW from https://www.rijksoverheid.nl/onderwerpen/duurzame-energie/windenergie-op-zee
+                    wind_onshore:
+                        constraints:
+                            energy_cap_equals: 0.6185 # Klimaat monitor databank
+                    pv_rooftop:
+                        constraints:
+                            energy_cap_equals: 0.3344 # TODO: Distribute capacity from 10.1 GW
+                    pv_utility:
+                        constraints:
+                            energy_cap_equals: 0.6177 # TODO: Distribute capacity from 14.2 GW
+                    curtailment_elc:
+                    
+                    ## Solid power plants
+                    pp_biomass_standalone:
+                        constraints:
+                            energy_cap_equals: 0 # GW, ref: ENTSOE 2024
+                    #pp_waste_incinerator:
+                       # constraints:
+                         #   energy_cap_equals: 0 # GW, ref: ENTSOE 2024
+                    pp_hard_coal:
+                        constraints:
+                            energy_cap_equals: 0 #GW 
+
+                    ## Nuclear
+                    pp_nuclear_gen3:
+                        constraints:
+                            energy_cap_equals: 0.512 # GW at Borsele
+                    pp_nuclear_smr:
+                        constraints:
+                            energy_cap_equals: 0 # GW
+
+                    ## CCGT
+                    pp_ccgt_gas:
+                        constraints:
+                            energy_cap_equals: 1.325 # GW
+                    pp_ccgt_gas_ccs:
+                        constraints:
+                            energy_cap_equals: 0 # GW
+                    pp_ccgt_hyd:
+                        constraints:
+                            energy_cap_equals: 0 # GW
+
+                    ## OCGT
+                    pp_ocgt_gas:
+                        constraints:
+                            energy_cap_equals: 0 # TODO: Distribute capacity from 0.918 GW
+                    pp_ocgt_hyd:
+                        constraints:
+                            energy_cap_equals: 0 # GW
+
+                    ## Battery storage systems
+                    bss_liion:
+                        constraints:
+                            energy_cap_equals: 0.068 # TODO: Distribute capacity from 0.150 GW
+                            storage_cap_equals: 0.141 # TODO: Distribute capacity from 0.150 GWh
+                    bss_vanadium:
+                        constraints:
+                            energy_cap_equals: 0 # GW
+                            storage_cap_equals: 0 # GWh
+                    bss_nas:
+                        constraints:
+                            energy_cap_equals: 0 # GW
+                            storage_cap_equals: 0 # GWh
+
+                    ## Salt cavern storage systems
+                    saltcavern_gas:
+                        constraints:
+                            energy_cap_equals: 0 # TODO: Distribute capacity from 60 GW
+                            storage_cap_equals: 0 # TODO: Distribute capacity from 144,000 GWh
+                    saltcavern_hyd:
+                        constraints:
+                            energy_cap_equals: 0 # GW
+                            storage_cap_equals: 0 # GWh
+
+                    ## Electrolyser
+                    electrolyser_alk:
+                        constraints:
+                            energy_cap_equals: 0 # GW
+                    electrolyser_pem:
+                        constraints:
+                            energy_cap_equals: 0 # GW
+                    electrolyser_soe:
+                        constraints:
+                            energy_cap_equals: 0 # GW
+
+                    ## Production
+                   # production_gas_fields:
+                     #   constraints:
+                       #     energy_cap_equals:  # TODO: Distribute capacity from 11.4 GW
+
+                    ## Import
+                    import_ammonia_cracker:
+                        constraints:
+                            energy_cap_equals: 0 # GW
+                    import_lng_terminal:
+                        constraints:
+                            energy_cap_equals: 0 # TODO: Distribute capacity from 35.0 GW
+
+            NL33: # Zuid-Holland
+                techs:
+                ## Renewables
+                    wind_offshore:
+                        constraints:
+                            energy_cap_equals: 1.649 # GW from: https://www.rijksoverheid.nl/onderwerpen/duurzame-energie/windenergie-op-zee
+                    wind_onshore:
+                        constraints:
+                            energy_cap_equals: 0.7772 # Klimaat monitor databank
+                    pv_rooftop:
+                        constraints:
+                            energy_cap_equals: 1.5801 # TODO: Distribute capacity from 10.1 GW
+                    pv_utility:
+                        constraints:
+                            energy_cap_equals: 1.3149 # TODO: Distribute capacity from 14.2 GW
+                    curtailment_elc:
+
+                    ## Solid power plants
+                    pp_biomass_standalone:
+                        constraints:
+                            energy_cap_equals: 0 # GW, ref: ENTSOE 2024
+                    #pp_waste_incinerator:
+                       # constraints:
+                           # energy_cap_equals: 0 # GW, ref: ENTSOE 2024
+                    pp_hard_coal:
+                        constraints:
+                            energy_cap_equals: 2.140 #GW
+                    coal_supply:
+                        constraints:
+                            energy_cap_equals: 
+
+                    ## Nuclear
+                    pp_nuclear_gen3:
+                        constraints:
+                            energy_cap_equals: 0 # GW
+                    pp_nuclear_smr:
+                        constraints:
+                            energy_cap_equals: 0 # GW
+
+                    ## CCGT
+                    pp_ccgt_gas:
+                        constraints:
+                            energy_cap_equals: 2.436 # GW
+                    pp_ccgt_gas_ccs:
+                        constraints:
+                            energy_cap_equals: 0 # GW
+                    pp_ccgt_hyd:
+                        constraints:
+                            energy_cap_equals: 0 # GW
+
+                    ## OCGT
+                    pp_ocgt_gas:
+                        constraints:
+                            energy_cap_equals: 0 # TODO: Distribute capacity from 0.918 GW
+                    pp_ocgt_hyd:
+                        constraints:
+                            energy_cap_equals: 0 # GW
+
+                    ## Battery storage systems
+                    bss_liion:
+                        constraints:
+                            energy_cap_equals: 0 # TODO: Distribute capacity from 0.150 GW
+                            storage_cap_equals: 0 # TODO: Distribute capacity from 0.150 GWh
+                    bss_vanadium:
+                        constraints:
+                            energy_cap_equals: 0 # GW
+                            storage_cap_equals: 0 # GWh
+                    bss_nas:
+                        constraints:
+                            energy_cap_equals: 0 # GW
+                            storage_cap_equals: 0 # GWh
+
+                    ## Salt cavern storage systems
+                    saltcavern_gas:
+                        constraints:
+                            energy_cap_equals: 0 # TODO: Distribute capacity from 60 GW
+                            storage_cap_equals: 0 # TODO: Distribute capacity from 144,000 GWh
+                    saltcavern_hyd:
+                        constraints:
+                            energy_cap_equals: 0 # GW
+                            storage_cap_equals: 0 # GWh
+
+                    ## Electrolyser
+                    electrolyser_alk:
+                        constraints:
+                            energy_cap_equals: 0 # GW
+                    electrolyser_pem:
+                        constraints:
+                            energy_cap_equals: 0 # GW
+                    electrolyser_soe:
+                        constraints:
+                            energy_cap_equals: 0 # GW
+
+                    ## Production
+                   # production_gas_fields:
+                     #   constraints:
+                       #     energy_cap_equals:  # TODO: Distribute capacity from 11.4 GW
+
+                    ## Import
+                    import_ammonia_cracker:
+                        constraints:
+                            energy_cap_equals: 0 # GW
+                    import_lng_terminal:
+                        constraints:
+                            energy_cap_equals: 0 # TODO: Distribute capacity from 35.0 GW
+
+    links_TenneT_10:
+
+    links:
+        NL11,NL12:
+            techs:
+                transmission_hvac:
+                    constraints: 
+                        energy_cap_equals: 1.451 # GW
+        NL11,NL13:
+            techs:
+                transmission_hvac:
+                    constraints: 
+                        energy_cap_equals: 1.455 # GW
+        NL31,NL33:
+            techs:
+                transmission_hvac:
+                    constraints: 
+                        energy_cap_equals: 1.258 # GW
+        NL32,NL33:
+            techs:
+                transmission_hvac:
+                    constraints: 
+                        energy_cap_equals: 6.241 # GW
+        NL33,NL41:
+            techs:
+                transmission_hvac:
+                    constraints: 
+                        energy_cap_equals: 1.416 # GW
+        NL34,NL41:
+            techs:
+                transmission_hvac:
+                    constraints: 
+                        energy_cap_equals: 2.481 # GW
+        NL41,NL42:
+            techs:
+                transmission_hvac:
+                    constraints: 
+                        energy_cap_equals: 4.058 # GW
+        NL12,NL23:
+            techs:
+                transmission_hvac:
+                    constraints: 
+                        energy_cap_equals: 1.444 # GW
+        NL13,NL21:
+            techs:
+                transmission_hvac:
+                    constraints: 
+                        energy_cap_equals: 1.434 # GW
+        NL21,NL22:
+            techs:
+                transmission_hvac:
+                    constraints: 
+                        energy_cap_equals: 2.483 # GW
+        NL21,NL23:
+            techs:
+                transmission_hvac:
+                    constraints: 
+                        energy_cap_equals: 3.957 # GW
+        NL22,NL41:
+            techs:
+                transmission_hvac:
+                    constraints: 
+                        energy_cap_equals: 1.249 # GW
+        NL23,NL32:
+            techs:
+                transmission_hvac:
+                    constraints: 
+                        energy_cap_equals: 2.489 # GW
+        NL31,NL32:
+            techs:
+                transmission_hvac:
+                    constraints: 
+                        energy_cap_equals: 1.251 # GW
+
+        # Interconnections, not finished for the DE and BE cases
+        NL42,DE: # Limburg
+            techs:
+                transmission_hvac:
+                    constraints:
+                        energy_cap_equals: 2.387 # GW
+
+        NL11,DE: # Groningen
+            techs:
+                transmission_hvac:
+                    constraints:
+                        energy_cap_equals: 1.393 # GW
+
+        NL21,DE: # Overijssel
+            techs:
+                transmission_hvac:
+                    constraints:
+                        energy_cap_equals: 2.290 # GW
+
+        NL22,DE: # Gelderland
+            techs:
+                transmission_hvac:
+                    constraints:
+                        energy_cap_equals: 3.657 # GW
+
+        NL42,BE: # Limburg
+            techs:
+                transmission_hvac:
+                    constraints:
+                        energy_cap_equals: 2.297 # GW
+
+        NL34,BE: # Zeeland
+            techs:
+                transmission_hvac:
+                    constraints:
+                        energy_cap_equals: 2.298 # GW
+
+        NL33,UK: # Zuid-Holland
+            techs:
+                transmission_hvdc:
+                    constraints:
+                        energy_cap_equals: 1.031 # GW source:
+
+        NL11,NO: # Groningen
+            techs:
+                transmission_hvdc:
+                    constraints:
+                        energy_cap_equals: 0.723 # GW source:
+
+        NL11,DK: # Groningen
+            techs:
+                transmission_hvdc:
+                    constraints:
+                        energy_cap_equals: 0.700 # GW source: static grid model TenneT 2020
+
+
+    links_default:
+        links:
+
+            NL11,NL12:
+                techs:
+                    transmission_hvac:
+                        constraints: 
+                            energy_cap_equals: 0.6882 # GW from: PyPSA-EUR
+            NL11,NL13:
+                techs:
+                    transmission_hvac:
+                        constraints: 
+                            energy_cap_equals: 3.066 # GW
+            NL31,NL33:
+                techs:
+                    transmission_hvac:
+                        constraints: 
+                            energy_cap_equals: 2.3773 # GW
+            NL32,NL33:
+                techs:
+                    transmission_hvac:
+                        constraints: 
+                            energy_cap_equals: 2.3773 # GW
+            NL33,NL41:
+                techs:
+                    transmission_hvac:
+                        constraints: 
+                            energy_cap_equals: 2.3773 # GW
+            NL34,NL41:
+                techs:
+                    transmission_hvac:
+                        constraints: 
+                            energy_cap_equals: 2.3773 # GW
+            NL41,NL42:
+                techs:
+                    transmission_hvac:
+                        constraints: 
+                            energy_cap_equals: 4.7547 # GW
+            NL12,NL23:
+                techs:
+                    transmission_hvac:
+                        constraints: 
+                            energy_cap_equals: 0.6882 # GW
+            NL13,NL21:
+                techs:
+                    transmission_hvac:
+                        constraints: 
+                            energy_cap_equals: 3.0656 # GW
+            NL21,NL22:
+                techs:
+                    transmission_hvac:
+                        constraints: 
+                            energy_cap_equals: 2.3773 # GW
+            NL21,NL23:
+                techs:
+                    transmission_hvac:
+                        constraints: 
+                            energy_cap_equals: 3.0656 # GW
+            NL22,NL41:
+                techs:
+                    transmission_hvac:
+                        constraints: 
+                            energy_cap_equals: 2.3773 # GW
+            NL23,NL32:
+                techs:
+                    transmission_hvac:
+                        constraints: 
+                            energy_cap_equals: 2.3773 # GW
+            NL31,NL32:
+                techs:
+                    transmission_hvac:
+                        constraints: 
+                            energy_cap_equals: 2.3773 # GW
+
+    # Interconnections
+            NL42,DE: #Limburg
+                techs:
+                    transmission_hvac:
+                        constraints:
+                            energy_cap_equals: 2.3773 # GW
+
+            NL11,DE: #Groningen
+                techs:
+                    transmission_hvac:
+                        constraints:
+                            energy_cap_equals: 2.3773 # GW
+
+            NL21,DE: #Overijssel
+                techs:
+                    transmission_hvac:
+                        constraints:
+                            energy_cap_equals: 2.3773 # GW
+
+            NL22,DE: #Gelderland
+                techs:
+                    transmission_hvac:
+                        constraints:
+                            energy_cap_equals: 2.3773 # GW
+
+            NL42,BE: #Limburg
+                techs:
+                    transmission_hvac:
+                        constraints:
+                            energy_cap_equals: 2.3773 # GW
+
+            NL34,BE: #Zeeland
+                techs:
+                    transmission_hvac:
+                        constraints:
+                            energy_cap_equals: 2.3773 # GW
+
+            NL33,UK: #Zuid-Holland
+                techs:
+                    transmission_hvdc:
+                        constraints:
+                            energy_cap_equals: 1.000 # GW source: static grid model TenneT 2020
+            NL11,NO: #Groningen
+                techs:
+                    transmission_hvdc:
+                        constraints:
+                            energy_cap_equals: 0.700 # GW source: static grid model TenneT 2020
+            NL11,DK: #Groningen
+                techs:
+                    transmission_hvdc:
+                        constraints:
+                            energy_cap_equals: 0.700 # GW source: static grid model TenneT 2020
+
+    links_StClair:
+
+        links:
+            NL11,NL12:
+                techs:
+                    transmission_hvac:
+                        constraints: 
+                            energy_cap_equals: 0.628 # GW
+                        costs:
+                            monetary:
+                                energy_cap_per_distance: 3.06 # Meur/GW/km
+            NL11,NL13:
+                techs:
+                    transmission_hvac:
+                        constraints: 
+                            energy_cap_equals: 3.065 # GW
+                        costs:
+                            monetary:
+                                energy_cap_per_distance: 2.52
+            NL31,NL33:
+                techs:
+                    transmission_hvac:
+                        constraints: 
+                            energy_cap_equals: 2.377 # GW
+                        costs:
+                            monetary:
+                                energy_cap_per_distance: 2.08
+            NL32,NL33:
+                techs:
+                    transmission_hvac:
+                        constraints: 
+                            energy_cap_equals: 2.377 # GW
+                        costs:
+                            monetary:
+                                energy_cap_per_distance: 2.51
+            NL33,NL41:
+                techs:
+                    transmission_hvac:
+                        constraints: 
+                            energy_cap_equals: 2.154 # GW
+                        costs:
+                            monetary:
+                                energy_cap_per_distance: 3.40
+            NL34,NL41:
+                techs:
+                    transmission_hvac:
+                        constraints: 
+                            energy_cap_equals: 2.105 # GW
+                        costs:
+                            monetary:
+                                energy_cap_per_distance: 3.68
+            NL41,NL42:
+                techs:
+                    transmission_hvac:
+                        constraints: 
+                            energy_cap_equals: 3.995 # GW
+                        costs:
+                            monetary:
+                                energy_cap_per_distance: 3.66
+            NL12,NL23:
+                techs:
+                    transmission_hvac:
+                        constraints: 
+                            energy_cap_equals: 0.634 # GW
+                        costs:
+                            monetary:
+                                energy_cap_per_distance: 3.22
+            NL13,NL21:
+                techs:
+                    transmission_hvac:
+                        constraints: 
+                            energy_cap_equals: 3.065 # GW
+                        costs:
+                            monetary:
+                                energy_cap_per_distance: 2.93
+            NL21,NL22:
+                techs:
+                    transmission_hvac:
+                        constraints: 
+                            energy_cap_equals: 2.242 # GW
+                        costs:
+                            monetary:
+                                energy_cap_per_distance: 3.30
+            NL21,NL23:
+                techs:
+                    transmission_hvac:
+                        constraints: 
+                            energy_cap_equals: 3.002 # GW
+                        costs:
+                            monetary:
+                                energy_cap_per_distance: 3.11
+            NL22,NL41:
+                techs:
+                    transmission_hvac:
+                        constraints: 
+                            energy_cap_equals: 1.957 # GW
+                        costs:
+                            monetary:
+                                energy_cap_per_distance: 3.75
+            NL23,NL32:
+                techs:
+                    transmission_hvac:
+                        constraints: 
+                            energy_cap_equals: 2.058 # GW
+                        costs:
+                            monetary:
+                                energy_cap_per_distance: 5.05
+            NL31,NL32:
+                techs:
+                    transmission_hvac:
+                        constraints: 
+                            energy_cap_equals: 2.377 # GW
+                        costs:
+                            monetary:
+                                energy_cap_per_distance: 2.10
+
+    # Interconnections, not finished for the DE and BE cases
+            NL42,DE: #Limburg
+                techs:
+                    transmission_hvac:
+                        constraints:
+                            energy_cap_equals: 2.377 # GW
+                        costs:
+                            monetary:
+                                energy_cap_per_distance: 2.11
+
+            NL11,DE: #Groningen
+                techs:
+                    transmission_hvac:
+                        constraints:
+                            energy_cap_equals: 2.377 # GW
+                        costs:
+                            monetary:
+                                energy_cap_per_distance: 2.11
+
+            NL21,DE: #Overijssel
+                techs:
+                    transmission_hvac:
+                        constraints:
+                            energy_cap_equals: 2.377 # GW
+                        costs:
+                            monetary:
+                                energy_cap_per_distance: 2.12
+
+            NL22,DE: #Gelderland
+                techs:
+                    transmission_hvac:
+                        constraints:
+                            energy_cap_equals: 2.377 # GW
+                        costs:
+                            monetary:
+                                energy_cap_per_distance: 2.10
+
+            NL42,BE: #Limburg
+                techs:
+                    transmission_hvac:
+                        constraints:
+                            energy_cap_equals: 2.377 # GW
+                        costs:
+                            monetary:
+                                energy_cap_per_distance: 2.11
+
+            NL34,BE: #Zeeland
+                techs:
+                    transmission_hvac:
+                        constraints:
+                            energy_cap_equals: 2.377 # GW
+                        costs:
+                            monetary:
+                                energy_cap_per_distance: 2.12
+
+            NL33,UK: #Zuid-Holland
+                techs:
+                    transmission_hvdc:
+                        constraints:
+                            energy_cap_equals: 1 # GW source: pypsa-eur/data/links_p_nom.csv at master · PyPSA/pypsa-eur, std line type = 
+                        costs:
+                            monetary:
+                                energy_cap_per_distance: 1.03
+                            
+            NL11,NO: #Groningen
+                techs:
+                    transmission_hvdc:
+                        constraints:
+                            energy_cap_equals: 0.700 # GW source: pypsa-eur/data/links_p_nom.csv at master · PyPSA/pypsa-eur 
+                        costs:
+                            monetary:
+                                energy_cap_per_distance: 0.92
+
+            NL11,DK: #Groningen
+                techs:
+                    transmission_hvdc:
+                        constraints:
+                            energy_cap_equals: 0.700 # GW source: static grid model TenneT 2020
+                        costs:
+                            monetary:
+                                energy_cap_per_distance: 1.01
+
+    links_TenneT:
+
+        links:
+            NL11,NL12:
+                techs:
+                    transmission_hvac:
+                        constraints: 
+                            energy_cap_equals: 1.296 # GW
+            NL11,NL13:
+                techs:
+                    transmission_hvac:
+                        constraints: 
+                            energy_cap_equals: 1.296 # GW
+            NL31,NL33:
+                techs:
+                    transmission_hvac:
+                        constraints: 
+                            energy_cap_equals: 1.149 # GW
+            NL32,NL33:
+                techs:
+                    transmission_hvac:
+                        constraints: 
+                            energy_cap_equals: 5.618 # GW
+            NL33,NL41:
+                techs:
+                    transmission_hvac:
+                        constraints: 
+                            energy_cap_equals: 1.285 # GW
+            NL34,NL41:
+                techs:
+                    transmission_hvac:
+                        constraints: 
+                            energy_cap_equals: 2.217 # GW
+            NL41,NL42:
+                techs:
+                    transmission_hvac:
+                        constraints: 
+                            energy_cap_equals: 3.648 # GW
+            NL12,NL23:
+                techs:
+                    transmission_hvac:
+                        constraints: 
+                            energy_cap_equals: 1.266 # GW
+            NL13,NL21:
+                techs:
+                    transmission_hvac:
+                        constraints: 
+                            energy_cap_equals: 1.193 # GW
+            NL21,NL22:
+                techs:
+                    transmission_hvac:
+                        constraints: 
+                            energy_cap_equals: 2.220 # GW
+            NL21,NL23:
+                techs:
+                    transmission_hvac:
+                        constraints: 
+                            energy_cap_equals: 3.575 # GW
+            NL22,NL41:
+                techs:
+                    transmission_hvac:
+                        constraints: 
+                            energy_cap_equals: 1.138 # GW
+            NL23,NL32:
+                techs:
+                    transmission_hvac:
+                        constraints: 
+                            energy_cap_equals: 2.249 # GW
+            NL31,NL32:
+                techs:
+                    transmission_hvac:
+                        constraints: 
+                            energy_cap_equals: 1.120 # GW
+
+    # Interconnections, not finished for the DE and BE cases
+            NL42,DE: #Limburg
+                techs:
+                    transmission_hvac:
+                        constraints:
+                            energy_cap_equals: 2.328 # GW
+
+            NL11,DE: #Groningen
+                techs:
+                    transmission_hvac:
+                        constraints:
+                            energy_cap_equals: 1.397 # GW
+
+            NL21,DE: #Overijssel
+                techs:
+                    transmission_hvac:
+                        constraints:
+                            energy_cap_equals: 2.284 # GW
+
+            NL22,DE: #Gelderland
+                techs:
+                    transmission_hvac:
+                        constraints:
+                            energy_cap_equals: 3.563 # GW
+
+            NL42,BE: #Limburg
+                techs:
+                    transmission_hvac:
+                        constraints:
+                            energy_cap_equals: 2.294 # GW
+
+            NL34,BE: #Zeeland
+                techs:
+                    transmission_hvac:
+                        constraints:
+                            energy_cap_equals: 2.293 # GW
+
+            NL33,UK: #Zuid-Holland
+                techs:
+                    transmission_hvdc:
+                        constraints:
+                            energy_cap_equals: 1.008 # GW source: 
+                            
+            NL11,NO: #Groningen
+                techs:
+                    transmission_hvdc:
+                        constraints:
+                            energy_cap_equals: 0.721 # GW source: 
+
+            NL11,DK: #Groningen
+                techs:
+                    transmission_hvdc:
+                        constraints:
+                            energy_cap_equals: 0.689 # GW source: static grid model TenneT 2020
+
+
+    capacities_2040:
+
+    # Unlock energy_cap variables
+        locations:
+            NL13: # Drenthe
+                techs:
+                ## Renewables
+                    wind_offshore:
+                        constraints:
+                            energy_cap_equals: 0 # GW
+                    wind_onshore:
+                        constraints:
+                            energy_cap_min: 0.2715 # Opgesteld vermogen from klimaat monitor databank at https://klimaatmonitor.databank.nl/dashboard/dashboard/hernieuwbare-energie-per-techniek
+                    pv_rooftop:
+                        constraints:
+                            energy_cap_min: 0.468 #GW CBS 2023: https://opendata.cbs.nl/portal.html?_la=nl&_catalog=CBS&tableId=85005NED&_theme=292
+                    pv_utility:
+                        constraints:
+                            energy_cap_min: 1.174 #GW CBS 2023: https://opendata.cbs.nl/portal.html?_la=nl&_catalog=CBS&tableId=85005NED&_theme=292
+                    curtailment_elc:
+
+                    ## Solid power plants
+                    pp_biomass_standalone:
+                        constraints:
+                            energy_cap_min: 0 # GW, ref: ENTSOE 2024
+                    # pp_waste_incinerator:
+                    #     constraints:
+                    #         energy_cap_min: 0 # GW, ref: ENTSOE 2024
+                    pp_hard_coal:
+                        constraints:
+                            energy_cap_equals: 0 #GW  from global power plant database
+
+                    ## Nuclear
+                    pp_nuclear_gen3:
+                        constraints:
+                            energy_cap_min: 0 
+                    pp_nuclear_smr:
+                        constraints:
+                            energy_cap_min: 0 # GW
+
+                    ## CCGT
+                    pp_ccgt_gas:
+                        constraints:
+                            energy_cap_min: 0.128 # 2024 from Entso-e transparancy platform https://newtransparency.entsoe.eu/generation/installed/perUnit?appState=%7B%22sa%22%3A%5B%22BZN%7C10YNL----------L%22%5D%2C%22st%22%3A%22BZN%22%2C%22mm%22%3Atrue%2C%22ma%22%3Afalse%2C%22sp%22%3A%22HALF%22%2C%22dt%22%3A%22TABLE%22%2C%22df%22%3A%222024%22%2C%22tz%22%3A%22CET%22%7D
+                    pp_ccgt_gas_ccs:
+                        constraints:
+                            energy_cap_min: 0 # GW
+                    pp_ccgt_hyd:
+                        constraints:
+                            energy_cap_min: 0 # GW
+
+                    ## OCGT
+                    pp_ocgt_gas:
+                        constraints:
+                            energy_cap_min: 0 # TODO: Distribute capacity from 0.918 GW
+                    pp_ocgt_hyd:
+                        constraints:
+                            energy_cap_min: 0 # GW
+
+                    ## Battery storage systems
+                    bss_liion:
+                        constraints:
+                            energy_cap_min: 0.037 # GW
+                            storage_cap_min: 0.056 # GWh
+                    bss_vanadium:
+                        constraints:
+                            energy_cap_min: 0 # GW
+                            storage_cap_min: 0 # GWh
+                    bss_nas:
+                        constraints:
+                            energy_cap_min: 0 # GW
+                            storage_cap_min: 0 # GWh
+
+                    ## Salt cavern storage systems
+                    #saltcavern_gas:
+                       # constraints:
+                           # energy_cap_equals: 0 # TODO: Distribute capacity from 60 GW
+                           # storage_cap_equals: 0 # TODO: Distribute capacity from 144,000 GWh
+                    saltcavern_hyd:
+                        constraints:
+                            energy_cap_equals: 0 # GW
+                            storage_cap_equals: 0 # GWh
+
+                    ## Electrolyser
+                    electrolyser_alk:
+                        constraints:
+                            energy_cap_min: 0 # GW
+                    electrolyser_pem:
+                        constraints:
+                            energy_cap_min: 0 # GW
+                    electrolyser_soe:
+                        constraints:
+                            energy_cap_min: 0 # GW
+
+                    ## Production
+                   # production_gas_fields:
+                       # constraints:
+                           # energy_cap_equals:  # TODO: Distribute capacity from 11.4 GW
+
+                    ## Import
+                    import_ammonia_cracker:
+                        constraints:
+                            energy_cap_equals: 0 # GW
+                    #import_lng_terminal:
+                     #   constraints:
+                           # energy_cap_equals: 0 # TODO: Distribute capacity from 35.0 GW
+
+            NL23: # Flevoland
+                techs:
+                ## Renewables
+                    wind_offshore:
+                        constraints:
+                            energy_cap_equals: 0 # TODO: Distribute capacity from 4.0 GW
+                    wind_onshore:
+                        constraints:
+                            energy_cap_min: 2.1619 # Klimaat monitor databank
+                    pv_rooftop:
+                        constraints:
+                            energy_cap_min: 0.285 # TODO: Distribute capacity from 10.1 GW
+                    pv_utility:
+                        constraints:
+                            energy_cap_min: 0.900 # TODO: Distribute capacity from 14.2 GW
+                    curtailment_elc:
+
+                    ## Solid power plants
+                    pp_biomass_standalone:
+                        constraints:
+                            energy_cap_min: 0 # GW, ref: ENTSOE 2024
+                    # pp_waste_incinerator:
+                    #     constraints:
+                    #         energy_cap_min: 0 # GW, ref: ENTSOE 2024
+                    pp_hard_coal:
+                        constraints:
+                            energy_cap_equals: 0 #GW 
+
+                    ## Nuclear
+                    pp_nuclear_gen3:
+                        constraints:
+                            energy_cap_min: 0 
+                    pp_nuclear_smr:
+                        constraints:
+                            energy_cap_min: 0 # GW
+
+                    ## CCGT
+                    pp_ccgt_gas:
+                        constraints:
+                            energy_cap_min: 0.907 # TODO: Distribute capacity from 13.608 GW
+                    pp_ccgt_gas_ccs:
+                        constraints:
+                            energy_cap_min: 0 # GW
+                    pp_ccgt_hyd:
+                        constraints:
+                            energy_cap_min: 0 # GW
+
+                    ## OCGT
+                    pp_ocgt_gas:
+                        constraints:
+                            energy_cap_min: 0 # TODO: Distribute capacity from 0.918 GW
+                    pp_ocgt_hyd:
+                        constraints:
+                            energy_cap_min: 0 # GW
+
+                    ## Battery storage systems
+                    bss_liion:
+                        constraints:
+                            energy_cap_min: 0.037 # GW
+                            storage_cap_min: 0.056 # GWh
+                    bss_vanadium:
+                        constraints:
+                            energy_cap_min: 0 # GW
+                            storage_cap_min: 0 # GWh
+                    bss_nas:
+                        constraints:
+                            energy_cap_min: 0 # GW
+                            storage_cap_min: 0 # GWh
+
+                    ## Salt cavern storage systems
+                    #saltcavern_gas:
+                        #constraints:
+                          #  energy_cap_equals: 0 # TODO: Distribute capacity from 60 GW
+                           # storage_cap_equals: 0 # TODO: Distribute capacity from 144,000 GWh
+                    saltcavern_hyd:
+                        constraints:
+                            energy_cap_equals: 0 # GW
+                            storage_cap_equals: 0 # GWh
+
+                    ## Electrolyser
+                    electrolyser_alk:
+                        constraints:
+                            energy_cap_min: 0 # GW
+                    electrolyser_pem:
+                        constraints:
+                            energy_cap_min: 0 # GW
+                    electrolyser_soe:
+                        constraints:
+                            energy_cap_min: 0 # GW
+
+                    ## Production
+                    #production_gas_fields:
+                       # constraints:
+                         #   energy_cap_equals:  # TODO: Distribute capacity from 11.4 GW
+
+                    ## Import
+                    import_ammonia_cracker:
+                        constraints:
+                            energy_cap_equals: 0 # GW
+                    import_lng_terminal:
+                        constraints:
+                            energy_cap_equals: 0 # TODO: Distribute capacity from 35.0 GW            
+            NL12: # Friesland
+                techs:
+                ## Renewables
+                    wind_offshore:
+                        constraints:
+                            energy_cap_min: 0.383 # GW from https://deafsluitdijk.nl/projecten/windpark-fryslan/#:~:text=Windpark%20Frysl%C3%A2n%20is%20gebouwd%20in,in%20een%20binnenwater%20is%20gebouwd.
+                    wind_onshore:
+                        constraints:
+                            energy_cap_min: 0.6177 # Klimaat monitor databank
+                    pv_rooftop:
+                        constraints:
+                            energy_cap_min: 0.5396 # TODO: Distribute capacity from 10.1 GW
+                    pv_utility:
+                        constraints:
+                            energy_cap_min: 0.7089 # TODO: Distribute capacity from 14.2 GW
+                    curtailment_elc:
+
+                    ## Solid power plants
+                    pp_biomass_standalone:
+                        constraints:
+                            energy_cap_min: 0 # GW, ref: ENTSOE 2024
+                    # pp_waste_incinerator:
+                    #     constraints:
+                    #         energy_cap_min: 0 # GW, ref: ENTSOE 2024
+                    pp_hard_coal:
+                        constraints:
+                            energy_cap_equals: 0 #GW 
+
+                    ## Nuclear
+                    pp_nuclear_gen3:
+                        constraints:
+                            energy_cap_min: 0 
+                    pp_nuclear_smr:
+                        constraints:
+                            energy_cap_min: 0 # GW
+
+                    ## CCGT
+                    pp_ccgt_gas:
+                        constraints:
+                            energy_cap_min: 0.144 # TODO: Distribute capacity from 13.608 GW
+                    pp_ccgt_gas_ccs:
+                        constraints:
+                            energy_cap_min: 0 # GW
+                    pp_ccgt_hyd:
+                        constraints:
+                            energy_cap_min: 0 # GW
+
+                    ## OCGT
+                    pp_ocgt_gas:
+                        constraints:
+                            energy_cap_min: 0 # TODO: Distribute capacity from 0.918 GW
+                    pp_ocgt_hyd:
+                        constraints:
+                            energy_cap_min: 0 # GW
+
+                    ## Battery storage systems
+                    bss_liion:
+                        constraints:
+                            energy_cap_min: 0.150 # GW
+                            storage_cap_min: 0.6 # TODO: GWh
+                    bss_vanadium:
+                        constraints:
+                            energy_cap_min: 0 # GW
+                            storage_cap_min: 0 # GWh
+                    bss_nas:
+                        constraints:
+                            energy_cap_min: 0 # GW
+                            storage_cap_min: 0 # GWh
+
+                    ## Salt cavern storage systems
+                    saltcavern_gas:
+                        constraints:
+                            energy_cap_equals: 0 # TODO: Distribute capacity from 60 GW
+                            storage_cap_equals: 0 # TODO: Distribute capacity from 144,000 GWh
+                    saltcavern_hyd:
+                        constraints:
+                            energy_cap_equals: 0 # GW
+                            storage_cap_equals: 0 # GWh
+
+                    ## Electrolyser
+                    electrolyser_alk:
+                        constraints:
+                            energy_cap_min: 0 # GW
+                    electrolyser_pem:
+                        constraints:
+                            energy_cap_min: 0 # GW
+                    electrolyser_soe:
+                        constraints:
+                            energy_cap_min: 0 # GW
+
+                    ## Production
+                   # production_gas_fields:
+                     #   constraints:
+                       #     energy_cap_equals:  # TODO: Distribute capacity from 11.4 GW
+
+                    ## Import
+                    import_ammonia_cracker:
+                        constraints:
+                            energy_cap_equals:  # GW
+                    import_lng_terminal:
+                        constraints:
+                            energy_cap_equals: 0 # TODO: Distribute capacity from 35.0 GW
+            NL22: # Gelderland
+                techs:
+                ## Renewables
+                    wind_offshore:
+                        constraints:
+                            energy_cap_equals: 0 # GW
+                    wind_onshore:
+                        constraints:
+                            energy_cap_min: 0.2434 # Klimaat monitor databank
+                    pv_rooftop:
+                        constraints:
+                            energy_cap_min: 1.4904 # TODO: Distribute capacity from 10.1 GW
+                    pv_utility:
+                        constraints:
+                            energy_cap_min: 1.6348 # TODO: Distribute capacity from 14.2 GW
+                    curtailment_elc:
+
+                    ## Solid power plants
+                    pp_biomass_standalone:
+                        constraints:
+                            energy_cap_min: 0.028 # GW, ref: ENTSOE 2024
+                    # pp_waste_incinerator:
+                    #     constraints:
+                    #         energy_cap_min: 0.045 # GW, ref: ENTSOE 2024
+                    pp_hard_coal:
+                        constraints:
+                            energy_cap_equals: 0 #GW 
+
+                    ## Nuclear
+                    pp_nuclear_gen3:
+                        constraints:
+                            energy_cap_min: 0 
+                    pp_nuclear_smr:
+                        constraints:
+                            energy_cap_min: 0 # GW
+
+                    ## CCGT
+                    pp_ccgt_gas:
+                        constraints:
+                            energy_cap_min: 0 # GW
+                    pp_ccgt_gas_ccs:
+                        constraints:
+                            energy_cap_min: 0 # GW
+                    pp_ccgt_hyd:
+                        constraints:
+                            energy_cap_min: 0 # GW
+
+                    ## OCGT
+                    pp_ocgt_gas:
+                        constraints:
+                            energy_cap_min: 0 # TODO: Distribute capacity from 0.918 GW
+                    pp_ocgt_hyd:
+                        constraints:
+                            energy_cap_min: 0 # GW
+
+                    ## Battery storage systems
+                    bss_liion:
+                        constraints:
+                            energy_cap_min: 0.045 # GW
+                            storage_cap_min: 0.09 # GWh
+                    bss_vanadium:
+                        constraints:
+                            energy_cap_min: 0 # GW
+                            storage_cap_min: 0 # GWh
+                    bss_nas:
+                        constraints:
+                            energy_cap_min: 0 # GW
+                            storage_cap_min: 0 # GWh
+
+                    ## Salt cavern storage systems
+                    saltcavern_gas:
+                        constraints:
+                            energy_cap_equals: 0 # TODO: Distribute capacity from 60 GW
+                            storage_cap_equals: 0 # TODO: Distribute capacity from 144,000 GWh
+                    saltcavern_hyd:
+                        constraints:
+                            energy_cap_equals: 0 # GW
+                            storage_cap_equals: 0 # GWh
+
+                    ## Electrolyser
+                    electrolyser_alk:
+                        constraints:
+                            energy_cap_min: 0 # GW
+                    electrolyser_pem:
+                        constraints:
+                            energy_cap_min: 0 # GW
+                    electrolyser_soe:
+                        constraints:
+                            energy_cap_min: 0 # GW
+
+                    ## Production
+                    #production_gas_fields:
+                       # constraints:
+                        #    energy_cap_equals:  # TODO: Distribute capacity from 11.4 GW
+
+                    ## Import
+                    import_ammonia_cracker:
+                        constraints:
+                            energy_cap_equals: 0  # GW
+                    import_lng_terminal:
+                        constraints:
+                            energy_cap_equals: 0 # TODO: Distribute capacity from 35.0 GW
+
+            NL11: # Groningen
+                techs:
+                ## Renewables
+                    wind_offshore:
+                        constraints:
+                            energy_cap_min: 0.6 # GW from https://www.rijksoverheid.nl/onderwerpen/duurzame-energie/windenergie-op-zee
+                    wind_onshore:
+                        constraints:
+                            energy_cap_min: 0.9068 # Klimaat monitor databank
+                    pv_rooftop:
+                        constraints:
+                            energy_cap_min: 0.4476 # TODO: Distribute capacity from 10.1 GW
+                    pv_utility:
+                        constraints:
+                            energy_cap_min: 1.1837 # TODO: Distribute capacity from 14.2 GW
+                    curtailment_elc:
+
+                    ## Solid power plants
+                    pp_biomass_standalone:
+                        constraints:
+                            energy_cap_min: 0 # GW, ref: ENTSOE 2024
+                    # pp_waste_incinerator:
+                    #     constraints:
+                    #         energy_cap_min: 0 # GW, ref: ENTSOE 2024
+                    pp_hard_coal:
+                        constraints:
+                            energy_cap_equals: 0 #GW 
+                    coal_supply:
+                        constraints:
+                            energy_cap_equals: 0
+
+                    ## Nuclear
+                    pp_nuclear_gen3:
+                        constraints:
+                            energy_cap_min: 0 
+                    pp_nuclear_smr:
+                        constraints:
+                            energy_cap_min: 0 # GW
+
+                    ## CCGT
+                    pp_ccgt_gas:
+                        constraints:
+                            energy_cap_min: 5.264 # GW
+                    pp_ccgt_gas_ccs:
+                        constraints:
+                            energy_cap_min: 0 # GW
+                    pp_ccgt_hyd:
+                        constraints:
+                            energy_cap_min: 0 # GW
+
+                    ## OCGT
+                    pp_ocgt_gas:
+                        constraints:
+                            energy_cap_min: 0 # TODO: Distribute capacity from 0.918 GW
+                    pp_ocgt_hyd:
+                        constraints:
+                            energy_cap_min: 0 # GW
+
+                    ## Battery storage systems
+                    bss_liion:
+                        constraints:
+                            energy_cap_min: 0.620 # GW
+                            storage_cap_min: 1.840 # GWh
+                    bss_vanadium:
+                        constraints:
+                            energy_cap_min: 0 # GW
+                            storage_cap_min: 0 # GWh
+                    bss_nas:
+                        constraints:
+                            energy_cap_min: 0 # GW
+                            storage_cap_min: 0 # GWh
+
+                    ## Salt cavern storage systems
+                    saltcavern_gas:
+                        constraints:
+                            energy_cap_equals: 0 # TODO: Distribute capacity from 60 GW
+                            storage_cap_equals: 0 # TODO: Distribute capacity from 144,000 GWh
+                    saltcavern_hyd:
+                        constraints:
+                            energy_cap_equals: 0 # GW
+                            storage_cap_equals: 0 # GWh
+
+                    ## Electrolyser
+                    electrolyser_alk:
+                        constraints:
+                            energy_cap_min: 0 # GW
+                    electrolyser_pem:
+                        constraints:
+                            energy_cap_min: 0 # GW
+                    electrolyser_soe:
+                        constraints:
+                            energy_cap_min: 0 # GW
+
+                    ## Production
+                    #production_gas_fields:
+                      #  constraints:
+                         #   energy_cap_equals:  # TODO: Distribute capacity from 11.4 GW
+
+                    ## Import
+                    import_ammonia_cracker:
+                        constraints:
+                            energy_cap_equals: 0 # GW
+                    import_lng_terminal:
+                        constraints:
+                            energy_cap_equals: 0 # TODO: Distribute capacity from 35.0 GW
+
+            NL42: # Limburg
+                techs:
+                ## Renewables
+                    wind_offshore:
+                        constraints:
+                            energy_cap_equals: 0 # GW
+                    wind_onshore:
+                        constraints:
+                            energy_cap_min: 0.1253 # Klimaat monitor databank
+                    pv_rooftop:
+                        constraints:
+                            energy_cap_min: 0.9323 # TODO: Distribute capacity from 10.1 GW
+                    pv_utility:
+                        constraints:
+                            energy_cap_min: 0.9323 # TODO: Distribute capacity from 14.2 GW
+                    curtailment_elc:
+
+                    ## Solid power plants
+                    pp_biomass_standalone:
+                        constraints:
+                            energy_cap_min: 0.002 # GW, ref: ENTSOE 2024
+                    # pp_waste_incinerator:
+                    #     constraints:
+                    #         energy_cap_min: 0.004 # GW, ref: ENTSOE 2024
+                    pp_hard_coal:
+                        constraints:
+                            energy_cap_equals: 0 #GW 
+
+                    ## Nuclear
+                    pp_nuclear_gen3:
+                        constraints:
+                            energy_cap_min: 0 
+                    pp_nuclear_smr:
+                        constraints:
+                            energy_cap_min: 0 # GW
+
+                    ## CCGT
+                    pp_ccgt_gas:
+                        constraints:
+                            energy_cap_min: 1.304 # GW
+                    pp_ccgt_gas_ccs:
+                        constraints:
+                            energy_cap_min: 0 # GW
+                    pp_ccgt_hyd:
+                        constraints:
+                            energy_cap_min: 0 # GW
+
+                    ## OCGT
+                    pp_ocgt_gas:
+                        constraints:
+                            energy_cap_min: 0 # TODO: Distribute capacity from 0.918 GW
+                    pp_ocgt_hyd:
+                        constraints:
+                            energy_cap_min: 0 # GW
+
+                    ## Battery storage systems
+                    bss_liion:
+                        constraints:
+                            energy_cap_min: 0.0225 # GW
+                            storage_cap_min: 0.05 # TODO: GWh
+                    bss_vanadium:
+                        constraints:
+                            energy_cap_min: 0 # GW
+                            storage_cap_min: 0 # GWh
+                    bss_nas:
+                        constraints:
+                            energy_cap_min: 0 # GW
+                            storage_cap_min: 0 # GWh
+
+                    ## Salt cavern storage systems
+                    saltcavern_gas:
+                        constraints:
+                            energy_cap_equals: 0 # TODO: Distribute capacity from 60 GW
+                            storage_cap_equals: 0 # TODO: Distribute capacity from 144,000 GWh
+                    saltcavern_hyd:
+                        constraints:
+                            energy_cap_equals: 0 # GW
+                            storage_cap_equals: 0 # GWh
+
+                    ## Electrolyser
+                    electrolyser_alk:
+                        constraints:
+                            energy_cap_min: 0 # GW
+                    electrolyser_pem:
+                        constraints:
+                            energy_cap_min: 0 # GW
+                    electrolyser_soe:
+                        constraints:
+                            energy_cap_min: 0 # GW
+
+                    ## Production
+                   # production_gas_fields:
+                     #   constraints:
+                        #    energy_cap_equals:  # TODO: Distribute capacity from 11.4 GW
+
+                    ## Import
+                    import_ammonia_cracker:
+                        constraints:
+                            energy_cap_equals: 0 # GW
+                    import_lng_terminal:
+                        constraints:
+                            energy_cap_equals: 0 # TODO: Distribute capacity from 35.0 GW
+
+            NL41: # Noord-Brabant
+                techs:
+                ## Renewables
+                    wind_offshore:
+                        constraints:
+                            energy_cap_equals: 0 # GW
+                    wind_onshore:
+                        constraints:
+                            energy_cap_min: 0.4254 # Klimaat monitor databank
+                    pv_rooftop:
+                        constraints:
+                            energy_cap_min: 1.9137 # TODO: Distribute capacity from 10.1 GW
+                    pv_utility:
+                        constraints:
+                            energy_cap_min: 2.2425 # TODO: Distribute capacity from 14.2 GW
+                    curtailment_elc:
+
+                    ## Solid power plants
+                    pp_biomass_standalone:
+                        constraints:
+                            energy_cap_min: 0.107 # GW, ref: ENTSOE 2024
+                    # pp_waste_incinerator:
+                    #     constraints:
+                    #         energy_cap_min: 0.171 # GW, ref: ENTSOE 2024
+                    pp_hard_coal:
+                        constraints:
+                            energy_cap_equals: 0 #GW 
+
+                    ## Nuclear
+                    pp_nuclear_gen3:
+                        constraints:
+                            energy_cap_min: 0 
+                    pp_nuclear_smr:
+                        constraints:
+                            energy_cap_min: 0 # GW
+
+                    ## CCGT
+                    pp_ccgt_gas:
+                        constraints:
+                            energy_cap_min: 0.766 # GW
+                    pp_ccgt_gas_ccs:
+                        constraints:
+                            energy_cap_min: 0 # GW
+                    pp_ccgt_hyd:
+                        constraints:
+                            energy_cap_min: 0 # GW
+
+                    ## OCGT
+                    pp_ocgt_gas:
+                        constraints:
+                            energy_cap_min: 0 # TODO: Distribute capacity from 0.918 GW
+                    pp_ocgt_hyd:
+                        constraints:
+                            energy_cap_min: 0 # GW
+
+                    ## Battery storage systems
+                    bss_liion:
+                        constraints:
+                            energy_cap_min: 0.1 # GW
+                            storage_cap_min: 0.4 # GWh
+                    bss_vanadium:
+                        constraints:
+                            energy_cap_min: 0 # GW
+                            storage_cap_min: 0 # GWh
+                    bss_nas:
+                        constraints:
+                            energy_cap_min: 0 # GW
+                            storage_cap_min: 0 # GWh
+
+                    ## Salt cavern storage systems
+                    saltcavern_gas:
+                        constraints:
+                            energy_cap_equals: 0 # TODO: Distribute capacity from 60 GW
+                            storage_cap_equals: 0 # TODO: Distribute capacity from 144,000 GWh
+                    saltcavern_hyd:
+                        constraints:
+                            energy_cap_equals: 0 # GW
+                            storage_cap_equals: 0 # GWh
+
+                    ## Electrolyser
+                    electrolyser_alk:
+                        constraints:
+                            energy_cap_min: 0 # GW
+                    electrolyser_pem:
+                        constraints:
+                            energy_cap_min: 0 # GW
+                    electrolyser_soe:
+                        constraints:
+                            energy_cap_min: 0 # GW
+
+                    ## Production
+                   # production_gas_fields:
+                       # constraints:
+                           # energy_cap_equals:  # TODO: Distribute capacity from 11.4 GW
+
+                    ## Import
+                    import_ammonia_cracker:
+                        constraints:
+                            energy_cap_equals: 0 # GW
+                    import_lng_terminal:
+                        constraints:
+                            energy_cap_equals: 0 # TODO: Distribute capacity from 35.0 GW
+
+            NL32: # Noord-Holland
+                techs:
+                ## Renewables
+                    wind_offshore:
+                        constraints:
+                            energy_cap_min: 2.507 # GW including under construction from https://www.rijksoverheid.nl/onderwerpen/duurzame-energie/windenergie-op-zee
+                    wind_onshore:
+                        constraints:
+                            energy_cap_min: 0.7197 # Klimaat monitor databank
+                    pv_rooftop:
+                        constraints:
+                            energy_cap_min: 1.1909 # TODO: Distribute capacity from 10.1 GW
+                    pv_utility:
+                        constraints:
+                            energy_cap_min: 1.1114 # TODO: Distribute capacity from 14.2 GW
+                    curtailment_elc:
+
+                    ## Solid power plants
+                    pp_biomass_standalone:
+                        constraints:
+                            energy_cap_min: 0.126 # GW, ref: ENTSOE 2024
+                    # pp_waste_incinerator:
+                    #     constraints:
+                    #         energy_cap_min: 0.202 # GW, ref: ENTSOE 2024
+                    pp_hard_coal:
+                        constraints:
+                            energy_cap_equals: 0 #GW 
+
+                    ## Nuclear
+                    pp_nuclear_gen3:
+                        constraints:
+                            energy_cap_min: 0 
+                    pp_nuclear_smr:
+                        constraints:
+                            energy_cap_min: 0 # GW
+
+                    ## CCGT
+                    pp_ccgt_gas:
+                        constraints:
+                            energy_cap_min: 1.803 # GW
+                    pp_ccgt_gas_ccs:
+                        constraints:
+                            energy_cap_min: 0 # GW
+                    pp_ccgt_hyd:
+                        constraints:
+                            energy_cap_min: 0 # GW
+
+                    ## OCGT
+                    pp_ocgt_gas:
+                        constraints:
+                            energy_cap_min: 0 # TODO: Distribute capacity from 0.918 GW
+                    pp_ocgt_hyd:
+                        constraints:
+                            energy_cap_min: 0 # GW
+
+                    ## Battery storage systems
+                    bss_liion:
+                        constraints:
+                            energy_cap_min: 0.556 # GW
+                            storage_cap_min: 1.907 # GWh
+                    bss_vanadium:
+                        constraints:
+                            energy_cap_min: 0 # GW
+                            storage_cap_min: 0 # GWh
+                    bss_nas:
+                        constraints:
+                            energy_cap_min: 0 # GW
+                            storage_cap_min: 0 # GWh
+
+                    ## Salt cavern storage systems
+                    saltcavern_gas:
+                        constraints:
+                            energy_cap_equals: 0 # TODO: Distribute capacity from 60 GW
+                            storage_cap_equals: 0 # TODO: Distribute capacity from 144,000 GWh
+                    saltcavern_hyd:
+                        constraints:
+                            energy_cap_equals: 0 # GW
+                            storage_cap_equals: 0 # GWh
+
+                    ## Electrolyser
+                    electrolyser_alk:
+                        constraints:
+                            energy_cap_min: 0 # GW
+                    electrolyser_pem:
+                        constraints:
+                            energy_cap_min: 0 # GW
+                    electrolyser_soe:
+                        constraints:
+                            energy_cap_min: 0 # GW
+
+                    ## Production
+                   # production_gas_fields:
+                      #  constraints:
+                        #    energy_cap_equals:  # TODO: Distribute capacity from 11.4 GW
+
+                    ## Import
+                    import_ammonia_cracker:
+                        constraints:
+                            energy_cap_equals: 0 # GW
+                    import_lng_terminal:
+                        constraints:
+                            energy_cap_equals: 0 # TODO: Distribute capacity from 35.0 GW
+
+            NL21: # Overijssel
+                techs:
+                ## Renewables
+                    wind_offshore:
+                        constraints:
+                            energy_cap_equals: 0 # GW
+                    wind_onshore:
+                        constraints:
+                            energy_cap_min: 0.0881 # Klimaat monitor databank
+                    pv_rooftop:
+                        constraints:
+                            energy_cap_min: 0.8831 # TODO: Distribute capacity from 10.1 GW
+                    pv_utility:
+                        constraints:
+                            energy_cap_min: 1.0743 # TODO: Distribute capacity from 14.2 GW
+                    curtailment_elc:
+ 
+                    ## Solid power plants
+                    pp_biomass_standalone:
+                        constraints:
+                            energy_cap_min: 0.034 # GW, ref: ENTSOE 2024
+                    # pp_waste_incinerator:
+                    #     constraints:
+                    #         energy_cap_min: 0.054 # GW, ref: ENTSOE 2024
+                    pp_hard_coal:
+                        constraints:
+                            energy_cap_equals: 0 #GW 
+
+                    ## Nuclear
+                    pp_nuclear_gen3:
+                        constraints:
+                            energy_cap_min: 0 
+                    pp_nuclear_smr:
+                        constraints:
+                            energy_cap_min: 0 # GW
+
+                    ## CCGT
+                    pp_ccgt_gas:
+                        constraints:
+                            energy_cap_min: 0 # GW
+                    pp_ccgt_gas_ccs:
+                        constraints:
+                            energy_cap_min: 0 # GW
+                    pp_ccgt_hyd:
+                        constraints:
+                            energy_cap_min: 0 # GW
+
+                    ## OCGT
+                    pp_ocgt_gas:
+                        constraints:
+                            energy_cap_min: 0 # TODO: Distribute capacity from 0.918 GW
+                    pp_ocgt_hyd:
+                        constraints:
+                            energy_cap_min: 0 # GW
+
+                    ## Battery storage systems
+                    bss_liion:
+                        constraints:
+                            energy_cap_min: 0.01 # TODO: Distribute capacity from 0.150 GW
+                            storage_cap_min: 0.02 # TODO: Distribute capacity from 0.150 GWh
+                    bss_vanadium:
+                        constraints:
+                            energy_cap_min: 0 # GW
+                            storage_cap_min: 0 # GWh
+                    bss_nas:
+                        constraints:
+                            energy_cap_min: 0 # GW
+                            storage_cap_min: 0 # GWh
+
+                    ## Salt cavern storage systems
+                    saltcavern_gas:
+                        constraints:
+                            energy_cap_equals: 0 # TODO: Distribute capacity from 60 GW
+                            storage_cap_equals: 0 # TODO: Distribute capacity from 144,000 GWh
+                    saltcavern_hyd:
+                        constraints:
+                            energy_cap_equals: 0 # GW
+                            storage_cap_equals: 0 # GWh
+
+                    ## Electrolyser
+                    electrolyser_alk:
+                        constraints:
+                            energy_cap_min: 0 # GW
+                    electrolyser_pem:
+                        constraints:
+                            energy_cap_min: 0 # GW
+                    electrolyser_soe:
+                        constraints:
+                            energy_cap_min: 0 # GW
+
+                    ## Production
+                   # production_gas_fields:
+                       # constraints:
+                          #  energy_cap_equals:  # TODO: Distribute capacity from 11.4 GW
+
+                    ## Import
+                    import_ammonia_cracker:
+                        constraints:
+                            energy_cap_equals: 0 # GW
+                    import_lng_terminal:
+                        constraints:
+                            energy_cap_equals: 0 # TODO: Distribute capacity from 35.0 GW
+
+            NL31: # Utrecht
+                techs:
+                ## Renewables
+                    wind_offshore:
+                        constraints:
+                            energy_cap_equals: 0 # GW
+                    wind_onshore:
+                        constraints:
+                            energy_cap_min: 0.0341 # Klimaat monitor databank opgesteld vermogen 2024
+                    pv_rooftop:
+                        constraints:
+                            energy_cap_min: 0.7804 # TODO: Distribute capacity from 10.1 GW
+                    pv_utility:
+                        constraints:
+                            energy_cap_min: 0.5332 # TODO: Distribute capacity from 14.2 GW
+                    curtailment_elc:
+
+                    ## Solid power plants
+                    pp_biomass_standalone:
+                        constraints:
+                            energy_cap_min: 0 # GW, ref: ENTSOE 2024
+                    # pp_waste_incinerator:
+                    #     constraints:
+                    #         energy_cap_min: 0 # GW, ref: ENTSOE 2024
+                    pp_hard_coal:
+                        constraints:
+                            energy_cap_equals: 0 #GW 
+
+                    ## Nuclear
+                    pp_nuclear_gen3:
+                        constraints:
+                            energy_cap_min: 0 
+                    pp_nuclear_smr:
+                        constraints:
+                            energy_cap_min: 0 # GW
+
+                    ## CCGT
+                    pp_ccgt_gas:
+                        constraints:
+                            energy_cap_min: 0.473 # GW
+                    pp_ccgt_gas_ccs:
+                        constraints:
+                            energy_cap_min: 0 # GW
+                    pp_ccgt_hyd:
+                        constraints:
+                            energy_cap_min: 0 # GW
+
+                    ## OCGT
+                    pp_ocgt_gas:
+                        constraints:
+                            energy_cap_min: 0 # TODO: Distribute capacity from 0.918 GW
+                    pp_ocgt_hyd:
+                        constraints:
+                            energy_cap_min: 0 # GW
+
+                    ## Battery storage systems
+                    bss_liion:
+                        constraints:
+                            energy_cap_min: 0 # GW
+                            storage_cap_min: 0 # GWh
+                    bss_vanadium:
+                        constraints:
+                            energy_cap_min: 0 # GW
+                            storage_cap_min: 0 # GWh
+                    bss_nas:
+                        constraints:
+                            energy_cap_min: 0 # GW
+                            storage_cap_min: 0 # GWh
+
+                    ## Salt cavern storage systems
+                    saltcavern_gas:
+                        constraints:
+                            energy_cap_equals: 0 # TODO: Distribute capacity from 60 GW
+                            storage_cap_equals: 0 # TODO: Distribute capacity from 144,000 GWh
+                    saltcavern_hyd:
+                        constraints:
+                            energy_cap_equals: 0 # GW
+                            storage_cap_equals: 0 # GWh
+
+                    ## Electrolyser
+                    electrolyser_alk:
+                        constraints:
+                            energy_cap_min: 0 # GW
+                    electrolyser_pem:
+                        constraints:
+                            energy_cap_min: 0 # GW
+                    electrolyser_soe:
+                        constraints:
+                            energy_cap_min: 0 # GW
+
+                    ## Production
+                  #  production_gas_fields:
+                      #  constraints:
+                         #   energy_cap_equals:  # TODO: Distribute capacity from 11.4 GW
+
+                    ## Import
+                    import_ammonia_cracker:
+                        constraints:
+                            energy_cap_equals: 0 # GW
+                    import_lng_terminal:
+                        constraints:
+                            energy_cap_equals: 0 # TODO: Distribute capacity from 35.0 GW
+
+            NL34: # Zeeland
+                techs:
+                ## Renewables
+                    wind_offshore:
+                        constraints:
+                            energy_cap_min: 3.503 # GW from https://www.rijksoverheid.nl/onderwerpen/duurzame-energie/windenergie-op-zee
+                    wind_onshore:
+                        constraints:
+                            energy_cap_min: 0.6185 # Klimaat monitor databank
+                    pv_rooftop:
+                        constraints:
+                            energy_cap_min: 0.3344 # TODO: Distribute capacity from 10.1 GW
+                    pv_utility:
+                        constraints:
+                            energy_cap_min: 0.6177 # TODO: Distribute capacity from 14.2 GW
+                    curtailment_elc:
+                    
+                    ## Solid power plants
+                    pp_biomass_standalone:
+                        constraints:
+                            energy_cap_min: 0 # GW, ref: ENTSOE 2024
+                    # pp_waste_incinerator:
+                    #     constraints:
+                    #         energy_cap_min: 0 # GW, ref: ENTSOE 2024
+                    pp_hard_coal:
+                        constraints:
+                            energy_cap_equals: 0 #GW 
+
+                    ## Nuclear
+                    pp_nuclear_gen3:
+                        constraints:
+                            energy_cap_min: 0.512 # GW at Borsele
+                    pp_nuclear_smr:
+                        constraints:
+                            energy_cap_min: 0 # GW
+
+                    ## CCGT
+                    pp_ccgt_gas:
+                        constraints:
+                            energy_cap_min: 1.325 # GW
+                    pp_ccgt_gas_ccs:
+                        constraints:
+                            energy_cap_min: 0 # GW
+                    pp_ccgt_hyd:
+                        constraints:
+                            energy_cap_min: 0 # GW
+
+                    ## OCGT
+                    pp_ocgt_gas:
+                        constraints:
+                            energy_cap_min: 0 # TODO: Distribute capacity from 0.918 GW
+                    pp_ocgt_hyd:
+                        constraints:
+                            energy_cap_min: 0 # GW
+
+                    ## Battery storage systems
+                    bss_liion:
+                        constraints:
+                            energy_cap_min: 0.432 # TODO: Distribute capacity from 0.150 GW
+                            storage_cap_min: 1.598 # TODO: Distribute capacity from 0.150 GWh
+                    bss_vanadium:
+                        constraints:
+                            energy_cap_min: 0 # GW
+                            storage_cap_min: 0 # GWh
+                    bss_nas:
+                        constraints:
+                            energy_cap_min: 0 # GW
+                            storage_cap_min: 0 # GWh
+
+                    ## Salt cavern storage systems
+                    saltcavern_gas:
+                        constraints:
+                            energy_cap_equals: 0 # TODO: Distribute capacity from 60 GW
+                            storage_cap_equals: 0 # TODO: Distribute capacity from 144,000 GWh
+                    saltcavern_hyd:
+                        constraints:
+                            energy_cap_equals: 0 # GW
+                            storage_cap_equals: 0 # GWh
+
+                    ## Electrolyser
+                    electrolyser_alk:
+                        constraints:
+                            energy_cap_min: 0 # GW
+                    electrolyser_pem:
+                        constraints:
+                            energy_cap_min: 0 # GW
+                    electrolyser_soe:
+                        constraints:
+                            energy_cap_min: 0 # GW
+
+                    ## Production
+                   # production_gas_fields:
+                     #   constraints:
+                       #     energy_cap_equals:  # TODO: Distribute capacity from 11.4 GW
+
+                    ## Import
+                    import_ammonia_cracker:
+                        constraints:
+                            energy_cap_equals: 0 # GW
+                    import_lng_terminal:
+                        constraints:
+                            energy_cap_equals: 0 # TODO: Distribute capacity from 35.0 GW
+
+            NL33: # Zuid-Holland
+                techs:
+                ## Renewables
+                    wind_offshore:
+                        constraints:
+                            energy_cap_min: 1.649 # GW from: https://www.rijksoverheid.nl/onderwerpen/duurzame-energie/windenergie-op-zee
+                    wind_onshore:
+                        constraints:
+                            energy_cap_min: 0.7772 # Klimaat monitor databank
+                    pv_rooftop:
+                        constraints:
+                            energy_cap_min: 1.5801 # TODO: Distribute capacity from 10.1 GW
+                    pv_utility:
+                        constraints:
+                            energy_cap_min: 1.3149 # TODO: Distribute capacity from 14.2 GW
+                    curtailment_elc:
+
+                    ## Solid power plants
+                    pp_biomass_standalone:
+                        constraints:
+                            energy_cap_min: 0 # GW, ref: ENTSOE 2024
+                    # pp_waste_incinerator:
+                    #     constraints:
+                    #         energy_cap_min: 0 # GW, ref: ENTSOE 2024
+                    pp_hard_coal:
+                        constraints:
+                            energy_cap_equals: 0 #GW
+                    coal_supply:
+                        constraints:
+                            energy_cap_equals: 
+
+                    ## Nuclear
+                    pp_nuclear_gen3:
+                        constraints:
+                            energy_cap_min: 0 # GW
+                    pp_nuclear_smr:
+                        constraints:
+                            energy_cap_min: 0 # GW
+
+                    ## CCGT
+                    pp_ccgt_gas:
+                        constraints:
+                            energy_cap_min: 2.436 # GW
+                    pp_ccgt_gas_ccs:
+                        constraints:
+                            energy_cap_min: 0 # GW
+                    pp_ccgt_hyd:
+                        constraints:
+                            energy_cap_min: 0 # GW
+
+                    ## OCGT
+                    pp_ocgt_gas:
+                        constraints:
+                            energy_cap_min: 0 # TODO: Distribute capacity from 0.918 GW
+                    pp_ocgt_hyd:
+                        constraints:
+                            energy_cap_min: 0 # GW
+
+                    ## Battery storage systems
+                    bss_liion:
+                        constraints:
+                            energy_cap_min: 0.265 # TODO: Distribute capacity from 0.150 GW
+                            storage_cap_min: 0.830 # TODO: Distribute capacity from 0.150 GWh
+                    bss_vanadium:
+                        constraints:
+                            energy_cap_min: 0 # GW
+                            storage_cap_min: 0 # GWh
+                    bss_nas:
+                        constraints:
+                            energy_cap_min: 0 # GW
+                            storage_cap_min: 0 # GWh
+
+                    ## Salt cavern storage systems
+                    saltcavern_gas:
+                        constraints:
+                            energy_cap_equals: 0 # TODO: Distribute capacity from 60 GW
+                            storage_cap_equals: 0 # TODO: Distribute capacity from 144,000 GWh
+                    saltcavern_hyd:
+                        constraints:
+                            energy_cap_equals: 0 # GW
+                            storage_cap_equals: 0 # GWh
+
+                    ## Electrolyser
+                    electrolyser_alk:
+                        constraints:
+                            energy_cap_min: 0 # GW
+                    electrolyser_pem:
+                        constraints:
+                            energy_cap_min: 0 # GW
+                    electrolyser_soe:
+                        constraints:
+                            energy_cap_min: 0 # GW
+
+                    ## Production
+                   # production_gas_fields:
+                     #   constraints:
+                       #     energy_cap_equals:  # TODO: Distribute capacity from 11.4 GW
+
+                    ## Import
+                    import_ammonia_cracker:
+                        constraints:
+                            energy_cap_equals: 0 # GW
+                    import_lng_terminal:
+                        constraints:
+                            energy_cap_equals: 0 # TODO: Distribute capacity from 35.0 GW
+
+    links_expansion:
+
+        links:
+            NL11,NL12:
+                techs:
+                    transmission_hvac:
+                        constraints: 
+                            energy_cap_min: 1.296 # GW
+                            energy_cap_max: 1.856 # GW
+
+            NL11,NL13:
+                techs:
+                    transmission_hvac:
+                        constraints: 
+                            energy_cap_min: 1.296 # GW
+                            energy_cap_max: 1.856 # GW
+
+            NL31,NL33:
+                techs:
+                    transmission_hvac:
+                        constraints: 
+                            energy_cap_min: 1.149 # GW
+                            energy_cap_max: 1.709 # GW
+
+            NL32,NL33:
+                techs:
+                    transmission_hvac:
+                        constraints: 
+                            energy_cap_min: 5.618 # GW
+                            energy_cap_max: 6.178 # GW
+
+            NL33,NL41:
+                techs:
+                    transmission_hvac:
+                        constraints: 
+                            energy_cap_min: 1.285 # GW
+                            energy_cap_max: 1.845 # GW
+
+            NL34,NL41:
+                techs:
+                    transmission_hvac:
+                        constraints: 
+                            energy_cap_min: 2.217 # GW
+                            energy_cap_max: 2.777 # GW
+
+            NL41,NL42:
+                techs:
+                    transmission_hvac:
+                        constraints: 
+                            energy_cap_min: 3.648 # GW
+                            energy_cap_max: 4.208 # GW
+
+            NL12,NL23:
+                techs:
+                    transmission_hvac:
+                        constraints: 
+                            energy_cap_min: 1.266 # GW
+                            energy_cap_max: 1.826 # GW
+
+            NL13,NL21:
+                techs:
+                    transmission_hvac:
+                        constraints: 
+                            energy_cap_min: 1.193 # GW
+                            energy_cap_max: 1.754 # GW
+
+            NL21,NL22:
+                techs:
+                    transmission_hvac:
+                        constraints: 
+                            energy_cap_min: 2.220 # GW
+                            energy_cap_max: 2.780 # GW
+
+            NL21,NL23:
+                techs:
+                    transmission_hvac:
+                        constraints: 
+                            energy_cap_min: 3.575 # GW
+                            energy_cap_max: 4.135 # GW
+
+            NL22,NL41:
+                techs:
+                    transmission_hvac:
+                        constraints: 
+                            energy_cap_min: 1.138 # GW
+                            energy_cap_max: 1.698 # GW
+
+            NL23,NL32:
+                techs:
+                    transmission_hvac:
+                        constraints: 
+                            energy_cap_min: 2.249 # GW
+                            energy_cap_max: 2.809 # GW
+
+            NL31,NL32:
+                techs:
+                    transmission_hvac:
+                        constraints: 
+                            energy_cap_min: 1.120 # GW
+                            energy_cap_max: 1.681 # GW
+
+# Interconnections (NL-to-DE & NL-to-BE) remain as `energy_cap_equals`
+            NL42,DE: # Limburg
+                techs:
+                    transmission_hvac:
+                        constraints:
+                            energy_cap_equals: 2.328 # GW
+
+            NL11,DE: # Groningen
+                techs:
+                    transmission_hvac:
+                        constraints:
+                            energy_cap_equals: 1.397 # GW
+
+            NL21,DE: # Overijssel
+                techs:
+                    transmission_hvac:
+                        constraints:
+                            energy_cap_equals: 2.284 # GW
+
+            NL22,DE: # Gelderland
+                techs:
+                    transmission_hvac:
+                        constraints:
+                            energy_cap_equals: 3.563 # GW
+
+            NL42,BE: # Limburg
+                techs:
+                    transmission_hvac:
+                        constraints:
+                            energy_cap_equals: 2.294 # GW
+
+            NL34,BE: # Zeeland
+                techs:
+                    transmission_hvac:
+                        constraints:
+                            energy_cap_equals: 2.293 # GW
+
+# HVDC Connections
+            NL33,UK: # Zuid-Holland
+                techs:
+                    transmission_hvdc:
+                        constraints:
+                            energy_cap_equals: 1.009 # GW
+
+            NL11,NO: # Groningen
+                techs:
+                    transmission_hvdc:
+                        constraints:
+                            energy_cap_equals: 0.721 # GW
+
+            NL11,DK: # Groningen
+                techs:
+                    transmission_hvdc:
+                        constraints:
+                            energy_cap_equals: 0.689
+
+#scenarios:
+#    capacity_settings: [capacities_2040,links_expansion]

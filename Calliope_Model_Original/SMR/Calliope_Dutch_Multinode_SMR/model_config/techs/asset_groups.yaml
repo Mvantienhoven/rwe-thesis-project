@@ -1,0 +1,487 @@
+#-------------------------------------------------COMMENTS KEVIN------------------------------------------------------#
+# Specifies asset groups:
+
+#       Demand:
+#   Firm & flex demand (assumes some demand response?)
+#   Load shedding (for unmet demand)
+
+#       Import/export:
+#   Crossborder import/export (assumes some trading)
+#   Terminal import (assumes some LNG/NH3 import)
+
+#       Energy:
+#   Renewables (solar/wind)
+#   Firm supply (assumes some firm supply, e.g. nuclear)
+#   Nuclear power plants (assumes some nuclear generation)
+#   Solid fuel power plants (assumes some biomass generation)
+#   Gas fired power plants (assumes some gas/hydrogen generation)
+#   Coal fired power plants (assumes some coal generation)
+#   Electrolyser plants (assumes some hydrogen generation)
+#   Reformer plants (assumes some hydrogen generation)
+#   Battery systems (assumes some battery storage)
+#   Salt cavern systems (assumes some gas/hydrogen storage)
+
+#       Infra:
+#   Power transmission (assumes some HVDC/HVAC interconnectors)
+#   Gas transmission (assumes some gas/hydrogen transmission)
+
+#       Curtailment:
+#   Curtailment (assumes some curtailment of generation)
+
+#       Emission handling:
+#   CO₂ emissions (assumes some CO₂ emissions)
+#       CCS:
+#   CO₂ CCS (assumes some CO₂ capture and storage)
+
+## Nuclear now not defined as CHP
+## Ensure group constraints are overridden correctly in techs
+
+## To do: 
+##    Check whether this list is complete, especially wrt flex options
+##    Consider industry hubs specifics?
+#----------------------------------------------------------------------------------------------------------------------#
+
+
+
+
+# SPORES scores disabled for transmision techs!
+# SPORES scores disabled for crossborder import/export techs!
+# SPORES scores disabled for loadshedding/curtailment techs!
+# All cost values are dummy values to ensure optimality is possible
+
+tech_groups:
+
+    # Demand
+
+    firm_demand:
+        essentials:
+            parent: demand
+        constraints:
+            force_resource: True
+            resource_unit: energy
+
+    flex_demand:
+        essentials:
+            parent: demand
+        constraints:
+            force_resource: False
+            resource_unit: energy
+
+    load_shedding:
+        essentials:
+            parent: supply
+            # carrier: electricity/hydrogen/gas
+        constraints:
+            lifetime: 100
+            # force_resource: false
+            # resource: 1000 # GW
+            resource_unit: energy
+            # energy_cap_max: 1000 # GW
+        costs:
+            monetary:
+                interest_rate: 0.1
+                energy_cap: 1
+                # om_prod: 1e-3
+            # spores_score:
+            #     interest_rate: 1
+            #     energy_cap: 0
+            primary_energy:
+                interest_rate: 0
+                om_prod: 1
+
+    # Import/export
+
+    crossborder_import:
+        essentials:
+            parent: supply
+            # carrier: electricity/hydrogen/gas
+        constraints:
+            lifetime: 100
+            # energy_eff: 0.95 # add 5% loss to prevent singularity when import/export have the same price. Can be considered as a trading premium.
+            force_resource: false
+            # resource: 1000 # GW
+            resource_unit: energy
+            # energy_cap_max: 100 # GW
+        costs:
+            monetary:
+                interest_rate: 0.1
+                energy_cap: 1
+                # om_prod: 1e-3
+            spores_score:
+                interest_rate: 1
+                energy_cap: 0
+            primary_energy:
+                interest_rate: 0
+                om_prod: 1
+    crossborder_export:
+        essentials:
+            parent: demand
+        constraints:
+            force_resource: false
+            # resource: -1000 # GW
+            resource_unit: energy
+            # carrier: electricity/hydrogen/gas
+        # constraints:
+            # lifetime: 100
+        # costs:
+            # monetary:
+            #     interest_rate: 0.1
+            #     energy_cap: 1e0
+            # spores_score:
+            #     interest_rate: 1
+            #     energy_cap: 0
+            # primary_energy:
+            #     interest_rate: 0
+            #     om_prod: 1
+
+    terminal_import:
+        essentials:
+            parent: supply
+            # carrier: LNG/NH3
+        constraints:
+            lifetime: 100
+            force_resource: false
+            # resource: 1e6 # GW, infinite resource
+            # resource_min_use: 0.8
+        costs:
+            monetary:
+                interest_rate: 0.1
+                energy_cap: 1e0
+                # om_prod: 1e-3
+            spores_score:
+                interest_rate: 1
+                energy_cap: 0
+            primary_energy:
+                interest_rate: 0
+                om_prod: 1
+
+    # export:
+        # essentials:
+            # parent: demand
+            # carrier: electricity/hydrogen/gas
+
+    # Energy
+
+    renewables:
+        # Wind onshore/offshore
+        # Solar utility/rooftop
+        essentials:
+            parent: supply
+            carrier_out: electricity
+        constraints:
+            # force_resource: True/False
+            # resource: 1e6
+            resource_unit: energy_per_cap
+        costs:
+            monetary:
+                interest_rate: 0.1
+                energy_cap: 1e0
+                # om_prod: 1e-3
+            spores_score:
+                interest_rate: 1
+                energy_cap: 0
+            primary_energy:
+                interest_rate: 0
+                om_prod: 1
+
+    firm_supply:
+        essentials:
+            parent: supply
+        constraints:
+            resource: 1e6
+            resource_unit: energy
+        costs:
+            monetary:
+                interest_rate: 0.1
+                energy_cap: 1e0
+            spores_score:
+                interest_rate: 1
+                energy_cap: 0
+            primary_energy:
+                interest_rate: 0
+    
+    nuclear_power_plants:
+        # Nuclear Gen3 / SMR
+        essentials:
+            parent: supply
+            carrier_out: electricity
+        constraints:
+            force_resource: false
+            #resource: 1e6 # GW, infinite resource
+        #     energy_cap_max_systemwide: 100.0 # GW, ref: ..
+        costs:
+            monetary:
+                interest_rate: 0.1
+                energy_cap: 1e0
+                # om_prod: 1e-3
+            spores_score:
+                interest_rate: 1
+                energy_cap: 0
+            primary_energy:
+                interest_rate: 0
+                om_prod: 1
+
+    solid_fuel_power_plants:
+        # Biomass
+        essentials:
+            parent: supply
+            carrier_out: electricity
+        constraints:
+            force_resource: false
+            # resource: 1e6 # GW, infinite resource
+        #     energy_cap_max_systemwide: 100.0 # GW, ref: ..
+        costs:
+            monetary:
+                interest_rate: 0.1
+                energy_cap: 1
+                # om_prod: 1e-3
+            # co2_emitted:
+            #     interest_rate: 1
+            #     energy_cap: 0
+            # co2_stored:
+            #     interest_rate: 1
+            #     energy_cap: 0
+            spores_score:
+                interest_rate: 1
+                energy_cap: 0
+            primary_energy:
+                interest_rate: 0
+                om_prod: 1
+
+    gas_fired_power_plants:
+        # Gas fired CCGT/OCGT
+        # Hydrogen fired CCGT/OCGT
+        essentials:
+            parent: conversion_plus
+            # carrier_in: gas/hydrogen
+            carrier_out: electricity
+            primary_carrier_out: electricity
+            carrier_out_2: co2_emitted
+            carrier_out_3: co2_pure
+        # constraints:
+        #     energy_cap_max_systemwide: 100.0 # GW, ref: ..
+        costs:
+            monetary:
+                interest_rate: 0.1
+                energy_cap: 1
+                # om_prod: 1e-3
+            # co2_emitted:
+            #     interest_rate: 1
+            #     energy_cap: 0
+            # co2_stored:
+            #     interest_rate: 1
+            #     energy_cap: 0
+            spores_score:
+                interest_rate: 1
+                energy_cap: 0
+
+    coal_fired_power_plants:
+        essentials:
+            parent: conversion_plus
+            carrier_in: coal
+            carrier_out: electricity
+            primary_carrier_out: electricity
+            carrier_out_2: co2_emitted
+            carrier_out_3: co2_pure
+        #constraints:
+            # resource: 1e6 # GW, infinite resource
+        #     energy_cap_max_systemwide: 100.0 # GW, ref: ..
+        costs:
+            monetary:
+                interest_rate: 0.1
+                energy_cap: 1
+                # om_prod: 1e-3
+            # co2_emitted:
+            #     interest_rate: 1
+            #     energy_cap: 0
+            # co2_stored:
+            #     interest_rate: 1
+            #     energy_cap: 0
+            spores_score:
+                interest_rate: 1
+                energy_cap: 0
+            primary_energy:
+                interest_rate: 0
+                om_prod: 1
+
+    electrolyser_plants:
+        # Alkaline
+        # PEM
+        # SOE
+        essentials:
+            parent: conversion
+            carrier_in: electricity
+            carrier_out: hydrogen
+        # constraints:
+            # energy_cap_max_systemwide: 100.0 # GW, ref: ..
+        costs:
+            monetary:
+                interest_rate: 0.1
+                energy_cap: 1
+                # om_prod: 1e-3
+            spores_score:
+                interest_rate: 1
+                energy_cap: 0
+
+    reformer_plants:
+        # SMR (/+CCS)
+        # ATR (/+CCS)
+        essentials:
+            parent: conversion_plus
+            carrier_in: gas
+            carrier_out: hydrogen
+            primary_carrier_out: hydrogen
+            carrier_out_2: co2_emitted
+            carrier_out_3: co2_pure
+        constraints:
+            energy_cap_max_systemwide: 0 # GW, ref: ..
+            # energy_cap_min_use: 0.8 # force operational lower limit of 80%
+        costs:
+            monetary:
+                interest_rate: 0.1
+                energy_cap: 1
+                # om_prod: 1e-3
+            # co2_emitted:
+            #     interest_rate: 1
+            #     energy_cap: 0
+            # co2_stored:
+            #     interest_rate: 1
+            #     energy_cap: 0
+            spores_score:
+                interest_rate: 1
+                energy_cap: 0
+
+    battery_systems:
+        # Li+
+        # Redox flow
+        essentials:
+            parent: storage
+            carrier: electricity
+        constraints:
+            force_asynchronous_prod_con: false # prevent dissipation of energy through nonphysical flows
+            # energy_cap_max_systemwide: 1000.0 # GW, ref: ..
+            # storage_cap_max_systemwide: 100000.0 # GW, ref: ..
+        costs:
+            monetary:
+                interest_rate: 0.1
+                energy_cap: 1
+                storage_cap: 1
+                # om_prod: 1e-3
+            spores_score:
+                interest_rate: 1
+                energy_cap: 0
+                storage_cap: 0
+
+    saltcavern_systems:
+        # hydrogen storage
+        # gas storage
+        essentials:
+            parent: storage
+            # carrier: gas/hydrogen
+        # constraints:
+        #     force_asynchronous_prod_con: false # prevent dissipation of energy through nonphysical flows
+        costs:
+            monetary:
+                interest_rate: 0.1
+                energy_cap: 1
+                storage_cap: 1
+                # om_prod: 1e-3
+            spores_score:
+                interest_rate: 1
+                energy_cap: 0
+                storage_cap: 0
+
+
+    # Infra
+    power_transmission:
+        # HVAC interconnectors
+        # HVDC interconnectors
+        essentials:
+            parent: transmission
+            carrier: electricity
+        constraints:
+            # energy_cap_max: 10000 # GW
+            force_asynchronous_prod_con: false # prevent dissipation of energy through nonphysical flows
+        costs:
+            monetary:
+                interest_rate: 0.1
+                energy_cap: 1
+                # energy_cap_per_distance: 1e-2
+                # om_prod: 1e-4
+            line_load:
+                interest_rate: 1
+                om_prod:
+            spores_score:
+                interest_rate: 1
+                energy_cap: 0
+
+    gas_transmission:
+        essentials:
+            parent: transmission
+            # carrier: gas/hydrogen
+        # constraints:
+            # force_asynchronous_prod_con: false # prevent dissipation of energy through nonphysical flows
+        costs:
+            monetary:
+                interest_rate: 0.1
+                energy_cap: 1e0
+                # om_prod: 1e-3
+            spores_score:
+                interest_rate: 1
+                energy_cap: 0
+
+    # Curtailment
+    curtailment:
+        essentials:
+            parent: demand
+            # carrier: electricity/gas/hydrogen
+        constraints:
+            force_resource: False
+            resource: -1000 # GW
+            resource_unit: energy
+
+    # Emission handling
+    co2_emissions:
+        essentials:
+            parent: demand
+            carrier: co2_emitted
+        constraints:
+            force_resource: False
+            resource: -1000 # kton
+            resource_unit: energy
+            #carrier_con_max: -1 #kton CO2/year
+
+    # CCS
+    co2_ccs:
+        essentials:
+            parent: demand
+            carrier: co2_pure
+        constraints:
+            force_resource: False
+            resource: -1000 # kton
+            resource_unit: energy
+
+    # Demand
+    # building_demand:
+    #     essentials:
+    #         parent: demand
+    #     constraints:
+    #         force_resource: True
+
+    # industry_demand:
+    #     essentials:
+    #         parent: demand
+    #     constraints:
+    #         force_resource: True
+
+    # transport_demand:
+    #     essentials:
+    #         parent: demand
+    #     constraints:
+    #         force_resource: True
+
+    # agriculture_demand:
+    #     essentials:
+    #         parent: demand
+    #     constraints:
+    #         force_resource: True

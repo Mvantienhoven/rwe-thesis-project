@@ -1,0 +1,289 @@
+##-----------------------------------------------Comments Kevin-----------------------------------------##
+# Various emission cap scenarios:
+    # ets_cap00: ETS cap of 0 kton CO2/a, no emissions allowed
+    # ets_cap07: ETS cap of 7.5 kton CO2/a,
+    # ets_cap10: ETS cap of 10 kton CO2/a,
+    # ets_cap15: ETS cap of 15 kton CO2/a,
+    # ets_cap30: ETS cap of 30 kton CO2/a,
+    # ets_cap50: ETS cap of 50 kton CO2/a,
+    # ets_cap100: ETS cap of 100 kton CO2/a,
+    # ets_cap55: ETS cap of 12 kton CO2/a, used in the 2024 IP
+# Various CO2 price scenarios:
+#     ets_0: ETS price of 0 EUR/kton CO2, no costs for CO2 emissions
+#     ets_100: ETS price of 100 EUR/kton CO2,
+#     ets_150: ETS price of 150 EUR/kton CO2,
+#     ets_300: ETS price of 300 EUR/kton CO2,
+#     ets_500: ETS price of 500 EUR/kton CO2,
+#     ets_1000: ETS price of 1000 EUR/kton CO2,
+# Various CO2 penalty scenarios:
+#     penalty_0: CO2 penalty of 0 EUR/kton CO2, no costs for CO2 emissions
+#     penalty_200: CO2 penalty of 200 EUR/kton CO2,
+#     penalty_300: CO2 penalty of 300 EUR/kton CO2,
+#     penalty_350: CO2 penalty of 350 EUR/kton CO2,
+#     penalty_500: CO2 penalty of 500 EUR/kton CO2,
+#     penalty_700: CO2 penalty of 700 EUR/kton CO2,
+#     penalty_1200: CO2 penalty of 1200 EUR/kton CO2
+# Various CCS cap scenarios:
+#     ccs_cap00: CCS cap of 0 kton CO2/a, no
+#     ccs_cap05: CCS cap of 5 kton CO2/a,
+#     ccs_cap10: CCS cap of 10 kton CO2/a,
+#     ccs_cap20: CCS cap of 20 kton CO2/a,
+#     ccs_cap50: CCS cap of 50 kton CO2/a,
+# Various CCS cost scenarios:
+#     ccs_0: CCS cost of 0 EUR/kton CO2, no
+#     ccs_10: CCS cost of 10 EUR/kton CO2,
+#     ccs_15: CCS cost of 15 EUR/kton CO2,
+#     ccs_30: CCS cost of 30 EUR/kton CO2,
+#     ccs_50: CCS cost of 50 EUR/kton CO2,
+#     ccs_100: CCS cost of 100 EUR/kton CO2
+
+# SET CORRECT OVERRIDES FOR SCENARIO
+
+# To do: Check logic of how these emissions scenarios are set up and used in the model.
+##------------------------------------------------------------------------------------------------------##
+
+overrides:
+
+    emission_cap:
+        group_constraints:
+            co2_emissions_cap:
+                techs: [co2_atmosphere, co2_ets]
+                carrier_con_max.co2_emitted: -17820
+    # _xx refers to approx % remaining emissions w.r.t. a baseline, assumed to be 150 Mton/a.
+    # Unit = kton CO2/a
+
+    ets_cap00:
+        group_constraints.ets_cap.techs: ['co2_ets']
+        group_constraints.ets_cap.carrier_con_max.co2_emitted: 0.0 # kton CO2/a
+        group_constraints.ets_penalty.carrier_con_max.co2_emitted: 0
+
+
+    ets_cap07:
+        group_constraints.ets_cap.techs: ['co2_ets']
+        group_constraints.ets_cap.carrier_con_max.co2_emitted: -7.5e3 # kton CO2/a
+
+    ets_cap10:
+        group_constraints.ets_cap.techs: ['co2_ets']
+        group_constraints.ets_cap.carrier_con_max.co2_emitted: -10e3 # kton CO2/a
+
+    ets_cap15:
+        group_constraints.ets_cap.techs: ['co2_ets']
+        group_constraints.ets_cap.carrier_con_max.co2_emitted: -15e3 # kton CO2/a
+
+
+    ets_cap30:
+        group_constraints.ets_cap.techs: ['co2_ets']
+        group_constraints.ets_cap.carrier_con_max.co2_emitted: -30e3 # kton CO2/a
+
+    ets_cap50:
+        group_constraints.ets_cap.techs: ['co2_ets']
+        group_constraints.ets_cap.carrier_con_max.co2_emitted: -50e3 # kton CO2/a
+
+    ets_cap100:
+        group_constraints.ets_cap.techs: ['co2_ets']
+        group_constraints.ets_cap.carrier_con_max.co2_emitted: -100e3 # kton CO2/a
+
+    ets_cap55:
+        group_constraints.ets_cap.techs: ['co2_ets']
+        group_constraints.ets_cap.carrier_con_max.co2_emitted: -12e3 # kton CO2/a 
+    # _xx refers to CO2 price in EUR/kton CO2.
+    # Unit = MEUR/GWh, 1e-3 equals 1 EUR/kton CO2
+
+    ets_0:
+        techs:
+            co2_ets:
+                costs:
+                    monetary:
+                        om_con: 0.0e-3 # MEUR/kton CO2
+
+    ets_100:
+        techs:
+            co2_ets:
+                costs:
+                    monetary:
+                        om_con: 100.0e-3 # MEUR/kton CO2
+
+    ets_150:
+        techs:
+            co2_ets:
+                costs:
+                    monetary:
+                        om_con: 150.0e-3 # MEUR/kton CO2
+
+    ets_300:
+        techs:
+            co2_ets:
+                costs:
+                    monetary:
+                        om_con: 300.0e-3 # MEUR/kton CO2
+
+    ets_500:
+        techs:
+            co2_ets:
+                costs:
+                    monetary:
+                        om_con: 500.0e-3 # MEUR/kton CO2
+
+    ets_1000:
+        techs:
+            co2_ets:
+                costs:
+                    monetary:
+                        om_con: 1000.0e-3 # MEUR/kton CO2
+
+    penalty_0:
+        techs:
+            co2_atmosphere:
+                costs:
+                    monetary:
+                        om_con: 0.0e-3 # MEUR/kton CO2
+
+    penalty_200:
+        techs:
+            co2_atmosphere:
+                costs:
+                    monetary:
+                        om_con: 200.0e-3 # MEUR/kton CO2
+
+    penalty_300:
+        techs:
+            co2_atmosphere:
+                costs:
+                    monetary:
+                        om_con: 300.0e-3 # MEUR/kton CO2
+
+    penalty_350:
+        techs:
+            co2_atmosphere:
+                costs:
+                    monetary:
+                        om_con: 350.0e-3 # MEUR/kton CO2
+
+    penalty_500:
+        techs:
+            co2_atmosphere:
+                costs:
+                    monetary:
+                        om_con: 500.0e-3 # MEUR/kton CO2
+
+    penalty_700:
+        techs:
+            co2_atmosphere:
+                costs:
+                    monetary:
+                        om_con: 700.0e-3 # MEUR/kton CO2
+
+    penalty_1200:
+        techs:
+            co2_atmosphere:
+                costs:
+                    monetary:
+                        om_con: 1200.0e-3 # MEUR/kton CO2
+
+    # _xx refers to CO2 price in EUR/kton CO2.
+    # Unit = MEUR/GWh, 1e-3 equals 1 EUR/kton CO2
+    ccs_cap00:
+        # techs:
+        #     co2_storage:
+        #         constraints:
+        #             resource: 0.0 # kton CO2/h, equals 50e3 ton/a @ 8760 hrs/a
+
+        group_constraints.ccs_cap.techs: ['co2_storage']
+        group_constraints.ccs_cap.carrier_con_max.co2_pure: 0.0 # kton CO2/a
+
+    ccs_cap05:
+        # techs:
+        #     co2_storage:
+        #         constraints:
+        #             resource: -570.7 # kton CO2/h, equals 5e3 ton/a @ 8760 hrs/a
+
+        group_constraints.ccs_cap.techs: ['co2_storage']
+        group_constraints.ccs_cap.carrier_con_max.co2_pure: -5.0e3 # kton CO2/a
+
+
+    ccs_cap10:
+        # techs:
+        #     co2_storage:
+        #         constraints:
+        #             resource: -1141.5 # kton CO2/h, equals 10e3 ton/a @ 8760 hrs/a
+
+        group_constraints.ccs_cap.techs: ['co2_storage']
+        group_constraints.ccs_cap.carrier_con_max.co2_pure: -10.0e3 # kton CO2/a
+
+
+    ccs_cap20:
+        # techs:
+        #     co2_storage:
+        #         constraints:
+        #             resource: -2283 # kton CO2/h, equals 20e3 ton/a @ 8760 hrs/a
+
+        group_constraints.ccs_cap.techs: ['co2_storage']
+        group_constraints.ccs_cap.carrier_con_max.co2_pure: -20.0e3 # kton CO2/a
+
+
+    ccs_cap50:
+        # techs:
+        #     co2_storage:
+        #         constraints:
+        #             resource: -5707 # kton CO2/h, equals 50e3 ton/a @ 8760 hrs/a
+
+        group_constraints.ccs_cap.techs: ['co2_storage']
+        group_constraints.ccs_cap.carrier_con_max.co2_pure: -50.0e3 # kton CO2/a
+
+
+    ccs_0:
+        techs:
+            co2_storage:
+                costs:
+                    monetary:
+                        om_con: 0.0e-3 # MEUR/kton CO2
+        # objective_options.cost_class.co2_stored: 0e-3
+
+    ccs_10:
+        techs:
+            co2_storage:
+                costs:
+                    monetary:
+                        om_con: 10.0e-3 # MEUR/kton CO2
+        # objective_options.cost_class.co2_stored: 10e-3
+
+    ccs_15:
+        techs:
+            co2_storage:
+                costs:
+                    monetary:
+                        om_con: 15.0e-3 # MEUR/kton CO2
+        # objective_options.cost_class.co2_stored: 15e-3
+
+    ccs_30:
+        techs:
+            co2_storage:
+                costs:
+                    monetary:
+                        om_con: 30.0e-3 # MEUR/kton CO2
+        # objective_options.cost_class.co2_stored: 30e-3
+
+    ccs_50:
+        techs:
+            co2_storage:
+                costs:
+                    monetary:
+                        om_con: 50.0e-3 # MEUR/kton CO2
+        # objective_options.cost_class.co2_stored: 50e-3
+
+    ccs_100:
+        techs:
+            co2_storage:
+                costs:
+                    monetary:
+                        om_con: 100.0e-3 # MEUR/kton CO2
+        # objective_options.cost_class.co2_stored: 100e-3
+
+scenarios:
+   # emission_settings: [
+   #     ets_cap55,
+   #     ets_300, 
+   #     penalty_500,
+   #     ccs_cap10, 
+   #     ccs_50,
+   #     ]

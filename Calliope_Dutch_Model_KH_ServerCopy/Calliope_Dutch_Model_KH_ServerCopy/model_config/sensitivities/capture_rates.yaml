@@ -1,0 +1,24 @@
+#-------------------------------------------------COMMENTS KEVIN------------------------------------------------------#
+# Check whether SMR overrides are needed for deepened analysis.
+
+#----------------------------------------------------------------------------------------------------------------------#
+
+
+# post-combustion capture (pcc) 100%
+
+overrides:
+    pcc_100:
+        pp_ccgt_gas_ccs:
+            costs:
+                co2:
+                    om_con: 0.0 # ton CO2 / GWh
+
+        pp_waste_incinerator_ccs:
+            costs:
+                co2:
+                    om_con: 0.0 # ton CO2 / GWh
+
+        # smr_ccs:
+            # costs:
+                # co2:
+                    # om_con: 0.0 # ton CO2 / GWh

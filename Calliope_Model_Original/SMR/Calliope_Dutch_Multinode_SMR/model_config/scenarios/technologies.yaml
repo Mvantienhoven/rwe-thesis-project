@@ -1,0 +1,11 @@
+##-----------------------------------------------Comments Kevin-----------------------------------------##
+# Consider tech-specific scenario overrides. Perhaps subgroup of pricing/caps per SMR tech?
+# Otherwise edit in tech file.
+
+##------------------------------------------------------------------------------------------------------##
+
+
+overrides:
+
+	tyndp_costdata_2050:
+		

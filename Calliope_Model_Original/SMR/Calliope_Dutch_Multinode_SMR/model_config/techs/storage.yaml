@@ -1,0 +1,92 @@
+#-------------------------------------------------COMMENTS KEVIN------------------------------------------------------#
+# Storage techs:
+#   bss_liion, bss_vanadium, bss_nas
+#   saltcavern_gas, saltcavern_hydrogen
+
+
+## To do: Check correct/completeness
+#----------------------------------------------------------------------------------------------------------------------#
+
+
+techs:
+
+    bss_liion:
+        essentials:
+            name: 'Battery storage - Lithium'
+            parent: battery_systems
+        constraints:
+            lifetime: 30  # {Brown et al. , Energy, 2018}
+            energy_eff: 0.92  # 0.98*0.98 = 0.96 round-trip eff {IRENA2017}
+            energy_cap_per_storage_cap_max: 1.0  # {own_assumptions}
+            energy_cap_per_storage_cap_min: 0.25  # {own_assumptions}
+            force_asynchronous_prod_con: false  
+        costs:
+            monetary:
+                energy_cap: 1  # Meur/GW, ref: 
+                storage_cap: 352  # Meur/GWh, ref: 
+                om_annual_investment_fraction: 0.0255  # *100% of CAPEX/yr, ref: 
+    bss_vanadium:
+        essentials:
+            name: 'Battery storage - Vanadium'
+            parent: battery_systems
+        constraints:
+            lifetime: 20
+            energy_eff: 0.85  # round trip efficiency, adjusted from 0.7 > 0.55
+            energy_cap_per_storage_cap_max: 0.25 # <= 1 GW / 4 GWh
+            energy_cap_per_storage_cap_min: 0.0001 # >= 1 GW / 10,000 GWh
+        costs:
+            monetary:
+                energy_cap: 1  # Meur/GW, ref: 
+                storage_cap: 421  # Meur/GWh, ref: 
+                om_annual_investment_fraction: 0.03  # *100% of CAPEX/yr, ref: 
+    bss_nas:
+        essentials:
+            name: 'Battery storage - NaS'
+            parent: battery_systems
+        constraints:
+            lifetime: 24
+            energy_eff: 0.85  # round trip efficiency, adjusted from 0.7 > 0.55
+            energy_cap_per_storage_cap_max: 1.0  # {own_assumptions}
+            energy_cap_per_storage_cap_min: 0.25  # {own_assumptions}
+        costs:
+            monetary:
+                energy_cap: 1  # Meur/GW, ref: 
+                storage_cap: 334  #! Meur/GWh, ref: 
+                om_annual_investment_fraction: 0.0255 #! % of CAPEX per year, ref: 
+
+    saltcavern_gas:
+        essentials:
+            name: 'Salt cavern - Gas'
+            parent: saltcavern_systems
+            carrier: gas
+        constraints:
+            lifetime: 80 #!
+            energy_eff: 0.95  #! round trip efficiency, adjusted from 0.7 > 0.55
+            energy_cap_per_storage_cap_max: 0.001  # GW/GWh, limit production capacity to prevent structural stress in salt cavern, assume max double value of current design, ref:
+            storage_cap_max: 1000e3 # GWh, assuming 1000 TWh, ref:
+        costs:
+            monetary:
+                energy_cap: 88.4 # Meur/GW, ref: 
+                storage_cap: 0.18 # Meur/GWh, ref: 
+                om_annual: 14.5 # Meur/GW/yr, ref: 
+                # om_prod: 10e-3  #! Meur/GWh, assume 10 EUR/MWh, ref: TNO assumption
+    saltcavern_hyd:
+        essentials:
+            name: 'Salt cavern - Hydrogen'
+            parent: saltcavern_systems
+            carrier: hydrogen
+        constraints:
+            lifetime: 80 #!
+            energy_eff: 0.95  #! round trip efficiency, adjusted from 0.7 > 0.55
+            energy_cap_per_storage_cap_max: 0.001  # GW/GWh, limit production capacity to prevent structural stress in salt cavern, assume max double value of current design.
+            storage_cap_max: 1000e3 # GWh, assuming 1000 TWh
+        costs:
+            monetary:
+                energy_cap: 88.4 # Meur/GW, ref: 
+                storage_cap: 0.18 # Meur/GWh, ref: 
+                om_annual: 14.5 # Meur/GW/yr, ref: 
+                # om_prod: 10e-3  #! Meur/GWh, assume 10 EUR/MWh, ref: TNO assumption
+
+    # TODO
+
+    # salt cavern gas/h2

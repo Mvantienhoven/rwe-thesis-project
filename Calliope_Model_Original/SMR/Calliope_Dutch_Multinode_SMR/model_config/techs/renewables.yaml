@@ -1,0 +1,119 @@
+#-------------------------------------------------COMMENTS KEVIN------------------------------------------------------#
+# Renewable techs:
+#   wind-off-shore, wind-on-shore, pv-rooftop, pv-utility
+#   curtailment_elc, curtailment_hyd, curtailment_gas
+
+## To do: Check correct/completeness
+#----------------------------------------------------------------------------------------------------------------------#
+
+
+techs:
+
+    # wind-off-shore
+    wind_offshore:
+        essentials:
+            name: 'Wind farm - offshore'
+            color: '#4caf50' # green
+            parent: renewables
+        constraints:
+            lifetime: 25 # years
+            resource: file=renewables/Renewables.ninja_capacity_factors/wind_offshore_2050_nuts.csv
+            resource_area_per_energy_cap: 1.25 #!
+            #energy_cap_min: 4.0 # GW, ref: CBS 2023
+            energy_cap_max_systemwide: 70.0 # GW, ref: ..
+        costs:
+            monetary:
+                energy_cap: 3487  # Meur/GW, ref: ..
+                om_annual: 110 # Meur/GW/yr, ref: ..
+    # wind-end
+
+    # wind-on-shore
+    wind_onshore:
+        essentials:
+            name: 'Wind farm - onshore'
+            color: '#8bc34a' # dark green
+            parent: renewables
+        constraints:
+            lifetime: 25 # years
+            resource: file=renewables/Renewables.ninja_capacity_factors/wind_nuts2_2050.csv
+            resource_area_per_energy_cap: 1.25 #!
+           # energy_cap_min: 6.8 # GW, ref: CBS 2023
+            energy_cap_max_systemwide: 12.0 # GW, ref: ..
+        costs:
+            monetary:
+                energy_cap: 1572  # Meur/GW, ref: ..
+                om_annual: 33 # Meur/GW/yr, ref: ..
+    # wind-end
+
+
+    # pv-rooftop
+    pv_rooftop:
+        essentials:
+            name: 'Renewables - Rooftop PV'
+            color: '#ffeb3b'
+            parent: renewables
+        constraints:
+            force_resource: True
+            lifetime: 25 # years
+            resource: file=renewables/Renewables.ninja_capacity_factors/pv_nuts2_2050.csv
+            resource_area_per_energy_cap: 0.478 # ha per MW
+            #energy_cap_min: 10.1 # GW, ref: CBS 2023
+            energy_cap_max_systemwide: 90.0 # GW, ref: ..
+        costs:
+            monetary:
+                interest_rate: 0.0
+                energy_cap: 1049  # Meur/GW, ref: .. # 0.57
+                om_annual: 12  # Meur/GW/yr, ref: .. # 8.9e-3
+    # pv-end
+
+    pv_utility:
+        essentials:
+            name: 'Renewables - Utility PV'
+            color: '#cddc39'
+            parent: renewables
+        constraints:
+            force_resource: false
+            lifetime: 25 # years
+            resource: file=renewables/Renewables.ninja_capacity_factors/pv_nuts2_2050.csv
+            resource_area_per_energy_cap: 1.226 # ha per MW
+            #energy_cap_min: 14.2 # GW, ref: CBS 2023
+            energy_cap_max_systemwide: 42.3 # GW, ref: ..
+        costs:
+            monetary:
+                energy_cap: 478  # Meur/GW, ref: ..
+                om_annual: 8  # Meur/GW/yr, ref: .. 
+
+    curtailment_elc:
+        essentials:
+            name: 'Curtailment - Imbalance market'
+            color: '#ffeb3b'
+            parent: curtailment
+            carrier: electricity
+        costs:
+            monetary:
+                om_con: 5000e-3  #! Meur/GWh, based on 5000 EUR/MWh max market price, ref: ..
+
+
+    curtailment_hyd:
+        essentials:
+            name: 'Curtailment - Hydrogen flaring'
+            color: '#ffeb3b'
+            parent: curtailment
+            carrier: hydrogen
+        costs:
+            monetary:
+                om_con: 0e-3  #! Meur/GWh, based on 5000 EUR/MWh max market price, ref: ..
+
+    curtailment_gas:
+        essentials:
+            name: 'Curtailment - Gas flaring'
+            color: '#ffeb3b'
+            parent: curtailment
+            carrier: gas
+        costs:
+            monetary:
+                om_con: 0e-3  #! Meur/GWh, based on 5000 EUR/MWh max market price, ref: ..
+
+    # tech..
+    
+    # tech..

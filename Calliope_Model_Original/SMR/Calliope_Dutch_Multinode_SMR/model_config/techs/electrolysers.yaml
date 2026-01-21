@@ -1,0 +1,46 @@
+#-------------------------------------------------COMMENTS KEVIN------------------------------------------------------#
+# specific electrolysers. To be excluded? Given only CHP is considered?
+# Or valid output for overproduction?
+
+#----------------------------------------------------------------------------------------------------------------------#
+
+
+
+techs:
+
+    electrolyser_alk:
+        essentials:
+            name: 'Electrolyser - Alkaline'
+            # color: '#b8bd20' #!
+            parent: electrolyser_plants
+        constraints:
+            lifetime: 15 # years, comment: seems small
+            energy_eff: 0.67
+        costs:
+            monetary:
+                energy_cap: 2000  # Meur/GW, ref: ..
+                om_annual_investment_fraction: 0.04  # *100% of CAPEX/yr, ref: 
+    electrolyser_pem:
+        essentials:
+            name: 'Electrolyser - PEM'
+            # color: '#b8bd20' #!
+            parent: electrolyser_plants
+        constraints:
+            lifetime: 15 # years, comment: seems small
+            energy_eff: 0.65
+        costs:
+            monetary:
+                energy_cap: 2000  # Meur/GW, ref: ..
+                om_annual_investment_fraction: 0.04  # *100% of CAPEX/yr, ref: 
+    electrolyser_soe:
+        essentials:
+            name: 'Electrolyser - SOE'
+            # color: '#b8bd20' #!
+            parent: electrolyser_plants
+        constraints:
+            lifetime: 15 # years, comment: seems small
+            energy_eff: 0.81
+        costs:
+            monetary:
+                energy_cap: 5000  # Meur/GW, ref: ..
+                om_annual_investment_fraction: 0.04  # *100% of CAPEX/yr, ref: 

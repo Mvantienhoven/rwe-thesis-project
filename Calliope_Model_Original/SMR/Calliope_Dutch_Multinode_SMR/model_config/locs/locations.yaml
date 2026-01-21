@@ -1,0 +1,1410 @@
+#-------------------------------------------------COMMENTS KEVIN------------------------------------------------------#
+# Includes all locations in the Netherlands, Germany, Belgium, UK, Norway and Denmark
+# Energy cap equals on: gas field production, salt cavern gas storage, LNG terminal
+# techs that are commented out are not used in the model, can be overriden
+
+### INTERCONNECTORS have FIXED actual available flow for all timesteps (resource equals), model wil NOT expand capacity
+### TRANSMISSION do NOT have fixed capacity, but have defined OM_prod per Net Transfer Capacity (NTC)
+
+#----------------------------------------------------------------------------------------------------------------------#
+
+# Remove renewables
+# Remove om_prod
+
+locations:
+
+    #-----------------------------------------------------#
+    # Netherlands
+    #-----------------------------------------------------#
+    NL:
+        coordinates: {lat: 52.0883139998647, lon: 5.3291269064473}
+        techs:
+            import_ammonia_cracker:
+            saltcavern_hyd:
+            production_gas_fields:
+                constraints:
+                    energy_cap_equals: 11.4 #GW
+
+            saltcavern_gas:
+                constraints:
+                    energy_cap_equals: 60 # 60 GW
+                    storage_cap_equals: 144000 # GWh
+
+            import_lng_terminal:
+                        constraints:
+                            energy_cap_equals: 35 # GW
+            # Demand
+            #demand_elc:
+            #load_shedding_elc:
+            
+            #demand_hyd:
+            #load_shedding_hyd:
+
+            #demand_gas:
+            #load_shedding_gas:
+
+            ## Renewables
+            # Market players
+            #wind_offshore:
+            #wind_onshore:
+            #pv_utility:
+            
+            # Consumers
+            #pv_rooftop:
+            #curtailment_elc:
+
+            # Other curtailment
+            #curtailment_hyd:
+            #curtailment_gas:
+
+            ## Power plants
+            # pp_waste_incinerator:
+            # pp_waste_incinerator_ccs:
+            #pp_biomass_standalone:
+
+            ## Nuclear
+            #pp_nuclear_gen3:
+            #pp_nuclear_smr:
+
+            # ## CCGT
+            #pp_ccgt_gas:
+            #pp_ccgt_gas_ccs:
+            #pp_ccgt_hyd:
+
+            # # # OCGT
+            #pp_ocgt_gas:
+            #pp_ocgt_hyd:
+
+            ## Battery storage systems
+            #bss_liion:
+            #bss_vanadium:
+            #bss_nas:
+
+            # ## Salt cavern storage systems
+            #saltcavern_gas:
+            #saltcavern_hyd:
+
+            # ## Electrolyser
+            #electrolyser_alk:
+            #electrolyser_pem:
+            #electrolyser_soe:
+
+            ## Reformers
+            #reformer_smr: 
+            #reformer_smr_ccs_90:
+            #reformer_atr_ccs_98:
+
+            # Import
+            # import_ammonia_cracker:
+            # import_lng_terminal:
+            # import_hyd_interconnector:
+            # import_gas_interconnector:
+            ## Emission handling
+            #co2_atmosphere:
+            #co2_ets:
+            #co2_storage:
+
+    NL13: # Drenthe
+        coordinates: {lat: 52.86293206206328, lon: 6.623830153114444}
+        techs:
+
+            # Demand
+            demand_elc:
+            load_shedding_elc:
+            
+            demand_hyd:
+            load_shedding_hyd:
+
+            demand_gas:
+            load_shedding_gas:
+
+            ## Renewables
+            # Market players
+            wind_offshore:
+            wind_onshore:
+            pv_utility:
+            
+            # Consumers
+            pv_rooftop:
+            curtailment_elc:
+
+            # Other curtailment
+            curtailment_hyd:
+            curtailment_gas:
+
+            # Power plants
+            # pp_waste_incinerator:
+            # pp_waste_incinerator_ccs:
+            pp_biomass_standalone:
+            pp_hard_coal:
+
+            ## Nuclear
+            pp_nuclear_gen3:
+            pp_nuclear_smr:
+
+            # ## CCGT
+            pp_ccgt_gas:
+            pp_ccgt_gas_ccs:
+            pp_ccgt_hyd:
+
+            # # # OCGT
+            pp_ocgt_gas:
+            pp_ocgt_hyd:
+
+            ## Battery storage systems
+            bss_liion:
+            bss_vanadium:
+            bss_nas:
+
+            # ## Salt cavern storage systems
+            saltcavern_gas:
+            saltcavern_hyd:
+
+            # ## Electrolyser
+            electrolyser_alk:
+            electrolyser_pem:
+            electrolyser_soe:
+
+            ## Reformers
+            reformer_smr: 
+            reformer_smr_ccs_90:
+            reformer_atr_ccs_98:
+
+            ## Import
+            import_ammonia_cracker:
+            import_lng_terminal:
+
+            ## Emission handling
+            co2_atmosphere:
+            co2_ets:
+            co2_storage:
+    NL23: # Flevoland
+        coordinates: {lat: 52.52670063879632, lon: 5.600112476314213}
+        techs:
+
+            # Demand
+            demand_elc:
+            load_shedding_elc:
+            
+            demand_hyd:
+            load_shedding_hyd:
+
+            demand_gas:
+            load_shedding_gas:
+
+            ## Renewables
+            # Market players
+            wind_offshore:
+            wind_onshore:
+            pv_utility:
+            
+            # Consumers
+            pv_rooftop:
+            curtailment_elc:
+
+            # Other curtailment
+            curtailment_hyd:
+            curtailment_gas:
+
+            ## Power plants
+            # pp_waste_incinerator:
+            # pp_waste_incinerator_ccs:
+            pp_biomass_standalone:
+            pp_hard_coal:
+            
+            ## Nuclear
+            pp_nuclear_gen3:
+            pp_nuclear_smr:
+
+            # ## CCGT
+            pp_ccgt_gas:
+            pp_ccgt_gas_ccs:
+            pp_ccgt_hyd:
+
+            # # # OCGT
+            pp_ocgt_gas:
+            pp_ocgt_hyd:
+
+            ## Battery storage systems
+            bss_liion:
+            bss_vanadium:
+            bss_nas:
+
+            # ## Salt cavern storage systems
+            saltcavern_gas:
+            saltcavern_hyd:
+
+            # ## Electrolyser
+            electrolyser_alk:
+            electrolyser_pem:
+            electrolyser_soe:
+
+            ## Reformers
+            reformer_smr: 
+            reformer_smr_ccs_90:
+            reformer_atr_ccs_98:
+
+            ## Import
+            import_ammonia_cracker:
+            import_lng_terminal:
+
+            ## Emission handling
+            co2_atmosphere:
+            co2_ets:
+            co2_storage:
+       
+    NL12: # Friesland
+        coordinates: {lat: 53.1100462210068, lon: 5.848660192551414}
+        techs:
+
+            # Demand
+            demand_elc:
+            load_shedding_elc:
+            
+            demand_hyd:
+            load_shedding_hyd:
+
+            demand_gas:
+            load_shedding_gas:
+
+            ## Renewables
+            # Market players
+            wind_offshore:
+            wind_onshore:
+            pv_utility:
+            
+            # Consumers
+            pv_rooftop:
+            curtailment_elc:
+
+            # Other curtailment
+            curtailment_hyd:
+            curtailment_gas:
+
+            ## Power plants
+            # pp_waste_incinerator:
+            # pp_waste_incinerator_ccs:
+            pp_biomass_standalone:
+            pp_hard_coal:
+
+            ## Nuclear
+            pp_nuclear_gen3:
+            pp_nuclear_smr:
+
+            # ## CCGT
+            pp_ccgt_gas:
+            pp_ccgt_gas_ccs:
+            pp_ccgt_hyd:
+
+            # # # OCGT
+            pp_ocgt_gas:
+            pp_ocgt_hyd:
+
+            ## Battery storage systems
+            bss_liion:
+            bss_vanadium:
+            bss_nas:
+
+            # ## Salt cavern storage systems
+            saltcavern_gas:
+            saltcavern_hyd:
+
+            # ## Electrolyser
+            electrolyser_alk:
+            electrolyser_pem:
+            electrolyser_soe:
+
+            ## Reformers
+            reformer_smr: 
+            reformer_smr_ccs_90:
+            reformer_atr_ccs_98:
+
+            ## Import
+            import_ammonia_cracker:
+            import_lng_terminal:
+
+            ## Emission handling
+            co2_atmosphere:
+            co2_ets:
+            co2_storage:
+    NL22: # Gelderland
+        coordinates: {lat: 52.06172588783676, lon: 5.944695275838234}
+        techs:
+
+            # Demand
+            demand_elc:
+            load_shedding_elc:
+            
+            demand_hyd:
+            load_shedding_hyd:
+
+            demand_gas:
+            load_shedding_gas:
+
+            ## Renewables
+            # Market players
+            wind_offshore:
+            wind_onshore:
+            pv_utility:
+            
+            # Consumers
+            pv_rooftop:
+            curtailment_elc:
+
+            # Other curtailment
+            curtailment_hyd:
+            curtailment_gas:
+
+            ## Power plants
+            # pp_waste_incinerator:
+            # pp_waste_incinerator_ccs:
+            pp_biomass_standalone:
+            pp_hard_coal:
+
+            ## Nuclear
+            pp_nuclear_gen3:
+            pp_nuclear_smr:
+
+            # ## CCGT
+            pp_ccgt_gas:
+            pp_ccgt_gas_ccs:
+            pp_ccgt_hyd:
+
+            # # # OCGT
+            pp_ocgt_gas:
+            pp_ocgt_hyd:
+
+            ## Battery storage systems
+            bss_liion:
+            bss_vanadium:
+            bss_nas:
+
+            # ## Salt cavern storage systems
+            saltcavern_gas:
+            saltcavern_hyd:
+
+            # ## Electrolyser
+            electrolyser_alk:
+            electrolyser_pem:
+            electrolyser_soe:
+
+            ## Reformers
+            reformer_smr: 
+            reformer_smr_ccs_90:
+            reformer_atr_ccs_98:
+
+            ## Import
+            import_ammonia_cracker:
+            import_lng_terminal:
+
+            ## Emission handling
+            co2_atmosphere:
+            co2_ets:
+            co2_storage:
+    NL11: # Groningen
+        coordinates: {lat: 53.21808379105402, lon: 6.744519781648054}
+        techs:
+
+            # Demand
+            demand_elc:
+            load_shedding_elc:
+            
+            demand_hyd:
+            load_shedding_hyd:
+
+            demand_gas:
+            load_shedding_gas:
+
+            ## Renewables
+            # Market players
+            wind_offshore:
+            wind_onshore:
+            pv_utility:
+            
+            # Consumers
+            pv_rooftop:
+            curtailment_elc:
+
+            # Other curtailment
+            curtailment_hyd:
+            curtailment_gas:
+
+            ## Power plants
+            # pp_waste_incinerator:
+            # pp_waste_incinerator_ccs:
+            pp_biomass_standalone:
+            pp_hard_coal:
+            coal_supply:
+
+            ## Nuclear
+            pp_nuclear_gen3:
+            pp_nuclear_smr:
+
+            # ## CCGT
+            pp_ccgt_gas:
+            pp_ccgt_gas_ccs:
+            pp_ccgt_hyd:
+
+            # # # OCGT
+            pp_ocgt_gas:
+            pp_ocgt_hyd:
+
+            ## Battery storage systems
+            bss_liion:
+            bss_vanadium:
+            bss_nas:
+
+            # ## Salt cavern storage systems
+            saltcavern_gas:
+            saltcavern_hyd:
+
+            # ## Electrolyser
+            electrolyser_alk:
+            electrolyser_pem:
+            electrolyser_soe:
+
+            ## Reformers
+            reformer_smr: 
+            reformer_smr_ccs_90:
+            reformer_atr_ccs_98:
+
+            ## Import
+            import_ammonia_cracker:
+            import_lng_terminal:
+
+            ## Emission handling
+            co2_atmosphere:
+            co2_ets:
+            co2_storage:
+    NL42: # Limburg
+        coordinates: {lat: 51.20627169896457, lon: 5.935689803085168}
+        techs:
+
+            # Demand
+            demand_elc:
+            load_shedding_elc:
+            
+            demand_hyd:
+            load_shedding_hyd:
+
+            demand_gas:
+            load_shedding_gas:
+
+            ## Renewables
+            # Market players
+            wind_offshore:
+            wind_onshore:
+            pv_utility:
+            
+            # Consumers
+            pv_rooftop:
+            curtailment_elc:
+
+            # Other curtailment
+            curtailment_hyd:
+            curtailment_gas:
+
+            ## Power plants
+            # pp_waste_incinerator:
+            # pp_waste_incinerator_ccs:
+            pp_biomass_standalone:
+            pp_hard_coal:
+
+            ## Nuclear
+            pp_nuclear_gen3:
+            pp_nuclear_smr:
+
+            # ## CCGT
+            pp_ccgt_gas:
+            pp_ccgt_gas_ccs:
+            pp_ccgt_hyd:
+
+            # # # OCGT
+            pp_ocgt_gas:
+            pp_ocgt_hyd:
+
+            ## Battery storage systems
+            bss_liion:
+            bss_vanadium:
+            bss_nas:
+
+            # ## Salt cavern storage systems
+            saltcavern_gas:
+            saltcavern_hyd:
+
+            # ## Electrolyser
+            electrolyser_alk:
+            electrolyser_pem:
+            electrolyser_soe:
+
+            ## Reformers
+            reformer_smr: 
+            reformer_smr_ccs_90:
+            reformer_atr_ccs_98:
+
+            ## Import
+            import_ammonia_cracker:
+            import_lng_terminal:
+
+            ## Emission handling
+            co2_atmosphere:
+            co2_ets:
+            co2_storage:
+      
+    NL41: # Noord-Brabant
+        coordinates: {lat: 51.56087977932501, lon: 5.198722856501629}
+        techs:
+
+            # Demand
+            demand_elc:
+            load_shedding_elc:
+            
+            demand_hyd:
+            load_shedding_hyd:
+
+            demand_gas:
+            load_shedding_gas:
+
+            ## Renewables
+            # Market players
+            wind_offshore:
+            wind_onshore:
+            pv_utility:
+            
+            # Consumers
+            pv_rooftop:
+            curtailment_elc:
+
+            # Other curtailment
+            curtailment_hyd:
+            curtailment_gas:
+
+            ## Power plants
+            # pp_waste_incinerator:
+            # pp_waste_incinerator_ccs:
+            pp_biomass_standalone:
+            pp_hard_coal:
+
+            ## Nuclear
+            pp_nuclear_gen3:
+            pp_nuclear_smr:
+
+            # ## CCGT
+            pp_ccgt_gas:
+            pp_ccgt_gas_ccs:
+            pp_ccgt_hyd:
+
+            # # # OCGT
+            pp_ocgt_gas:
+            pp_ocgt_hyd:
+
+            ## Battery storage systems
+            bss_liion:
+            bss_vanadium:
+            bss_nas:
+
+            # ## Salt cavern storage systems
+            saltcavern_gas:
+            saltcavern_hyd:
+
+            # ## Electrolyser
+            electrolyser_alk:
+            electrolyser_pem:
+            electrolyser_soe:
+
+            ## Reformers
+            reformer_smr: 
+            reformer_smr_ccs_90:
+            reformer_atr_ccs_98:
+
+            ## Import
+            import_ammonia_cracker:
+            import_lng_terminal:
+
+            ## Emission handling
+            co2_atmosphere:
+            co2_ets:
+            co2_storage:
+       
+    NL32: # Noord-Holland
+        coordinates: {lat: 52.58134636665498, lon: 4.8729050148665545}
+        techs:
+
+            # Demand
+            demand_elc:
+            load_shedding_elc:
+            
+            demand_hyd:
+            load_shedding_hyd:
+
+            demand_gas:
+            load_shedding_gas:
+
+            ## Renewables
+            # Market players
+            wind_offshore:
+            wind_onshore:
+            pv_utility:
+            
+            # Consumers
+            pv_rooftop:
+            curtailment_elc:
+
+            # Other curtailment
+            curtailment_hyd:
+            curtailment_gas:
+
+            ## Power plants
+            # pp_waste_incinerator:
+            # pp_waste_incinerator_ccs:
+            pp_biomass_standalone:
+            pp_hard_coal:
+
+            ## Nuclear
+            pp_nuclear_gen3:
+            pp_nuclear_smr:
+
+            # ## CCGT
+            pp_ccgt_gas:
+            pp_ccgt_gas_ccs:
+            pp_ccgt_hyd:
+
+            # # # OCGT
+            pp_ocgt_gas:
+            pp_ocgt_hyd:
+
+            ## Battery storage systems
+            bss_liion:
+            bss_vanadium:
+            bss_nas:
+
+            # ## Salt cavern storage systems
+            saltcavern_gas:
+            saltcavern_hyd:
+
+            # ## Electrolyser
+            electrolyser_alk:
+            electrolyser_pem:
+            electrolyser_soe:
+
+            ## Reformers
+            reformer_smr: 
+            reformer_smr_ccs_90: 
+            reformer_atr_ccs_98:
+
+            ## Import
+            import_ammonia_cracker:
+            import_lng_terminal:
+
+            ## Emission handling
+            co2_atmosphere:
+            co2_ets:
+            co2_storage:
+       
+    NL21: # Overijssel
+        coordinates: {lat: 52.44490959783872, lon: 6.4490072968444725}
+        techs:
+
+            # Demand
+            demand_elc:
+            load_shedding_elc:
+            
+            demand_hyd:
+            load_shedding_hyd:
+
+            demand_gas:
+            load_shedding_gas:
+
+            ## Renewables
+            # Market players
+            wind_offshore:
+            wind_onshore:
+            pv_utility:
+            
+            # Consumers
+            pv_rooftop:
+            curtailment_elc:
+
+            # Other curtailment
+            curtailment_hyd:
+            curtailment_gas:
+
+            ## Power plants
+            # pp_waste_incinerator:
+            # pp_waste_incinerator_ccs:
+            pp_biomass_standalone:
+            pp_hard_coal:
+
+            ## Nuclear
+            pp_nuclear_gen3:
+            pp_nuclear_smr:
+
+            # ## CCGT
+            pp_ccgt_gas:
+            pp_ccgt_gas_ccs:
+            pp_ccgt_hyd:
+
+            # # # OCGT
+            pp_ocgt_gas:
+            pp_ocgt_hyd:
+
+            ## Battery storage systems
+            bss_liion:
+            bss_vanadium:
+            bss_nas:
+
+            # ## Salt cavern storage systems
+            saltcavern_gas:
+            saltcavern_hyd:
+
+            # ## Electrolyser
+            electrolyser_alk:
+            electrolyser_pem:
+            electrolyser_soe:
+
+            ## Reformers
+            reformer_smr: 
+            reformer_smr_ccs_90:
+            reformer_atr_ccs_98:
+
+            ## Import
+            import_ammonia_cracker:
+            import_lng_terminal:
+
+            ## Emission handling
+            co2_atmosphere:
+            co2_ets:
+            co2_storage:
+     
+    NL31: # Utrecht
+        coordinates: {lat: 52.09599094316758, lon: 5.177473938306744}
+        techs:
+
+            # Demand
+            demand_elc:
+            load_shedding_elc:
+            
+            demand_hyd:
+            load_shedding_hyd:
+
+            demand_gas:
+            load_shedding_gas:
+
+            ## Renewables
+            # Market players
+            wind_offshore:
+            wind_onshore:
+            pv_utility:
+            
+            # Consumers
+            pv_rooftop:
+            curtailment_elc:
+
+            # Other curtailment
+            curtailment_hyd:
+            curtailment_gas:
+
+            ## Power plants
+            # pp_waste_incinerator:
+            # pp_waste_incinerator_ccs:
+            pp_biomass_standalone:
+            pp_hard_coal:
+
+            ## Nuclear
+            pp_nuclear_gen3:
+            pp_nuclear_smr:
+
+            # ## CCGT
+            pp_ccgt_gas:
+            pp_ccgt_gas_ccs:
+            pp_ccgt_hyd:
+
+            # # # OCGT
+            pp_ocgt_gas:
+            pp_ocgt_hyd:
+
+            ## Battery storage systems
+            bss_liion:
+            bss_vanadium:
+            bss_nas:
+
+            # ## Salt cavern storage systems
+            saltcavern_gas:
+            saltcavern_hyd:
+
+            # ## Electrolyser
+            electrolyser_alk:
+            electrolyser_pem:
+            electrolyser_soe:
+
+            ## Reformers
+            reformer_smr: 
+            reformer_smr_ccs_90:
+            reformer_atr_ccs_98:
+
+            ## Import
+            import_ammonia_cracker:
+            import_lng_terminal:
+
+            ## Emission handling
+            co2_atmosphere:
+            co2_ets:
+            co2_storage:
+      
+    NL34: # Zeeland
+        coordinates: {lat: 51.451726774291785, lon: 3.8352867148578684}
+        techs:
+
+            # Demand
+            demand_elc:
+            load_shedding_elc:
+            
+            demand_hyd:
+            load_shedding_hyd:
+
+            demand_gas:
+            load_shedding_gas:
+
+            ## Renewables
+            # Market players
+            wind_offshore:
+            wind_onshore:
+            pv_utility:
+            
+            # Consumers
+            pv_rooftop:
+            curtailment_elc:
+
+            # Other curtailment
+            curtailment_hyd:
+            curtailment_gas:
+
+            ## Power plants
+            # pp_waste_incinerator:
+            # pp_waste_incinerator_ccs:
+            pp_biomass_standalone:
+            pp_hard_coal:
+
+            ## Nuclear
+            pp_nuclear_gen3:
+            pp_nuclear_smr:
+
+            # ## CCGT
+            pp_ccgt_gas:
+            pp_ccgt_gas_ccs:
+            pp_ccgt_hyd:
+
+            # # # OCGT
+            pp_ocgt_gas:
+            pp_ocgt_hyd:
+
+            ## Battery storage systems
+            bss_liion:
+            bss_vanadium:
+            bss_nas:
+
+            # ## Salt cavern storage systems
+            saltcavern_gas:
+            saltcavern_hyd:
+
+            # ## Electrolyser
+            electrolyser_alk:
+            electrolyser_pem:
+            electrolyser_soe:
+
+            ## Reformers
+            reformer_smr: 
+            reformer_smr_ccs_90: 
+            reformer_atr_ccs_98:
+
+            ## Import
+            import_ammonia_cracker:
+            import_lng_terminal:
+
+            ## Emission handling
+            co2_atmosphere:
+            co2_ets:
+            co2_storage:
+      
+    NL33: # Zuid-Holland
+        coordinates: {lat: 51.948735317582305, lon: 4.504875249014121}
+        techs:
+
+            # Demand
+            demand_elc:
+            load_shedding_elc:
+            
+            demand_hyd:
+            load_shedding_hyd:
+
+            demand_gas:
+            load_shedding_gas:
+
+            ## Renewables
+            # Market players
+            wind_offshore:
+            wind_onshore:
+            pv_utility:
+            
+            # Consumers
+            pv_rooftop:
+            curtailment_elc:
+
+            # Other curtailment
+            curtailment_hyd:
+            curtailment_gas:
+
+            ## Power plants
+            # pp_waste_incinerator:
+            # pp_waste_incinerator_ccs:
+            pp_biomass_standalone:
+            pp_hard_coal:
+            coal_supply:
+
+            ## Nuclear
+            pp_nuclear_gen3:
+            pp_nuclear_smr:
+
+            # ## CCGT
+            pp_ccgt_gas:
+            pp_ccgt_gas_ccs:
+            pp_ccgt_hyd:
+
+            # # # OCGT
+            pp_ocgt_gas:
+            pp_ocgt_hyd:
+
+            ## Battery storage systems
+            bss_liion:
+            bss_vanadium:
+            bss_nas:
+
+            # ## Salt cavern storage systems
+            saltcavern_gas:
+            saltcavern_hyd:
+
+            # ## Electrolyser
+            electrolyser_alk:
+            electrolyser_pem:
+            electrolyser_soe:
+
+            ## Reformers
+            reformer_smr: 
+            reformer_smr_ccs_90:
+            reformer_atr_ccs_98:
+
+            ## Import
+            import_ammonia_cracker:
+            import_lng_terminal:
+
+            ## Emission handling
+            co2_atmosphere:
+            co2_ets:
+            co2_storage:
+
+### IETS IN TECHS HIER BENEDEN ZORGT VOOR HOGE OPT COEFFICIENTS EN LANGZAME CONVERGENCE, CHECK INPUT PARAMS!
+
+    # Connector nodes
+    #NL_1:
+     #   coordinates: {lat: 51.96367578600893, lon: 6.807852774557378}
+    #NL_2:
+     #   coordinates: {lat: 51.380111791730705, lon: 5.075031073065831}
+    #NL_3:
+     #   coordinates: {lat: 51.523885002037716, lon: 3.4380682444702297}
+    #NL_4:
+     #   coordinates: {lat: 53.45675484627952, lon: 6.7449528847875175}
+    #NL_5:
+     #   coordinates: {lat: 53.42403433792985, lon: 6.876788817291859}
+
+
+    #-----------------------------------------------------#
+    # Germany
+    #-----------------------------------------------------#
+    DE:
+        coordinates: {lat: 52.02040854483887, lon: 7.279926060167003}
+        techs:
+            # interconnector_elc:
+                # constraints:
+                    # energy_cap_equals: 6.0 # GW
+    # DE_1:
+    #     coordinates: {lat: 52.02040854483887, lon: 7.279926060167003}
+    #     techs:
+            import_elc_interconnector:
+                constraints:
+                    resource: 6.0 # GW
+    # DE_2:
+    #     coordinates: {lat: 52.02040854483887, lon: 7.279926060167003}
+    #     techs:
+            export_elc_interconnector:
+                constraints:
+                    resource: -6.0 # GW
+            # import_hyd_interconnector:
+            # import_gas_interconnector:
+            # export_hyd_interconnector:
+            # export_gas_interconnector:
+    #-----------------------------------------------------#
+    # Belgium
+    #-----------------------------------------------------#
+    BE:
+        coordinates: {lat: 51.31726620661365, lon: 4.378136579035989}
+        techs:
+            # interconnector_elc:
+            #     constraints:
+            #         energy_cap_equals: 3.4 # GW
+    # BE_1:
+    #     coordinates: {lat: 51.31726620661365, lon: 4.378136579035989}
+    #     techs:
+            import_elc_interconnector:
+                constraints:
+                    resource: 3.4 # GW
+    # BE_2:
+    #     coordinates: {lat: 51.31726620661365, lon: 4.378136579035989}
+    #     techs:
+            export_elc_interconnector:
+                constraints:
+                    resource: -3.4 # GW
+    #-----------------------------------------------------#
+    # United Kingdom
+    #-----------------------------------------------------#
+    UK:
+        coordinates: {lat: 51.41852859078181, lon: 0.8455375006800074}
+        techs:
+            # interconnector_elc:
+            #     constraints:
+            #         energy_cap_equals: 3.0 # GW
+    # UK_1:
+    #     coordinates: {lat: 51.41852859078181, lon: 0.8455375006800074}
+    #     techs:
+            import_elc_interconnector:
+                constraints:
+                    resource: 3.0 # GW
+    # UK_2:
+    #     coordinates: {lat: 51.41852859078181, lon: 0.8455375006800074}
+    #     techs:
+            export_elc_interconnector:
+                constraints:
+                    resource: -3.0 # GW
+    #-----------------------------------------------------#
+    # Norway
+    #-----------------------------------------------------#
+    NO:
+        coordinates: {lat: 58.0951126628901, lon: 6.6210454502746705}
+        techs:
+            # interconnector_elc:
+            #     constraints:
+            #         energy_cap_equals: 0.7 # GW
+    # NO_1:
+    #     coordinates: {lat: 58.0951126628901, lon: 6.6210454502746705}
+    #     techs:
+            import_elc_interconnector:
+                constraints:
+                    resource: 0.7 # GW
+    # NO_2:
+    #     coordinates: {lat: 58.0951126628901, lon: 6.6210454502746705}
+    #     techs:
+            export_elc_interconnector:
+                constraints:
+                    resource: -0.7 # GW
+    #-----------------------------------------------------#
+    # Denmark
+    #-----------------------------------------------------#
+    DK:
+        coordinates: {lat: 55.4325571130993, lon: 8.401542890776913}
+        techs:
+            # interconnector_elc:
+            #     constraints:
+            #         energy_cap_equals: 0.7 # GW
+    # DK_1:
+    #     coordinates: {lat: 55.4325571130993, lon: 8.401542890776913}
+    #     techs:
+            import_elc_interconnector:
+                constraints:
+                    resource: 0.7 # GW
+    # DK_2:
+    #     coordinates: {lat: 55.4325571130993, lon: 8.401542890776913}
+    #     techs:
+            export_elc_interconnector:
+                constraints:
+                    resource: -0.7 # GW
+links:
+
+    # Dummy nodes - NL - gas links
+        NL,NL11:
+            techs:
+                free_gas_transmission:
+                free_hyd_transmission:
+        NL,NL12:
+            techs:
+                free_gas_transmission:
+                free_hyd_transmission:
+        NL,NL13:
+            techs:
+                free_gas_transmission:
+                free_hyd_transmission:
+        NL,NL21:
+            techs:
+                free_gas_transmission:
+                free_hyd_transmission:
+        NL,NL22:
+            techs:
+                free_gas_transmission:
+                free_hyd_transmission:
+        NL,NL23:
+            techs:
+                free_gas_transmission:
+                free_hyd_transmission:
+        NL,NL31:
+            techs:
+                free_gas_transmission:
+                free_hyd_transmission:
+        NL,NL32:
+            techs:
+                free_gas_transmission:
+                free_hyd_transmission:
+        NL,NL33:
+            techs:
+                free_gas_transmission:
+                free_hyd_transmission:
+        NL,NL34:
+            techs:
+                free_gas_transmission:
+                free_hyd_transmission:
+        NL,NL41:
+            techs:
+                free_gas_transmission:
+                free_hyd_transmission:
+        NL,NL42:
+            techs:
+                free_gas_transmission:
+                free_hyd_transmission:
+
+        NL11,NL12:
+            techs:
+                transmission_hvac:
+                    distance: 78.08059088268635
+                    constraints: 
+                        #energy_cap_min: 0.6882
+                        #energy_cap_max: 3.4401
+                    costs:
+                        line_load:
+                            om_prod: 0.000758 # 1/NTC
+        NL11,NL13:
+            techs:
+                transmission_hvac:
+                    distance: 51.40669619092387
+                    constraints: 
+                        #energy_cap_min: 3.0656
+                        #energy_cap_max: 15.3276
+                    costs:
+                        line_load:
+                            om_prod: 0.000756 # 1/NTC
+        NL31,NL33:
+            techs:
+                transmission_hvac:
+                    distance: 54.0333446482031
+                    constraints: 
+                       # energy_cap_min: 2.3773
+                        #energy_cap_max: 11.8867
+                    costs:
+                        line_load:
+                            om_prod: 0.000874 # 1/NTC
+        NL32,NL33:
+            techs:
+                transmission_hvac:
+                    distance: 62.54522684034896
+                    constraints: 
+                        #energy_cap_min: 2.3773
+                        #energy_cap_max: 11.8867
+                    costs:
+                        line_load:
+                            om_prod: 0.000176 # 1/NTC
+        NL33,NL41:
+            techs:
+                transmission_hvac:
+                    distance: 79.05131602490407
+                    constraints: 
+                        #energy_cap_min: 2.3773
+                        #energy_cap_max: 11.8867
+                    costs:
+                        line_load:
+                            om_prod: 0.000777 # 1/NTC
+        NL34,NL41:
+            techs:
+                transmission_hvac:
+                    distance: 81.91534737849409
+                    constraints: 
+                       # energy_cap_min: 2.3773
+                        #energy_cap_max: 11.8867
+                    costs:
+                        line_load:
+                            om_prod: 0.000444 # 1/NTC
+        NL41,NL42:
+            techs:
+                transmission_hvac:
+                    distance: 88.7810048549968
+                    constraints: 
+                        #energy_cap_min: 4.7547
+                        #energy_cap_max: 23.7734
+                    costs:
+                        line_load:
+                            om_prod: 0.000271 # 1/NTC
+        NL12,NL23:
+            techs:
+                transmission_hvac:
+                    distance: 77.01279250805582
+                    constraints: 
+                        #energy_cap_min: 0.6882
+                        #energy_cap_max: 3.4401
+                    costs:
+                        line_load:
+                            om_prod: 0.000761 # 1/NTC
+        NL13,NL21:
+            techs:
+                transmission_hvac:
+                    distance: 57.68592103711268
+                    constraints: 
+                        #energy_cap_min: 3.0655
+                        #energy_cap_max: 15.3276
+                    costs:
+                        line_load:
+                            om_prod: 0.000767 # 1/NTC
+        NL21,NL22:
+            techs:
+                transmission_hvac:
+                    distance: 74.3546324021931
+                    constraints: 
+                        #energy_cap_min: 2.3773
+                        #energy_cap_max: 11.8867
+                    costs:
+                        line_load:
+                            om_prod: 0.000443 # 1/NTC
+        NL21,NL23:
+            techs:
+                transmission_hvac:
+                    distance: 70.1574152900598
+                    constraints: 
+                        #energy_cap_min: 3.0655
+                        #energy_cap_max: 15.3276
+                    costs:
+                        line_load:
+                            om_prod: 0.000278 # 1/NTC
+        NL22,NL41:
+            techs:
+                transmission_hvac:
+                    distance: 91.64766157833785
+                    constraints: 
+                        #energy_cap_min: 2.3773
+                        #energy_cap_max: 11.8867
+                    costs:
+                        line_load:
+                            om_prod: 0.000881 # 1/NTC
+        NL23,NL32:
+            techs:
+                transmission_hvac:
+                    distance: 84.8212339513288
+                    constraints: 
+                        #energy_cap_min: 3.3962
+                        #energy_cap_max: 16.9811
+                    costs:
+                        line_load:
+                            om_prod: 0.000442 # 1/NTC
+        NL31,NL32:
+            techs:
+                transmission_hvac:
+                    distance: 34.96977818838089
+                    constraints: 
+                        #energy_cap_min: 2.3773
+                        #energy_cap_max: 11.8867
+                    costs:
+                        line_load:
+                            om_prod: 0.00088 # 1/NTC
+
+    # Interconnections
+        NL42,DE: #Limburg
+            techs:
+                transmission_hvac:
+                    distance: 10.6 # km, ref: https://webkaart.hoogspanningsnet.com/index2.php#10/53.1963/7.3347
+                    # constraints:
+                        # energy_cap_equals: 6.0 # GW
+                    costs:
+                        line_load:
+                            om_prod: 0.005 #0.000419 # 1/NTC
+
+        NL11,DE: #Groningen
+            techs:
+                transmission_hvac:
+                    distance: 16.92 # km, ref: https://webkaart.hoogspanningsnet.com/index2.php#10/53.1963/7.3347
+                    # constraints:
+                        # energy_cap_equals: 6.0 # GW
+                    costs:
+                        line_load:
+                            om_prod: 0.005 #0.000718 # 1/NTC
+
+        NL21,DE: #Overijssel
+            techs:
+                transmission_hvac:
+                    distance: 5.4 # km, ref: https://webkaart.hoogspanningsnet.com/index2.php#10/53.1963/7.3347
+                    # constraints:
+                        # energy_cap_equals: 6.0 # GW
+                    costs:
+                        line_load:
+                            om_prod: 0.005 #0.000437 # 1/NTC
+
+        NL22,DE: #Gelderland
+            techs:
+                transmission_hvac:
+                    distance: 34.7 # km, ref: https://webkaart.hoogspanningsnet.com/index2.php#10/53.1963/7.3347
+                    # constraints:
+                        # energy_cap_equals: 6.0 # GW
+                    costs:
+                        line_load:
+                            om_prod: 0.005 # 0.000273 # 1/NTC
+
+        NL42,BE: #Limburg
+            techs:
+                transmission_hvac:
+                    distance: 8.47 # km, ref: https://webkaart.hoogspanningsnet.com/index2.php#10/53.1963/7.3347
+                    # constraints:
+                        # energy_cap_equals: 6.0 # GW
+                    costs:
+                        line_load:
+                            om_prod: 0.005 #0.000435 # 1/NTC
+
+        NL34,BE: #Zeeland
+            techs:
+                transmission_hvac:
+                    distance: 6.7 # km, ref: https://webkaart.hoogspanningsnet.com/index2.php#10/53.1963/7.3347
+                    # constraints:
+                        # energy_cap_equals: 6.0 # GW
+                    costs:
+                        line_load:
+                            om_prod: 0.005 #0.000435 # 1/NTC
+
+        NL33,UK: #Zuid-Holland
+            techs:
+                transmission_hvdc:
+                    distance: 104 # km, ref: https://webkaart.hoogspanningsnet.com/index2.php#6/52.523/5.273
+                    # constraints:
+                        # energy_cap_equals: 3.0 # GW
+                    costs:
+                        line_load:
+                            om_prod: 0.005 #0.001428 # 1/NTC
+        NL11,NO: #Groningen
+            techs:
+                transmission_hvdc:
+                    distance: 347.99 # km, ref: https://webkaart.hoogspanningsnet.com/index2.php#6/52.523/5.273
+                    # constraints:
+                        # energy_cap_equals: 0.7 # GW
+                    costs:
+                        line_load:
+                            om_prod: 0.005 # 0.00202 # 1/NTC
+        NL11,DK: #Groningen
+            techs:
+                transmission_hvdc:
+                    distance: 175.76 # km, ref: https://webkaart.hoogspanningsnet.com/index2.php#6/52.523/5.273
+                    # constraints:
+                        # energy_cap_equals: 0.7 # GW
+                    costs:
+                        line_load:
+                            om_prod: 0.005 # 0.00210 # 1/NTC
+                        
