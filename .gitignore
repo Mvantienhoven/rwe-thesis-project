@@ -1,0 +1,33 @@
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# IDE/editor
+.spyproject/
+.vscode/
+.idea/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Logs/outputs
+*.log
+**/logs/
+**/output/
+**/dist/
+**/build/
+
+# Local artifacts
+temp_plot.html
+
+# Calliope_Model_Original venv (SMR)
+Calliope_Model_Original/SMR/Include/
+Calliope_Model_Original/SMR/Lib/
+Calliope_Model_Original/SMR/Scripts/
+Calliope_Model_Original/SMR/share/
+Calliope_Model_Original/SMR/pyvenv.cfg
