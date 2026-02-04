@@ -26,24 +26,27 @@ if __name__ == "__main__":
     model.run()
 
     # --- MILP variable check ---
-    pyomo_model = model._model_data.model
-    int_vars = []
-    bin_vars = []
-    for v in pyomo_model.component_objects():
-        if hasattr(v, 'is_integer') and hasattr(v, 'is_binary'):
-            for index in v:
-                var = v[index]
-                if var.is_integer():
-                    int_vars.append(var.name)
-                if var.is_binary():
-                    bin_vars.append(var.name)
-    print(f"\n[DEBUG] Number of integer variables: {len(int_vars)}")
-    print(f"[DEBUG] Number of binary variables: {len(bin_vars)}")
-    if int_vars or bin_vars:
-        print("[DEBUG] Example integer variables:", int_vars[:5])
-        print("[DEBUG] Example binary variables:", bin_vars[:5])
+    pyomo_model = getattr(model, "_backend_model", None)
+    if pyomo_model is None:
+        print("\n[DEBUG] Backend model not available; skipping MILP variable check.")
     else:
-        print("[DEBUG] No integer or binary variables detected.")
+        int_vars = []
+        bin_vars = []
+        for v in pyomo_model.component_objects():
+            if hasattr(v, "is_integer") and hasattr(v, "is_binary"):
+                for index in v:
+                    var = v[index]
+                    if var.is_integer():
+                        int_vars.append(var.name)
+                    if var.is_binary():
+                        bin_vars.append(var.name)
+        print(f"\n[DEBUG] Number of integer variables: {len(int_vars)}")
+        print(f"[DEBUG] Number of binary variables: {len(bin_vars)}")
+        if int_vars or bin_vars:
+            print("[DEBUG] Example integer variables:", int_vars[:5])
+            print("[DEBUG] Example binary variables:", bin_vars[:5])
+        else:
+            print("[DEBUG] No integer or binary variables detected.")
 
     nc_file = create_versioned_filename("Run_1_Baseline_No_SMR", "nc")
     model.to_netcdf(nc_file)
