@@ -1,10 +1,12 @@
 import os
+from pathlib import Path
 import calliope
 from datetime import datetime
 
-MODEL_FILE = "DEBUG_RUN.yaml"
+BASE_DIR = Path(__file__).resolve().parents[1]
+MODEL_FILE = BASE_DIR / "DEBUG_RUN.yaml"
 SCENARIOS = []
-OUTPUT_DIR = "output"
+OUTPUT_DIR = BASE_DIR / "output"
 LOG_VERBOSITY = "DEBUG"  # Set to DEBUG for more detail
 
 def create_versioned_filename(base_name, extension, output_dir=OUTPUT_DIR):
@@ -20,7 +22,7 @@ if __name__ == "__main__":
     print(f"RUNNING BASELINE MODEL")
     print(f"Scenarios: {scenario_string}")
     print(f"{'='*50}\n")
-    model = calliope.Model(MODEL_FILE, scenario=scenario_string)
+    model = calliope.Model(str(MODEL_FILE), scenario=scenario_string)
     model.run()
 
     # --- MILP variable check ---
