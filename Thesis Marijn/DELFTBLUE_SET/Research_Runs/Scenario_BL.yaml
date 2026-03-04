@@ -1,0 +1,78 @@
+import:  
+  ## Asset group definitions
+  - 'model_config/techs/asset_groups.yaml'
+
+  ## Tech definitions
+  - 'model_config/techs/demand.yaml'
+  - 'model_config/techs/supply.yaml'
+  - 'model_config/techs/renewables.yaml'
+  - 'model_config/techs/powerplants.yaml'
+  - 'model_config/techs/transmission.yaml'
+  - 'model_config/techs/import_export.yaml'
+  - 'model_config/techs/storage.yaml'
+  - 'model_config/techs/electrolysers.yaml'
+  - 'model_config/techs/emissions.yaml'
+  - 'model_config/techs/heat_techs.yaml'
+  - 'model_config/techs/SMRs.yaml'
+
+  ## Location definitions
+  - 'model_config/locs/locations_BL.yaml'
+
+  ## Scenario definitions
+  - 'model_config/scenarios/demand.yaml'
+  - 'model_config/scenarios/capacities_BL.yaml'
+  - 'model_config/scenarios/emissions.yaml'
+
+  ## Case definitions
+  - 'model_config/scenarios/scenarios_S1.yaml'
+
+model:
+  name: Calliope_Dutch_SMR
+  calliope_version: 0.6.10
+  timeseries_data_path: 'timeseries_data'
+  random_seed: 987654321
+  subset_time:
+    - '2040-01-01 00:00:00'
+    - '2040-01-01 23:00:00'
+
+
+  time:
+    function: resample #apply_clustering #apply_clustering
+    function_options:
+      resolution: 1h
+      #clustering_func: kmeans
+      #how: mean
+      #k: 10
+      #storage_inter_cluster: True
+
+
+run:
+  bigM: 8e4
+  mode: plan
+  solver: gurobi
+  solver_options:
+    Threads: 24
+    FeasibilityTol: 1e-3
+    OptimalityTol: 1e-3
+    BarConvTol: 1e-4
+    Outputflag: 1
+    DualReductions: 0
+    InfUnbdInfo: 1
+    ScaleFlag: 2
+    MIPGap: 0.01
+    SoftMemLimit: 180 #GB
+
+
+  ensure_feasibility: False
+
+
+  objective_options:
+    cost_class:
+      monetary: 1
+      primary_energy: 0
+      line_load: 0
+      co2_emitted: 0
+      co2_stored: 0
+      spores_score: 0
+      excl_score: 0
+    sense: minimize

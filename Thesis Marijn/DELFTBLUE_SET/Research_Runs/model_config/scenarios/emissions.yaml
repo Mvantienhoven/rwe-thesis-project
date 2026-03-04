@@ -1,0 +1,12 @@
+
+overrides:
+
+    discount_40:
+        techs:
+            ets_budget_cap:
+                costs:
+                    monetary:
+                        om_prod: 106.2e-3 #Discounted ETS price for 40% free allowance (GB/KM/HA)
+
+scenarios:
+    ets_discount: [discount_40]

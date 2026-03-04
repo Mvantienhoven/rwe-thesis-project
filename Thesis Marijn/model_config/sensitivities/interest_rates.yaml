@@ -1,0 +1,32 @@
+#-------------------------------------------------COMMENTS KEVIN------------------------------------------------------#
+# Seperate interest rates for nuclear... why?
+
+#----------------------------------------------------------------------------------------------------------------------#
+
+
+overrides:
+
+
+    ir_35:
+        techs:
+            pp_nuclear_gen3:
+                costs:
+                    monetary:
+                        interest_rate: 0.035  # 1/100% per year, ref: ..
+
+            pp_nuclear_smr:
+                costs:
+                    monetary:
+                        interest_rate: 0.035  # 1/100% per year, ref: ..
+    ir_70:
+        techs:
+            pp_nuclear_gen3:
+                costs:
+                    monetary:
+                        interest_rate: 0.070  # 1/100% per year, ref: ..
+
+            pp_nuclear_smr:
+                costs:
+                    monetary:
+                        interest_rate: 0.070  # 1/100% per year, ref: ..
+    

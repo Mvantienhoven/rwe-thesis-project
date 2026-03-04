@@ -1,0 +1,627 @@
+Locating energy storage for offshore wind integration
+
+A system-level analysis of offshore and onshore storage in the Dutch energy system
+
+Marijn van Tienhoven
+
+5109361 | mvantienhoven@tudelft.nl
+
+November 8, 2025
+
+Thesis proposal | Complex Systems Engineering and Management Supervisor: Prof.dr.ir. M.A. (Machteld) van den Broek
+
+Abstract
+
+Contents
+
+Abstract1
+
+Introduction3
+
+Societal relevance and problem definition3
+
+Knowledge gap and research objective4
+
+Research questions5
+
+Literature review6
+
+Positioning6
+
+System functions of storage in high-renewable systems6
+
+Determinants of storage siting in systems with large offshore wind shares7
+
+Upstream constraints7
+
+Interface constraints9
+
+Downstream constraints10
+
+Competing pathways (onshore storage, grid expansion, interconnec-
+
+tion, curtailment)10
+
+System drivers10
+
+Technology dimension11
+
+Offshore storage technologies11
+
+Modelling implications12
+
+Modelling approaches in literature12
+
+Mixed evidence on storage siting across different contexts12
+
+System-level and spatially detailed modelling approaches13
+
+Synthesis: mechanism framework and research implications14
+
+Spatial structure and mechanism interaction14
+
+Selection of dominant mechanisms14
+
+Methodology18
+
+Experiment setup summary18
+
+Introduction
+
+Societal relevance and problem definition
+
+Climate change, triggered by decades of accumulation of greenhouse gas emissions, presents an enormous challenge. The European Commission and the European Council launched the European Green Deal in December 2019 to limit global temperature rise to +1.5°C relative to pre-industrial levels (European Council, 2024). The strategy sets a path for a green transition in the European Union (EU) to achieve climate neutrality by 2050 (European Commission, 2021).
+
+Offshore wind energy is a key pillar of the future low-carbon European power system, due to its high resource potential, relatively stable production profiles, and limited competition for land. The European Commission has set a target of installing 60 GW of offshore wind capacity by 2030 and 300 GW in 2050 (European Commission, 2020). The Netherlands alone plans to have 21 GW of offshore wind capacity in 2030 and 70 GW by 2050, although recent setbacks driven by high construction costs, supply chain bottlenecks, and grid congestion will likely delay short-term goals. Still, to put the ambitions into perspective, the Dutch transmission system operator TenneT estimates that in 2030 offshore wind could generate roughly 75% of Dutch electricity demand, underscoring its scale and strategic importance for achieving climate neutrality (TenneT, 2025).
+
+However, the large-scale expansion of offshore wind also points to fundamental challenges in transforming energy systems. Electricity generation will increasingly be concentrated offshore, while demand remains onshore (ENTSO-E, 2025b). Offshore wind is connected through substations, export cables and landing points to the onshore grid. Suitable locations for these landing points are limited due to coastal space constraints, environmental restrictions, and the need for nearby high-voltage grid infrastructure that can integrate large volumes of power (Ministerie van Economische Zaken en Klimaat, 2022). Behind the landing points, electricity is transported via the inland transmission network to reach demand. These interfaces could become structural bottlenecks as offshore capacity grows, because they have to transport increasing volumes of power (ENTSO-E, 2025b).
+
+A closely related issue is the variability of wind generation. In times of high output, generation may exceed the capacity of export cables, landing points, and downstream transmission networks, resulting in congestion, curtailment of renewable generation and/or the need for costly grid reinforcement (Angizeh et al., 2023; ENTSO-E, 2025a). Conversely, during periods of low production, transmission infrastructure may be underutilized, reducing the cost-effectiveness. Another challenge of the variability of wind is matching supply and demand. Periods of little to no wind generation require flexibility from demand response, dispatchable generation, imports, or storage to maintain reliability (ENTSO-E, 2025a; TNO, 2022).
+
+Energy storage is widely highlighted as a key solution to address the variability challenge in systems with a high share of renewable energy (Angizeh et al., 2023; Qazi et al., 2025; Wang et al., 2019; Wiegner, 2025). During periods of high wind power output, storage can absorb excess generation and release energy during periods of shortage. By shifting electricity over time, supply and demand can still be matched. In a future system with a much larger share of wind generation, the role of such flexibility becomes increasingly important, raising the question of how and where storage should be integrated within the
+
+power system (Qazi et al., 2025; Rabanal et al., 2024).
+
+Integration of energy storage directly coupled to offshore wind farms is receiving increasing attention in the literature. While offshore storage is still in a developing phase, recent studies highlight its potential to reshape offshore wind integration (Atherton et al., 2023; Juhlin, Eren, et al., 2024; Li & DeCarolis, 2015; Wang et al., 2019; Wiegner et al., 2024). By storing energy offshore, peak loading of export cables and landing points can be reduced. This may reduce the need for grid reinforcements, could lower curtailment of wind energy at the source, and might even reduce pressure on landing point capacity requirements (Atherton et al., 2023; Rabanal et al., 2024). Furthermore, both offshore and onshore storage may relieve pressure on the downstream onshore grid behind the landing points. In some regions, however, spatial constraints may limit large-scale onshore storage deployment near landing points (Angizeh et al., 2023; Ministerie van Economische Zaken en Klimaat, 2022). On the other hand, offshore storage faces higher installation and maintenance costs, marine operational risks, and greater regulatory uncertainty compared to onshore storage (Bijl, 2019; TNO, 2022; Wang et al., 2019).
+
+The characteristics and system impacts of offshore storage can thus be fundamentally different from those of onshore storage. Although offshore storage is unlikely to fully replace onshore storage, offshore storage may provide additional system value under certain conditions where spatial constraints, infrastructure limitations, and variability of generation interact (Rabanal et al., 2024; Wiegner et al., 2024). Understanding these conditions is socially relevant, because decisions on offshore infrastructure, grid development, storage deployment and the way offshore wind is integrated shape the design of the future energy system and partly determine the success of the energy transition (ENTSO-E, 2025b; TenneT, 2025).
+
+Knowledge gap and research objective
+
+Academic literature broadly recognizes the potential role of storage in a future energy system dominated by renewables, but is still fragmented on the potential of offshore storage. Some case studies find no business case for offshore storage (Atherton et al., 2023; van den Haak, 2023), while others state it is economically viable (Bijl, 2019; Juhlin, Eren, et al., 2024). The difference in results is largely driven by methodological choices, assumptions and site specific characteristics. Another important consideration is that a lot of these studies look at individual business cases, rather than system wide value. In one of the most comprehensive studies thus far, Wiegner (2025) uses a system-level model with 2000 energy systems variations to conceptually give insight in optimal storage siting. However, the model lacks spatial detail, important offshore characteristics and the high shares of offshore winds that are expected in the Netherlands (Wiegner, 2025). This limits its ability to give insight into how locational and infrastructural factors influence storage siting in the Netherlands. On the other hand, infrastructure-detailed studies such as Bos (2025) represent grid dynamics at high resolution but simplify offshore system components and typically exclude both large-scale offshore wind ambitions and the possibility of offshore storage (Bos, 2025).
+
+The absence of spatially detailed models on offshore storage limit the ability to assess the role of offshore storage in future electricity systems with a high capacity of offshore wind. In particular, there is limited understanding on how offshore storage, in a cost-optimized system, interacts with landing point constraints, onshore and offshore transmission bottlenecks, curtailment dynamics, and onshore storage deployment. Therefore, it remains unclear under which system conditions offshore storage contributes to a cost-effective and reliable future electricity system, and how offshore storage deployment affects infrastructure needs and
+
+operational performance.
+
+The objective of this research is to evaluate the system-level role of offshore electricity storage in a future Dutch power system with high offshore wind capacity. It will do so using a spatially detailed modelling approach, including offshore infrastructure, landing points, and both onshore and offshore storage technologies. The study aims to identify the conditions under which offshore storage provides additional system value and to analyse its implications for system costs, infrastructure requirements, and operational performance.
+
+Research questions
+
+Building on the identified knowledge gap, this thesis evaluates the role of offshore electricity storage in a future Dutch power system with high offshore wind capacity. The main research question is formulated as follows:
+
+Main question
+
+Under which system conditions does offshore electricity storage reduce total system costs in the 2040 Dutch power system with increased offshore wind capacity?
+
+To address this question, the research is structured around four sub-questions:
+
+Sub-questions
+
+SQ1. Which mechanisms determine the relative system-level value of offshore elec-tricity storage compared to onshore alternatives in the Dutch power system?
+
+SQ2. Under which combinations of the identified mechanisms (SQ1) does the cost-minimizing model endogenously allocate electricity storage offshore, and to what extent?
+
+SQ3. How does offshore storage deployment affect system costs, infrastructure requirements, and operational performance across different system contexts?
+
+(offshore storage aan/uit zetten in verschillende scenarios, kijken wat de effecten zijn op kosten, transmissie, onshore storage en curtailment etc. Zouden dezelfde scenarios kunnen zijn als in SQ2, maar dan wel duidelijk maken dat dit scenarios zijn die vooral checken wanneer offshore storage waardevol wordt)
+
+reading guide
+
+SQ1 already in 2. Literature review. SQ2 and SQ3 in Results chapter
+
+Literature review
+
+Positioning
+
+The rapid expansion of offshore wind in the North Sea raises fundamental questions about the role of electricity storage. While storage has traditionally been considered an onshore asset, the scale and distance of future offshore buildout, combined with growing grid bottlenecks, have brought the possibility of offshore storage into sharper focus.
+
+The debate is relatively recent and different streams of academic literature emphasize different aspects of offshore storage. Some contributions mainly focus on technological comparison of storage technologies, while others look into business case opportunities for offshore storage in individual projects. While this work provides valuable insight into offshore storage characteristics and potential applications, it remains fragmented with respect to consistent system boundaries and objectives, and is scarce in treatment of system-level cost-effectiveness, substitution effects and transmission impacts (as will be illustrated in 2.5).
+
+Rather than evaluating offshore storage as a standalone technology or project-level oppor-tunity, this thesis adopts a system-level perspective on offshore storage, since the impact of storage on system cost, reliability, and infrastructure is dependent on its interaction with the broader electricity system (Guerra et al., 2016; Krishnan et al., 2016; Wiegner, 2025). Therefore, storage siting is considered as an infrastructure allocation problem in a cost-optimised power system. Within power-system planning and design, infrastructure allocation refers to determining the optimal capacity and location of generation, transmis-sion, and flexibility resources to meet demand at least system cost under specific system constraints (de Oliveira et al., 2025; Guerra et al., 2016; Krishnan et al., 2016). In this perspective, storage is not assessed in isolation but as one of several competing flexibility and infrastructure options whose capacity and location are determined within a cost-optimising model.
+
+To gain understanding in the potential role of offshore storage, the remainder of chapter 2 is structured as follows. The literature is reviewed for system functions of storage (2.2), how the value of storage becomes location-dependent in offshore-centric systems (2.3), which technological characteristics shape their feasibility (2.4), and how different modelling approaches capture these interactions (2.5). Chapter 2 ends with a selection of mechanisms that determine the relative system-level value of offshore electricity storage compared to onshore alternatives, and with that provides an answer to sub-question 1. This provides the basis for the parametric mechanism experiments conducted in Chapter 4.
+
+System functions of storage in high-renewable systems
+
+The primary function through which storage contributes to system value is temporal reallocation of electricity. By shifting energy from periods of surplus to periods of scarcity, storage reduces short-term supply–demand mismatches. It thereby lowers reliance on fuel based dispatchable generation capacity. In planning models, this is reflected in avoided investments in peaking assets and fuel cost, provided reliability constraints are satisfied (Denholm et al., 2010; Zakeri & Syri, 2015).
+
+A related second function is improved renewable generation utilisation. In high-renewable
+
+systems, excess production may exceed demand or network transfer capacity, leading to curtailment. Storage can absorb part of this surplus, increasing utilisation of generation assets and altering optimal investment decisions. Importantly, curtailment is not inherently inefficient in cost-optimised systems. Storage is only deployed when its cost is lower than the value of otherwise curtailed energy or alternative flexibility measures (Hirth, 2013; Horsch et al., 2018).
+
+The third function is spatial and arises from interaction with transmission infrastructure. Storage can reduce peak flows, defer or substitute network expansion, and change spatial power flows (Krishnan et al., 2016). Conversely, transmission availability shapes storage value by determining where surplus generation can be transported. The system value of storage is therefore partly location-dependent, emerging from congestion patterns, network topology, and spatial distribution of supply and demand.
+
+In planning models that co-optimise generation and transmission, storage competes directly with network reinforcement, dispatchable generation, and imports. It is deployed only when it offers a lower-cost way of meeting demand and reliability constraints than these alternatives (Guerra et al., 2016). As a result, its system value is inherently context-dependent and shaped by network constraints, alternative flexibility options, and the spatial distribution of supply and demand (Krishnan et al., 2016; Zerrahn et al., 2017). In offshore-centric systems, where generation is geographically separated from demand and constrained by export and landing infrastructure, these interactions become decisive for storage siting.
+
+Determinants of storage siting in systems with large off-shore wind shares
+
+In systems with large shares of offshore wind, generation is spatially separated from demand and much of the transmission network. As a result, the system value of storage becomes location-dependent, as offshore and onshore storage interact differently with export cables, landing infrastructure, inland congestion, and alternative flexibility options (Krishnan et al., 2016; McKenna et al., 2021; Singlitico et al., 2021; Zerrahn et al., 2017). This section therefore identifies the system-level mechanisms that shape the differences between offshore and onshore storage siting. A mechanism in this section must satisfy two conditions. Firstly, it changes the relative attractiveness of offshore vs onshore storage. Secondly, It operates at system level (not private revenue).
+
+Upstream constraints
+
+Offshore export cable sizing and wind overplanting
+
+Offshore wind farms deliver electricity to shore via offshore substations and export cables. If export cables are built with a capacity equal to the rated capacity of the wind park, they are not fully utilised during a substantial share of the year, because wind output varies over time. Given the high capital cost of offshore transmission infrastructure, such underutilisation may not be economically optimal. As a result, some wind farms are ’overplanted’, meaning that installed wind capacity exceeds export capacity. Although generation must then be curtailed during periods of maximum output, the average cost per installed megawatt can decrease because export infrastructure is used more intensively. Export cable sizing therefore reflects an economic trade-off between higher transmission investment and increased curtailment of wind energy (Li & DeCarolis, 2015; Rabanal et al., 2024).
+
+A growing body of work analyses how offshore storage can change this trade-off. By absorbing surplus production during high-output periods and discharging when export capacity is available, offshore storage can reduce peak export flows and increase effective utilisation of export infrastructure (Kazemi-Robati et al., 2025; Li & DeCarolis, 2015; Wiegner et al., 2024). This smoothing effect can make overplanting more economically attractive by limiting curtailment relative to the additional wind build (Atherton et al., 2023; Bijl, 2019). In system terms, the location of storage is essential. Congestion at the export cable occurs upstream of the onshore grid, meaning that storage located onshore and connected downstream cannot directly relieve constraints on the export cables themselves. Offshore storage can, because it acts before the constrained export cables.
+
+This interaction is not specific to the Netherlands. In any offshore wind system, export capacity, wind overplanting, curtailment, and storage form an interdependent design problem. Whether offshore deployment is beneficial depends on relative costs and system constraints, but the structural trade-off itself is universal.
+
+Hybrid interconnectors
+
+In addition to domestic connection, offshore wind generation may be exported to neighbour-ing countries through interconnectors. Recent policy developments favour so-called hybrid interconnectors, in which cross-border transmission cables are integrated with offshore wind infrastructure rather than constructed as point-to-point connections (Ministerie van Klimaat en Groene Groei, 2025a). Such hybrid designs allow export of wind power during high-output periods and import of electricity when offshore generation is low, thereby providing an alternative to curtailment (Rettig et al., 2023; Singlitico et al., 2021).
+
+The availability of alternative export routes moderates the export-cable trade-off described above. If offshore wind can be routed to foreign markets, pressure on domestic landing capacity is reduced, lowering the marginal value of offshore storage. A key distinction, however, is that interconnection shifts surplus energy spatially to other markets, whereas storage shifts it temporally within the domestic system. Consequently, additional intercon-nection may relieve congestion but does not necessarily increase the availability of renewable electricity for domestic consumption. Moreover, projected hybrid interconnection capacity is much lower than the ambitions fot offshore wind capacity (Ministerie van Klimaat en Groene Groei, 2025a). The moderating effect will thus not materialize at the majority of wind parks.
+
+Co-location versus stand-alone infrastructure
+
+The relative attractiveness of offshore and onshore storage is further influenced by infrastructure-sharing opportunities. Offshore storage can be co-located with wind farms and connected
+
+to existing offshore substations and export systems. In such configurations, storage shares grid connection infrastructure and may reduce the need for additional offshore platforms or cables (Li & DeCarolis, 2015; Wiegner et al., 2024).
+
+Onshore storage can also be co-located, for example at renewable generation sites or industrial facilities, allowing (partial) use of existing grid connections. Conversely, stand-alone onshore storage projects may require new grid connections and potentially local reinforcement. Differences in connection cost and infrastructure-sharing potential can therefore affect the relative system-level value of offshore versus onshore storage, but this is no structural distinction.
+
+Interface constraints
+
+Landing point capacity and onshore spatial constraints
+
+The rapid expansion of offshore wind towards 30–50 GW by 2040 comes with integration challenges at the coast (Ministerie van Klimaat en Groene Groei, 2025a). As stated in the Wind Energy Infrastructure Plan, ’Until 2040, the rollout of offshore wind energy will mainly take place via electrical connections’ (Ministerie van Klimaat en Groene Groei, 2025a). Policy documents indicate that electrical landing capacity is expected to grow at least to 30 GW in 2040, with a potential extension towards approximately 40 GW, provided that sufficient spatial and technical conditions can be realised (Ministerie van Klimaat en Groene Groei, 2025b). The VAWOZ 2031–2040 programme is explicitly tasked with identifying feasible landing points under increasing spatial pressure (Ministerie van Economische Zaken en Klimaat, 2022). A key uncertainty could be whether suitable landing points can be developed at the required pace and scale, rather than realising offshore potential.
+
+At sea, export infrastructure is comparatively modular. The standardised 2 GW HVDC con-cept functions as the basic building block for new connections (Ministerie van Economische Zaken en Klimaat, 2022). Scaling offshore export capacity largely entails adding additional radial systems. The documents do not identify fundamental technological limits to offshore cable capacity itself. Constraints at this level are primarily financial and logistical rather than physical.
+
+The coastal interface introduces more pronounced uncertainties. Both PAWOZ (focused on Eemshaven) and VAWOZ emphasise the sensitivity of the Wadden Sea and other Natura 2000 areas, crossings of primary flood defences, complex dynamics in coastal zones, and competing land uses (Ministerie van Economische Zaken en Klimaat, 2022; Ministerie van Infrastructuur en Waterstaat, 2022; Ministerie van Klimaat en Groene Groei, 2025b). While complicating factors, they are largely route-specific constraints, but do not necessarily impose an absolute upper bound on landing capacity.
+
+The structurally more binding constraint emerges onshore at the level of converter stations and 380 kV substations. Electrical connection requires a converter or transformer station (for a 2 GW HVDC link typically occupying several hectares) and a connection to a 380 kV station with sufficient available capacity (or new station) (Ministerie van Economische Zaken en Klimaat, 2022). Importantly, there are practical limits to the amount of offshore wind that can be injected at a single 380 kV station, related to thermal loading, voltage stability,
+
+and system security requirements (indicatively ∼ 6 GW) (Ministerie van Economische Zaken
+
+en Klimaat, 2022). Many existing 380 kV substations have limited headroom for additional offshore injection, while expanding or constructing new stations requires substantial land take (approximately 15 hectares) and faces spatial constraints in coastal-industrial areas. If sufficient new or expanded landing nodes cannot be realised, the feasibility of reaching approximately 40 GW of electrical landing capacity by 2040 becomes uncertain (Ministerie van Klimaat en Groene Groei, 2025b).
+
+From a system perspective, the dominant landing constraint therefore appears to be the availability, expandability, and system-technical limits of the onshore converter and 380 kV stations. If the binding constraint lies at the level of peak injection into 380 kV nodes, upstream storage may relieve pressure by smoothing instantaneous flows and deferring substation expansion. Upstream storage can both be offshore or onshore at landing points, however, space for onshore storage near landing points is limited. Depending on these spatial constraints, offshore storage can be the only scalable upstream storage option.
+
+Downstream constraints
+
+Transmission constraints
+
+Even if converter stations and 380 kV substations can technically accommodate additional offshore connections, inland transmission corridors connected to these landing nodes may become congested under high wind output. Large peak injections from offshore wind can require reinforcement of existing high-voltage lines or the construction of new transmission assets. Such reinforcements are technically feasible but capital-intensive, time-consuming, and subject to permitting and spatial constraints, as recognised in national infrastructure planning programmes (Ministerie van Economische Zaken en Klimaat, 2022; Ministerie van Klimaat en Groene Groei, 2025b).
+
+Upstream storage can function as an alternative to grid expansion by lowering maximum loading of inland transmission assets. However, as described in the previous section, space near landing points is limited. Offshore storage can thus become relatively more attractive if onshore storage near landing points is constraint or downstream grid expansion is relatively expensive.
+
+Competing pathways (onshore storage, grid expansion, intercon-nection, curtailment)
+
+The individual constraints described above do not uniquely favour offshore storage. In a cost-minimising system, congestion at the export, landing, or inland transmission level can be addressed through several competing responses. These include deployment of onshore storage (particularly near landing nodes), reinforcement of transmission infrastructure, expansion of interconnection capacity, or acceptance of higher curtailment.
+
+Offshore storage therefore does not emerge simply because constraints exist, but only when it provides a lower-cost or more spatially feasible response than these alternatives. Its relative system-level value is thus determined by the comparative costs and scalability of these alternatives, in interaction with the upstream, interface, and downstream constraints described above.
+
+System drivers
+
+Offshore CAPEX and OPEX premium
+
+Offshore electricity storage is subject to structurally higher capital and operational expen-ditures than comparable onshore installations. Marine foundations, offshore installation logistics, and more complex maintenance increase both upfront investment and lifetime operating costs. Moreover, onshore storage is already a mature technology, with much lower risk and uncertainty than offshore storage. From a system perspective, this implies that offshore storage must generate sufficiently high location-specific benefits to compensate for its cost premium (IRENA, 2025; Sepulveda et al., 2018).
+
+Offshore wind capacity
+
+The relative value of offshore storage is also influenced by the penetration level of offshore wind in the generation mix. Scenario studies referenced in the Wind Energy Infrastructure Plan indicate that required offshore wind production capacity in 2040 ranges between 29 and 51 GW, with most scenarios clustering around approximately 40 GW (Ministerie van Klimaat en Groene Groei, 2025a). As the share of electricity produced offshore increases, a larger fraction of system variability and peak injection originates at sea. This amplifies
+
+pressure on export cables, landing nodes, and downstream transmission corridors, increasing the likelihood of congestion and curtailment.
+
+Academic studies consistently show that higher shares of variable renewable energy increase the need for flexibility and raise the marginal value of storage, particularly when transmission expansion is constrained (Denholm et al., 2010; Sepulveda et al., 2018; Zakeri & Syri, 2015). In offshore-centric systems, this effect is spatially concentrated at the sea–land interface.
+
+Technology dimension
+
+Offshore storage technologies
+
+The offshore storage literature identifies several candidate technologies, which differ funda-mentally in discharge duration, maturity, and spatial constraints.
+
+Electrochemical storage (lithium-ion batteries)
+
+Lithium-ion battery energy storage systems (BESS) currently dominate grid-scale deploy-ments. They are modular, fast-responding, and typically designed for multi-hour discharge durations. In the offshore context, they can be installed at turbine level, on AC platforms, connected to HVDC links, or embedded within converter stations. A recent systematic review of storage provision in HVDC-connected offshore wind farms concludes that BESS is the most versatile and promising technology among those assessed (Rabanal et al., 2024). The authors attribute this to three structural properties.
+
+First, BESS offers a balanced power–energy profile: it combines fast response with sufficient energy capacity to deliver peak shaving, curtailment mitigation, DC support, and secondary control, unlike long-duration storage (slow response) or ultra-fast technologies (limited energy). Second, it is locationally flexible, deployable onshore or offshore and across AC and
+
+DC infrastructure without geological constraints. Third, lithium-ion BESS is technologically and commercially mature, with well-documented costs, efficiencies (∼85–90%), and lifetimes (∼ 15 years), reducing parameter uncertainty relative to alternative offshore storage concepts
+
+(Rabanal et al., 2024; Santos et al., 2022).
+
+Subsea hydraulic storage (offshore pumped hydro)
+
+Subsea pumped hydro concepts, such as the StEnSea system developed by Fraunhofer IEE (Fraunhofer Institute for Energy Economics and Energy System Technology (IEE), 2025), exploit hydrostatic pressure at depth to enable energy storage on the seabed. Recent engineering analyses emphasise lessons from offshore oil and gas infrastructure and provide indicative cost frameworks for deepwater subsea storage structures (Juhlin, Slocum, & Assadi, 2024). These systems target larger energy capacities than batteries and are conceptually suited to multi-hour or multi-day shifting.
+
+However, their economics are dominated by subsea civil works, installation logistics, and site-specific constraints. Technology readiness remains below that of lithium-ion BESS, and parametrisation in national-scale capacity-expansion models would require substantial speculative assumptions.
+
+Underwater compressed air energy storage
+
+Underwater CAES concepts use rigid tanks or flexible bags at depth to exploit ambient hy-drostatic pressure for near-isobaric storage. Reviews of offshore CAES options. demonstrate technical feasibility at prototype scale. Similar to subsea pumped hydro, these systems
+
+aim at medium- to long-duration storage. Yet performance, efficiency, and cost remain design-dependent, and offshore deployment is still at an experimental stage (Vella et al., 2017; Wang et al., 2015).
+
+Hydrogen
+
+Offshore hydrogen production is often discussed as an alternative to electrical export. Strictly speaking, hydrogen is not electricity storage but carrier conversion. However, when export constraints are structural rather than peak-driven, shifting energy from electricity to hydrogen could relieve bottlenecks more effectively than short-duration batteries (Travaglini et al., 2025). At the same time, hydrogen deployment is characterised by substantial uncertainty regarding electrolyser costs, infrastructure build-out, demand development, and regulatory frameworks. These uncertainties complicate parametrisation in long-term system models (Ramakrishnan et al., 2024).
+
+Modelling implications
+
+The offshore storage literature does not identify a universally optimal technology. Rather, it shows that storage value depends on service type, discharge duration, and its position relative to export and landing constraints. Still, as near term scalable solution, most studies favor BESS deployment.
+
+This thesis deliberately narrows the scope to offshore lithium-ion battery energy storage. The objective is not to assess all offshore storage technologies, but to isolate a specific system question: under what conditions does (short-duration) offshore electricity storage create structural value in a wind-dominated system with limited export capacity?
+
+Lithium-ion is selected because it occupies a balanced position between power and en-ergy capability, allowing fast response while retaining multi-hour shifting potential. Its technological maturity enables defensible parametrisation of efficiency, cost, and lifetime, and its modularity makes deployment at offshore hubs technically plausible. Importantly, lithium-ion can be deployed both offshore and onshore with broadly comparable technical characteristics. This allows the analysis to focus on locational effects rather than on fundamentally different storage physics. In contrast, technologies such as subsea pumped hydro or underwater CAES would introduce offshore-specific characteristics that are not directly comparable to their onshore counterparts, risking results driven by technology effects rather than siting effects.
+
+This technological restriction implies that the analysis primarily addresses peak-driven congestion and short-term flexibility. Structural energy imbalance, where average offshore generation persistently exceeds export capability, may instead favour carrier-conversion pathways such as hydrogen. While such pathways fall outside the core storage representation adopted here, their potential relevance could be acknowledged in a simplified manner.
+
+Modelling approaches in literature
+
+The literature on offshore storage spans project-level techno-economic analyses and large-scale energy system models, yet these strands operate at different spatial scales and lead to heterogeneous conclusions.
+
+Mixed evidence on storage siting across different contexts
+
+Outcomes from single case studies point in multiple directions regarding the siting of storage. Bijl (2019) shows that offshore batteries can reduce curtailment and improve
+
+project economics in a Dutch case, while Qazi et al. (2025) find offshore batteries profitable in hybrid North Sea parks due to congestion reduction and stabilising services, but also note capital costs of offshore infrastructure might be underestimated. An analyses of Portuguese offshore parks, including batteries and hydrogen, also find positive results for offshore storage. However, they also note that profitability highly depends on cost assumptions and pipeline expansion (Varotto et al., 2025). Juhlin et al. (2024) directly compare a German offshore wind farm with subsea hydro-pneumatic storage technology to onshore batteries They find that both are preferable compared to no storage. Moreover, subsea hydro-pneumatic storage is found to economically outperform an onshore battery, but this is due to its longer lifetime and no degradation rather than the siting choice (Juhlin, Eren, et al., 2024).
+
+At the same time, several case-based analyses highlight that offshore flexibility options are not universally attractive. Van den Haak (2023) finds that when land availability and grid access are unconstrained, onshore storage remains more cost-effective. Similarly, Atherton et al. (2023) examine forty-seven Swedish wind farms, but find no suggestion that shifting storage offshore would lead to added benefit. More broadly, reviews of offshore energy storage concepts highlight that marine foundations, installation logistics, harsh operating conditions, and complex maintenance requirements substantially increase capital and operational expenditures relative to onshore alternatives (Santos et al., 2022; Wang et al., 2019).
+
+These non-uniform outcomes demonstrate that neither onshore nor offshore storage is intrinsically superior. Their relative value depends significantly on assumptions made, local grid condition, and the balance between infrastructure costs and avoided constraints. While this project-level literature is essential for parameterizing models and understanding economic barriers, it does not establish whether offshore storage is cost-effective from a Dutch system perspective. Cost-effectiveness is often assessed in isolation, without endogenous competition against alternative flexibility, onshore storage, or network solutions. As a result, conclusions drawn from LCOE, NPV, or cost–benefit analyses cannot directly answer under what system configurations offshore storage would be selected in a cost-minimal energy system, particularly with a high degree of renewable penetration.
+
+System-level and spatially detailed modelling approaches
+
+At the system level, studies such as Wiegner (2025) demonstrate the importance of storage to achieve deep decarbonization and a reliable North Sea energy system. Wiegner’s model describes the value of short-, medium-, and long-term storage technologies for balancing renewables with a comprehensive sensitivity analysis of 2,000 energy system configurations. This approach provides interesting conceptual insights about the systemic conditions under which offshore or onshore storage is preferred. However, the model is high-level on a few important aspects. it represents just one offshore and one onshore node without landing point complexity, makes general distance assumptions (50–300km), and does not use the high shares of offshore winds expected in the Netherlands. As a result, outcomes are strongly driven by cost assumptions and backup availability (Wiegner, 2025) and cannot represent the locational, infrastructural, and regulatory problems that determine the actual onshore/offshore trade-off in the Netherlands.
+
+At the other end of the spectrum, detailed spatial models that account for infrastructure such as Bos (2025), highlight how storage can relieve congestion when sited at provincial nodes near offshore wind landing zones. These works show that storage siting matters, and that transmission expansion alone cannot eliminate all bottlenecks. However, they remain limited to onshore batteries, and therefore overlook the potential role of offshore storage.
+
+The literature thus exhibits a methodological gap. Project-level studies lack system optimisation and substitution effects, while system-level models often lack spatial detail at the offshore–onshore interface. Spatially detailed grid models, in turn, rarely include offshore storage as a candidate technology. As a result, offshore storage has rarely been evaluated within a spatially resolved, cost-optimising national model that explicitly represents export constraints, landing-point capacity, and endogenous infrastructure competition. This gap motivates the modelling approach adopted in this thesis.
+
+Synthesis: mechanism framework and research implica-tions
+
+Spatial structure and mechanism interaction
+
+The mechanisms discussed in Section 2.3 reveal that offshore-centric power systems exhibit a layered spatial structure between generation and demand (see Figure 2.1). As offshore wind capacity increases, a larger share of system variability and peak injection originates at sea and must pass sequentially through export cables, landing nodes, and inland transmission corridors before reaching demand. Each of these layers is governed by distinct technical, spatial, and economic constraints that influence how energy flows can be accommodated.
+
+Figure 2.1: Illustration of mechanism interactions - Adapted from FLASC (2024)
+
+Storage interacts differently with each layer depending on its location. Offshore storage affects flows before they encounter export and landing limits. Storage located at or near landing nodes interacts with converter and substation capacities, but the availability is limited due to spatial constraints. The system-level effectiveness of storage therefore depends on where in the spatial chain constraints become binding and how storage at that location interacts with them.
+
+Storage siting is thus not a binary offshore vs onshore distinction, but a question of how flexibility is positioned within the spatial architecture of the system. The allocation outcome depends on which layers become limiting under increasing offshore wind penetration and on how different response options interact with those limits.
+
+Selection of dominant mechanisms
+
+The preceding sections identified a set of mechanisms influencing the relative system-level value of offshore versus onshore alternatives. Not all mechanisms, however, warrant explicit
+
+variation in the experimental design. To delimit the mechanism space while preserving analytical relevance, mechanisms are selected for scenario variation when they satisfy three conditions:
+
+Structural leverage: the mechanism can alter the location in the spatial network where constraints become binding.
+
+System-wide impact: the mechanism materially affects total system cost and endoge-nous infrastructure allocation.
+
+Deep uncertainty in 2040: the mechanism is subject to substantial policy, cost, or deployment uncertainty.
+
+Mechanisms that are either endogenously optimised within the model, secondary in magni-tude, or insufficiently uncertain are treated as structural context rather than experimental drivers.
+
+Experimental drivers
+
+Offshore wind capacity:
+
+Offshore wind penetration directly scales upstream injection and determines the degree of pressure on export cables, landing nodes, and inland transmission corridors. Higher penetration increases the likelihood that upstream or interface constraints become binding and thus materially influences the spatial value of storage. Given the policy range of approximately 30–50 GW by 2040, offshore wind capacity satisfies all three selection criteria and qualifies as a primary system driver.
+
+Onshore near-landing storage availability:
+
+The availability of storage capacity near landing nodes determines whether upstream congestion can be relieved onshore or whether offshore storage becomes the only scalable upstream option. This mechanism directly affects the spatial substitutability between offshore and onshore storage and therefore has strong structural leverage. Its future availability is uncertain due to unclear landing point locations, spatial constraints and competing land use, justifying explicit variation.
+
+Offshore storage CAPEX and OPEX premium:
+
+Offshore storage is characterised by higher installation and maintenance costs relative to onshore technologies, combined with substantial uncertainty due to limited deployment experience. The cost differential directly determines whether offshore storage can compete with onshore storage and transmission expansion in a cost-minimising system. Given its high impact and deep uncertainty, it is treated as an experimental driver.
+
+Structural context and binding constraints
+
+Landing point capacity:
+
+Landing capacity is a central interface constraint because it determines how much offshore generation can be injected into the onshore high-voltage grid at a limited set of coastal nodes. For the offshore–onshore storage trade-off, the decisive factor is not landing capacity in isolation, but its tightness relative to offshore wind capacity. A given landing envelope may be non-binding at low offshore wind penetration and strongly binding at high penetration; conversely, higher landing capacity can neutralise otherwise binding offshore build-out.
+
+For this reason, the analysis can treat landing capacity as a structural envelope while varying offshore wind capacity, since the system effect is primarily governed by their ratio and interaction (i.e., whether offshore build-out pushes the interface into a binding regime).
+
+In the experimental design, landing point capacity is represented as an existing baseline with limited expansion potential rather than as an independent scenario axis.
+
+Export-cable sizing and overplanting:
+
+Upstream of the landing interface, export capacity defines a distinct constraint regime from onshore injection limits. It is structurally important because it governs the trade-off between transmission investment, curtailment, and offshore storage. However, its technical configuration is relatively well-defined and modular in current Dutch planning, making it less deeply uncertain than other mechanisms. Export capacity is therefore represented as a baseline level with expansion possible at a cost, allowing the model to endogenously choose between additional export capacity, curtailment, and offshore storage. It is not varied as an independent scenario axis. (Curtailment is treated as an endogenous operational outcome rather than a scenario driver).
+
+Transmission expansion:
+
+Transmission reinforcement is modelled as an endogenous response to congestion with associated investment costs. Since it constitutes a competing system response rather than an exogenous constraint, it is not varied as a scenario parameter. Imposing exoge-nous transmission limits would predetermine substitution outcomes and reduce analytical neutrality.
+
+Hybrid interconnection:
+
+Projected hybrid interconnection capacity remains limited relative to total offshore wind ambitions and does not fundamentally alter the spatial ordering of constraints within the domestic system. It is therefore included at representative levels but not varied systematically.
+
+Co-location versus stand-alone infrastructure:
+
+Differences between co-located and stand-alone storage primarily affect connection costs at a detailed spatial level. Given the lack of consistent nationwide data and the limited structural impact on layered constraint binding, this mechanism is abstracted as node-level co-location and not treated as a scenario driver.
+
+leverageleverageMechanismStructural
+
+leverage
+
+leverage
+
+ImpactUncertaintyTreatment
+
+Offshore wind capacityHighHighHighVaried
+
+Onshore near-landing storage availability
+
+Offshore storage CAPEX/OPEX premium
+
+HighHighMedium–HighVaried
+
+Medium–HighHighHighVaried
+
+HighHighHighHighLanding point capacityHighHighHighBounded*
+
+HighHigh
+
+HighHigh
+
+Inland transmission expansion
+
+Low (endogenous)
+
+Endogenous
+
+Export-cable sizing / overplanting
+
+Medium–HighHighMediumEndogenous
+
+LowLowHybrid interconnectionLow–MediumMediumLow–MediumBounded
+
+Low
+
+Low
+
+Co-location vs stand-alone connection costs
+
+Low–Medium
+
+High (local)Abstracted
+
+* Baseline + costed expansion; binding regime determined by interaction with offshore wind capacity.
+
+Table 2.1: Assessment of mechanisms based on structural leverage, system impact, and uncertainty.
+
+Together, the selected mechanisms capture the main uncertainties that determine where constraints bind in an offshore-centric system and whether flexibility is placed offshore or onshore. The experimental design therefore varies offshore wind capacity, near-landing storage availability, and the offshore cost premium, while allowing export, landing, trans-mission, and interconnection expansion to respond endogenously within defined planning limits. Chapter 3 translates this framework into a spatially resolved capacity-expansion model.
+
+Methodology
+
+Experiment setup summary
+
+(Indicative summary, structure will change)
+
+Objective
+
+The objective of the model is to minimise total system cost, defined as:
+
+capital expenditures (CAPEX),
+
+fixed and variable operational expenditures (OPEX),
+
+fuel costs,
+
+CO2 costs, and
+
+network expansion costs.
+
+Layer 1 — Scenario space
+
+The first experimental layer defines the scenario space. A total of 3 × 3 = 27 scenarios are evaluated.
+
+Mechanism 1: Offshore wind capacity. Offshore wind capacity W is endogenous, bounded by
+
+W ∈ [Wmin, 50]GW,
+
+where Wmin ∈ {30, 40, 45} GW represents a policy-driven minimum deployment level. The 45 GW case functions as a stress scenario.
+
+Electrical landing and export capacity. Existing electrical landing/export capacity equals 30 GW and is assumed to have zero additional CAPEX. Expansion up to 40 GW is possible through candidate landing links, each subject to individual build limits and associated investment costs.
+
+Onshore alternatives. Onshore flexibility options are bounded by exogenous upper limits, including:
+
+onshore variable renewable energy (VRE),
+
+dispatchable generation,
+
+onshore storage capacity.
+
+Mechanism axes varied. Two other mechanism dimensions are varied across three levels each:
+
+Mechanism 2: onshore near-landing storage capacity,
+
+Mechanism 3: offshore storage CAPEX/OPEX premium.
+
+Layer 2 — Near-optimal exploration
+
+Within each scenario, near-optimal system configurations are explored.
+
+For each scenario, near-optimal alternatives are generated using MGA/SPORES with an optimality slack of ε = 2.5%, producing N alternative system designs.
+
+These alternatives are used to evaluate the flexibility of system design within the same external conditions.
+
+Node-level recurrence of offshore storage deployment is computed to identify locations providing structural system value. Locations are classified based on recurrence frequency:
+
+No-regret: > 90% occurrence,
+
+Robust: 50–90% occurrence,
+
+Considerable: < 50% occurrence.
+
+Hydrogen safety-valve representation
+
+Policy documents indicate that the majority of offshore energy connections are expected to remain electrical by 2040; detailed hydrogen pathways are therefore excluded from the core model scope.
+
+To test the robustness of this assumption, a simplified hydrogen “safety-valve” is included:
+
+an offshore-only energy sink,
+
+characterised by high cost, low efficiency, and limited capacity,
+
+capable of bypassing electrical landing constraints.
+
+Frequent utilisation of this sink is interpreted as evidence that omission of explicit hydrogen infrastructure may materially influence system outcomes.
+
+Key performance indicators (KPIs) System-level outcomes
+
+Total system cost (including separate accounting of grid expansion CAPEX),
+
+Offshore storage deployment (GW/GWh),
+
+MGA recurrence of offshore storage by node,
+
+Offshore wind capacity built beyond minimum levels (GW per hub).
+
+Mechanism and substitution effects
+
+Landing/export expansion (added GW per landing link),
+
+Onshore grid expansion CAPEX,
+
+Total onshore storage deployment (GW/GWh),
+
+Installed generation capacities (GW),
+
+Near-landing onshore storage deployment (GW/GWh),
+
+Imports and exports (annual MWh and peak GW flows),
+
+Congestion indicators (hours with loading > 98%),
+
+Curtailment (MWh and share of potential generation).
+
+Operational indicators
+
+Storage utilisation (annual charging/discharging throughput in MWh),
+
+System emissions (Mt CO2).
+
+Bibliography
+
+Angizeh, F., Bae, J., Chen, J., Klebnikov, A., & Jafari, M. A. (2023). Impact assessment framework for grid integration of energy storage systems and renewable energy sources toward clean energy transition. IEEE Access, 11. https://doi.org/10.1109/ ACCESS.2023.3337133
+
+Atherton, J., Akroyd, J., Farazi, F., Mosbach, S., Lim, M. Q., & Kraft, M. (2023). British wind farm ess attachments: Curtailment reduction vs. price arbitrage. Energy and Environmental Science, 16, 4020–4040. https://doi.org/10.1039/d3ee01355c
+
+Bijl, H. J. (2019). Techno-economic analysis of energy storage systems for offshore wind farms (tech. rep.).
+
+Bos, J. (2025). Implementing high-resolution grid modeling to find decentralized system designs a use case of the dutch power system (tech. rep.).
+
+de Oliveira, E. J., Nepomuceno, L. S., de Oliveira, L. W., & de Paula, A. N. (2025). A novel framework for co-expansion planning of transmission lines and energy storage devices considering unit commitment. Technologies, 13 (6), 241. https :
+
+//doi.org/10.3390/technologies13060241
+
+Denholm, P., Ela, E., Kirby, B., & Milligan, M. (2010). The role of energy storage with renewable electricity generation (tech. rep. No. NREL/TP-6A2-47187). National Renewable Energy Laboratory (NREL). http://digitalscholarship.unlv.edu/renew_ pubs/5
+
+ENTSO-E. (2025a). Entso-e transparency platform: Hourly electricity generation, load and system data.
+
+ENTSO-E. (2025b). Offshore roadmap: Preparing europe’s power system for offshore renewable energy. https://www.entsoe.eu/news/2025/05/30/entso-e-launches-offshore-roadmap-to-support-europe-s-energy-transition/
+
+European Commission. (2020). Offshore renewable energy: A european action plan (tech. rep.). https://energy.ec.europa.eu/topics/renewable-energy/offshore-renewable-energy_en
+
+European Commission. (2021). The european green deal. https://commission.europa.eu/ strategy-and-policy/priorities-2019-2024/european-green-deal
+
+European Council. (2024). European green deal: Strategic agenda 2019–2024. https://www. consilium.europa.eu/en/policies/european-green-deal/
+
+FLASC. (2024). Why offshore energy storage? Retrieved February 25, 2026, from https:
+
+//flasc.eu/why-offshore
+
+Fraunhofer Institute for Energy Economics and Energy System Technology (IEE). (2025). Stensea: Stored energy in the sea [Official project page and technical documentation]. Guerra, O. J., Tejada, D. A., & Reklaitis, G. V. (2016). An optimization framework for the integrated planning of generation and transmission expansion in interconnected
+
+power systems. Applied Energy, 170, 1–21. https://doi.org/10.1016/j.apenergy.2016. 02.014
+
+Hirth, L. (2013). The market value of variable renewables: The effect of solar wind power variability on their relative price. Energy Economics, 38, 218–236. https://doi.org/ 10.1016/j.eneco.2013.02.004
+
+Horsch, J., Hagenmeyer, V., & Brown, T. (2018). The impact of sector-coupling on trans-mission reinforcement needs in a highly-renewable european energy scenario. 17th Wind Integration Workshop. https://nworbmot.org/
+
+IRENA. (2025). Renewable power generation costs in 2024: Data and statistics.
+
+Juhlin, R., Eren, E., Kloster, E., Thoen, M. H., Hörler, M., Kharabe, S., & Buhagiar, D. (2024). Increasing revenues of offshore wind farms with co-located energy storage systems. Journal of Physics: Conference Series, 2875 (1). https://doi.org/10.1088/ 1742-6596/2875/1/012038
+
+Juhlin, R., Slocum, A. H., & Assadi, M. (2024). Deep water subsea energy storage: Lessons learned from the offshore oil and gas industry. Journal of Marine Science and Engineering, 12 (12), 2288. https://doi.org/10.3390/jmse12122288
+
+Kazemi-Robati, E., Varotto, S., Silva, B., & Temiz, I. (2025). Multiobjective energy manage-ment of multi-source offshore parks assisted with hybrid battery and hydrogen/fuel-cell energy storage systems. Applied Energy, 377. https://doi.org/10.1016/j. apenergy.2024.124529
+
+Krishnan, V., Ho, J., Hobbs, B. F., Liu, A. L., McCalley, J. D., Shahidehpour, M., & Zheng,
+
+Q. P. (2016). Co-optimization of electricity transmission and generation resources for planning and policy analysis: Review of concepts and modeling approaches. Energy Systems, 7 (2), 297–332. https://doi.org/10.1007/s12667-015-0158-4
+
+Li, B., & DeCarolis, J. F. (2015). A techno-economic assessment of offshore wind coupled to offshore compressed air energy storage. Applied Energy, 155, 315–322. https:
+
+//doi.org/10.1016/j.apenergy.2015.05.111
+
+McKenna, R., D’Andrea, M., & González, M. G. (2021). Analysing long-term opportunities for offshore energy system integration in the danish north sea. Advances in Applied Energy, 4. https://doi.org/10.1016/j.adapen.2021.100067
+
+Ministerie van Economische Zaken en Klimaat. (2022, July). Eindrapportage voorverkenning vawoz 2031–2040. Rijksoverheid. Retrieved February 10, 2026, from https://www. rijksoverheid.nl/
+
+Ministerie van Infrastructuur en Waterstaat. (2022). Programma noordzee 2022–2027 (tech. rep.) (Bijlage bij het Nationaal Water Programma 2022–2027). Rijksoverheid.
+
+Ministerie van Klimaat en Groene Groei. (2025a, June). Het windenergie infrastructuurplan noordzee (tech. rep.). Ministerie van Klimaat en Groene Groei. Den Haag.
+
+Ministerie van Klimaat en Groene Groei. (2025b, July). Programma aansluiting wind op zee (pawoz) – eemshaven (tech. rep.). Ministerie van Klimaat en Groene Groei. Den Haag.
+
+Qazi, S. H., Kalhoro, M. D., Bozalakov, D., & Vandevelde, L. (2025). Transforming grid systems for sustainable energy futures: The role of energy storage in offshore wind and floating solar. Batteries, 11. https://doi.org/10.3390/batteries11060233
+
+Rabanal, A., Smith, A. M., Ahaotu, C. C., & Tedeschi, E. (2024, August). Energy storage systems for services provision in offshore wind farms. https://doi.org/10.1016/j.rser. 2024.114573
+
+Ramakrishnan, S., Delpisheh, M., Convery, C., Niblett, D., Vinothkannan, M., & Mamlouk,
+
+M. (2024). Offshore green hydrogen production from wind energy: Critical review and perspective. Renewable and Sustainable Energy Reviews, 195, 114320. https:
+
+//doi.org/10.1016/j.rser.2024.114320
+
+Rettig, E., Fischhendler, I., & Schlecht, F. (2023, November). The meaning of energy islands: Towards a theoretical framework. https://doi.org/10.1016/j.rser.2023.113732
+
+Santos, J., Rodrigues, C., Estanqueiro, A., & Pinto, T. (2022). Energy storage solutions for offshore applications. Energies, 15 (17), 6153. https://doi.org/10.3390/en15176153 Sepulveda, N. A., Jenkins, J. D., de Sisternes, F. J., & Lester, R. K. (2018). The role of firm low-carbon electricity resources in deep decarbonization of power generation.
+
+Joule, 2 (11), 2403–2420. https://doi.org/10.1016/j.joule.2018.08.006
+
+Singlitico, A., Østergaard, J., & Chatzivasileiadis, S. (2021). Onshore, offshore or in-turbine electrolysis? techno-economic overview of alternative integration designs for green
+
+hydrogen production into offshore wind power hubs. Renewable and Sustainable Energy Transition, 1. https://doi.org/10.1016/j.rset.2021.100005
+
+TenneT. (2025). Offshore: De noordzee als groene motor. https://www.tennet.eu/nl/ projecten/provincies/offshore
+
+TNO. (2022). Offshore wind access report 2022 (tech. rep.). www.tno.nl
+
+Travaglini, R., Frowijn, L. S. F., Bianchini, A., Lukszo, Z., & Bruninx, K. (2025). Off-shore or onshore hydrogen production? a critical analysis on costs and opera-tional considerations for the dutch north sea. Applied Energy, 397, 126290. https:
+
+//doi.org/10.1016/j.apenergy.2025.126290
+
+van den Haak, W. J. F. (2023). A standardised comparison model for offshore wind to hydrogen concepts through industry validation and promotion of widespread adoption towards improved stakeholder cooperation in the energy transition (tech. rep.). http:
+
+//repository.tudelft.nl/.
+
+Varotto, S., Kazemi-Robati, E., & Silva, B. (2025). Delivering energy from hybridised offshore wind-wave parks considering electricity and hydrogen options: An optimisation approach. Sustainable Energy, Grids and Networks, 43. https://doi.org/10.1016/j. segan.2025.101846
+
+Vella, P. P., Sant, T., & Farrugia, R. N. (2017). A review of offshore-based compressed air energy storage options for renewable energy technologies [Conference paper]. Offshore Wind and Other Marine Renewable Energies in Mediterranean and European Seas (OWEMES 2017).
+
+Wang, Z., Carriveau, R., Ting, D. S., Xiong, W., & Wang, Z. (2019, October). A review of marine renewable energy storage. https://doi.org/10.1002/er.4444
+
+Wang, Z., Xiong, W., Wang, H., & Wang, Z. (2015). A review on underwater compressed air energy storage. Energy Storage Science and Technology, 4 (6), 585–598. https:
+
+//doi.org/10.3969/j.issn.2095-4239.2015.06.006
+
+Wiegner, J. F. (2025). Beyond solar and wind assessing energy transport, conversion and storage technologies for a cost-effective transition towards net zero (tech. rep.).
+
+Wiegner, J. F., Ossentjuk, I. M., Nienhuis, R. M., Vakis, A. I., Gibescu, M., & Gazzani, M. (2024). Harvesting the wind - assessment of offshore electricity storage systems. Computer Aided Chemical Engineering, 53, 2185–2190. https://doi.org/10.1016/ B978-0-443-28824-1.50365-3
+
+Zakeri, B., & Syri, S. (2015). Electrical energy storage systems: A comparative life cycle cost analysis. Renewable and Sustainable Energy Reviews, 42, 569–596. https :
+
+//doi.org/10.1016/j.rser.2014.10.011
+
+Zerrahn, A., Schill, W.-P., & Kemfert, C. (2017). On the economics of electrical storage for variable renewable energy sources. Renewable and Sustainable Energy Reviews, 79, 1518–1534. https://doi.org/10.1016/j.rser.2016.11.098

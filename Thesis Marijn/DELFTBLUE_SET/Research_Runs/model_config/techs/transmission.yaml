@@ -1,0 +1,110 @@
+techs:
+    transmission_hvac:
+        essentials:
+            name: 'Transmission - Electricity HVAC'
+            parent: power_transmission
+            color: '#795548'
+            carrier: electricity
+        constraints:
+            lifetime: 30
+            energy_eff_per_distance: 0.99965 # 0.0035%/km https://iea-etsap.org/E-TechDS/PDF/E12_el-t&d_KV_Apr2014_GSOK.pdf
+            force_asynchronous_prod_con: false
+        costs:
+            monetary:
+                energy_cap: 364 # Meur/GW (CE Delft 2017, ook bron van NBNL2025)
+    
+    free_gas_transmission:
+        essentials:
+            name: 'Free gas transmission'
+            parent: gas_transmission
+            carrier: gas
+            #color: '#808080'
+        constraints:
+            energy_eff_per_distance: 1
+            force_asynchronous_prod_con: false
+            lifetime: 1
+            energy_cap_equals: 1000 # GW
+
+    free_hyd_transmission:
+        essentials:
+            name: 'Free hydrogen transmission'
+            parent: gas_transmission
+            carrier: hydrogen
+            #color: '#808080'
+        constraints:
+            energy_eff_per_distance: 1
+            force_asynchronous_prod_con: false
+            lifetime: 1
+            energy_cap_equals: 1000 # GW
+
+    free_sink_transmission:
+        essentials:
+            name: 'Artificial export transmission'
+            parent: gas_transmission
+            carrier: sink
+           # color: '#808080'
+        constraints:
+            energy_eff_per_distance: 1
+            force_asynchronous_prod_con: false
+            lifetime: 1
+            energy_cap_equals: 9999 # GW
+
+    free_solid_fuel_transmission:
+        essentials:
+            name: 'Artificial solid_fuel transmission'
+            parent: gas_transmission
+            carrier: solid_fuel
+           # color: '#808080'
+        constraints:
+            energy_eff_per_distance: 1
+            force_asynchronous_prod_con: false
+            energy_cap_equals: 9999 # dummy
+            lifetime: 1
+    
+    free_co2_transmission:
+        essentials:
+            name: 'Artificial co2 transmission'
+            parent: gas_transmission
+            carrier: co2_emitted
+           # color: '#808080'
+        constraints:
+            energy_eff_per_distance: 1
+            force_asynchronous_prod_con: false
+            energy_cap_equals: 9999 #dummy
+            lifetime: 1
+
+    free_ets_budget_transmission:
+        essentials:
+            name: 'Artificial ets_budget transmission'
+            parent: gas_transmission
+            carrier: ets_budget
+           # color: '#808080'
+        constraints:
+            energy_eff_per_distance: 1
+            force_asynchronous_prod_con: false
+            energy_cap_equals: 9999 # dummy
+            lifetime: 1
+
+    free_ets_penalty_transmission:
+        essentials:
+            name: 'Artificial ets_penalty transmission'
+            parent: gas_transmission
+            carrier: ets_penalty
+           # color: '#808080'
+        constraints:
+            energy_eff_per_distance: 1
+            force_asynchronous_prod_con: false
+            energy_cap_equals: 9999 # dummy    
+            lifetime: 1
+    
+    free_co2_stored_transmission:
+        essentials:
+            name: 'Artificial co2_stored transmission'
+            parent: gas_transmission
+            carrier: co2_stored
+           # color: '#808080'
+        constraints:
+            energy_eff_per_distance: 1
+            force_asynchronous_prod_con: false
+            energy_cap_equals: 9999 # dummy  
+            lifetime: 1

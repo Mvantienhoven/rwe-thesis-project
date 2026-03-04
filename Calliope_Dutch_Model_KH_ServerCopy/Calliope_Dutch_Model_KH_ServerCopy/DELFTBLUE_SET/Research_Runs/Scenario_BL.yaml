@@ -33,17 +33,13 @@ model:
   random_seed: 987654321
   subset_time:
     - '2040-01-01 00:00:00'
-    - '2040-12-30 23:00:00'
+    - '2040-01-01 23:00:00'
 
 
   time:
-    function: apply_clustering #resample #apply_clustering
+    function: resample
     function_options:
       resolution: 1h
-      clustering_func: kmeans
-      how: mean
-      k: 10
-      storage_inter_cluster: True
 
 
 run:

@@ -119,7 +119,7 @@ def overlay_arrows(m, locations, flows, exclude_prefixes):
     df_links = flows[flows.technology.str.contains("transmission_hvac:|interconnector_base:")]
     for prefix in exclude_prefixes:
         df_links = df_links[~df_links.technology.str.startswith(prefix)]
-    df_links["origin"], df_links["dest"] = zip(*df_links.location.str.split(":", 1))
+    df_links["origin"], df_links["dest"] = zip(*df_links.location.str.split(":", n=1))
     for _, row in df_links.iterrows():
         lat1, lon1 = locations[row.origin]["coordinates"].values()
         lat2, lon2 = locations[row.dest]["coordinates"].values()

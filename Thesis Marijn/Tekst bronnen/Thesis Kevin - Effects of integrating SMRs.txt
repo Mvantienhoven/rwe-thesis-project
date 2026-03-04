@@ -1,0 +1,2225 @@
+Deployment of Small Modular Reactors with cogeneration in High-Renewable energy systems
+
+Assessment of their cost-effectiveness and system impacts
+
+by
+
+Kevin Hasselaar
+
+to obtain the degree of Master of Science
+
+in Complex Systems Engineering and Management
+
+at the Delft University of Technology,
+
+to be defended publicly on XX, 2026 at XX .
+
+Student number: 5847729
+
+Project duration: Academic year 2025 – 2026
+
+Thesis committee: Prof. dr. ir. M. A. van den Broek, TU Delft (First Supervisor, Chair)
+
+Prof. dr. ir. B. Taebi, TU Delft (Second Supervisor, ad)
+
+Dr. ir. N. Wang, TNO (External Supervisor)
+
+I.H. Magan MSC.TNO (External Supervisor)
+
+This thesis is publicly available at http://repository.tudelft.nl/.
+
+Preface
+
+This thesis is the result of two enriching years at Delft University of Technology and marks the culmination of the skills and knowledge I have gained in the Complex Systems Engineering and Management programme. During this time, I deepened my systems engineering skills, broadened my knowledge of finance and economics, and expanded my understanding of the various dimensions of energy systems of varying scales. I also had the privilege of meeting many helpful and inspiring people.
+
+My interest in the energy system naturally led me to pursue a thesis centred on a modelling approach, which I have found to be an engaging way of understanding the elements, relationships, and influences that shape the behaviour and outcomes of such a complex system. The opportunity to collaborate with experts from the Energy Transition Studies unit at TNO made this experience even more meaningful and brought my research to life.
+
+This thesis project took place during a particularly turbulent period in my life and would not have been possible without the support of others. I would like to sincerely thank Machteld van den Broek, Behnam Taebi, Ni Wang, and Isaï Magan for their critical feedback, insightful discussions, and for always engaging in a warm and collaborative manner.
+
+Lastly, I am especially grateful to my wife Eva, whom I married during this project, for standing by my side as I transitioned into working life. I also thank our two cats, Luna and Mochi, for making sure I never forgot to take a break.
+
+Figure 1Example of aSmall Modular Reactor  (NuScale, 2022)Figure 1Example of aSmall Modular Reactor  (NuScale, 2022)Kevin Hasselaar
+
+Figure 1Example of a
+
+Small Modular Reactor  (NuScale, 2022)
+
+Figure 1Example of a
+
+Small Modular Reactor  (NuScale, 2022)
+
+Rotterdam, February 2026
+
+Abstract
+
+Rapid decarbonisation of the Dutch energy system requires large-scale electrification and high shares of variable renewable energy (vRES). The resulting rising electricity demand and spatial-temporal mismatches increase the need for dispatchable low-carbon capacity and substantial transmission expansion.
+
+Small Modular Reactors (SMRs) are proposed as decentralised cogeneration units supplying electricity, heat, and hydrogen. However, existing literature primarily evaluates plant-level costs or system operation in isolation. The conditions under which SMRs are cost-effective at the system level — and how their deployment affects transmission expansion and technology substitution — remain insufficiently understood.
+
+A techno-economic optimisation model of the Dutch energy system was developed in energy modelling framework Calliope, including endogenous transmission expansion and dynamic multi-carrier SMR dispatch. Sixty system configurations were optimised and compared, varying forecast scenario, SMR characteristics, industrial heat demand and No-SMR baselines for the year 2040.
+
+SMRs reduce total system cost by an average of 3.9%, but benefits are strongly conditional. Under high electricity demand, savings approach 5% and arise primarily from avoided transmission expansion. Under lower demand, savings decline and stem mainly from displacement of gas-fired generation. Transmission impacts exhibit threshold behaviour: moderate SMR deployment reduces grid size and usage, whereas larger-scale deployment leads to increases as units are sited at progressively less favourable locations. Deployment levels are most sensitive to electricity and heat demand intensity, as well as SMR cost assumptions; a 50% CAPEX increase reduces average system cost savings from −3.9% to −1.3%.
+
+Results are subject to structural modelling limitations, including single-year analysis with clustered time series, simplified representation of markets and technologies, and the absence of explicit spatial siting constraints. Future research incorporating multi-year variability, higher temporal resolution, endogenous cross-border market coupling, and realistic siting constraints would reduce uncertainty and strengthen policy guidance.
+
+Overall, SMRs are neither universally beneficial nor inherently uneconomic. Their value depends on demand intensity, spatial co-location with (industrial) multi-carrier demand, and realistic capital cost assumptions.
+
+Table of Contents
+
+PrefaceII
+
+AbstractIII
+
+List of TablesVI
+
+List of FiguresVI
+
+Symbols and AbbreviationsVIII
+
+1Introduction1
+
+1.1Literature Review3
+
+1.2Research Questions6
+
+2Methodology7
+
+2.1Research Design Overview7
+
+2.2Research Framework10
+
+2.2.1SRQ 1: Deployment and Cost-effectiveness of Cogenerating SMRs10
+
+2.2.2SRQ 2: System effects of integrating SMRs12
+
+2.3Model Description14
+
+2.3.1Spatial Configuration14
+
+2.3.2Temporal Configuration15
+
+2.3.3Technologies15
+
+2.4Scenario Design16
+
+2.5Optimisation Formulation19
+
+3Results20
+
+3.1SRQ1: Deployment and Cost-effectiveness of Cogenerating SMRs20
+
+Indicator 1: SMR unit count – aggregate results21
+
+Indicator 2: Spatial Heterogeneity of SMR Cost-Effectiveness24
+
+Indicator 3: SMR output composition28
+
+3.2SRQ2: System effects of integrating SMRs31
+
+Indicator 4: Electricity transmission deployment and utilisation33
+
+Indicator 5: Installed capacities of supply and storage technologies37
+
+Indicator 6: Drivers of Total System Costs41
+
+4Discussion44
+
+5Conclusion48
+
+References50
+
+Appendices57
+
+A1 – Minutes of Meetings (KGG)57
+
+Minutes of Interview – Ministry of Climate and Green Growth (KGG)57
+
+Minutes of Brief Exchange – Minister of Climate and Green Growth59
+
+A2 - Literature selection61
+
+A3 – Minutes of Interview (ANVS)64
+
+A4 – Minutes of Interview (ULC Energy)66
+
+A5 – System nodes69
+
+A6 – System edges (transmission lines)70
+
+A7 - Model Configuration & Parametrisation71
+
+A8 – SMR cogeneration constraints74
+
+A9 – Overview of key results78
+
+A10 – Supplementary results80
+
+Curtailment80
+
+Emissions80
+
+A11 – Indicator 2 results82
+
+A12 – Indicator 4 results88
+
+A13 – Minutes of interview (TATA Steel Europe)90
+
+List of Tables
+
+Table 1 Indicators used to assess the sensitivity of SMR cost-effectiveness to the nodal context and system dimensions.11
+
+Table 2 Indicators Used to assess energy infrastructure and cost impacts of SMR integration.12
+
+Table 3, Total Counts of SMR units deployed across system cases. Failed cases are denoted with ‘x’21
+
+Table 4, Comparative difference in SMR units deployed between Scenario EV and KM.21
+
+Table 5, Comparative difference in SMR units installed between SMR Output Mix variants.22
+
+Table 6, Maximum difference in installed units between consecutive SMR Sizes22
+
+Table 7, Comparative difference in installed SMR units between the Reference class and each other case class.23
+
+Table 8, The average output and utilisation per carrier of installed SMRs for system cases in the Reference, CAPEX +50%, and Heat Demand x2 class.28
+
+Table 9, Average difference in system costs per model dimension relative to its respective baseline case(s).41
+
+Table 10 Core Concepts61
+
+Table 11 Selected Literature for Review62
+
+Table 11 Selected Literature for Review62
+
+List of Figures
+
+Figure 1 Example of aII
+
+Figure 2, The 66 system cases configured and computed for this thesis, organised by model dimension.9
+
+Figure 3, Research Framework diagram – Illustrating the relationships between the indicators that feed into the research questions, and the modelling dimensions varied in the model.10
+
+Figure 4 The modelled transmission network topology14
+
+Figure 5, An illustrated overview of the modelled energy system, zooming in on a node containing all possible technologies and their carriers.16
+
+Figure 6, Parameter values per technology and scenario.17
+
+Figure 8, Average count of SMR units installed per node across all system cases.24
+
+Figure 7, The five spatially concentrated industry clusters in The Netherlands. The remaining cluster, Cluster 6, is distributed throughout the country and thus not visualised. (KGG, 2025)                  ↓24
+
+Figure 9, Energy demand per node, carrier and scenario, and corresponding average count of SMR deployment.25
+
+Figure 10, Total installed capacity per technology by system case and plotted per scenarios EV (top) and KM (bottom).32
+
+Figure 11, the difference in deployed transmission capacity relative to the respective Case Class baselines, set out against the total deployed SMR capacity in the system. Each circle represents a single system case.34
+
+Figure 12,  the difference in system-wide transmission capacity relative to the respective Case Class baselines, set out against the total count of SMR units deployed in the system. Each circle represents a single system case.34
+
+Figure 13,  the difference in transmission utilisation relative to respective Case Class baselines, set out against the total count of SMR units deployed in the system. Each circle represents a single system case.35
+
+Figure 14, the difference in how far each GWh of electricity travels through the transmission system, on average, relative to the baseline.36
+
+Figure 15, Average installed capacities of electricity supply technologies set out against the total deployed SMR capacity in the system. Covering all 'Reference' class cases.37
+
+Figure 16, Average installed capacities of hydrogen supply technologies set out against the total deployed SMR capacity in the system, covering all cases paired with CHH2P outfitted SMRs. SMR trendlines are scaled to the share of SMR capacity available for hydrogen production.39
+
+Figure 17,  Average installed capacities of heat supply technologies set out against the total count of deployed SMR units in the system, covering all cases except those under the increased Heat Demand classes. SMR lines are scaled to the share of SMR capacity available for heat production.40
+
+Figure 18, Total System Cost (TSC) components set out against the total deployed SMR capacity in the system, covering all Reference class cases.43
+
+Symbols and Abbreviations
+
+Symbol
+
+Description
+
+Unit
+
+°C
+
+Degree Celsius
+
+°C
+
+€
+
+Euro
+
+–
+
+%
+
+Percentage
+
+%
+
+* or ×
+
+Multiplication operator
+
+–
+
+±
+
+Plus/minus
+
+–
+
+<
+
+Less than
+
+–
+
+>
+
+Greater than
+
+–
+
+≥
+
+Greater than or equal to
+
+–
+
+Σ
+
+Summation operator
+
+–
+
+x̄
+
+Mean value, average
+
+–
+
+Δ
+
+Change in variable
+
+–
+
+~
+
+Approximately
+
+–
+
+#
+
+Number, count
+
+–
+
+B€
+
+Billion euro
+
+€
+
+M€
+
+Million euro
+
+€
+
+GW
+
+Gigawatt
+
+GW
+
+GWe
+
+Gigawatt electrical
+
+GW
+
+kWe
+
+Kilowatt electrical
+
+kW
+
+MWe
+
+Megawatt electrical
+
+MW
+
+TWh
+
+Terawatt-hour
+
+TWh
+
+tCO₂
+
+Metric tonne of carbon dioxide
+
+tCO₂
+
+P
+
+Electricity (power)
+
+MW or GW
+
+T
+
+Heat (thermal energy)
+
+MW or GW
+
+H₂
+
+Hydrogen
+
+MW or GW
+
+Abbreviation
+
+Definition
+
+ANVS
+
+Autoriteit Nucleaire Veiligheid en Stralingsbescherming (Nuclear Radiation Authority of The Netherlands)
+
+BESS
+
+Battery Electrical Storage System
+
+CAPEX
+
+Capital Expenditure
+
+CCGT
+
+Combined Cycle Gas Turbine
+
+CHP
+
+Combined Heat and Power
+
+CHH₂P
+
+Combined Heat, Hydrogen and Power
+
+CO₂
+
+Carbon dioxide
+
+DACC
+
+Direct Air Carbon Capture
+
+ETS
+
+Emissions Trading System
+
+EV
+
+Eigen Vermogen (Own Capacity)
+
+FC
+
+Fixed Cost
+
+FOAK
+
+First-of-a-Kind
+
+FSC
+
+Fixed Supply Cost
+
+FTC
+
+Fixed Transmission Cost
+
+GB
+
+Gezamenlijke Balans (Joint Balance)
+
+HVAC
+
+High Voltage Alternating Current
+
+HA
+
+Horizon Aanvoer (Horizon Supply)
+
+HV
+
+High Voltage
+
+IAEA
+
+International Atomic Energy Agency
+
+IDES
+
+Intra-Day Energy Storage
+
+IEA
+
+International Energy Agency
+
+KM
+
+Koersvaste Middenweg (Steady Middle Course)
+
+LCOE
+
+Levelised Cost of Electricity
+
+MDES
+
+Multi-Day Energy Storage
+
+MFD
+
+Mean Flow Distance
+
+MILP
+
+Mixed-Integer Linear Programming
+
+NOAK
+
+Nth-of-a-Kind
+
+NPV
+
+Net Present Value
+
+NPP
+
+Nuclear Power Plant
+
+OCC
+
+Overnight Capital Cost
+
+OCGT
+
+Open Cycle Gas Turbine
+
+OECD
+
+Organisation for Economic Co-operation and Development
+
+O&M
+
+Operation and Maintenance
+
+PV
+
+Photovoltaics
+
+SMR(s)
+
+Small Modular Reactor(s)
+
+SRQ1, 2
+
+Sub-Research Question 1, 2
+
+TNO
+
+Nederlandse Organisatie voor Toegepast Natuurwetenschappelijk Onderzoek
+
+TSC
+
+Total System Cost
+
+VC
+
+Variable Cost
+
+VSC
+
+Variable Supply Cost
+
+VTC
+
+Variable Transmission Cost
+
+vRES
+
+Variable Renewable Energy Sources
+
+Introduction
+
+Limiting global warming to 1.5 °C, as agreed under the Paris Agreement, requires rapid and sustained decarbonisation of energy systems worldwide (IPCC, 2019). According to the International Energy Agency (IEA), a credible route towards net-zero emissions from the energy sector by 2050 entails a near-complete phase-out of unabated fossil fuels and a fundamental shift towards low-emission energy sources, notably renewable energy and nuclear power (IEA, 2025). Central to this transition is the electrification of global final energy consumption, increasing electricity’s share of total consumption from roughly one fifth (21%, 2024) to more than half (55%) by 2050 (Duffour & Bchini, 2025; IEA, 2025).
+
+These global developments are reflected at the national level in the Netherlands through the Climate Agreement. This agreement envisages an electricity system that is largely renewable by 2050, underpinned by large-scale deployment of wind and solar power and extensive electrification of industry, transport, and the built environment (EZK, 2019). As a result, electricity demand is expected to grow steeply while generation shifts away from stable fossil-based sources towards variable renewable energy sources (vRES), fundamentally altering the structure and operation of the energy system (Netbeheer Nederland, 2025a).
+
+The rapid growth in electricity demand combined with the increasing dominance of vRES has far-reaching implications for the operation and design of the electricity system. High shares of wind and solar generation introduce pronounced temporal mismatches between electricity supply and demand, increasing the need for flexibility, storage, and dispatchable capacity, as well as for substantial reinforcement of transmission and distribution networks (Netbeheer Nederland, 2025a). In the Netherlands, these pressures are already manifest in widespread grid congestion, constraining the connection of new renewable generation and electrified demand (KGG, 2023; Netbeheer Nederland, n.d.). Looking ahead, system studies by Netbeheer Nederland project electricity demand to increase by a factor of approximately 2.5–3.5 towards 2050, requiring unprecedented expansion of electricity infrastructure networks (Netbeheer Nederland, 2025a). The financial implications are equally significant: the FIEN+ study, commissioned by Netbeheer Nederland, estimates cumulative investments in electricity networks on the order of €200 billion by 2040, with annual grid expenditures nearly doubling compared to current levels (PwC Strategy&, 2024). These rising system costs are expected to translate into substantially higher network tariffs for consumers and industry, elevating affordability and social acceptance to central challenges of the energy transition (ACM, 2025; Netbeheer Nederland, 2025b; VEMW, 2025). Consequently, the transition towards a highly electrified, vRES-dominated energy system is not only a technical challenge, but also a systemic and economic one.
+
+In response to the growing system challenges associated with a highly electrified, vRES-dominated energy system, attention has increasingly turned to the role of dispatchable low-carbon generation. While flexibility can partly be provided through storage, demand response, and sector coupling, system analyses consistently indicate that firm capacity remains necessary to ensure reliability during prolonged periods of low renewable output (TenneT, 2025a). Within this context, nuclear energy has re-entered the Dutch policy debate. The Ministry of Climate Policy and Green Growth (KGG, formerly EZK) has committed to expanding nuclear capacity, both through new large-scale reactors and by exploring the potential of Small Modular Reactors (SMRs) (KGG, n.d.; RVO, 2025). SMRs are nuclear reactors of smaller electrical output, up to 500 MWe, designed for modular construction and enhanced siting flexibility, and are increasingly discussed as a possible source of dispatchable, CO₂-free energy within future energy systems (NRG Pallas, 2025a; Zandt et al., 2024).
+
+Against this backdrop, interest in SMRs has increased across multiple governance levels in the Netherlands. At the national level, KGG has launched a dedicated programme to explore the feasibility, potential applications, and regulatory implications of SMRs within the Dutch energy system (KGG, 2024). In parallel, several provinces and municipalities have initiated exploratory studies or expressed interest in hosting SMRs, often in connection with local energy and spatial challenges (NHNieuws, 2025; NOS, 2025; NRG Pallas, 2025b). These initiatives are commonly motivated by expectations that SMRs could provide dispatchable low-carbon electricity, enable cogeneration of heat or hydrogen for nearby industry or district heating, and reduce pressure on electricity networks through more decentralised generation (KGG, 2024; NRG Pallas, 2025b). Such perceived benefits have positioned SMRs as a potentially attractive option for regions facing grid congestion, industrial decarbonisation challenges, or constraints on further renewable deployment.
+
+Despite growing political and regional interest, the system-level role of deploying SMRs in a highly renewable energy system remains uncertain. SMRs have not yet been deployed at scale in Europe, and empirical evidence on their operational performance, costs, and integration into power systems dominated by variable renewables is therefore limited.  Moreover, it is unclear to what extent the benefits often associated with SMRs—such as improved system flexibility, cogeneration of heat or hydrogen, or reduced transmission requirements through decentralised siting—would materialise within a cost-optimal energy system, or whether such effects would primarily arise from cogeneration rather than electricity generation itself. This uncertainty is also recognised at the policy level: both stakeholders involved in SMR development at the Ministry of Climate Policy and Green Growth and its minister have indicated that current knowledge on the role of SMRs in future energy systems remains exploratory (Appendix 1). As a result, questions regarding the conditions under which SMRs could contribute meaningfully to system performance and cost remain open.
+
+Addressing these open questions is particularly relevant given the scale and urgency of the ongoing energy transition, as decisions on long-lived generation and infrastructure assets are already being considered at national and regional levels. Understanding the potential system implications of emerging technologies before large-scale commitments are made is therefore essential. Following this problem introduction, Chapter 1 continues with a review of the relevant literature, leading to the identification of the knowledge gap and the formulation of the research objective, questions, and scope. Chapter 2 describes the modelling methodology employed in this thesis. Chapter 3 presents the results, Chapter 4 discusses their implications, and Chapter 5 concludes with the main findings and recommendations.
+
+Literature Review
+
+The literature on SMRs is extensive and heterogeneous, spanning design specifications, techno-economic assessments, and a smaller number of system-level modelling studies. While this body of work provides valuable insight into SMR characteristics and potential applications, it remains fragmented in its treatment of system-level cost-effectiveness, substitution effects, transmission impacts, and cogeneration—particularly in high-renewable energy systems.
+
+A substantial share of the literature evaluates SMRs from a plant-centric perspective, focusing on levelized cost of electricity (LCOE), overnight capital cost (OCC), net present value (NPV), and investment risk. Studies by Agar et al. (2019), Asuega et al. (2023), and Borowski (2025) quantify cost components and ranges for different SMR concepts, consistently highlighting capital costs as the dominant uncertainty. Reported CAPEX values span wide ranges, and construction time advantages relative to large nuclear plants are often cited as a potential benefit. Broader reviews and assessments further emphasize that SMR cost outcomes are highly sensitive to financing conditions, discount rates, regulatory frameworks, country-specific characteristics, and public acceptance (Mignacca et al., 2020; Mignacca & Locatelli, 2020; Van Hee et al., 2024). Investment-oriented analyses similarly underline uncertainties in learning rates, FOAK versus NOAK assumptions, and supply-chain development (Nøland et al., 2025). In some cases, producer-proposed cost figures are found to diverge substantially from theoretically estimated cost ranges, leading to conclusions that SMRs may not be competitive with mature vRES under current assumptions (Steigerwald et al., 2023).
+
+While this plant-level literature is essential for parameterizing models and understanding economic barriers, it does not establish whether SMRs are cost-effective from a system perspective. Cost-effectiveness is often assessed in isolation, without endogenous competition against alternative generation, storage, or network solutions. As a result, conclusions drawn from LCOE, NPV, or cost–benefit analyses cannot directly answer under what system configurations SMRs would be selected in a cost-minimal energy system, particularly with a high degree of renewable penetration.
+
+A smaller but growing subset of studies embeds SMRs within system models and provides evidence of system-level deployment. These studies generally find that power-only SMRs can play a meaningful role in low-carbon or net-zero electricity systems, especially where firm capacity and flexibility measures are scarce. In a Canadian context, Arjmand et al. (2023) found SMRs deployment was most prevalent in provinces where alternative flexibility measures are insufficient to stabilize grids with high vRES penetration. Similarly, Colterjohn et al. (2024) shows that in a least-cost 2055 power mix for Ontario, SMRs can supply up to roughly one third of electricity generation; excluding SMRs increases Total System Cost (TSC) by approximately 29%, with results robust across FOAK and NOAK cost assumptions. Other system studies reach comparable conclusions: Koivunen & Hirvijoki (2024) find that flexible nuclear power supports wind integration in a Finnish low-carbon system, while McGregor et al. (2022) show that SMRs can provide benefit both through baseload as well as flexibility provision alongside wind and solar, significantly reducing the need for Battery Electrical Storage Systems (BESS). Simulation-based analysis by Paisiripas et al. (2024) likewise suggest a role for SMRs in reducing emissions in power systems with high renewable shares, although these results are not derived from full endogenous capacity-expansion optimization.
+
+Despite these findings, system-level evidence remains limited in scope. First, most system studies represent SMRs as electricity-only technologies. Second, while reductions in TSC are sometimes reported, the mechanisms driving these reductions are rarely decomposed. For example, Colterjohn et al. (2024) reports a substantial system-cost increase when SMRs are excluded, but does not attribute this difference to specific cost components such as storage investment, curtailment, fuel use, reserve provision, or transmission. Similar limitations apply to Arjmand et al. (2023), Koivunen & Hirvijoki (2024),  McGregor et al. (2022), and Paisiripas et al. (2024), where SMR deployment is motivated by flexibility or reliability considerations, but without a detailed breakdown of how system costs change. As a result, it remains unclear which economic mechanisms underpin the reported benefits of SMRs in cost-minimal systems.
+
+Where substitution effects are discussed, they indicate that SMRs primarily displace dispatchable fossil generation and, in some cases, storage capacity (Colterjohn et al., 2024; McGregor et al., 2022). Dutch-focused work also points in this direction: Scheepers et al. (2025) find that in the absence of nuclear capacity, higher shares of solar PV require additional flexibility provision, which is partly met by battery storage. However, these substitution effects are typically reported descriptively and are not analysed systematically across scenarios or linked explicitly to changes in TSC.
+
+Transmission impacts are even less developed in the literature. Although some system models include spatial resolution or endogenous transmission, the effect of SMR deployment on transmission expansion or network costs is generally not examined explicitly – For example in Dutch studies by Kooiman et al. (2025) and Zandt et al. (2024), where no clear conclusions are drawn regarding transmission costs or grid expansion attributable to SMR deployment. Consequently, the literature offers little guidance on how SMRs may reshape transmission requirements in cost-minimal high-vRES systems.
+
+Cogeneration constitutes the most pronounced gap in the existing literature. Hydrogen production, process heat supply, and direct air carbon capture (DACC) are frequently discussed as promising applications for SMRs, but are predominantly assessed using plant-level or process-level approaches. Studies by Elkhalafy et al. (2024), Slavin et al. (2024), and Shobeiri et al. (2023) rely on cost accounting, process simulation, or qualitative frameworks, while Okunlola et al. (2023) apply a plant-level economic dispatch model responding to electricity and hydrogen prices without embedding the plant in a wider energy system. Nian & Zhong (2020) similarly propose hydrogen co-production as a flexibility option but evaluate feasibility through NPV analysis of FOAK plants rather than system optimization. These approaches do not capture competition between energy carriers or system effects.
+
+Dutch system studies begin to address cogeneration but remain constrained in their representations. Zandt et al. (2024) models SMRs as combined heat and power (CHP) units deployed near industrial clusters and finds that cost-effectiveness is highly dependent on scenario assumptions, particularly industrial heat demand. However, output carrier ratios are fixed rather than dynamically optimized, and SMRs are not modelled as discrete units; the study explicitly recommends further research into flexible cogeneration operation of SMRs. Kooiman et al. (2025) similarly assumes CHP SMRs in a Dutch system model and shows that nuclear capacity can reduce TSC under conditions of sufficient industrial demand and appropriate siting. SMRs are treated as dispatchable and can operate in different modes (power-only or CHP), but the flexibility of carrier allocation is constrained to operating modes, and transmission impacts remain unclear. Scheepers et al. (2025) also identifies SMRs as promising suppliers of industrial heat in high-renewable Dutch energy systems, showing that nuclear capacity reduces reliance on additional flexibility options such as battery storage; nevertheless, cogeneration is represented without discrete unit sizes or fully flexible timestep-level carrier allocation.
+
+Taken together, the literature indicates that SMRs can be valuable providers of firm and flexible capacity in low-carbon power systems, and that industrial heat and hydrogen applications may enhance their attractiveness. However, existing evidence is insufficient to determine under what conditions cogenerating SMRs are cost-effective in integrated, high-vRES energy systems, how their deployment reshapes transmission and technology portfolios, and which cost mechanisms drive changes in TSC. In particular, no identified study combines discrete SMR unit sizes with fully flexible, timestep-level allocation between electricity, heat, and hydrogen in a cost-minimal system framework consistent with the Dutch high-renewable context. These gaps directly motivate the research questions addressed in this thesis.
+
+Research Questions
+
+To address the knowledge gaps identified in the preceding literature review, this thesis adopts the Netherlands as a case study and analyses the energy system in the year 2040. The research focuses on the system-level role of cogenerating SMRs within a cost-minimal, high-renewable energy system, with particular attention to their interaction with the power system and other generation and flexibility technologies. The central research question guiding this thesis is:
+
+“Under what conditions are cogenerating SMRs cost-effective, and how does their integration reshape transmission requirements and technology deployment in cost-minimal energy systems?”
+
+This question is intentionally framed at the system level. Rather than assessing the techno-economic performance of individual reactors in isolation, it seeks to identify the conditions—such as demand levels, technology cost assumptions, and system configuration—under which cogenerating SMRs contribute to lower TSC and to understand the mechanisms through which these effects arise.
+
+The main research question is addressed through two sub research questions:
+
+SRQ1: How does the cost-effectiveness of cogenerating SMRs vary across different energy system configurations and assumptions?
+
+SQR2: How does SMR deployment affect transmission requirements and technology substitution under different scenarios, and what cost mechanisms drive the resulting impact on Total System Cost?
+
+Together, these sub-questions structure the analysis by first examining the circumstances under which cogenerating SMRs are selected in cost-optimal solutions, and subsequently analysing how their deployment influences system composition, infrastructure requirements, and cost drivers.
+
+Methodology
+
+This chapter presents the methodological framework and modelling approach employed to answer the research questions articulated in Chapter 1. It begins with an overview of the research design, followed by the research framework, and concludes with the model description.
+
+Research Design Overview
+
+To address the research questions, this thesis conducts a techno-economic assessment, minimising TSC across energy system configurations. The techno-economic lens deliberately excludes socio-technical transitions, lifecycle environmental assessment, and regulatory-institutional analyses, which require distinct methodological approaches. These dimensions represent important complementary research but fall outside the scope of this study.
+
+The research proceeds firstly by analysing what factors influence the extent of SMR deployment in the energy system to provide insight in the conditions for SMR cost-effectiveness (SRQ1). Secondly (SRQ2), by comparing energy systems with and without SMR deployment across three metrics: (1) electricity transmission requirements; (2) installed technology capacities; and (3) TSC. These metrics directly operationalise the research question: transmission requirements reveal infrastructure implications, technology capacity changes reveal substitution effects of SMRs, and TSC quantifies and validates the mechanisms behind SMR-driven cost-savings. A computational modelling approach was selected because the required empirical, quantitative and techno-economic data to perform this comparative assessment is not present in extant literature. This approach enables controlled scenario analysis by explicitly modelling system components and parameter values. To ensure robustness of findings, a few key parameter value assumptions have been varied to resemble the plausible economic and technological realism required. The model was thus configured and solved numerous times, with each solution resulting from a different configuration of these varied parameter values. In this thesis, these different solutions are referred to as ‘system cases’. Similarly, the varied values are referred to as ‘variants’ and their corresponding parameters as ‘model dimensions’. A variant thus represents one of the pre-defined values a model dimension can take, and a system case represents a unique configuration of these variants across dimensions. By taking this approach, the model more accurately represents plausible scenarios of SMR technology characteristics and their deployment context. This model structure and approach resulted in the following key model decisions and dimensions:
+
+Scenarios: Two scenarios were selected from Netbeheer Nederland (2025a), ‘Eigen Vermogen’ (EV) and ‘Koersvaste Middenweg’ (KM), each consisting of energy demand profiles and technoeconomic parameter values. ‘EV’ and ‘KM’ are referred to as the variants of the dimension ‘Scenario’ [1]. The year 2040 serves as the modelling horizon, based on the Dutch nuclear authority (ANVS) assessment that this timeframe represents a plausible deployment point for multiple commercial SMR units (Appendix 3).
+
+SMR Size and CAPEX: Three SMR designs were selected based on ANVS assessment of their regulatory eligibility for Dutch deployment by 2040: ‘Rolls-Royce SMR’ (0.47 GWe), ‘GE-Hitachi BWRX-300’ (0.3 GWe), and ‘Thorizon One’ (0.1 GWe) (ANVS, n.d.). A fourth design (AllSeas HTGR) was excluded due to assessed regulatory constraints within the current Dutch licensing framework (Appendix 3). All design-specific technical characteristics were disregarded; only capacity differences were retained in the model as the variants to the ‘SMR Size’ [2] dimension. Techno-economic parameter values were scaled proportionally to SMR size, assuming constant specific costs across designs. This simplification, while neglecting reactor type, design philosophy and cost variation, reduces model complexity to align with research scope and data availability constraints. However, to capture sensitivity to the capital expenditure dimension ‘SMR CAPEX’ [3] was included to vary between 75%, 100%, and 150% of the assumed estimate (6.3 € / kWe (Scheepers et al., 2025)).
+
+SMR Output Mix: All three considered SMR designs emphasize Combined Heat and Power (CHP) capabilities, with at least one design extending this to Combined Heat, Hydrogen, and Power (CHH₂P) (Gevernova, n.d.; Rolls Royce, n.d.; Thorizon, n.d.; ULC Energy, 2025). Consequently, both operational modes were defined as variants within the ‘Output Mix’ [4] dimension to assess their effects on SMR cost-effectiveness in a cost-minimised system. While previous research indicates that the SMRs’ role in industrial heat supply is more economically robust than in electricity generation alone (Scheepers et al., 2025), this study did not incorporate dynamic hourly dispatch constraints for SMR cogeneration. To address this, the current analysis applies specific operating constraints to represent the feasible dispatch region, limiting carrier production per timestep to the optimal efficiency envelope. Operation is restricted to this envelope to maintain computational tractability and because off-design performance data is unavailable. These constraints are derived from a reference pressurised water SMR design and scaled uniformly across unit sizes (Appendix 4). A distinct ‘power-only’ mode was excluded, as the CHP formulation allows for full electrical output with zero thermal dispatch, effectively obviating the need for a separate category. Consequently, when model results do demonstrate SMRs generating thermal output, it serves as evidence of cost-effectiveness from a system-level perspective to do so; The cost-minimisation algorithm only favours the cheapest solution to meeting local heat demand.
+
+Energy carrier scope: Four energy carriers were included in the model: electricity, heat, hydrogen and methane. Electricity plays a central role to the research questions regarding transmission requirements and substitution effects. Heat was included to capture CHP/CHH₂P dispatch flexibility and varied to double (x2) and quintuple (x5) the total heat demand to capture sensitivity for modelling dimension [5] ‘Total Heat Demand’. Hydrogen was included to capture CHH₂P dispatch, and to represent the carrier’s emerging role in future decarbonised energy systems. Methane was retained to allow incumbent gas-fired technologies to remain as cost-competing alternatives, constrained only by carbon pricing frameworks. However, the electricity subsystem received substantially greater technological and infrastructural detail – including transmission network representation, as well as multiple generation and storage technologies – reflecting the research focus on transmission requirements, technology substitution, and the high VREs penetration context. Heat, hydrogen, and methane subsystems employ simplified representations with fewer competing technologies and no explicit storage or transmission infrastructure modelling.
+
+The resulting analysis framework is hierarchically categorised and referred to in this thesis as follows:
+
+1. Case classes: represent the varied variants for the Total Heat Demand dimension (x1, x2, or x5) and the SMR CAPEX dimension (75%, 100%, 150%). These classes are split between the ‘Reference’, ‘Heat sensitivity’, and ‘Cost sensitivity’ class. The reference class only contains cases under standard assumptions for heat demand (x1) and SMR CAPEX (100%), the heat sensitivity class only contains the elevated heat cases (x2, x5), and the cost sensitivity class only contains the varied SMR CAPEX cases (-25%, +50%).
+
+2. Model dimensions: the sensitivity parameters varied in the model.
+
+3. Variants: the different values these parameters can take.
+
+4. System cases: the (solved) models, each comprising of a unique combination of variants.
+
+Figure 2, The 66 system cases configured and computed for this thesis, organised by model dimension.Figure 2, The 66 system cases configured and computed for this thesis, organised by model dimension.Lastly, six ‘baseline’ system cases were solved – One for each unique system context without SMR deployment. An overview of these cases is presented in Figure 2.
+
+Figure 2, The 66 system cases configured and computed for this thesis, organised by model dimension.
+
+Figure 2, The 66 system cases configured and computed for this thesis, organised by model dimension.
+
+Research Framework
+
+Figure 3, Research Framework diagram – Illustrating the relationships between the indicators that feed into the research questions, and the modelling dimensions varied in the model.Figure 3, Research Framework diagram – Illustrating the relationships between the indicators that feed into the research questions, and the modelling dimensions varied in the model.This section establishes the analytical framework that connects the main research question to measurable indicators derived from model outputs. The framework operationalises each research sub-question through specific indicators, defines how these indicators are calculated and interpreted, and explains the analytical procedures used to extract insights from model results. Figure 3 below illustrates the framework’s main components and flow.
+
+Figure 3, Research Framework diagram – Illustrating the relationships between the indicators that feed into the research questions, and the modelling dimensions varied in the model.
+
+Figure 3, Research Framework diagram – Illustrating the relationships between the indicators that feed into the research questions, and the modelling dimensions varied in the model.
+
+SRQ 1: Deployment and Cost-effectiveness of Cogenerating SMRs
+
+The first sub-question (SRQ1) investigates the cost-effectiveness of SMRs by examining how the modelling dimensions influence SMR deployment in a cost-minimised energy system. The analysis reveals under what conditions SMRs are economically favourable from a system perspective, how the spatial variation in these conditions affects SMR deployment, and how SMRs operate once deployed. Three complimentary indicators address this sub-question:
+
+SMR units installed: This aggregate metric quantifies the extent of SMR deployment across all system cases. SMR cost-effectiveness is directly reflected in deployment decisions – the cost-minimisation algorithm only includes SMRs if they reduce TSC relative to alternative (combinations of) technologies. Variation in the count of units installed across system cases reveals which dimensions most influence SMR viability. A limitation of this indicator is that it only considers the aggregate outcomes of a model run, not the corresponding system changes that lead to the observed outcome.
+
+Spatial heterogeneity of SMR cost-effectiveness: this disaggregated metric reveals whether SMRs concentrate in specific regions or distribute broadly across the system. Spatial clustering indicates sensitivity to local infrastructure conditions, demand characteristics, and interconnectedness between nodes. This indicator is valuable because it identifies whether SMR deployment is context-independent or strongly influenced by nodal (location-specific) factors – providing detailed insight in the causes behind observations made on the aggregate level when contrasted with nodal demand and infrastructure data.
+
+SMR output composition and carrier utilisation: this indicator is tied to the model dimension ‘SMR Output Mix’, as it measures what deployed SMRs’ average dispatch comprised of. Where the prior indicators provide insight into the cost-effectiveness of the output mix from a capability-perspective, this indicator expands that finding by reviewing how these capabilities were used.
+
+Table 1 Indicators used to assess the sensitivity of SMR cost-effectiveness to the nodal context and system dimensions.
+
+Indicator
+
+Unit
+
+Description
+
+Model output used
+
+1. SMR unit count
+
+Unit count
+
+Count of installed SMR units across all nodes in the cost-minimal solution, compared across system cases.
+
+2. Spatial heterogeneity of SMR cost-effectiveness
+
+Avg. Unit count
+
+Average count of installed SMR units per node across system cases, excluding baseline cases.
+
+3. SMR output composition and carrier utilisation
+
+TWh
+
+Average SMR output per carrier, compared across system cases.
+
+%
+
+Average SMR output per carrier divided by that carrier’s constrained maximum available capacity (i.e. a carrier-specific capacity factor).
+
+Data collection, processing, and analysis
+
+For each model dimension, system cases were formulated and solved. For the first indicator SMR unit counts were extracted from node-level results and aggregated in a table to system-level totals. These results were further processed to four additional tables, each highlighting a single dimension and the influence of its variants on case outcomes. For the second indicator the average SMR deployment across cases was calculated per node. These values, ranging from 0 (no deployment in any case) to 1 (deployment in each case), were then visualised on a map of the nodal lay-out to highlight the spatial distribution of SMR deployment. Demand data related to five nodes of interest, those with the highest and lowest average deployment, was consequently collected and presented in a table to analyse the nodal context that led to their respective (lack of) SMR deployment. For the third indicator, the average SMR output per carrier was collected from system-level case results. These results were then further processed to carrier fractions and utilisation rates and presented in a table.
+
+Interpretation framework
+
+In the first indicator, significant differences in unit counts between system cases varying on one dimension (±15 units) indicate a highly influential model dimension; The variants assumed realistically possible lead to entirely different interpretations of SMR cost-effectiveness. Differences of < ±8 units indicate moderate influence; The variants lead to differing yet similar interpretations of cost-effectiveness on the aggregate level. Few or zero units difference indicate insensitivity to the varied dimension. On the disaggregate level (indicator 2), nodes with comparatively higher average SMR deployment indicate more favourable nodal conditions for SMR cost-effectiveness. Nodes with average deployment rates > 0.75 are interpreted as having highly favourable conditions, and nodes with deployment < 0.55 as unfavourable. Relative influence of carriers on SMR cost-effectiveness (indicator 3) is interpreted by considering their average utilisation per case. Carrier utilisation nearing upper (100%) or lower (0% for heat and electricity, 10% for hydrogen) bounds indicate high or low influence from this carrier respectively. Relative changes in utilisation rates and carrier fractions across cases indicate the relative influence of a carrier across model dimensions.
+
+SRQ 2: System effects of integrating SMRs
+
+The second sub-question (SRQ2) quantifies the impact of SMR inclusion on other system components, directly addressing the main research question’s focus on transmission, generation, and storage infrastructure. By comparing cases with SMRs to baseline cases without SMRs, this analysis isolates the displacement effects and associated cost changes attributable to SMRs under varied model dimensions. These impacts are investigated with the following indicators (Table 2):
+
+Table 2 Indicators Used to assess energy infrastructure and cost impacts of SMR integration.
+
+Indicator
+
+Unit
+
+Description
+
+Model output used
+
+4. Electricity transmission capacity,
+
+utilisation,
+
+and Mean Flow Distance
+
+Δ %
+
+Change in total installed transmission capacity relative to the respective ‘baseline’ (No SMR) system case, for all cases.
+
+Δ %
+
+Change in total transmission throughput relative to the respective baseline system case, divided by the same relative change in installed transmission capacity, for all cases.
+
+Relative Util. =
+
+Δ %
+
+Change in the average distance electricity was transmitted in the system relative to the respective baseline case, for all cases.
+
+5. Installed supply and storage capacity
+
+Δ %
+
+Total installed capacity of a technology, for all technologies and all cases.
+
+6. Drivers of Total System Costs
+
+Δ B€,
+
+Δ %
+
+The development of the (relative) cost per cost component with increasing SMR deployment.
+
+(total fuel, operation & maintenance (O&M) costs)
+
+(annualised investment and fixed O&M costs)
+
+Data collection, processing and analysis
+
+For each case total installed capacities were extracted per technology and visualised in a stacked column chart for both scenarios to provide an initial overview of system components across cases.
+
+For indicator 4, the relative change in installed transmission capacity was calculated for each case relative to the respective baseline case for that scenario and dimension. These results were then visualised in a scatter plot, with the relative change in transmission capacity on the Y-axis and the total installed SMR capacity on the X-axis. Only the SMR Size dimension was highlighted by colour-coding values accordingly. This same plot was formulated but with SMR unit count on the X-axis, to highlight observed patterns in the previous plot and shine light on the relative influences of unit count and unit size. The average utilisation of transmission infrastructure was then calculated by dividing gross total throughput (flow) by the number of hours in 2040 and the total installed transmission capacity. The relative difference in average utilisation was then calculated with respect to the baseline cases. These results were again set out against the SMR unit count and colour-coded for SMR Size. Lastly, the Mean Flow Distance (MFD) was then calculated per case by multiplying each line its length with its gross throughput, summing these results across lines in the system, and dividing that sum by the total electricity throughput. The relative change in mean flow distance was then calculated for each case with respect to its baseline case and set out in a plot against unit count, again colour-coded for SMR Size. The averages of installed capacities, utilisation and mean flow distance were then calculated per dimension.
+
+For indicator 5, the installed capacity per technology was extracted per case and separated by output carrier. For the electricity carrier, the respective capacities per technology were visualised in a ribbon-chart for both scenarios, set out against the total SMR capacity deployed. These capacities were thus averaged across cases respective to total SMR capacity deployed, with each ribbon colour-coded by technology. The installed capacities for technologies generating hydrogen or heat were visualised in separate area charts in a similar fashion. Averages of installed capacities were calculated per dimension for further substantiation and analysis.
+
+For the last indicator, the total Fixed Cost (FC) and Variable Cost (VC) were summed for all supply technologies and transmission lines per case. These results were again plotted in a ribbon chart set out against total SMR capacity deployed in the system. To normalise for total installed capacity, these same cost components were divided by the respective total installed capacities to obtain a figure for the cost per GW installed. These results were set out in a line chart, where each line represents one cost component.
+
+Interpretation framework
+
+For indicator 4, all values are interpreted with respect to the baseline which together indicate the size and utilisation of the transmission grid. Higher-than-baseline installed capacities indicate more electricity throughput or higher transmission peaks. Higher-than-baseline transmission utilisation indicates more efficient use of existing transmission lines. Higher-than-baseline MFD indicates worse spatial demand-matching of electricity. For indicator 5, technologies rising or falling in the ranking as SMR deployment increases indicate substitutive effects from SMR inclusion with respect to that technology. Overall decreases in installed capacity indicate improved temporal demand matching from SMR inclusion. For the last indicator, the substitutive effects between cost components reflect how the observed system effects lead to the lower-cost outcomes.
+
+Model Description
+
+To capture this research design and framework, the required model was built in open-source multi-scale energy systems modelling framework ‘Calliope’ (V0.6) (Pfenninger & Pickering, 2018). In this section an overview is provided of the model its spatial and temporal configuration, technologies, scenario design and optimisation formulation.
+
+Spatial Configuration
+
+Figure 4 The modelled transmission network topologyFigure 4 The modelled transmission network topologyThe model consists of nodes (locations) and edges (links connecting locations), which are configured with certain technologies and corresponding parameter values. Together, they shape a spatially configured network of interconnected locations and systems representing the high-voltage (HV) electricity transmission grid of The Netherlands (Figure 4). The nodes represent the HV switching and transformer substations present in 2025. Together they total 32 operational substations in The Netherlands, 1 substation under construction (TenneT, n.d.-a), and 9 substations in neighbouring countries to enable electricity im- and export. A single ‘import’ node is configured separately for the import of hydrogen and methane, resulting in a grand total of 43 nodes (Appendix 5). The edges represent the 51 bi-directional HV transmission lines connecting these substations, consisting of 38 lines operational in The Netherlands in 2025, three lines under construction and operational before 2040 (TenneT, n.d.-d, n.d.-b, n.d.-a), one line in planning (TenneT, n.d.-c), and nine interconnectors connecting to the Dutch grid to neighbouring grids (Appendix 6). As foreign markets were not modelled explicitly, the hourly electricity prices of each connected market were included instead to simulate import and export behaviour in the optimisation.
+
+Figure 4 The modelled transmission network topology
+
+Figure 4 The modelled transmission network topology
+
+Temporal Configuration
+
+On a temporal basis, the model uses time series data in its optimisation algorithm to solve the time-based system state of energy flows and system costs over a specified time range. In this model time series for the year 2040 are included and solved at an hourly resolution. These consist of hourly demand per carrier and node, hourly renewable capacity factors per node, and hourly electricity import/export prices per interconnector. These timeseries were retrieved from the scenarios’ datasets described in 2.4 (ETM, 2025).
+
+Time was clustered into 10 representative days – as discussed in paragraph 2.6 below.
+
+Technologies
+
+Each node and edge contains one or more technologies, which are formulated with their respective techno-economic characteristics. The model contains 21 distinct technologies:
+
+vRES: Onshore Wind, Offshore Wind, ‘Rooftop PV’ – Photovoltaic (PV) solar panels placed on rooftops, ‘Utility PV’ – utility-scale solar fields and Run-of-River Hydropower plants.
+
+Nuclear Power Plants (NPP): Conventional large-scale plants, CHP SMRs and CHH₂P SMRs.
+
+Other thermal power plants: Combined and Open Cycle Gas Turbines (CCGT, OCGT) fuelled by methane (CCGT/OCGT Gas) or hydrogen (CCGT/OCGT Hydrogen), Biomass-fuelled plants, and waste incinerator plants.
+
+Conversion technologies: On- and Offshore electrolysers, electric boilers.
+
+Battery Electrical Storage Systems (BESS): Intra-Day Energy Storage (IDES), Multi-Day Energy Storage (MDES), and consumer-residential storage referred to as ‘BESS Households’.
+
+Transmission High Voltage Alternating Current (HVAC): electricity transmission lines and interconnectors.
+
+Other: an import terminal for LNG, as well as methane production fields and salt cavern storage for methane and hydrogen were included on the central ‘import’ node.
+
+An overview is illustrated in Figure 5, where the energy system model is visualised by zooming in on a hypothetical node containing all technologies.
+
+Figure 5, An illustrated overview of the modelled energy system, zooming in on a node containing all possible technologies and their carriers. Figure 5, An illustrated overview of the modelled energy system, zooming in on a node containing all possible technologies and their carriers.
+
+Figure 5, An illustrated overview of the modelled energy system, zooming in on a node containing all possible technologies and their carriers.
+
+Figure 5, An illustrated overview of the modelled energy system, zooming in on a node containing all possible technologies and their carriers.
+
+Scenario Design
+
+The model was contextualised with data from the two previously discussed forecast scenarios – EV and KM – developed for the ‘Scenario’s Editie 2025’ study by Netbeheer Nederland (2025a). These two forecasts were selected from a total of four scenarios, which were developed through collaborative research by network operators, government and industry stakeholders.
+
+The four scenarios ‘Eigen Vermogen’ (EV, ‘Own Capacity’), ‘Koersvaste Middenweg’ (KM, ‘steady middle course’), ‘Gezamenlijke Balans’ (GB, ‘Joint Balance’), and ‘Horizon Aanvoer’ (HA, ‘Horizon Supply’) each outline a different plausible path for the development of the Dutch energy system. Scenario EV assumes: “A future in which energy autonomy is central, with rapid electrification, high levels of solar and wind power generation, and maximum focus on flexibility and domestic production of green hydrogen” (TenneT, 2025b). Scenario KM assumes a similar rapid electrification but combines this with additional energy carriers to balance demand. Scenario GB considers strong European cooperation, comprising of less hydrogen supply and a strong emphasis on international energy transit. The fourth scenario, HA, assumes a primary role for large-scale imports of renewable energy, with limited domestic energy consumption and production. What sets scenarios GB and HA apart is their international focus and thus a strong reliance on energy imports. This research, however, limits the model scope to the Dutch energy system, which does not represent the characteristics of these scenarios well. Therefore, scenarios GB and HA Figure 6, Parameter values per technology and scenario. *Offshore Wind CAPEX includes subsea transmission costs. Lower bounds for Gas plants were set to 0 to allow for complete phase-out.Figure 6, Parameter values per technology and scenario. *Offshore Wind CAPEX includes subsea transmission costs. Lower bounds for Gas plants were set to 0 to allow for complete phase-out.were excluded from this thesis, while EV and KM were varied across system cases.
+
+Figure 6, Parameter values per technology and scenario.
+
+*Offshore Wind CAPEX includes subsea transmission costs.
+
+Lower bounds for Gas plants were set to 0 to allow for complete phase-out.
+
+Figure 6, Parameter values per technology and scenario.
+
+*Offshore Wind CAPEX includes subsea transmission costs.
+
+Lower bounds for Gas plants were set to 0 to allow for complete phase-out.
+
+The techno-economic parameter values of the technologies included in the model were taken from  the model data used in these scenario studies (Nederland, 2025), and are constant across both Scenario EV and KM (Figure 6). These figures were based on 2025 price levels, assuming no cost development over time (ETM, 2025). The two scenarios differ firstly by their total carrier demands: EV comprises of a higher total electricity demand, whereas KM has slightly higher total heat and hydrogen demands. Electricity and hydrogen demand profiles from exogenous sources – not stemming from the energy system itself – were redistributed from municipality-level data to system nodes based on a nearest-centroid algorithm (ScienceDirect, n.d.), as further discussed in Appendix 7. Heat demand profiles included in the model solely pertain to the industry heat demand fulfilled through the local grid. Any other heat demand, such as residential district heating or final industry heat demand – the heat used in industry processes but converted on-site through other carriers – was excluded (Appendix 7). The limited scope of this thesis research did not justify the extensive research required to ensure valid assumptions on SMR compatibility with district heating or its substitution of other-carrier industry demand.
+
+The two scenarios each share the same upper bound of technology deployment – under ‘Max.  installed capacity’ in  Figure 6. These constraints were computed from the maximum deployment levels of a technology forecasted in EV and KM for the year 2050, plus a 25% margin, to allow for a sufficiently large optimisation space at lower computational cost. The two scenarios differ in lower bound per technology, which stem from each scenario’s 2030 forecast and consequently enforce the scenario’s high-renewable system conditions. The only exceptions are CCGT and OCGT methane plants and electric boilers, which were explicitly modelled with no lower bound.
+
+Lastly, the scenarios differ in Emission Trading System (ETS) certificate prices, set at 177€/tCO₂ for scenario KM and discounted to 106€/tCO₂ for EV. These represent the assumed 100% (KM) and 60% (EV) of permits being auctioned rather than provided for free (ETM, 2025).
+
+SMR constraints
+
+What sets this study apart are the explicitly modelled discrete SMR unit sizes and the dynamic cogeneration dispatch per timestep within the optimal efficiency envelope. Both were avoided or simplified in other studies, primarily due to the steep increase in computational resources and time required for this optimisation. The inclusion in this model allowed for more reliable insights on the cost-effectiveness and system effects of SMRs but required other simplifications to partially offset the computational burden. Namely, only one SMR Size and Output Mix was available for deployment per system case, and system nodes were constrained to a maximum of one SMR. This allowed for a reduction in model complexity, at the cost of insight in the advantage of deploying multiple reactors at a single site and potential benefits of a heterogeneous SMR mix in the system.
+
+Cost parameters were retrieved from the study by Zandt et al. (2024), which were deemed most representative as these estimates were made both recently and for the Dutch context.
+
+The dynamic optimisation of cogeneration, by SMRs, is the ability to optimise not only the total dispatch, but also the per-carrier dispatch within the optimal efficiency envelope of a reference SMR design. This was achieved firstly by constraining heat output to a maximum of 30% of thermal capacity, with no lower bound. Secondly, CHH₂P units were also bound by a minimum hydrogen output of 10% of electrical capacity and a 30% efficiency factor. Electricity generation was only constrained by electrical capacity and other-carrier use. Cogeneration for units could thus occur within these bounds, where carriers competed for total SMR capacity for each timestep. The constraint formulation is presented in Appendix 8. While these cogeneration constraints provided additional means of flexibility without significant ramping, no ramping constraints were modelled for this study.
+
+Optimisation Formulation
+
+To capture effects in a cost-minimal energy system, Calliope was configured to minimise total system costs across the entire temporal and spatial scope. In correspondence with the framework’s ‘plan’-mode, installed capacities of technologies in the system were optimised to meet demand at minimal costs, constrained by modelled bounds per technology and node.
+
+This optimisation problem consists of a linear objective (minimal TSC) but including non-linear constraints: each SMR unit is modelled with a specific size, resulting in a binary constraint – namely the choice whether to deploy one fixed-size unit on a node. Therefore, the computationally expensive Mixed-Integer Linear Programming (MILP) algorithm was applied.
+
+The resulting 66 MILP-cases – spanning 43 system nodes, 51 transmission lines and 25 technologies – created a computationally intensive problem. To keep the analysis tractable within feasible research timelines, two targeted simplifications were applied:
+
+First, the simplifications for SMR deployment - a maximum of one unit per node across the 33 candidate locations, and only one Size and Output Mix per system case – were made. This reduced the number of binary decision variables (which multiplies model solve time) and number of complex technologies in the model, while still allowing meaningful comparison of SMR integration across geographic locations.
+
+Second, the full hourly time-series data was compressed into a smaller set of representative days using k-means clustering (Calliope’s built-in functionality). The 8784 hourly timesteps in 2040 were first structured in 24-hour days, which were then mathematically clustered together with a centroid-based partitional clustering algorithm, in which the sum of squared distances between each data point and its cluster centroid is minimised (Pickering & Pfenninger, 2018). Consequently, each system case was solved for a total of 10 clusters or ‘representative days’, reducing computational burden while retaining high levels of accuracy in resulting system costs, capacity requirements and storage dispatch patterns (Kotzur et al., 2018; Pfenninger & Pickering, 2018).
+
+Results
+
+In this chapter the research outcomes are discussed, based on the computed cost-minimal system solutions. Of the 66 configured system cases, 60 were solved while 6 cases failed to converge within time and computation constraints. All reference cases converged successfully, two cases failed to converge for both cost sensitivity classes, and one case failed to converge for each heat sensitivity class. These failed cases were scattered across model dimensions, thus their impact on research validity and the interpretability of results is expected to be limited. In Appendix 9, an overview is provided of aggregate results per case. This chapter presents an analysis of the 60 cost-minimal solutions, organised across the two research sub-questions and six indicators.
+
+SRQ1: Deployment and Cost-effectiveness of Cogenerating SMRs
+
+The first sub-question asks: “How does the cost-effectiveness of cogenerating SMRs vary across different energy system configurations and assumptions?”. In this section this question is answered through an analysis of SMR deployment across system cases by evaluating three indicators: (1) SMR unit count, (2) Spatial heterogeneity of SMR cost-effectiveness, and (3) SMR output composition.
+
+Overview
+
+SMR cost-effectiveness exhibits multifaceted variation across energy system configurations, driven by interconnected factors operating at system, spatial, and operational levels. At the system level, aggregate SMR deployment is primarily shaped by electricity demand and capital costs, which emerge as dominant drivers capable of changing installed unit counts by approximately 8–14 units on average. SMR size and heat demand exert moderate-to-high influence, with deployment responding predictably to larger SMRs (fewer units) and higher heat demand (more units), while the specific cogeneration pathway remains a secondary consideration with negligible to marginal effects on aggregate deployment. Spatially, this system-level cost-effectiveness manifests unevenly across the energy network: industrial clusters with substantial electricity and heat demand consistently favour SMR deployment, whereas peripheral nodes remain deployment-marginal unless specific hydrogen or electricity demands elevate their attractiveness. This spatial heterogeneity reveals that electricity demand alone is a necessary but insufficient condition for robust cost-effectiveness; rather, the diversity and magnitude of nodal demand—particularly the combination of electricity, heat, and hydrogen—determines both where SMRs are favourable and their resilience to varying system assumptions. Finally, the realised output composition of deployed SMRs reflects this spatial and systemic stratification. Electricity dominates output (67–98% of total) and demonstrates high utilisation (72–95%) across all configurations, heat utilisation is critically conditioned by nodal placement quality (ranging from 6–64%), and hydrogen functions as a quasi-fixed but economically justified output stream (~20% utilisation). Together, these three dimensions reveal that SMR cost-effectiveness is neither purely system-determined nor purely location-determined but rather emerges from the alignment between system-level drivers, spatial demand heterogeneity, and the flexible multi-carrier output profile of the technology.
+
+Indicator 1: SMR unit count – aggregate results
+
+Table 3, below, presents the case results for the first indicator. Each case was constrained to at most one SMR unit per node, thus capping each case to a maximum of 33 installed units.
+
+Table 3, Total Counts of SMR units deployed across system cases. Failed cases are denoted with ‘x’Table 3, Total Counts of SMR units deployed across system cases. Failed cases are denoted with ‘x’From a system-level perspective, SMR cost-effectiveness demonstrates highly differential sensitivity across model dimensions. Electricity demand (Scenario dimension) and SMR capital costs (CAPEX Case Class) emerge as the most influential drivers of deployment, each capable of changing installed unit counts by ~8–14 units on average. SMR size and heat demand show moderate to high influence, consistently driving deployment in predictable directions (larger SMRs → fewer units; higher heat demand → more units). The output mix configuration (CHP vs. CHH₂P) demonstrates negligible to marginal effects on aggregate deployment, suggesting that cost-effectiveness of these variants is governed by other systemic factors analysed in subsequent indicators.
+
+Table 3, Total Counts of SMR units deployed across system cases. Failed cases are denoted with ‘x’
+
+Table 3, Total Counts of SMR units deployed across system cases. Failed cases are denoted with ‘x’
+
+In Table 4, case results are compared between scenarios EV and KM. These scenarios differ primarily in total electricity demand (~323 TWh and ~279 TWh, respectively). Cases under EV result in 8.1 more SMR units installed on average than KM. However, this difference is substantially influenced by the deployment constraint: 76% of EV cases reach the 33-unit upper bound, compared to only 20% of KM cases. This skewing suggests that scenario influence on SMR cost-effectiveness is highly influential, stronger than the moderate influence the average difference indicates, since the model's constraint prevents full expression of the demand effect.
+
+Table 4, Comparative difference in SMR units deployed between Scenario EV and KM.Table 4, Comparative difference in SMR units deployed between Scenario EV and KM.
+
+Table 4, Comparative difference in SMR units deployed between Scenario EV and KM.
+
+Table 4, Comparative difference in SMR units deployed between Scenario EV and KM.
+
+Table 5, Comparative difference in SMR units installed between SMR Output Mix variants.Table 5, Comparative difference in SMR units installed between SMR Output Mix variants.The SMR output mix configuration demonstrates low variation in aggregate deployment (Table 5). Across cases excluding the CAPEX+50% dimension, CHH₂P SMRs are marginally less cost-effective than CHP under KM (−0.2 units) and marginally more cost-effective under EV (+0.3 units). When CAPEX+50% cases are included, CHH₂P deployment decreases by 0.5 units relative to CHP under both scenarios, with this gap narrowing as SMR size increases.
+
+Table 5, Comparative difference in SMR units installed between SMR Output Mix variants.
+
+Table 5, Comparative difference in SMR units installed between SMR Output Mix variants.
+
+This pattern reflects direct competition between output carriers: while electricity and heat demand remain constant, CHH₂P units are more constrained than CHP units due to a mandatory 10% hydrogen output floor relative to electrical capacity. Consequently, CHH₂P units deliver less total electricity or heat than equivalent-capacity CHP units, and smaller CHH₂P units cannot serve demand as effectively as larger units. These observations may also reflect dispatch flexibility benefits from the additional hydrogen carrier or system-level effects from introducing supplementary hydrogen supply at individual nodes—factors analysed further in subsequent indicators. Based on aggregate findings alone, output mix demonstrates marginal influence on SMR cost-effectiveness.
+
+Table 6, Maximum difference in installed units between consecutive SMR SizesTable 6, Maximum difference in installed units between consecutive SMR SizesComparison across SMR size classes, Table 6, reveals substantial deployment differences, though with important caveats. Under EV, size differences are negligible, likely due to frequent activation of the deployment upper bound. Under KM, however, observed differences span from −1 to −11 units across size classes, with a mean difference of 5.8 units. Critically, this effect is directionally consistent: larger SMRs consistently yield fewer installed units, indicating a moderate to high influence on cost-effectiveness.
+
+Table 6, Maximum difference in installed units between consecutive SMR Sizes
+
+Table 6, Maximum difference in installed units between consecutive SMR Sizes
+
+Table 7, Comparative difference in installed SMR units between the Reference class and each other case class.Table 7, Comparative difference in installed SMR units between the Reference class and each other case class.Lastly, variants in the Case Class dimension were compared by subtracting the count of installed SMR units in the Reference class from each of the four remaining classes. The results are summarised in Table 7 below.
+
+Table 7, Comparative difference in installed SMR units between the Reference class and each other case class.
+
+Table 7, Comparative difference in installed SMR units between the Reference class and each other case class.
+
+CAPEX sensitivity: The CAPEX classes demonstrate the strongest sensitivity among all dimensions tested. The CAPEX+50% class results in 14.4 fewer SMR units installed on average relative to the Reference class—a substantial reduction. The CAPEX-25% class shows a less pronounced effect in absolute terms but must be contextualized by the deployment cap: 8 of 10 solved cases reach the 33-unit upper bound, while the 2 remaining cases under KM achieve 31 installed units, representing a 50% increase relative to their respective Reference cases. Both CAPEX variations are interpreted as highly influential, indicating that SMR cost-effectiveness is highly sensitive to capital cost assumptions.
+
+Heat demand sensitivity: Increased total heat demand demonstrates pronounced effects comparable to CAPEX variations. Under EV, heat demand changes yield minimal deployment changes, again likely due to binding deployment constraints. Under KM, doubling heat demand results in 2.8 additional units deployed on average, including one case reaching the upper bound. Increasing heat demand fivefold yields 5.8 additional units on average (9 units when excluding cases at the 33-unit cap). Given the constrained thermal output of SMRs—capped at 36% of electrical output—heat demand variations demonstrate moderate to high influence on SMR cost-effectiveness, suggesting that heat-dominated system configurations may justify greater SMR deployment.
+
+Indicator 2: Spatial Heterogeneity of SMR Cost-Effectiveness
+
+Figure 8, Average count of SMR units installed per node across all system cases. ←Figure 8, Average count of SMR units installed per node across all system cases. ←Figure 7, The five spatially concentrated industry clusters in The Netherlands. The remaining cluster, Cluster 6, is distributed throughout the country and thus not visualised. (KGG, 2025)                ↓Figure 7, The five spatially concentrated industry clusters in The Netherlands. The remaining cluster, Cluster 6, is distributed throughout the country and thus not visualised. (KGG, 2025)                ↓SMR deployment exhibits pronounced spatial heterogeneity across the energy system, with cost-effectiveness strongly determined by nodal demand characteristics and geographic location. Industry clusters with substantial electricity and heat demand emerge as highly favourable nodes, consistently deploying SMRs across cases. Conversely, nodes remote from industry clusters show considerably lower deployment frequency but demonstrate high sensitivity to electricity and hydrogen demand changes. This spatial pattern reveals that electricity demand is a necessary but insufficient condition for robust cost-effective SMR deployment; heat demand in industry clusters reinforces favourability, while hydrogen demand can justify deployment even at nodes with modest baseline electricity demand. The magnitude of nodal demand serves as a qualifier for cost-effectiveness, while the diversity of nodal demand determines the robustness to varying system dimensions.
+
+Figure 8, Average count of SMR units installed per node across all system cases.
+
+←
+
+Figure 8, Average count of SMR units installed per node across all system cases.
+
+←
+
+Figure 7, The five spatially concentrated industry clusters in The Netherlands. The remaining cluster, Cluster 6, is distributed throughout the country and thus not visualised. (KGG, 2025)                ↓
+
+Figure 7, The five spatially concentrated industry clusters in The Netherlands. The remaining cluster, Cluster 6, is distributed throughout the country and thus not visualised. (KGG, 2025)                ↓
+
+Spatial clustering of SMR deployment
+
+Figure 8 visualizes the mean count of SMR units installed across all system cases, revealing pronounced geographic clustering of SMR deployment. Nodes with SMRs deployed in >75% of cases (shown in green) coincide precisely with the five major industrial clusters in the Netherlands Figure 7. This spatial correlation indicates that industry-driven demand profiles—particularly heat demand, which cannot be transmitted between nodes—create inherently favourable nodal conditions for SMR cost-effectiveness.
+
+Figure 9, Energy demand per node, carrier and scenario, and corresponding average count of SMR deployment.Figure 9, Energy demand per node, carrier and scenario, and corresponding average count of SMR deployment.Four nodes stand out at the extremes of the deployment spectrum. Geertruidenberg and Maasvlakte exhibit the highest deployment frequency at 100% and 96% (averaged across all cases and scenarios), indicating highly favourable nodal conditions. In contrast, Meeden and Vierverlaten show the lowest deployment frequency at 46% and 54% respectively, indicating relatively unfavourable conditions.
+
+Figure 9, Energy demand per node, carrier and scenario, and corresponding average count of SMR deployment.
+
+Figure 9, Energy demand per node, carrier and scenario, and corresponding average count of SMR deployment.
+
+Demand Profiles and Nodal Favourability
+
+To understand what drives these spatial differences, five representative nodes spanning the deployment spectrum were analysed: Geertruidenberg and Maasvlakte (highest deployment), Meeden and Vierverlaten (lowest deployment), and Crayestein (middle of spectrum). Figure 8 summarizes the electricity, heat, and hydrogen demand at each node under both scenarios. The two highest-deployment nodes demonstrate markedly different demand structures but share a common feature: both are anchored by substantial electricity demand. Geertruidenberg sees 12.02–10.41 TWh of electricity demand and 1.37–1.97 TWh of heat demand under EV and KM respectively, while Maasvlakte sees 18.26-15.43 TWh of electricity demand. The significant heat demand at Geertruidenberg—present in both scenarios—reflects its location within an industrial cluster and directly contributes to consistent SMR deployment across all cases. However, Maasvlakte's lower heat demand (0.69–1.00 TWh) does not prevent near-universal deployment; instead, its electricity demand (the highest in the system) and substantial hydrogen demand (3.57–3.72 TWh) render it cost-effective under nearly all configurations.
+
+The single exception—non-deployment of an SMR at Maasvlakte in one KM case—occurred under an unfavourable configuration: CAPEX+50%, CHH₂P output mix, and the largest SMR size (0.47 GWe). This combination reflects two competing effects: (1) the CAPEX+50% penalty makes any deployment less attractive, and (2) the CHH₂P requires an allocation of at least 10% of total capacity to hydrogen production. At Maasvlakte, where heat demand is already modest (1.0 TWh in KM), this forced hydrogen allocation makes it harder for the CHH₂P unit to efficiently serve the available heat demand – thus reducing the economic benefit of deployment.
+
+In contrast, the two lowest-deployment nodes (Meeden and Vierverlaten) have comparatively scarce electricity demand (3.37 and 3.34 TWh under EV, and 2.63 and 3.11 TWh under KM, respectively) and zero heat demand under both scenarios. Yet they show starkly different deployment patterns across scenarios: under KM, deployment frequency is low at 18% and 30%, but under EV, deployment jumps to 73% and 77%. This difference cannot be explained by electricity demand alone, which increases only modestly between scenarios (Meeden: +0.74 TWh, Vierverlaten: +0.23 TWh). Instead, hydrogen demand emerges as a driver: hydrogen demand at these nodes increases approximately 10-fold from KM to EV (Meeden: 0.2→2.2 TWh, Vierverlaten: 0.16→1.84 TWh). The combination of this substantial hydrogen demand increase with modest electricity demand growth is sufficient to shift these nodes from predominantly unfavourable to substantially favourable for SMR deployment. This finding indicates that hydrogen demand can justify SMR deployment even at nodes lacking substantial electricity or heat demand, provided it reaches sufficient scale.
+
+Crayestein occupies an intermediate position in deployment frequency, averaging 77% across all cases—roughly midway between the 100% and 48% averages of the highest and lowest-deployment nodes. Examining only the reference class cases, Crayestein shows 100% deployment under EV and 70% under KM, compared to 83% (EV) and 0–30% (KM) for the two lowest-deployment nodes. This contrast can partially be explained by Crayestein's higher electricity demand (4.06 and 3.94 TWh, respectively), almost sufficing the maximum electrical output of the largest SMR (4.1 TWh). Its location, close and connected to the high-electricity-demand node Geertruidenberg, further improves the nodal demand context.
+
+The combined total electricity and hydrogen demand on Meeden and Vierverlaten also approaches the maximum output of the largest SMR size, suggesting that aggregate capacity is not the constraining factor. Rather, the observed lower deployment frequencies indicate that the temporal and seasonal distribution of demand profiles on these nodes—where hydrogen and electricity demands may not align optimally with constant SMR output over the course of the year—limits cost-effective demand-matching. This temporal dimension, while not explored in depth in this research, represents an important qualifier to the present aggregate-level analysis.
+
+The higher average deployment frequency across all cases for Crayestein compared to Meeden and Vierverlaten can also be partially explained by behaviour in the heat class cases. While baseline heat demand on Crayestein is minimal, it scales to a substantial fraction of nodal demand under the increased heat demand classes. In contrast, Meeden and Vierverlaten maintain zero heat demand even in these cases, and any SMR deployment at these nodes in the heat classes serves only to cover electricity gaps left by capacity-constrained SMRs at heat-demand nodes.
+
+Based on this analysis of aggregate figures, substantial electricity demand emerges as a necessary qualifying condition; below this threshold, SMR deployment becomes marginal despite alternative carrier demand. However, when electricity demand reaches sufficient levels, complementary hydrogen and heat demands substantially reinforce cost-effectiveness and deployment consistency.
+
+Mechanistic Insights on Nodal Favourability
+
+The three carriers’ demands emerge as drivers of nodal cost-effectiveness, with distinct roles:
+
+Electricity demand serves as the foundational condition for SMR deployment. All high-deployment nodes possess electricity demand substantially exceeding that of low-deployment nodes. The contrast between Crayestein (3.94–4.06 TWh, 45–100% deployment) and Meeden/Vierverlaten (2.63–3.37 TWh, 18–77% deployment) suggests that nodes require a minimum electricity demand threshold—approximately 4 TWh—to reliably support SMR deployment across all case variations.
+
+Heat demand reinforces favourability at nodes where it exists. Geertruidenberg's consistent 100% deployment frequency, despite lower electricity demand than Maasvlakte, is attributable to substantial heat demand (1.37–1.97 TWh), which provides a reliable demand vector for SMR output. Heat demand is geographically concentrated in industrial clusters and cannot be transmitted between nodes, making it a location-specific asset that increases nodal cost-effectiveness. However, heat demand alone does not guarantee favourable conditions; Maasvlakte achieves near-universal deployment despite lower heat demand due to exceptional electricity demand.
+
+Hydrogen demand can justify SMR deployment at nodes otherwise lacking sufficient electricity or heat demand. The sensitivity of Meeden and Vierverlaten to scenario changes—where hydrogen demand increases 10-fold—demonstrates that hydrogen demand operates as an independent favourable condition. However, this effect is contingent: hydrogen demand must reach a substantial absolute level (approximately 1.8–2.2 TWh) to overcome the baseline unfavorability of low electricity demand. At Crayestein, where hydrogen demand remains moderate (0.75–0.79 TWh), deployment remains inconsistent despite exceeding that at Meeden and Vierverlaten, suggesting hydrogen demand alone is insufficient without supporting electricity demand.
+
+Geographic Interconnectedness
+
+One additional factor warrants consideration: Geertruidenberg reaches 100% deployment frequency while Maasvlakte does not, despite both being high-deployment nodes. Beyond demand differences, these nodes differ in their interconnectedness to neighbouring markets. Geertruidenberg connects to three neighbouring high-demand nodes within the Dutch system, while Maasvlakte connects to only two Dutch nodes and the United Kingdom electricity market. The connection to an external market could lower average nodal electricity prices, leading to unfavourable conditions when SMR CAPEX is high. While no flow-based validation of this mechanism has been performed, this hypothesis warrants further investigation as a secondary explanation for the difference in deployment frequency between nodes.
+
+Indicator 3: SMR output composition
+
+Table 8 summarises the average output compositions and utilisation rates of deployed SMRs for each solved case. In this table, the output carrier fractions represent the share of each carrier in the total energy generated by the SMR. Carrier utilisation rates, on the other hand, represent the fraction of SMR capacity used for production of a carrier relative to the total SMR capacity accessible for that carrier.
+
+Table 8, The average output and utilisation per carrier of installed SMRs for system cases in the Reference, CAPEX +50%, and Heat Demand x2 class. Table 8, The average output and utilisation per carrier of installed SMRs for system cases in the Reference, CAPEX +50%, and Heat Demand x2 class.
+
+Table 8, The average output and utilisation per carrier of installed SMRs for system cases in the Reference, CAPEX +50%, and Heat Demand x2 class.
+
+Table 8, The average output and utilisation per carrier of installed SMRs for system cases in the Reference, CAPEX +50%, and Heat Demand x2 class.
+
+SMR output composition reveals distinct roles for each carrier in determining system cost-effectiveness. Electricity functions as the marginal carrier, varying from 67–98% of total output and adjusting dynamically across cases to meet demand—demonstrating high utilisation (72–95%) that reflects electricity's central role in system economics. Heat emerges as a strategically valuable but location-dependent carrier, with utilisation ranging from 6–64% depending critically on nodal placement quality and unit sizing; when SMRs are selectively deployed at industrial clusters (CAPEX+50% cases), heat utilisation concentrates and reaches 32–64%, while geographic dispersion (Reference cases) dilutes utilisation to 6–32%. Hydrogen operates as a quasi-fixed output stream, constrained to a minimum 10% of capacity but consistently produced at ~20% utilisation—indicating that hydrogen demand provides genuine economic benefit beyond the mandatory floor. Finally, SMR units themselves are highly utilized (>90% capacity factor) across all cases, with Heat x2 configurations slightly improving dispatch efficiency, suggesting that the system effectively coordinates multi-carrier output.
+
+Electricity: Dominant and Marginal Carrier
+
+Electricity comprises the dominant fraction of SMR output across all system configurations, ranging from 65–98% of total output. Output composition varies systematically with model dimensions: CHP units produce higher electricity fractions (88–98% in Reference) than CHH₂P units (67–78% in Reference), reflecting CHH₂P's mandatory 10% hydrogen floor that displaces electricity capacity. Larger SMRs also show higher electricity fractions, with fractions increasing consistently as unit size increases—averaging 79% (0.1 GWe) to 84% (0.47 GWe) across all cases.
+
+Electricity carrier utilisation remains high and stable across cases, ranging from 72-95%, with CHP consistently outperforming CHH₂P. Larger units show slightly higher electricity utilisation than smaller units, a pattern attributed to their greater capacity relative to local heat and hydrogen demand. Under CAPEX+50% cases, electricity utilisation decreases marginally (averaging 82% instead of 84%), reflecting the larger capacity fraction dedicated to meeting heat demand; predominantly available on the nodes deploying SMRs in these high-cost cases. Heat demand increases produce only marginal decreases in electricity utilisation (68–96% in Heat x2). While electricity is the marginal carrier absorbing fluctuations, this marginal decrease is partly skewed by the simultaneous increase in total utilisation of the SMR unit.
+
+Heat: Location-Dependent Strategic Value
+
+Heat comprises 2–23% of average SMR output, with substantial variation driven by nodal placement and varied model dimensions. In Reference class cases, heat fractions are modest (2–10% in EV, 5–12% in KM), reflecting the geographic dispersion of deployed SMRs. However, when SMR deployment is constrained by high CAPEX (CAPEX+50%), the few units that remain are preferentially sited at industry clusters, and heat fractions increase to 3–12% in EV and 15–21% in KM. Under increased heat demand (Heat x2), heat fractions rise to 4–14% in EV and 9–18% in KM, with the increase more pronounced in KM due to its lower baseline unit count.
+
+Heat carrier utilisation follows a similar spatial logic, ranging from 6–64% across all cases. In Reference cases, utilisation is modest (6–27% in EV, 12–32% in KM), reflecting the distributed placement of SMRs across nodes with varying heat demand. However, this low average utilisation does not indicate inefficiency; rather, it reflects that most nodes lack significant heat demand, and only SMRs at industrial clusters achieve high local heat utilisation. When fewer units are deployed (CAPEX+50%), those remaining are concentrated at heat-demand nodes, and utilisation increases substantially to 9–33% in EV and 32–64% in KM. Under Heat x2 cases, utilisation ranges from 12–37% in EV and 25–48% in KM—lower than CAPEX+50% in KM (due to higher unit counts diluting the benefit of increased heat demand) but higher than CAPEX+50% in EV (reflecting stronger heat demand growth relative to unit count).
+
+Unit size demonstrates a critical influence on heat utilisation: smaller units (0.1 GWe) achieve the highest average utilisation (23–64% across all cases), while larger units show progressively lower utilisation. This pattern reflects the heat demand profiles: smaller units utilise more of their thermal capacity more often, while larger units only utilise similar shares when demand peaks. This interpretation is validated by the relative difference in SMR size to utilisation rate, where the two larger units differ less in utilisation compared to the smallest unit.
+
+At industrial clusters where heat demand exists, heat utilisation reaches 32–64% (CAPEX+50%) or 23–64% (smallest units), indicating meaningful and strategic value. This finding supports the conclusions from Indicator 1 that heat demand increases yield additional SMR deployment, and from Indicator 2 that industrial clusters are preferentially selected for SMR siting. Heat thus demonstrates high influence on SMR cost-effectiveness.
+
+Hydrogen: Economic Benefit
+
+Hydrogen output shows minimal sensitivity to case class variations compared to electricity and heat. It comprises a near-constant fraction of SMR output, averaging 18–21% across all cases, almost identical to its utilisation rates which are also constant across SMR sizes. This approximately 20% average is double the constrained minimum hydrogen output, indicating that the hydrogen vector provides genuine economic benefit to SMR cost-effectiveness up to that fraction. The remaining slight dips and spikes in utilisation aligns with Indicator 2’s finding that hydrogen demand becomes influential only at specific nodes (Meeden, Vierverlaten), which only see SMR deployment in high-deployment cases. The slight decrease (CAPEX+50%) and increase (Heat Demand x2) in average output correspond to the SMR deployment on these nodes.
+
+SMR Unit Utilisation and System Dispatch Efficiency
+
+Average SMR unit utilisation—the fraction of total yearly capacity that is dispatched—ranges from 91–100% across all cases, indicating that SMRs operate at high capacity factors system-wide. In Reference cases, utilisation varies slightly by scenario and output mix: EV cases show 91–100% (CHP lower at 91–95%, CHH₂P higher at 99–100%), while KM cases show 92–100% (CHP broader at 92–99%, CHH₂P at 90–100%). Larger units tend toward the lower end of the range, while smaller and intermediate units are more tightly clustered near 100%, reflecting that smaller units can more fully utilize available demand while larger units face more frequent demand constraints.
+
+Under CAPEX+50% configurations, unit utilisation reaches the higher end of the range (94–100%), suggesting that the few SMRs deployed in high-cost scenarios are carefully sited and dispatched to maximize system benefit. Heat demand increases (Heat x2) slightly elevate utilisation across cases, indicating that heat demand improves SMR dispatch efficiency by reducing curtailment at times of peak electricity generation.
+
+SRQ2: System effects of integrating SMRs
+
+In the previous section, the cost-effectiveness of SMRs was analysed to identify the conditions for their inclusion in cost-minimized energy systems. Where the prior analysis asked what makes SMR inclusion cost-effective from a system-level perspective, this section examines how SMR integration resulted in lower TSC; Captured in the research sub-question:
+
+“How does SMR deployment affect transmission requirements and technology substitution under different scenarios, and what cost mechanisms drive the resulting impact on Total System Cost?”
+
+The following analysis unfolds in three parts. The first paragraph discusses the effects of SMR inclusion on electricity transmission deployment and utilisation, followed by a paragraph presenting an analysis of the corresponding effects on the deployment of energy supply and storage technologies. The last paragraph validates these findings through an analysis of the resulting effects on system cost components. An overview of total system capacities per technology and case is presented in Figure 10.
+
+Overview
+
+SMR integration drives TSC reductions through interconnected transmission, technology substitution, and cost mechanisms that operate distinctly across demand scenarios. At the transmission level, SMR deployment follows a non-monotonic pattern: moderate deployment (8–23 units) improves spatial demand-matching and reduces both transmission capacity and utilisation, whilst higher deployment (≥23–31 units) reverses these gains as SMRs are sited at progressively less optimal nodes, requiring elevated transmission infrastructure and utilisation rates. This concave response indicates a critical transition point beyond which spatial efficiency gains diminish. Across energy sectors, SMRs exhibit scenario-independent and scenario-dependent substitution effects. Direct substitution mechanisms dominate the electricity and heat sectors: CCGT plants experience substantial displacement (−22% to −39% depending on fuel type and carbon pricing), utility-scale PV faces consistent proportional displacement (−31.8%), and electric boilers in the heat sector experience the largest sectoral effect (−59.7%) constrained by spatial clustering of most heat demand in 5–7 industrial nodes. The hydrogen sector reveals only indirect substitution: SMRs displace CCGT Hydrogen plants, which contracts endogenous hydrogen demand and reduces import requirements, whilst SMR-generated hydrogen itself remains underutilised (~20%) and produces no direct supply substitution. Critically, these transmission and substitution effects translate into average TSC reductions of 1.68 B€ (−3.6%) through fundamentally different pathways: under high electricity demand (EV), savings arise almost entirely from variable transmission cost reductions (100% of savings) as SMRs enable temporal demand-matching that concentrates flows during low-cost vRES periods, whilst under low electricity demand (KM), savings derive primarily from variable supply cost reductions (91% of savings) via direct CCGT Gas substitution. Together, these findings reveal that SMR system effects are neither purely transmission-driven nor purely supply-driven, but emerge from the interaction between scenario-dependent demand intensity, spatial heterogeneity of deployment opportunities, and distinct cost-reduction mechanisms— demonstrating that whilst the conditions enabling cost-effective SMR integration vary fundamentally depending on baseline system characteristics, SMR inclusion consistently Figure 10, Total installed capacity per technology by system case and plotted per scenarios EV (top) and KM (bottom).Figure 10, Total installed capacity per technology by system case and plotted per scenarios EV (top) and KM (bottom).delivers robust total system cost reductions across all modelled scenarios.
+
+Figure 10, Total installed capacity per technology by system case and plotted per scenarios EV (top) and KM (bottom).
+
+Figure 10, Total installed capacity per technology by system case and plotted per scenarios EV (top) and KM (bottom).
+
+Indicator 4: Electricity transmission deployment and utilisation
+
+SMR integration alters electricity transmission requirements across three interdependent dimensions: installed capacity, line utilisation, and spatial flow patterns. Across system cases, a consistent concave pattern emerges: SMR deployment at low-to-moderate levels (approximately 8–23 units) reduces both transmission capacity and utilisation compared to baselines, whilst cases with higher deployment (≥23–31 units, depending on metric) show transmission requirements that approach or exceed baseline values. This non-monotonic response reflects competing spatial effects. At moderate deployment levels, SMRs improve local demand-supply matching by providing distributed generation at nodes with substantial electricity and heat demand, reducing the need for long-distance transmission. However, this spatial benefit diminishes and reverses at higher deployment levels, where SMRs are placed at progressively less favourable nodes to satisfy system-level cost-minimisation objectives. The mean flow distance of electricity follows this same pattern, declining initially (indicating shorter average transmission routes) before increasing again at near-maximum deployment, implying that spatial demand-matching deteriorates. Simultaneously, transmission capacity and utilisation both increase at higher deployment levels, particularly under the EV scenario where near-total nodal deployment occurs. This suggests that SMR integration at moderate deployment reduces transmission infrastructure requirements through improved spatial demand-matching, but at higher deployment levels, the system requires additional transmission capacity and operates this expanded infrastructure at higher utilisation rates. Whether these elevated transmission flows occur during periods of low-cost electricity generation (and thus low loss-compensation costs) or whether the cost-savings from SMR integration are realised through technological substitution effects that offset these transmission penalties remains to be determined through analysis of system technology deployment and cost mechanisms (Indicators 5 and 6).
+
+Total installed transmission capacity
+
+Figure 10 visualises the relative difference in installed transmission capacity between a system case and its respective baseline. Reviewing this figure from left to right, each string of same-SMR-size cases (colour-coded) reveals a weakly discernible pattern: relative transmission capacity initially declines at low SMR deployment and then rises again as SMR deployment increases, creating a concave line. Each of these lines terminates at the 3.3 GW, 9.9 GW, and 15.5 GW points—the maximum deployment values for each SMR size.
+
+Figure 11, the difference in deployed transmission capacity relative to the respective Case Class baselines, set out against the total deployed SMR capacity in the system. Each circle represents a single system case.Figure 11, the difference in deployed transmission capacity relative to the respective Case Class baselines, set out against the total deployed SMR capacity in the system. Each circle represents a single system case.
+
+Figure 11, the difference in deployed transmission capacity relative to the respective Case Class baselines, set out against the total deployed SMR capacity in the system. Each circle represents a single system case.
+
+Figure 11, the difference in deployed transmission capacity relative to the respective Case Class baselines, set out against the total deployed SMR capacity in the system. Each circle represents a single system case.
+
+Figure 12 presents the same data against the count of deployed SMR units rather than total capacity, making the pattern substantially more evident. This visualisation reveals an improved matching of local demand and supply in cases where SMRs are deployed sparsely. In cases approaching maximum deployment, these transmission-saving benefits diminish and invert, indicating that system-level cost-savings from SMR inclusion are realised through mechanisms other than transmission capacity reduction.
+
+Figure 12,  the difference in system-wide transmission capacity relative to the respective Case Class baselines, set out against the total count of SMR units deployed in the system. Each circle represents a single system case.Figure 12,  the difference in system-wide transmission capacity relative to the respective Case Class baselines, set out against the total count of SMR units deployed in the system. Each circle represents a single system case.
+
+Figure 12,  the difference in system-wide transmission capacity relative to the respective Case Class baselines, set out against the total count of SMR units deployed in the system. Each circle represents a single system case.
+
+Figure 12,  the difference in system-wide transmission capacity relative to the respective Case Class baselines, set out against the total count of SMR units deployed in the system. Each circle represents a single system case.
+
+Under scenario EV, transmitted capacity more frequently exceeds baseline capacity. Under scenario KM, transmission capacity reductions are more prevalent. This difference can be explained as follows: EV exhibits near-total nodal SMR deployment paired with higher electricity demand and installed variable renewable energy (vRES) capacity. When vRES generation peaks, fewer nodes remain without a dedicated electricity supply source (the deployed SMR), requiring the system to transmit surplus electricity across greater distances to find demand. In contrast, KM achieves lower SMR deployment rates, leaving more nodes reliant on vRES and other supply technologies, which can more flexibly absorb renewable supply spikes locally.
+
+Transmission utilisation
+
+Figure 13 provides nuance to transmission capacity requirements by visualising the extent to which installed capacity is utilised. The plot demonstrates a decrease in average line utilisation compared to baseline values for most cases up to approximately 23 SMR units deployed. SMR inclusion at this deployment level thus results in both lower transmission capacity and lower utilisation of existing lines. However, when more units are deployed, line utilisation is comparatively higher than baseline for most cases with 0.3 GWe or 0.47 GWe SMR sizes. This effect is more pronounced under scenario EV than KM, the latter showing relatively lower utilisation even at full deployment.
+
+Figure 13,  the difference in transmission utilisation relative to respective Case Class baselines, set out against the total count of SMR units deployed in the system. Each circle represents a single system case.Figure 13,  the difference in transmission utilisation relative to respective Case Class baselines, set out against the total count of SMR units deployed in the system. Each circle represents a single system case.Combined with the capacity results above (Figure 12), this indicates that at higher deployment levels, installed transmission capacity increases whilst average utilisation of this capacity also rises. This concurrent increase suggests that the system requires both larger infrastructure to accommodate peak flows and more frequent use of available capacity, indicating that electricity displacement across the network occurs at higher intensities and greater frequency.
+
+Figure 13,  the difference in transmission utilisation relative to respective Case Class baselines, set out against the total count of SMR units deployed in the system. Each circle represents a single system case.
+
+Figure 13,  the difference in transmission utilisation relative to respective Case Class baselines, set out against the total count of SMR units deployed in the system. Each circle represents a single system case.
+
+Mean flow distance
+
+Transmission utilisation reveals the relative efficiency of installed capacity but does not directly translate to the variable costs incurred from operating these lines. Variable transmission costs stem from transmission losses, which the system must compensate through additional electricity generation at the time losses occur.
+
+Figure 13 compares the mean flow distance of cases to their respective baselines. Values below baseline indicate that electricity travelled shorter distances on average; values above indicate longer average distances. The same concave pattern identified in prior figures is evident here: cases with lower SMR deployment show mean flow distances smaller than baseline, following a concave trajectory until reaching maximum deployment points. This pattern indicates that SMR inclusion generated spatial demand-matching benefits up until approximately 25–30 installed units, as shorter average flow distances imply improved alignment between generation and demand.
+
+Figure 14, the difference in how far each GWh of electricity travels through the transmission system, on average, relative to the baseline.Figure 14, the difference in how far each GWh of electricity travels through the transmission system, on average, relative to the baseline.
+
+Figure 14, the difference in how far each GWh of electricity travels through the transmission system, on average, relative to the baseline.
+
+Figure 14, the difference in how far each GWh of electricity travels through the transmission system, on average, relative to the baseline.
+
+However, at deployment levels ≥30 units, numerous cases resulted in higher mean flow distances than baseline. Combined with the relatively higher average transmission utilisation and installed capacity at these deployment levels (Figure 11 and Figure 12), this indicates that spatial demand-matching has deteriorated. The system compensates for surplus generation at unfavourable nodes by transmitting electricity across longer distances, incurring higher physical losses.
+
+For cases with deployment above approximately 23 units, the mechanism by which SMR inclusion reduces TSC thus requires explanation beyond transmission spatial efficiency. TSC-savings could result from improved temporal demand-matching—that is, higher transmission losses occurring during periods of low-cost electricity generation, reducing the system's compensation costs—or from the substitution of alternative technologies, or both. These mechanisms are examined in Indicators 5 and 6.
+
+Indicator 5: Installed capacities of supply and storage technologies
+
+The integration of SMRs produces distinct substitution mechanisms across sectors. In the electricity sector, SMRs directly displace CCGT plants, with displacement split between Hydrogen and Gas variants depending on carbon pricing scenarios (EV primarily installs Hydrogen and displaces it at −53.4%, KM primarily installs Gas and displaces it at −36.2%); utility-scale PV experiences consistent proportional displacement at −31.8%, while BESS shows negligible change with no clear pattern. The hydrogen sector exhibits only indirect effects: SMRs displace CCGT Hydrogen plants, which contracts endogenous hydrogen demand and reduces imports, while SMR-generated hydrogen capacity itself remains largely unutilised and provides no direct substitution of hydrogen supply technologies. In the heat sector, SMRs achieve direct substitution of electric boilers (−59.7% average displacement) determined primarily by unit size relative to nodal demand; spatial clustering of the majority of heat in 5–7 industrial nodes creates diminishing returns above the same SMR unit count, such that marginal deployment yields minimal additional boiler displacement.
+
+Electricity sector
+
+Figure 15, Average installed capacities of electricity supply technologies set out against the total deployed SMR capacity in the system. Covering all 'Reference' class cases.Figure 15, Average installed capacities of electricity supply technologies set out against the total deployed SMR capacity in the system. Covering all 'Reference' class cases.Figure 15 visualises the installed capacities of electricity supply and storage technologies across different extents of SMR deployment.
+
+Figure 15, Average installed capacities of electricity supply technologies set out against the total deployed SMR capacity in the system. Covering all 'Reference' class cases.
+
+Figure 15, Average installed capacities of electricity supply technologies set out against the total deployed SMR capacity in the system. Covering all 'Reference' class cases.
+
+The first observation concerns total installed supply capacity: as SMR capacity increases in the system, the total installed capacity of all electricity supply technologies decreases under both scenario EV and KM. This reduction indicates either more efficient operation of remaining generation capacity or reduced transmission losses from improved spatial demand-matching—the latter being consistent with the lower mean flow distances identified in Indicator 4. The slight increases in total installed capacity at maximum SMR deployment points (3.3 GW, 9.9 GW, and 15.5 GW) align with the higher mean flow distances observed in Indicator 4 for near-maximum deployment cases, suggesting that spatial efficiency gains do not extend to full deployment scenarios.
+
+The vRES sources see minimal change (0 to -0.8% compared to baseline cases on average) except for utility-scale PV capacity (-31.8% on average). This can be explained firstly by the technologies Offshore Wind and PV Rooftop being deployed respectively at and close to their constrained minimum capacity across cases (Figure 6). The remaining vRES ‘Onshore Wind’ is consistently deployed at approximately 23.5 GW in both scenarios, reflecting its constrained maximum (Figure 6). This indicates that SMRs do not compete with Onshore Wind under any modelled context. This is not the case for PV Utility as its capacity is decreased by 0.9 GW for each additional GW of SMR deployed, averaged across all cases. This effect, representing a 31.8% decrease in capacity, is larger for CHP SMRs (-33.6%) than CHH₂Ps (-29.8%), reflecting the lower electricity output from CHH₂Ps. This substitutive behaviour is consistent across SMR sizes, with each increase in size resulting in a larger decrease in PV utility capacity (-15.4% to -41.7%). This inverse relationship between SMR size and PV displacement demonstrates direct substitution: larger SMRs provide more electricity, displacing proportionally more PV capacity.
+
+Out of the thermal generation technologies the CCGT Gas and Hydrogen plants see the most significant substitution by SMRs. On average, CCGT Hydrogen is deployed with on average -39.4% less capacity than in baseline cases, followed by CCGT Gas at -22.3%. These effects are scenario-dependent: under EV CCGT Hydrogen is deployed with 53.4% less capacity on average, compared to -23.1% under KM, while CCGT Gas is deployed with -10.3% under EV, but with -36.2% under KM. This stems from the lower carbon pricing under KM than EV (-40%), resulting in negligible deployment of Hydrogen plants (0.92 GW instead of 14.18 GW under EV), but offset by a larger share of CCGT Gas (14.87 GW instead of 5.63 GW under EV). The substitutive role of SMRs thus appears constant with respect to CCGT plants. This behaviour is also constant across cases with CHP and CHH₂P SMRs, and scales with SMR sizes.
+
+Other thermal plants see minor differences to the baseline (Biomass -0.1%, Waste Incinerator 0%). Conventional NPP also sees 0% displacement but is deployed at its maximum capacity across all cases (3.49 GW), suggesting that its spatial constraint – only placed on node Borsele – does not affect its cost-advantage over SMRs from a system-level perspective.
+
+Electrical storage levels see negligible change to baseline deployment across cases, with BESS IDES and BESS Households installed consistently at their lower bound. BESS MDES shows more complex behaviour: under EV, MDES deployment averages 1.56 GW (60% above minimum), but with opposing trends across SMR sizes. Smallest SMRs correlate with 27.7% deployment increases (~1.39 GW), whilst medium and large SMRs result in decreases (−14.1% and −4.5% respectively). This size-dependent inversion in MDES deployment is not immediately explained by direct SMR substitution mechanics and warrants further investigation through dispatch-level analysis.
+
+Hydrogen sector
+
+Figure 16, Average installed capacities of hydrogen supply technologies set out against the total deployed SMR capacity in the system, covering all cases paired with CHH2P outfitted SMRs. SMR trendlines are scaled to the share of SMR capacity available for hydrogen production. Figure 16, Average installed capacities of hydrogen supply technologies set out against the total deployed SMR capacity in the system, covering all cases paired with CHH2P outfitted SMRs. SMR trendlines are scaled to the share of SMR capacity available for hydrogen production. Figure 15 illustrates the relationships between the deployment of hydrogen supply technologies and SMR unit count. Despite similar total hydrogen demand between scenarios EV and KM (1.09 TWh and 1.12 TWh, respectively), supply capacity responds differently.
+
+Figure 16, Average installed capacities of hydrogen supply technologies set out against the total deployed SMR capacity in the system, covering all cases paired with CHH2P outfitted SMRs. SMR trendlines are scaled to the share of SMR capacity available for hydrogen production.
+
+Figure 16, Average installed capacities of hydrogen supply technologies set out against the total deployed SMR capacity in the system, covering all cases paired with CHH2P outfitted SMRs. SMR trendlines are scaled to the share of SMR capacity available for hydrogen production.
+
+Under EV, hydrogen import capacity declines sharply whilst electrolyser capacity remains largely unchanged; under KM, both import and electrolyser capacity show moderate decline, with overall supply capacity decreasing under EV but increasing under KM.
+
+These divergent trends reflect CCGT Hydrogen displacement patterns. Under EV's higher carbon pricing baseline cases deploy substantial CCGT Hydrogen capacity, resulting in endogenous hydrogen demand and requiring a larger hydrogen supply capacity. As SMRs displace these installed CCGT Hydrogen plants, this endogenous demand contracts, driving the steep import capacity decline. Scenario KM exhibits lower CCGT Hydrogen deployment, therefore less endogenous demand, less displacement, and thus resulting in a less pronounced initial supply contraction. The subsequent increase in supply capacity under KM reflects the additional SMR hydrogen capacity, of which only ~20% is dispatched (Indicator 3). This increase in supply capacity is thus only an artifact stemming from the double accounting of SMR capacity; Available hydrogen capacity can also be used the two remaining energy markets.
+
+In the hydrogen market SMRs thus demonstrate no direct substitution of supply, but instead only indirect substitution of hydrogen import capacity.
+
+Heat sector
+
+Electric boiler capacity declines substantially across all configurations, averaging 1.47 GW (−59.7% compared to baseline), with displacement more pronounced under EV (−65.5%) than KM (−53%) and increasing with SMR size (−48.6% at 0.1 GWe to −66.8% at 0.47 GWe). This demonstrates direct substitution of electric boilers by SMR thermal output across all system dimensions. Figure 17 reveals the spatial mechanism underlying this substitution: the steepest boiler capacity reductions occur up to approximately 5–10 deployed units, then moderate through ~21 units, reflecting the spatial clustering of heat demand. The bulk of heat demand concentrates in 5–7 industrial nodes; once SMRs are placed at these nodes, additional deployment provides thermal capacity to nodes with minimal heat demand, yielding diminishing substitution benefits. Notably, total available thermal capacity from deployed SMRs does not scale linearly with unit count (due to case selection constraints), yet electric boiler displacement follows a predictable trajectory driven by spatial demand clustering rather than total SMR thermal capacity. Many nodes receive excess thermal capacity that remains unutilised, validating the finding from Indicator 3: system-level average thermal utilisation (6–64%) masks spatial heterogeneity where high-demand industrial nodes achieve full utilisation whilst remaining nodes approach zero utilisation. Like the hydrogen sector, this is a double Figure 17,  Average installed capacities of heat supply technologies set out against the total count of deployed SMR units in the system, covering all cases except those under the increased Heat Demand classes. SMR lines are scaled to the share of SMR capacity available for heat production. Figure 17,  Average installed capacities of heat supply technologies set out against the total count of deployed SMR units in the system, covering all cases except those under the increased Heat Demand classes. SMR lines are scaled to the share of SMR capacity available for heat production. accounting artifact of the available SMR capacities.
+
+Figure 17,  Average installed capacities of heat supply technologies set out against the total count of deployed SMR units in the system, covering all cases except those under the increased Heat Demand classes. SMR lines are scaled to the share of SMR capacity available for heat production.
+
+Figure 17,  Average installed capacities of heat supply technologies set out against the total count of deployed SMR units in the system, covering all cases except those under the increased Heat Demand classes. SMR lines are scaled to the share of SMR capacity available for heat production.
+
+Indicator 6: Drivers of Total System Costs
+
+SMR integration reduces total system costs by approximately 1.68 B€ (−3.6%) on average, despite a substantial 3.76 B€ increase in fixed supply costs from capital expenditure, achieved through scenario-dependent mechanisms. Under high electricity demand (EV), cost savings are driven almost entirely by variable transmission cost reductions (100% of savings), resulting from local SMR deployment that concentrates grid flows during low-price vRES periods, reducing electricity costs for compensating transmission losses. Under low electricity demand (KM), cost reductions derive primarily from variable supply cost reductions (91% of savings) via direct substitution of CCGT Gas plants with cheaper SMR-generated electricity, with transmission effects remaining marginal (9% of savings) despite improved utilization. Both scenarios demonstrate monotonic TSC reductions with increasing SMR deployment, confirming the robustness and scalability of these cost-reduction mechanisms across all modelled cases.
+
+Table 9 summarises the changes in average system costs per model dimension relative to their respective baseline values.
+
+Across all cases and model dimensions, SMR integration yields net TSC reductions of approximately 1.68 B€ (-3.6%) on average, achieved through divergent cost mechanisms. While fixed supply costs increase substantially by 3.76 B€ - driven by comparatively expensive SMR CAPEX – this is more than offset by decreases in variable supply costs (-1.42 B€) and variable transmission costs (-4.01 B€).
+
+Table 9, Average difference in system costs per model dimension relative to its respective baseline case(s).Table 9, Average difference in system costs per model dimension relative to its respective baseline case(s).
+
+Table 9, Average difference in system costs per model dimension relative to its respective baseline case(s).
+
+Table 9, Average difference in system costs per model dimension relative to its respective baseline case(s).
+
+Fixed Supply Cost Dynamics
+
+The substantial increase in Fixed Supply Costs (FSC) is observed consistently across all cases, varying only in magnitude. This behaviour reflects SMR capital expenditure overwhelming the value of displaced supply capacity in the system, explaining the high sensitivity to SMR CAPEX assumptions observed in Indicator 1. The FSC increase scales approximately proportionally to total SMR capacity deployed, increasing in CAPEX+50% cases and decreasing in CAPEX−25% cases, confirming the dominance of SMR CAPEX in system cost structure.
+
+Variable Cost Divergence Between Scenarios
+
+Variable supply costs (VSC) and variable transmission costs (VTC) demonstrate strikingly different patterns between scenarios:
+
+Scenario EV: Average FSC increases by 23% (+4.8 B€), offset by 52% decrease in VSC (−7.2 B€) and steep VTC reductions. TSC savings derive almost entirely from transmission cost reductions (100% of savings).
+
+Scenario KM: Average FSC rises by only 14% (+2.6 B€), offset by 25% decrease in VSC (−3.3 B€) and 11% decrease in VTC (−0.3 B€). TSC savings are driven primarily by supply cost reductions (91% of savings), with transmission costs contributing minimally (9% of savings).
+
+This scenario contrast is striking given Indicator 4's findings: although KM demonstrated more consistent transmission capacity and utilization reductions than EV, KM's transmission cost reductions contribute only 9% of total savings compared to 100% under EV.
+
+Mechanisms Behind Cost Reductions
+
+The disparity reflects fundamentally different cost-driving mechanisms:
+
+Under Scenario EV: VTC reductions do not stem from reduced transmission deployment (Fixed Transmission Cost (FTC) and installed capacity differ negligibly, ~0.3%), but instead from lower electricity costs incurred when compensating transmission losses. SMRs enable local demand satisfaction, concentrating grid flows during periods of high vRES supply—precisely when electricity costs are lowest. This temporal demand-matching reduces loss-compensation costs despite similar total transmission volumes to KM cases. The EV baseline's higher electricity demand intensity makes transmission costs a critical system lever, explaining why temporal optimization of grid losses drives the majority of savings.
+
+Under Scenario KM: Cost reductions are driven primarily by variable supply cost decreases from direct substitution of CCGT Gas plants with cheaper SMR-generated electricity. Despite similar FTC to EV cases, the lower baseline electricity demand under KM results in transmission costs playing a secondary role, while supply-side technology substitution dominates TSC reductions.
+
+Substantiation of KM Substitution Mechanism
+
+The CCGT Gas substitution mechanism under KM is directly substantiated by comparing extreme cases: the case with lowest VSC (7.4 B€) corresponds to the lowest CCGT Gas capacity (4.8 GW), while the highest VSC case (12.5 B€) corresponds to maximum CCGT Gas capacity (15.7 GW). Since other installed capacities remain similar across these cases, the 5.1 B€ VSC differential directly correlates with the 10.9 GW CCGT Gas capacity spread, confirming that VSC reductions under KM are driven primarily by CCGT Gas displacement.
+
+Scalability and Consistency
+
+Figure 18, Total System Cost (TSC) components set out against the total deployed SMR capacity in the system, covering all Reference class cases.Figure 18, Total System Cost (TSC) components set out against the total deployed SMR capacity in the system, covering all Reference class cases.These mechanisms are constant across cases, as illustrated in Figure 18, where the four main cost components are set out against total SMR capacity deployed. Under both scenarios, TSC decreases monotonically with increasing SMR deployment, confirming scalability of the observed behaviours. The scenario EV plot visualises FSC increases counteracted by steep VTC decreases, while the KM plot shows FSC increases offset by VSC decreases, with minimal VTC variation.
+
+Figure 18, Total System Cost (TSC) components set out against the total deployed SMR capacity in the system, covering all Reference class cases.
+
+Figure 18, Total System Cost (TSC) components set out against the total deployed SMR capacity in the system, covering all Reference class cases.
+
+Discussion
+
+The results reveal that SMR cost-effectiveness emerges from a nuanced interplay between system-level demand characteristics, nodal context, and flexible multi-carrier output capabilities, rather than from any single dominant factor. An average TSC reduction of 3.9% (ranging from -0.4% to -12.5%) indicates consistent but modest benefits across scenarios, with the magnitude fundamentally dependent on system configuration. Under high electricity demand (EV), SMRs deliver TSC reductions of −4.9%, driven almost entirely by transmission cost reductions (100% of total savings). In contrast, under low electricity demand (KM), cost savings contract to −2.8% and arise primarily from supply-side substitution, with 91% of variable cost reductions attributable to CCGT displacement. These results demonstrate that SMR value propositions are not universal but conditional on baseline system composition and demand structure.
+
+The spatial analysis reinforces this conditional logic. SMR deployment concentrates at industrial clusters with high and diverse carrier demand—not merely at high-electricity-demand nodes. Peripheral nodes only see SMR deployment when specific nodal electricity or hydrogen demand elevates their attractiveness, indicating that decentralisation benefits (improved demand-matching and transmission relief) only materialise when SMRs are sited strategically. Such transmission-saving benefits are found primarily up to a deployment of approximately 23 units in the system, where SMR inclusion reduced transmission capacity (-0.90%), utilisation (-3.66%) and mean flow distance (-11.41%) in comparison to the baseline (no SMR) cases. Cases with total deployment >23 units saw relative increases in capacity (+0.17%), higher average throughput (+4.26%) and longer average transmission distances (+9.27%). A plausible explanation lies in the nodal placement of SMRs, as low-deployment cases primarily select those nodes most reliant on imports. This suggests SMRs can aid in mitigating network congestion, but only when sited critically. The relative increase in transmission requirements above 23 units deployed could be explained by the widespread availability of dispatchable supply, leaving frequently exporting nodes with fewer sinks nearby to absorb vRES-induced supply peaks. The policy implication is thus that SMR siting decisions should incorporate broader spatial supply and demand analyses to evaluate possible system effects.
+
+On the operational side, the SMR output composition reflects constrained flexibility despite the multi-vector design. Electricity dominates production (67–98% of output) and acts as the marginal carrier absorbing demand fluctuations. Heat output is consistently generated when nodal heat demand exists, validating the heat-demand-driven deployment clustering observed spatially. Hydrogen output, by contrast, remains fixed at ~20% of capacity regardless of SMR size or case variation, well above the 0% minimum but far below available capacity. This on the one hand suggests a comparatively low hydrogen cost in the modelled system, but on the other hand highlights the advantages gained from multi-vector output capabilities; Where electrolysers are scaled-to-fit, SMRs lowered system costs through arbitraging between markets. This interplay between sectors is also revealed by the indirect substitution of hydrogen import capacity by SMR integration, consequential to the direct substitution of CCGT Hydrogen plants. The observed scenario-dependent cost-saving mechanisms demonstrated by SMR integration underscore the multi-faceted advantages of decentralised, flexible cogeneration capabilities, as well as the importance of a comparative scenario analysis.
+
+CAPEX Sensitivity and Cost Overrun Risk
+
+The results demonstrate high sensitivity to SMR CAPEX assumptions. The −25% CAPEX case achieves −4.4% TSC reductions with average deployment of approximately 8–10 units, whilst the +50% CAPEX case collapses to −1.3% TSC reductions with only 3.1 GW deployed. This variation underscores that SMR cost-effectiveness operates on a knife-edge: modest cost increases rapidly erode system benefits. Given that current SMR designs are FOAK units and historical nuclear projects exhibit systematic cost overruns—the UK's Hinkley Point C began at £46 billion and escalated to £51+ billion; the Finnish Olkiluoto-3 faced a decade of delays and cost increases—the +50% sensitivity case, whilst substantial, may underestimate real-world risk (Eash-Gates et al., 2020; EDF, 2024; Lovering et al., 2016; NAO, 2017; Sovacool & Ryu, 2025). Extrapolating from nuclear construction history, cost increases exceeding 50% are plausible, and in such scenarios, SMR cost-effectiveness would thus be increasingly dependent on siting and demand context. This finding should be considered in policies regarding financing and risk-sharing strategies such as laid out by the OECD (2024).
+
+Spatial Siting Constraints and Practical Deployment
+
+The model assumed 33 accessible nodes for SMR deployment across the Netherlands, yet this substantially overstates practical feasibility. Real-world SMR siting encounters multiple hard constraints absent from the optimisation: groundwater access and quality (various SMR designs require substantial cooling water), soil bearing capacity and geological stability, grid connection infrastructure and transmission node capacity, proximity to waste repositories and shipping routes, spatial planning restrictions, and local stakeholder opposition (Bonev et al., 2024; IAEA, 2023a; INL, 2013). Industrial clusters identified as optimal nodes by the model may be ineligible due to competing water demands (e.g., petrochemical refineries, data centres) or absence of suitable cooling pathways. The assumption of one unit per node, whilst computationally necessary, also masks a key SMR advantage—economies of serial deployment at single sites. In practice, siting-constrained deployment could mean 2–4 units co-located at a handful of nodes rather than distributed across the country, substantially changing the spatial demand-matching and transmission implications estimated here. Realistic siting analysis (incorporating hydrogeological, planning, and infrastructure constraints) could result in only a few feasible deployment sites, fundamentally narrowing the conditions under which SMRs are cost competitive.
+
+Modelling Scope and Temporal Resolution Limitations
+
+Several modelling choices constrain the generalisability of results. First, the study models a single representative year (2040), not a multi-year sequence capturing inter-annual variability in renewable resource availability and demand. A single dry winter, for instance, would shift electricity scarcity premium and alter SMR dispatch and value; a series of normal years might see different economics. Second, k-means clustering of hourly time series reduces temporal resolution and may smooth out short-duration high-price spikes that would favour dispatchable generation like SMRs. Conversely, k-means may introduce artificial clustering artefacts not present in real dispatch. Third, transmission capacity is modelled as static; real networks exhibit congestion that varies intra-hourly, and SMR positioning to mitigate specific bottlenecks requires sub-hourly resolution currently absent. Fourth, the model is Dutch-only with exogenously specified import/export timeseries and static interconnector capacities. European interconnector capacity is tight, and cross-border trading patterns would shift if Dutch demand composition changes via SMR deployment. A multi-country model with endogenous European market coupling would likely alter both SMR value and transmission benefits.
+
+These limitations collectively bias results in ambiguous directions. The exclusion of inter-annual variability could underestimate SMR value (multi-year low renewable generation increases dispatchable demand) or overestimate it (a favourable renewable year masks true flexibility needs). The k-means clustering may dampen volatility and understate SMR dispatch opportunities from peak-hour dispatch, but it may also filter out noise that would inflate SMR utilisation in reality. These uncertainties are not minor; they compound the sensitivity to CAPEX and suggest that a 3.9% average TSC reduction carries substantial confidence bands.
+
+Heat Demand Scope and Industrial Heat Modelling
+
+The study incorporates only industrial heat delivered via network connection, substantially narrowing heat demand scope. Total final energy demand for heat in the Netherlands is dominated by building heating (residential and commercial), which here was entirely excluded from the research scope. This omission directly biases results of SMR cost-effectiveness: the model presents an energy system where heat is only relevant at industrial nodes. Scaling industrial heat demand to x2 and x5 (yielding −4.5% and −5.6% TSC reductions respectively) provides partial validation—SMR benefits scale with heat demand—but does not address the missing building heat sector.
+
+Additionally, heat and hydrogen sectors are modelled with substantially fewer supply agents than electricity, reducing competitive pressure and market realism. Heat is produced via electric boilers; realistic competition from i.e. distributed heat pumps, solar thermal, or CHP technologies is absent. This supply-side simplification may overstate the displacement of alternative technologies by SMRs and thus overestimate substitution benefits.
+
+SMR Operational and Techno-Economic Characteristics
+
+The study models flexible cogeneration dispatch logic more detailed than prior SMR studies (Kooiman et al., 2025; Zandt et al., 2024). The finding that heat output is consistently generated at heat-demand nodes whilst hydrogen output remains fixed at ~20% capacity utilisation regardless of context provides actionable insight into realistic SMR operational constraints. However, several techno-economic assumptions merit scrutiny. First, no costs are included for hydrogen conditioning, compression, storage, or transport to end-use markets. Second, operating levels outside of the optimal efficiency envelope and ramping constraints for SMRs are not explicitly modelled in the cost-minimisation framework; Nor are technoeconomic implications of different SMR designs considered. Third, SMR fuel supply chain economics and waste management costs are absent. While some omissions could partially offset each other (operational constraints could benefit deployment, while techno-economic realism may diminish it), the net effect is uncertain. More research is thus warranted once FOAK designs are constructed and provide initial empirical findings on the potential outlook for NOAK implications.
+
+Governance, Financing, and Cost Overrun Reality
+
+Beyond technical parameters, SMR integration faces governance and financing challenges not captured in cost-minimisation frameworks. The Netherlands' current policy positions SMR deployment as industry-led with government support, contrasting sharply with government-led conventional nuclear development (Appendix 1). This creates asymmetric risk: if cost overruns occur, industry actors face financial distress and potential withdrawal; government support (limited to research and permitting) does not guarantee project completion. Industry actors are also reluctant to associate brand identity with nuclear energy, complicating consortium building and refinancing options (Appendix 13). This governance structure means that cost overruns—which historical precedent suggests are likely—would not be socialised via government intervention but rather would constrain industry financing and potentially halt projects mid-deployment (Lawson, 2024; NuScale, 2023; OECD, 2024; UtilityDive, 2024). Given FOAK status, the +50% CAPEX sensitivity case, whilst substantial, may represent the base case rather than a downside scenario. The results showing −1.3% TSC reductions under +50% CAPEX suggest that SMRs are economically marginal under realistic cost assumptions, particularly if overruns prove more severe.
+
+Where SMRs Deliver Value
+
+Despite these caveats, several findings remain robust. First, SMR cost-effectiveness is consistently sensitive to carrier demand intensity and diversity. This is not a limitation but a finding: it means SMR policy should be conditional, not blanket. The identification of spatial clustering as the driver of cost-effectiveness (not simple electricity demand) is actionable: policymakers can assess whether SMR candidates are co-located with dense, diverse carrier demand. Second, the finding that transmission benefits are threshold-dependent (costless up to ~23 units, then burdensome) is policy-relevant: SMRs could both alleviate and worsen congestion depending on its siting. These insights hold across modelling variations and describe the interplay between SMR and system characteristics, rather than context-sensitive modelling artifacts.
+
+Conclusion
+
+This study addresses the research question: Under what conditions are cogenerating SMRs cost-effective, and how does their integration reshape transmission requirements and technology deployment in cost-minimal energy systems?
+
+Cost-effectiveness: SMRs deliver modest but consistent system cost reductions averaging 3.9% (range: 0.4–12.5%), conditional on scenario context. Robust cost-effectiveness requires simultaneous satisfaction of three criteria: (1) high electricity demand intensity (EV scenario yields −4.9% reductions vs. −2.8% under KM), (2) spatial co-location with diverse energy carrier demand (particularly industrial heat), and (3) low SMR CAPEX. SMR cost-effectiveness is highly sensitive to CAPEX assumptions; a +50% increase limits deployment and constrains TSC savings to −1.3%, suggesting that real-world cost overruns—likely given FOAK status and historical nuclear precedent—could render SMR deployment uneconomic. SMR size and output flexibility show weaker influence on cost-effectiveness; smaller units and CHP configurations offer marginal advantages but are not primary drivers of deployment decisions.
+
+Transmission and technology substitution: SMR integration reduces transmission requirements up to approximately 23 units deployed, beyond which transmission burden increases. This threshold behaviour means SMRs can mitigate network congestion only when sited strategically at constrained nodes, not via widespread deployment. Technology substitution is sector-specific: CCGT plants displace substantially (−22% to −39%), utility-scale PV faces proportional displacement (−31.8%), and electric boilers experience the largest sectoral effect (−59.7%). Hydrogen is indirectly affected; SMRs displace CCGT hydrogen plants and reduce hydrogen imports, but SMR-produced hydrogen remains underutilised (~20% electrical capacity) and does not substantially increase endogenous hydrogen supply. Cost reductions arise from distinct mechanisms depending on scenario: high electricity demand scenarios benefit from variable transmission cost reductions (100% of savings), whilst low electricity demand scenarios benefit from variable supply cost reductions via CCGT substitution (91% of savings). Both offset a consistent increase in total fixed supply costs proportional to SMR inclusion.
+
+Critical limitations and realistic feasibility: The quantitative findings are bounded by modelling scope. Single-year analysis, k-means temporal clustering, static transmission capacity, Dutch-only scope, and exclusion of building heat demand all constrain generalisability. Heat demand scaling (x2 to x5) validates the heat-demand-sensitivity but does not address the absence of realistic building heat demand. Spatial siting constraints (groundwater access, soil stability, planning restrictions, competing water demands) are not modelled; realistic deployment sites are likely far fewer than the 33 nodes assessed, fundamentally narrowing feasible conditions for cost-effectiveness. Governance and financing structures position SMR deployment as industry-led with limited government risk-sharing, meaning cost overruns would not be socialised but would curtail project completion. These constraints suggest that whilst the -3.9% average TSC reduction is technically valid within the modelling scope, the real-world deployment scenarios achieving this benefit are narrower than the model's 60 cases imply.
+
+Remaining valuable insights: Despite these limitations, the study contributes understanding on SMRs cost-effectiveness. The identification of industrial cluster co-location as the decisive siting criterion validates and nuances the suggestion that SMRs are most cost-effective when providing heat to industrial clusters, made in prior studies (Scheepers et al., 2025; Zandt et al., 2024). Moreover, the scenario-dependent cost-effectiveness provides relevant policy implications: the degree of electrification of demand affects the suitable siting and achievable cost reductions from SMR deployment. Lastly, the deployment-level-dependent effects on transmission requirements and cost-saving-mechanics provide insight on SMR integration specific to a high-renewable context, which can contribute to both energy planning and congestion alleviation approaches.
+
+These findings suggest that future SMR deployment strategies should prioritise spatial demand analysis, realistic siting assessment, and scenario-conditional policy, rather than assuming universally beneficial integration.
+
+Future research: To strengthen confidence in these findings, the following extensions are recommended: (1) multi-year modelling incorporating inter-annual renewable variability and demand shifts, (2) sub-hourly temporal resolution to capture price spikes and SMR dispatch value, (3) integration of realistic siting constraints (hydrogeological, planning, infrastructure) to reduce feasible deployment nodes to realistic numbers, (4) European multi-country market coupling to assess cross-border trading effects on SMR value, (5) probabilistic cost models reflecting historical nuclear cost-overrun distributions rather than fixed sensitivity cases, (6) inclusion of heat and hydrogen distribution, storage, and sector-specific end-use markets for realistic demand-side modelling, and (7) realistic representation of transmission infrastructure and diverse SMR design characteristics. These extensions would reduce uncertainty around TSC reductions and provide more robust policy guidance on SMR integration feasibility.
+
+References
+
+ACM. (2025, March 14). Reactie ACM op onderzoek Bekostiging Elektriciteitsinfrastructuur | ACM.nl [Nieuwsbericht]. https://www.acm.nl/nl/publicaties/reactie-acm-op-onderzoek-bekostiging-elektriciteitsinfrastructuur
+
+Agar, A. S., Goodfellow, M. J., Goh, Y. M., & Newnes, L. B. (2019). Stakeholder perspectives on the cost requirements of Small Modular Reactors. Progress in Nuclear Energy. https://api.semanticscholar.org/CorpusID:126322985
+
+ANVS. (n.d.). Small modular reactors. Autoriteit Nucleaire Veiligheid en Stralingsbescherming. Retrieved 8 February 2026, from https://www.autoriteitnvs.nl/voorlichting/nucleaire-inrichtingen-nucleaire-veiligheid/nieuwe-ontwikkelingen-in-kernreactoren/small-modular-reactors
+
+Arjmand, R., Monroe, J., & McPherson, M. (2023). The role of emerging technologies in Canada’s electricity system transition. Energy. https://api.semanticscholar.org/CorpusID:258778046
+
+Asuega, A., Limb, B. J., & Quinn, J. C. (2023). Techno-economic analysis of advanced small modular nuclear reactors. Applied Energy. https://api.semanticscholar.org/CorpusID:256160647
+
+Bonev, P., Emmenegger, R., Forero, L., Ganev, K., Simeonova-Ganeva, R., & Söderberg, M. (2024). Nuclear waste in my backyard: Social acceptance and economic incentives. Energy Policy, 185, 113979. https://doi.org/10.1016/j.enpol.2023.113979
+
+Borowski, P. F. (2025). Economic and Technological Challenges in Zero-Emission Strategies for Energy Companies. Energies, 18(4). Scopus. https://doi.org/10.3390/en18040898
+
+Byrom, S., Boston, A., Bongers, G., Dargusch, P., Garnett, A., & Bongers, N. (2021). Total Systems Cost: A Better Metric for Valuing Electricity in Supply Network Planning and Decision-Making. JOURNAL OF ENVIRONMENTAL INFORMATICS LETTERS, 6(2), Article 2. https://doi.org/10.3808/jeil.202100056
+
+Colterjohn, C., Nagasaki ,S., & and Fujii, Y. (2024). Optimizing the Implementation of Small Modular Reactors into Ontario’s Future Energy Mix. Nuclear Technology, 210(1), 23–45. https://doi.org/10.1080/00295450.2023.2217390
+
+Dedecca, J., Ansarin, M., Bene, C., Van Delzen, T., Van Nuffel, L., & Jagtenberg, H. (2025, March 1). Increasing Flexibility in the EU Energy System. Policy department for Transformation, innovation and health. https://www.europarl.europa.eu/RegData/etudes/ATAG/2025/769348/ECTI_ATA(2025)769348_EN.pdf
+
+DesigningBuildings. (2020, December 30). Energy Infrastructure. https://www.designingbuildings.co.uk/wiki/Energy_infrastructure
+
+Duffour, G., & Bchini, Q. (2025). Global Energy Trends 2025 (2025 Edition). Enerdata. https://yearbook.enerdata.net/electricity/share-electricity-final-consumption.html
+
+Eash-Gates, P., Klemun, M. M., Kavlak, G., McNerney, J., Buongiorno, J., & Trancik, J. E. (2020). Sources of Cost Overrun in Nuclear Power Plant Construction Call for a New Approach to Engineering Design. Joule, 4(11), 2348–2373. https://doi.org/10.1016/j.joule.2020.10.001
+
+EDF. (2024, January 23). Hinkley Point C Update. Press Release. https://www.edf.fr/en/the-edf-group/dedicated-sections/journalists/all-press-releases/hinkley-point-c-update-1
+
+Elkhalafy, M., Abd-Allah, M., Elgabalawy, M., & Said, A. (2024). Techno-Economic Assessment of Small Modular Reactors and Renewable Energy for Hydrogen Production: An Egyptian Grid Case Study. 2024 25th International Middle East Power System Conference (MEPCON), 1–8. https://doi.org/10.1109/MEPCON63025.2024.10850191
+
+ETM. (2025). NBNL Scenarios 2025.01 [Data set]. https://2025-01.energytransitionmodel.com/scenario/data/data_sources/present-year-data
+
+EZK. (2019). Klimaatakkoord [Rapport]. Ministry of Economic Affairs and Climate Policy. https://www.rijksoverheid.nl/documenten/rapporten/2019/06/28/klimaatakkoord
+
+Gevernova. (n.d.). BWRX-300 Small Modular Reactor | GE Vernova Hitachi Nuclear. Gevernova-Nuclear. Retrieved 8 February 2026, from https://www.gevernova.com/nuclear/carbon-free-power/bwrx-300-small-modular-reactor
+
+IAEA. (2023a). Geotechnical Aspects in Siting and Design of Nuclear Installations (No. DS531). International Atomic Energy Agency. https://www.iaea.org/sites/default/files/23/12/ds531.pdf
+
+IAEA. (2023b, September 13). What are Small Modular Reactors (SMRs)? International Atomic Energy Agency. https://www.iaea.org/newscenter/news/what-are-small-modular-reactors-smrs
+
+IEA. (n.d.). Renewable Integration. IEA. Retrieved 23 May 2025, from https://www.iea.org/energy-system/electricity/renewable-integration
+
+IEA. (2025). World Energy Outlook 2025. International Energy Agency. https://www.iea.org/reports/world-energy-outlook-2025
+
+INL. (2013). Site Suitability and Hazard Assessment Guide for Small Modular Reactors (INL/EXT--13-29749, 1097149; p. INL/EXT--13-29749, 1097149). Idaho National Laboratory. https://doi.org/10.2172/1097149
+
+IPCC. (2019, June). Headline Statements—Global Warming of 1.5 oC. IPCC. https://www.ipcc.ch/sr15/resources/headline-statements/
+
+IRENA Coalition for Action. (2022). Sector Coupling—A Key Concept for Accelerating The Energy Transformation (ISBN: 978-92-9260-487-5). International Renewable Energy Agency. https://coalition.irena.org/-/media/Files/IRENA/Coalition-for-Action/Publication/IRENA_Coalition_sector_coupling_2022.pdf
+
+KGG. (n.d.). Kernenergie [Onderwerp]. Rijksoverheid. Rijksoverheid. Retrieved 7 February 2026, from https://www.rijksoverheid.nl/onderwerpen/duurzame-energie/kernenergie
+
+KGG. (2023, October 27). Maatregelen tegen vol elektriciteitsnet (netcongestie). rijksoverheid.nl. rijksoverheid.nl. https://www.rijksoverheid.nl/onderwerpen/duurzame-energie/kabinet-neemt-maatregelen-tegen-vol-elektriciteitsnet-netcongestie
+
+KGG. (2024). Programma-aanpak Small Modular Reactors. Ministry of Climate and Green Growth | Rijksoverheid. https://www.rijksoverheid.nl/documenten/rapporten/2024/03/22/bijlage-1-programma-aanpak-smr
+
+Koivunen, T., & Hirvijoki, E. (2024). Effect of investment cost on technology preference in a flexible, low-carbon Finnish power system. Nuclear Engineering and Design, 417. Scopus. https://doi.org/10.1016/j.nucengdes.2023.112854
+
+Kooiman, A., Beres, R., Scheepers, M., Gregorio, N., Eblé, L., Hakvoort, R., & Meeuwsen, J. (2025). Systeemkostenanalyse kernenergie (TNO 2025 R11293; 060.63832). TNO. https://publications.tno.nl/publication/34645019/vOJFLi4o/TNO-2025-R11293.pdf
+
+Kotzur, L., Markewitz, P., Robinius, M., & Stolten, D. (2018). Time series aggregation for energy system design: Modeling seasonal storage. Applied Energy, 213, 123–135. https://doi.org/10.1016/j.apenergy.2018.01.023
+
+Lawson, A. (2024, January 23). Hinkley Point C could be delayed to 2031 and cost up to £35bn, says EDF. The Guardian. https://www.theguardian.com/business/2024/jan/23/hinkley-point-c-could-be-delayed-to-2031-and-cost-up-to-35bn-says-edf
+
+Lovering, J. R., Yip, A., & Nordhaus, T. (2016). Historical construction costs of global nuclear power reactors. Energy Policy, 91, 371–382. https://doi.org/10.1016/j.enpol.2016.01.011
+
+McGregor, L., Pressley, L., Alrumman, F., Kiger, J., & Karayaka, H. B. (2022). Cost Analysis of a Hybrid Generation Framework with Small Modular Nuclear Reactors, Renewables, and Battery Storage. 2022 North American Power Symposium (NAPS), 1–6. https://doi.org/10.1109/NAPS56150.2022.10012135
+
+Mignacca, B., & Locatelli, G. (2020). Economics and finance of Small Modular Reactors: A systematic review and research agenda. Renewable and Sustainable Energy Reviews. https://api.semanticscholar.org/CorpusID:209778267
+
+Mignacca, B., Locatelli, G., & Sainati, T. (2020). Deeds not words: Barriers and remedies for Small Modular nuclear Reactors. Energy. https://doi.org/10.1016/j.energy.2020.118137
+
+NAO. (2017). Hinkley Point C (HC 40). National Audit Office, dept for Business, Energy & Industrial Supply. https://www.nao.org.uk/wp-content/uploads/2017/06/Hinkley-Point-C.pdf
+
+Netbeheer Nederland. (n.d.). Capaciteitskaart Nederland [Data set]. Retrieved 5 January 2025, from https://data.partnersinenergie.nl/capaciteitskaart/totaal/afname
+
+Netbeheer Nederland. (2025a). Scenario’s Editie 2025. https://www.netbeheernederland.nl/publicatie/netbeheer-nederland-scenarios-editie-2025
+
+Netbeheer Nederland. (2025b, February 28). Zorgen over hoge energierekening. https://www.netbeheernederland.nl/artikelen/nieuws/zorgen-over-hoge-energierekening
+
+NHNieuws. (2025, January 14). Kleine kerncentrale in Opmeer komt steeds dichterbij. https://www.nhnieuws.nl/nieuws/344705/kleine-kerncentrale-in-opmeer-komt-steeds-dichterbij
+
+Nian, V., & Zhong, S. (2020). Economic feasibility of flexible energy productions by small modular reactors from the perspective of integrated planning. Progress in Nuclear Energy, 118, 103106. https://doi.org/10.1016/J.PNUCENE.2019.103106
+
+Nøland, J., Hjelmeland, M., Hartmann, C., Tjernberg, L., & Korpås, M. (2025). Overview of Small Modular and Advanced Nuclear Reactors and Their Role in the Energy Transition. IEEE Transactions on Energy Conversion. https://doi.org/10.1109/tec.2025.3529616
+
+NOS. (2025, March 5). Provincies en gemeenten hebben oren naar de bouw van kleine kerncentrales. NOS Nieuws. https://nos.nl/artikel/2558255-provincies-en-gemeenten-hebben-oren-naar-de-bouw-van-kleine-kerncentrales
+
+NRG Pallas. (2025a). Kennismodule Small Modular Reactors. KGG.
+
+NRG Pallas. (2025b). Verkenning SMR-inpassing provincie Gelderland (NRG-2. 7315/25. 302449). https://www.nrg.eu/nieuws/onderzoek-voor-provincie-gelderland-naar-mogelijkheden-voor-inpassing-smr-s
+
+NuScale. (2023, November 8). Utah Associated Municipal Power Systems (UAMPS) and NuScale Power Agree to Terminate the Carbon Free Power Project (CFPP). https://www.nuscalepower.com/press-releases/2023/utah-associated-municipal-power-systems-and-nuscale-power-agree-to-terminate-the-carbon-free-power-project
+
+OECD. (2024). Effective Frameworks and Strategies for Financing Nuclear New Build (No. 7684). OECD-NEA. https://www.oecd-nea.org/upload/docs/application/pdf/2024-09/nea_publication_2_2024-09-18_16-50-13_471.pdf
+
+Okunlola, A., Davis, M., & Kumar, A. (2023). Assessing the cost competitiveness of electrolytic hydrogen production from small modular nuclear reactor-based power plants: A price-following perspective. Applied Energy. https://doi.org/10.1016/j.apenergy.2023.121290
+
+Page, M. J., McKenzie, J. E., Bossuyt, P. M., Boutron, I., Hoffmann, T. C., Mulrow, C. D., Shamseer, L., Tetzlaff, J. M., Akl, E. A., Brennan, S. E., Chou, R., Glanville, J., Grimshaw, J. M., Hróbjartsson, A., Lalu, M. M., Li, T., Loder, E. W., Mayo-Wilson, E., McDonald, S., … Moher, D. (2021). The PRISMA 2020 statement: An updated guideline for reporting systematic reviews. BMJ, 372, n71. https://doi.org/10.1136/bmj.n71
+
+Paisiripas, D., Cho, K.-W., & Park, S.-J. (2024). Integration of Small Modular Reactors with Renewable Energy for Carbon Neutrality: A Case Study of Phuket, Thailand. Energies, 17(22). Scopus. https://doi.org/10.3390/en17225565
+
+Pfenninger, S., & Pickering, B. (2018). Calliope: A multi-scale energy systems modelling framework. Journal of Open Source Software, 3(29), 825. https://doi.org/10.21105/joss.00825
+
+PwC Strategy&. (2024). Financiële Impact Energietransitie voor Netbeheerders (“FIEN+”) [Rapport]. Netbeheer Nederland. https://www.rijksoverheid.nl/documenten/rapporten/2024/12/12/eindrapport-in-opdracht-van-netbeheer-nederland-financiele-impact-energietransitie-voor-netbeheerders
+
+Rolls Royce. (n.d.). About the Rolls-Royce SMR. Rolls-Royce SMR. Retrieved 8 February 2026, from https://www.rolls-royce-smr.com/about-the-rolls-royce-smr
+
+RVO. (2025). Response memorandum Construction of new nuclear power plants (AVT/EZ-250428-001). Rijksdienst voor Ondernemend Nederland. https://www.rvo.nl/onderwerpen/bureau-energieprojecten/lopende-projecten/nieuwbouw-kerncentrales
+
+Scheepers, M., Gregorio, N. M., Beres, R., Sijm, J., Fattahi, A., Chavarriaga, J. G., Kooiman, A., Palacios, S. G., van Oudenaren, G., Grutter, A., Oving, J., & Iovanovici, S. (2025). Integration of nuclear energy in the energy system (TNO 2025 R10612). TNO, NRG PALLAS. https://publications.tno.nl/publication/34645018/GKduYtOH/TNO-2025-R10612.pdf
+
+ScienceDirect. (n.d.). Nearest Centroid—An overview | ScienceDirect Topics. Nearest Centroid. Retrieved 8 February 2026, from https://www.sciencedirect.com/topics/computer-science/nearest-centroid
+
+Shobeiri, E., Genco, F., Hoornweg, D., & Tokuhiro, A. (2023). Small Modular Reactor Deployment and Obstacles to Be Overcome. Energies. https://doi.org/10.3390/en16083468
+
+Slavin, B., Wang, R., Roy, D., Ling-Chin, J., & Roskilly, A. (2024). Techno-economic analysis of direct air carbon capture and hydrogen production integrated with a small modular reactor. Applied Energy. https://doi.org/10.1016/j.apenergy.2023.122407
+
+Sovacool, B. K., & Ryu, H. (2025). Beyond economies of scale: Learning from construction cost overrun risks and time delays in global energy infrastructure projects. Energy Research & Social Science, 123, 104057. https://doi.org/10.1016/j.erss.2025.104057
+
+Steigerwald, B., Weibezahn, J., Slowik, M., & Hirschhausen, C. von. (2023). Uncertainties in estimating production costs of future nuclear technologies: A model-based analysis of small modular reactors. Energy. https://api.semanticscholar.org/CorpusID:259618594
+
+TenneT. (n.d.-a). Renoveren en uitbreiden hoogspanningsstation Tilburg-Noord. Onze Projecten. Retrieved 8 February 2026, from https://www.tennet.eu/nl/projecten/projecten-de-regio-tilburg/renoveren-en-uitbreiden-hoogspanningsstation-tilburg-noord
+
+TenneT. (n.d.-b). Tilburg Noord – Best vervangen 150 kV-verbinding. Onze Projecten. Retrieved 8 February 2026, from https://content.tennet.eu/nl/projecten/projecten-de-regio-tilburg/tilburg-noord-best-vervangen-150-kv-verbinding
+
+TenneT. (n.d.-c). Vierverlaten—Ens 380 kV | TenneT. Onze Projecten. Retrieved 8 February 2026, from https://www.tennet.eu/nl/projecten/provincies/flevoland/vierverlaten-ens-380-kv
+
+TenneT. (n.d.-d). Zuid-West 380 kV Oost (Rilland—Tilburg). Onze Projecten. Retrieved 8 February 2026, from https://content.tennet.eu/nl/projecten/projecten-de-regio-tilburg/zuid-west-380-kv-oost-rilland-tilburg
+
+TenneT. (2025a). Monitoring Leveringszekerheid 2025 (EPN-2025-022). TenneT TSO B.V. https://content.tennet.eu/nl/over-tennet/publicaties/rapport-monitoring-leveringszekerheid
+
+TenneT. (2025b, May 14). Grid operators present scenarios for future energy system. TenneT. https://www.tennet.eu/nl-en/news/grid-operators-present-scenarios-future-energy-system
+
+Thorizon. (n.d.). Thorizon—Our Solution. Thorizon. Retrieved 8 February 2026, from https://thorizon.com/solution
+
+ULC Energy. (2025). Nuclear Cogeneration of Heat, Electricity and Hydrogen. https://www.ulc-energy.com/documents
+
+UtilityDive. (2024, January 31). The collapse of NuScale’s project should spell the end for small modular nuclear reactors. https://www.utilitydive.com/news/nuscale-uamps-project-small-modular-reactor-ramanasmr-/705717/
+
+Van Hee, N., Peremans, H., & Nimmegeers, P. (2024). Economic potential and barriers of small modular reactors in Europe. Renewable and Sustainable Energy Reviews, 203. Scopus. https://doi.org/10.1016/j.rser.2024.114743
+
+VEMW. (2025, March 7). IBO presenteert ‘menukaart’ met maatregelen voor extreme netkosten. https://www.vemw.nl/nieuwsbericht/2025/03/07/ibo-presenteert-menukaart-met-maatregelen-voor-extreme-netkosten
+
+VNG. (n.d.). Wettelijke definities van energie-infrastructuur. Energie-infrastructuur. Retrieved https://begrippenomgevingswet.nl/resultaat/energie-infrastructuur
+
+Zandt, C., Chavarriaga, J. G., & Scheepers, M. (2024). Small modular reactors in the Dutch energy system (TNO 2024 P11768). NRG, TNO. https://www.tno.nl/en/newsroom/2024/11/small-modular-reactors-dutch-energy/
+
+Appendices
+
+A1 – Minutes of Meetings (KGG)
+
+Minutes of Interview – Ministry of Climate and Green Growth (KGG)
+
+Date: 22 July 2025Location: Ministry of Climate and Green Growth, The HagueInterviewee: Cornelis Zandt – Strategic Advisor Nuclear Energy (SMRs)Interviewer: Kevin HasselaarTopic: Ministry perspective on the integration of Small Modular Reactors (SMRs) in the Dutch energy system
+
+1. Policy Status and Government–Market Role Allocation
+
+At the time of the interview, no formal SMR-specific policy had been adopted in the Netherlands.
+
+A dedicated SMR policy vision was under development and expected to be published in October 2025.
+
+The policy vision is intended to clarify:
+
+Required studies and research needs;
+
+The government’s role in SMR development;
+
+The structure of collaboration with market actors.
+
+Role differentiation compared to large Nuclear Power Plants (NPPs):
+
+For large-scale NPPs, the government assumes an active and leading role (financing structures, preparatory processes, and site selection).
+
+For SMRs, the government currently adopts a facilitating role:
+
+Providing information,
+
+Lowering barriers,
+
+Stimulating research and exploration.
+
+Initiative and financial responsibility are expected to lie primarily with private investors.
+
+The government sets boundary conditions and explores potential locations but does not assume direct project leadership.
+
+2. Substantive Perspectives on SMRs
+
+2.1 Knowledge and Research Needs
+
+A clear internal knowledge gap was identified within the Ministry, particularly regarding:
+
+The system-level necessity and value of SMRs;
+
+Preferred application domains (electricity, heat, hydrogen);
+
+Total System Cost (TSC) implications;
+
+Displacement effects on flexibility options (e.g., storage, transmission expansion);
+
+Financing modalities;
+
+Empirical evidence on system efficiency contributions.
+
+The current knowledge base was described as limited. Prognostic modelling studies—such as the one conducted in this thesis—were considered valuable contributions to evidence-based policymaking.
+
+2.2 Flexibility and System Impact
+
+Key policy-relevant questions include:
+
+To what extent can SMRs mitigate intermittency from variable renewable energy sources (vRES)?
+
+How does SMR deployment affect the need for:
+
+Storage,
+
+Demand-side flexibility,
+
+Transmission expansion?
+
+Specific methodological recommendations were provided:
+
+Explicit modelling of transmission expansion cost parameters;
+
+Sensitivity analyses on SMR cost assumptions due to prevailing uncertainty.
+
+3. Spatial and Societal Embedding
+
+3.1 Spatial Planning
+
+The government is actively investigating potential locations suitable for SMR deployment.
+
+Site exploration is an area where active governmental steering does occur.
+
+3.2 Societal Acceptance
+
+Societal perception was described as heterogeneous:
+
+Higher-educated demographic groups often engage in ideological debate on nuclear energy.
+
+The general public is perceived as largely neutral to mildly positive (often associating nuclear with low-carbon generation).
+
+However, societal sensitivity contributes to:
+
+Increased perceived investment risk for private firms;
+
+Polarisation in academic and public debate (pro- vs. anti-nuclear framing), limiting integrated system-level discourse.
+
+Financing and Risk Allocation
+
+SMRs are expected to rely primarily on private financing.
+
+Societal sensitivity increases industry risk exposure (“know-your-customer” considerations).
+
+The government does not assume a direct financing or leading role but may:
+
+Establish framework conditions,
+
+Reduce uncertainty via research and policy clarification.
+
+Timelines and Uncertainties
+
+The absence of operational track records complicates reliable estimation of:
+
+Construction timelines,
+
+Completion probabilities.
+
+This reinforces the need for:
+
+Empirically grounded studies,
+
+International benchmarking.
+
+Construction and operational risks are expected to be borne by private actors.
+
+Geopolitical Considerations
+
+Vendors from certain countries (e.g., China, Russia) are proactively excluded.
+
+Further supplier eligibility decisions remain dynamic and partly dependent on evolving political and societal paradigms.
+
+These considerations extend beyond purely techno-economic evaluation.
+
+Discussion of the Present Research Project
+
+The Ministry expressed interest in the results of this thesis, particularly concerning:
+
+Total System Cost impacts;
+
+Flexibility substitution mechanisms;
+
+Transmission effects;
+
+Sector coupling of SMRs (electricity, heat, hydrogen).
+
+Specific methodological advice:
+
+Use realistic transmission cost assumptions;
+
+Explicitly analyse SMR cost uncertainty;
+
+Compare SMRs against alternative technologies under equivalent scenario conditions.
+
+Minutes of Brief Exchange – Minister of Climate and Green Growth
+
+Date: 8 July 2025Location: The HagueAttendees:
+
+Kevin Hasselaar
+
+Sophie Hermans – Deputy Prime Minister of the Netherlands and Minister of Climate and Green Growth (KGG)
+
+Format: Short exchange
+
+1. Context of the Question
+
+The current Dutch cabinet has taken an active leadership role in planning and constructing additional large-scale Nuclear Power Plants (NPPs). At the same time, public statements have indicated caution regarding First-of-a-Kind (FOAK) risks of Small Modular Reactors (SMRs).
+
+The question raised concerned:
+
+Whether certain SMR designs (e.g., light-water reactor designs with existing operational data, such as the Rolls-Royce SMR concept) could potentially be treated differently from Generation IV concepts;
+
+Whether the Netherlands might consider early or parallel deployment of such designs, particularly following anticipated deployment in the United Kingdom;
+
+Why the government assumes a leading role for large NPPs but not for SMRs.
+
+2. Ministerial Response
+
+The Minister indicated that:
+
+There is currently insufficient empirical knowledge and operational experience with SMRs to justify the same proactive governmental leadership as applied to large NPPs.
+
+The allocated SMR budget is therefore primarily directed towards:
+
+Research,
+
+Knowledge development,
+
+Lowering barriers for industry-led initiatives.
+
+Regarding developments in the United Kingdom and the Rolls-Royce SMR design:
+
+The Minister noted awareness of the UK trajectory and indicated she would further inquire during an upcoming visit to the UK.
+
+No commitment was made regarding early Dutch deployment.
+
+Additionally:
+
+Reference was made to recent research by TNO indicating that industrial heat supply could be a favourable application domain for SMRs.
+
+The Ministry’s formal SMR vision was stated to be forthcoming toward the end of summer 2025.
+
+Notes on Documentation
+
+These minutes reflect the author’s contemporaneous notes and recollection of the discussions. They do not constitute formally approved or validated records by the Ministry of Climate and Green Growth.
+
+A2 - Literature selection
+
+To identify a suitable research question, a knowledge gap was identified through a literature review on the system effects of Small Modular Reactors, with an eye for a highly renewable energy systems context and corresponding total system costs.  To review the state of the art, the following core concepts were considered (Table 10).
+
+Table 10 Core Concepts
+
+Concept
+
+Definition
+
+Small Modular Reactor (SMR)
+
+Advanced nuclear fission reactors with a power capacity between 10-470* MW(e), comprising of factory-assembled components (IAEA, 2023b).
+
+Variable Renewable Energy Sources (vRES)
+
+"Sources of renewable energy (…) where the maximum output of an installation at a given time depends on the availability of fluctuating environmental inputs. Includes wind energy, solar energy, run-of-river hydro and ocean energy” (IEA, n.d.)
+
+Flexibility measures
+
+“(…) dispatchable power generation, demand-side response, energy storage, grid reinforcement and sector coupling, (…), cross-border electricity trade (…)” (Dedecca et al., 2025).
+
+Total System Costs (TSC)
+
+TSC captures all costs that consumers and/or taxpayers pay via bills and subsidies for the integration and use of a(n energy) system per year (Byrom et al., 2021). In this report, TSC are defined as ‘the total costs of the energy system for society’.
+
+Sector coupling
+
+"Sector coupling focuses on combining at least two of the different sectors of energy demand and production (i.e. electricity, heating, cooling, transport and industrial processes)" (IRENA Coalition for Action, 2022).
+
+Energy Infrastructure
+
+The organisational structure that enables the generation or mining, transportation and storage of energy carriers, comprising of i.e. pipelines, transmission and distribution lines, substations, converters, transformers, pumps and technologies to control and optimise the transport (DesigningBuildings, 2020; VNG, n.d.). *In this report, energy storage, generation, conversion and transmission will be named separately when applicable.
+
+These core concepts were chosen to reflect the core dimensions of this study: intermittency due to variable renewable energy sources, system (cost) effects, SMRs, and the role of sector coupling in these contexts.
+
+The literature to be reviewed was searched and selected using the PRISMA approach (Page et al., 2021). Several search strings were drafted to uncover different aspects of the knowledge present, to ensure the search scope does not filter out relevant papers. These search strings asked the academic search engines:
+
+What does the academic literature actually allow us to say about the cost-effectiveness and system impacts of cogenerating SMRs in high-renewable systems?
+
+How are SMRs represented in energy system studies, and what techno-economic assumptions underpin conclusions about their cost-effectiveness?
+
+Where, and how, do studies allow these mechanisms – transmission requirements reduction through decentralisation, dispatch flexibility, or cogeneration benefits – to affect total system cost?
+
+Table 11 Selected Literature for ReviewTable 11 Selected Literature for ReviewTable 11 Selected Literature for ReviewTable 11 Selected Literature for ReviewThis search process resulted in the selection of 22 relevant journal articles, complemented by 20 sources of grey literature found through snowballing, search engine queries and recommendations from thesis stakeholders. The total list of sources used for the literature review can be found in Table 11 Selected Literature for Review below. The search process that resulted in the selection of the journal articles is illustrated below (Table 11).
+
+Table 11 Selected Literature for Review
+
+Table 11 Selected Literature for Review
+
+Table 11 Selected Literature for Review
+
+Table 11 Selected Literature for Review
+
+A3 – Minutes of Interview (ANVS)
+
+Date: 17-07-2025
+
+Location: Remote (telephone interview)
+
+Participants: Joran de Jong (ANVS), Kevin Hasselaar (TU Delft, TNO)
+
+General Review of SMR assessment by ANVS
+
+The ANVS’ key question in safety assessment is: What is the likelihood that (groups of) people are exposed to a certain radiation dose under normal and abnormal conditions?
+
+‘Conventional’ LWR large nuclear power plants:
+
+Designed with many control systems required to avoid meltdown, resulting in more failure modes and thus a large quantity of risk assessments and substantiation required.
+
+Licensing and assessment processes are more familiar due to long-standing (empirical) experience, and thus providing this substantiation is easier.
+
+‘Conventional’ LWR SMRs:
+
+This design is based on the existing technology of large reactors, but features new configurations with passive or no active decay heat removal systems.
+
+Essentially considered safer by design, but harder to substantiate this claim due to limited empirical evidence on this new configuration.
+
+‘Advanced’ SMR designs:
+
+These designs typically have fewer failure modes and therefore are, in theory, safer.
+
+It is more difficult to demonstrate or substantiate claims about their risks and safety, due to a lack of empirical evidence.
+
+Globally, various projects are ongoing to test and demonstrate various phenomena, but most are still in early stages. Similarly, Thorizon – active in The Netherlands – have an experimental set-up, but currently not with molten salt as their design is based on.
+
+Permitting and timelines
+
+Regardless of the design and technology in question, the first safety assessment – based on a complete design of the reactor in-situ, covering location-specific tests and plans – typically takes at least 2 years.
+
+This assessment is only formally initiated after this comprehensive design and plan is completed.
+
+The first permit concerns the license to construct. As soon as this permit has been granted, the supervisory authority will oversee the construction phase.
+
+Based on current information, it is deemed unlikely for any construction permits to be granted before 2030. The earliest feasible permit applications are expected from 2027 and on.
+
+Once construction has been completed, a commissioning permit is required to operate the reactor, which can only be granted after verification of the constructed plants’ consistency with the requirements.
+
+Capacity and role of ANVS
+
+Due to the complexity of forecasting the required capacity at the ANVS, permitting timelines could face a bottleneck in personnel availability at the authority. However, this is deemed unlikely in the near future, given the ongoing expansion of the current workforce in anticipation of new permitting requests.
+
+Relevant SMR designs for the Dutch market in the near future
+
+The main candidates with feasible SMR designs for the near future are:
+
+GE Hitachi BWRX-300;
+
+Rolls-Royce SMR;
+
+Thorizon One.
+
+There is interest in the application of SMR technology in the maritime sector.
+
+Another contender, Last Energy, is interested in the Dutch market, but their design currently does not meet Dutch nuclear safety policies.
+
+All other SMR designs have yet to be investigated upon interest in the Dutch market.
+
+Sub-critical reactors are deemed unlikely to be feasible for energy production as primary driver.
+
+A4 – Minutes of Interview (ULC Energy)
+
+Date: June 2025Location: ULC Energy Office, AmsterdamParticipant: Michael Hewitt – Director Consulting, ULC Energy B.V.Interviewer: Kevin HasselaarTopic: Industry-led SMR development in the Netherlands and characteristics of the Rolls-Royce SMR design
+
+Context
+
+ULC Energy B.V. is a nuclear development and consulting firm active in the Netherlands. The company is involved in project development activities related to the Rolls-Royce Small Modular Reactor (RR SMR), which is considered one of the potential SMR contenders for the Dutch market.
+
+The interview aimed to:
+
+Better understand the technical and strategic rationale behind the RR SMR design;
+
+Discuss an industry-led development model in the Dutch context;
+
+Identify key barriers to SMR realisation;
+
+Clarify technological parameters relevant for modelling in this thesis.
+
+Rolls-Royce SMR Design Logic
+
+Mr. Hewitt explained that the RR SMR is a Generation III+ pressurised water reactor (PWR) design, derived from established light-water reactor technology.
+
+Key characteristics discussed:
+
+The design aims to maximise unit capacity within modular constraints in order to capture economies of scale.
+
+The primary physical constraint is logistical: component dimensions must remain transportable via existing infrastructure (road, rail, and waterways), particularly within the European context.
+
+The reactor benefits from:
+
+Established fuel supply chains;
+
+Existing regulatory frameworks and empirical data for PWR technology;
+
+Known waste handling and fuel cycle processes.
+
+It was noted that Generation IV concepts do not currently benefit from equivalent operational track records or established fuel and waste management infrastructure, potentially introducing additional cost and licensing complexity.
+
+Industry-Led Development Model
+
+ULC Energy promotes an industry-led deployment strategy structured around a “Clean Energy Cluster” concept.
+
+Core elements discussed:
+
+Development of SMRs with large industrial energy consumers;
+
+Value creation “behind the meter,”;
+
+Provision of electricity and industrial heat directly to clustered industrial users.
+
+This approach is presented as:
+
+Increasing project bankability through long-term industrial offtake agreements;
+
+Aligning SMR deployment with decarbonisation needs of energy-intensive industries.
+
+Key Barriers to SMR Realisation
+
+Several structural obstacles were discussed, both generic and Dutch-specific:
+
+1. Siting Constraints
+
+Limited suitable locations in the Netherlands due to:
+
+Spatial density,
+
+Competing land use,
+
+Regulatory and environmental restrictions.
+
+2. Societal Acceptance
+
+Community resistance remains a critical risk factor.
+
+Public perception challenges affect financing and political momentum.
+
+3. Regulatory and Institutional Uncertainty
+
+Absence of a fully articulated Dutch SMR policy at the time of the interview.
+
+4. Debate and Research Polarisation
+
+Nuclear energy remains politically sensitive.
+
+Independent scientific research capacity in the Netherlands has been limited up to recent years.
+
+Research funded directly by industry actors may be perceived as biased, affecting public credibility.
+
+Recent increases in governmental attention and funding were viewed as a positive development.
+
+Cogeneration and Operational Characteristics
+
+Discussion included expected deployment trajectories. The RR SMR is capable of cogeneration configurations.
+
+Topics discussed included:
+
+Cogeneration constraints at stable operation;
+
+Technical feasibility of supplying industrial heat;
+
+Potential hydrogen production integration;
+
+Operational flexibility within reactor boundaries.
+
+Mr. Hewitt provided indicative technical parameters for stable cogeneration configurations, which were used as modelling inputs in this thesis. These parameters relate to:
+
+Optimally efficient / stable load levels,
+
+Heat-to-power ratios under steady-state operation,
+
+Efficiency assumptions under cogeneration mode.
+
+Relevance for This Research
+
+The interview contributed to:
+
+Refinement of techno-economic assumptions for a key SMR design;
+
+Improved understanding of realistic deployment pathways;
+
+Clarification of industrial cluster-based integration strategies;
+
+Contextualisation of SMR deployment and siting uncertainties in the Dutch energy system.
+
+Documentation Note
+
+These minutes are based on the author’s notes and recollection and do not constitute an officially approved record by ULC Energy B.V.
+
+A5 – System nodes
+
+A6 – System edges (transmission lines)
+
+A7 - Model Configuration & Parametrisation
+
+The Calliope-based model was configured with 2 contextual scenarios of the energy mix in The Netherlands in 2040, as discussed in Chapter 2. All data except for (details on) the Small Modular Reactor technology and electricity transmission network were sourced from these scenario sets through the ETM model (source). This appendix discusses the model input parameters and their values and their sourcing or processing.
+
+Demand sourcing
+
+The total energy demand per scenario was gathered through the ETM dataset, in which structured timeseries data of demands for electricity, heat and hydrogen were structured per municipality, except for industrial demand which was only provided per NUTS2 region. The aggregated electricity demand figures can be found in Table X below.
+
+In the model, total electricity demand used was 326.4 TWh for scenario EV (-115.6) and 279 TWh for scenario KM (-95). These totals are lower, firstly because as all energy sector demand is modelled endogenously (-30 and -27 resp.). Moreover, various flexibility-related demand items were omitted from the transport, agriculture and industry demand sets. Namely: peer-to-peer supply and demand items in the transport and built environment sectors, flexible CHP demand in agriculture, and flexible power to heat demand from industry. The latter was transformed to direct heat demand as explained below. Lastly, transmission and storage losses were omitted as these were modelled endogenously.
+
+Methane demand totals were 75 TWh for EV and 92 TWh for KM, roughly 15 and 31 TWh lower than provided in the source respectively (Table X). This difference stems primarily from excluding energy sector demand, which is endogenously modelled, with the exception of distribution, transmission and storage losses as these are not modelled. A minor share remaining difference stems from excluding CHP plants from the agriculture and industry sectors. This is primarily due to a lack of detailing in the dataset of the carrier ratios applied to these CHPs, leaving no clear interpretation for resulting heat or power output.
+
+Hydrogen demand is similarly processed as methane, resulting in 35 TWh for scenario EV and 45 TWh for KM, roughly 39 and 17 TWh lower than provided by the source (Table X). Once again, energy sector demand is excluded except grid efficiency losses.
+
+Lastly, heat demand was sourced directly from the total electricity demand tied to industry power-to-heat. This data was then slightly scaled down to account for efficiency losses of the electric boiler in the ETM model.
+
+Demand processing
+
+The resulting datasets were structured in hourly timeseries of demand per municipality. Industry demand saw one level of abstraction higher: per province. To correctly assign demand to individual nodes, a centroid-based approach was taken, as visualized in the figure  below.
+
+Municipality demands were summed to the nearest node, validated against the transmission-distribution network layout found in https://webkaart.hoogspanningsnet.com/index2.php, and corrected where needed. Industry demand was first decomposed to municipality level before it could be assigned in the same manner. To do so, multiple different methods were combined. Firstly, a reliable dataset with historical aggregated demand per carrier for industry per municipality was used as a distribution-key to assign the retrieved heat demands to municipalities. These demands were then assigned to the nodes in similar fashion. Thereafter, the reports of the 6 main industry clusters were evaluated for demand/supply figures, namely: Cluster Rotterdam-Moerdijk, Cluster Chemelot, Cluster Noord-Nederland, Cluster Noordzeekanaalgebied, Cluster Zeeland/West-Brabant, and Cluster 6 – the latter being spread across the Netherlands. Apart from their (limited) reporting on demand, the exact geographical maps were taken as overlays to only pick out the select nodes exactly connecting the geographical area or otherwise connected to this area with regional electricity distribution lines. Fractions of industrial heat demand per industrial node were then redistributed roughly reflecting the locations of largest heat demand actors in https://www.verduurzamingindustrie.nl/over+npvi+en+partners/onze+partners/industrieclusters/default.aspx those regions:
+
+A8 – SMR cogeneration constraints
+
+X = Heat, Z = Power, Y = Hydrogen
+
+0.8511 = 85.11% = Thermal output (GWth) = ~30% of GWe
+
+Constraint-sets SMR – CHH₂P
+
+def inject_trapezoid_constraints(model, tech_list, tol=1e-6):
+
+"""
+
+Adds convex‐combination trapezoid constraints for each technology in tech_list.
+
+"""
+
+bm = model.backend._backend
+
+for cname in [
+
+"balance_conversion_plus_primary_constraint",
+
+"balance_conversion_plus_out_2_constraint",
+
+"balance_conversion_plus_out_3_constraint",
+
+]:
+
+if not hasattr(bm, cname):
+
+continue
+
+con = getattr(bm, cname)
+
+for idx in con.index_set():
+
+loc_tech = idx[0] if cname.endswith("primary_constraint") else idx[1]
+
+loc, tech = loc_tech.split("::")
+
+if tech in tech_list:
+
+con[idx].deactivate()
+
+# 1. Define weight variables for all loc_techs & timesteps
+
+bm.w_a = Var(bm.loc_techs, bm.timesteps, domain=NonNegativeReals)
+
+bm.w_b = Var(bm.loc_techs, bm.timesteps, domain=NonNegativeReals)
+
+bm.w_c = Var(bm.loc_techs, bm.timesteps, domain=NonNegativeReals)
+
+bm.w_d = Var(bm.loc_techs, bm.timesteps, domain=NonNegativeReals)
+
+# 2. Sum‐to‐one (≤1) constraint
+
+def sum_to_units_rule(m, loc_tech, t):
+
+loc, tech = loc_tech.split("::")
+
+if tech not in tech_list:
+
+return Constraint.Skip
+
+return (m.w_a[loc_tech, t] + m.w_b[loc_tech, t] +
+
+m.w_c[loc_tech, t] + m.w_d[loc_tech, t]) <= m.units[loc_tech] + tol
+
+bm.sum_to_units = Constraint(bm.loc_techs, bm.timesteps, rule=sum_to_units_rule)
+
+# 3. Dispatch‐link constraints for each carrier
+
+def make_link_rule(carrier, corner_factors):
+
+"""
+
+Returns a rule function linking carrier_prod to sum(w_i * factor_i) * cap.
+
+carrier : str
+
+"Electricity", "Hydrogen", or "Heat"
+
+corner_factors : tuple of floats
+
+(factor_a, factor_b, factor_c, factor_d) for this carrier
+
+"""
+
+def link_rule(m, loc_tech, t):
+
+loc, tech = loc_tech.split("::")
+
+if tech not in tech_list:
+
+return Constraint.Skip
+
+cap = m.energy_cap_per_unit[loc_tech]
+
+prod = m.carrier_prod[(f"{loc}::{tech}::{carrier}", t)]
+
+fa, fb, fc, fd = corner_factors
+
+return prod == cap * (
+
+fa * m.w_a[loc_tech, t]
+
++ fb * m.w_b[loc_tech, t]
+
++ fc * m.w_c[loc_tech, t]
+
++ fd * m.w_d[loc_tech, t])
+
+return link_rule
+
+# Corner factor definitions for P, H₂, T
+
+eps = 1e-3
+
+P_factors  = (eps, 0.54, 0.90, eps)
+
+H₂_factors = (0.192, 0.03, 0.03, 0.30)
+
+T_factors  = (0.8511, 0.8511, 0.0, 0.0)
+
+bm.link_P  = Constraint(bm.loc_techs, bm.timesteps, rule=make_link_rule("electricity", P_factors))
+
+bm.link_H₂ = Constraint(bm.loc_techs, bm.timesteps, rule=make_link_rule("hydrogen",  H₂_factors))
+
+bm.link_T  = Constraint(bm.loc_techs, bm.timesteps, rule=make_link_rule("heat",       T_factors))
+
+Constraint set SMR CHP
+
+def inject_chp_segment_switch(model, tech_list, tol=1e-6):
+
+"""
+
+Enforce (P,T) either = (0,0) if z=0, or on line segment a->b if z=1:
+
+a=(0.6383*cap,0.8511*cap), b=(1.0*cap,0).
+
+Here “cap” is the per‐unit capacity (energy_cap_per_unit) already on bm.
+
+"""
+
+bm = model.backend._backend
+
+# 1. Deactivate built-in conversion constraints for these techs
+
+for cname in [
+
+"balance_conversion_plus_primary_constraint",
+
+"balance_conversion_plus_out_2_constraint",
+
+]:
+
+if hasattr(bm, cname):
+
+con = getattr(bm, cname)
+
+for idx in con.index_set():
+
+lt = idx[0] if cname.endswith("primary_constraint") else idx[1]
+
+if lt.split("::")[1] in tech_list:
+
+con[idx].deactivate()
+
+# 2. Binary on/off switch z_lt_t ∈ {0,1}
+
+bm.z = Var(bm.loc_techs, bm.timesteps, domain=Binary)
+
+# 3. Segment weights wa, wb ≥ 0
+
+bm.wa = Var(bm.loc_techs, bm.timesteps, domain=NonNegativeReals)
+
+bm.wb = Var(bm.loc_techs, bm.timesteps, domain=NonNegativeReals)
+
+# 4. wa + wb = z
+
+def sum_to_z(m, lt, t):
+
+loc, tech = lt.split("::")
+
+if tech not in tech_list:
+
+return Constraint.Skip
+
+return m.wa[lt, t] + m.wb[lt, t] == m.z[lt, t]
+
+bm.sum_to_z = Constraint(bm.loc_techs, bm.timesteps, rule=sum_to_z)
+
+# 5. Link Electricity: P = 0.6383*cap*wa + 1.0*cap*wb
+
+def link_P(m, lt, t):
+
+loc, tech = lt.split("::")
+
+if tech not in tech_list:
+
+return Constraint.Skip
+
+# per-unit capacity provided by Calliope on the backend
+
+cap = m.energy_cap_per_unit[lt]
+
+P = m.carrier_prod[(f"{loc}::{tech}::electricity", t)]
+
+return P == cap*(0.6383*m.wa[lt, t] + 1.0*m.wb[lt, t])
+
+bm.link_P = Constraint(bm.loc_techs, bm.timesteps, rule=link_P)
+
+# 6. Link Heat: T = 0.8511*cap*wa + 0*cap*wb
+
+def link_T(m, lt, t):
+
+loc, tech = lt.split("::")
+
+if tech not in tech_list:
+
+return Constraint.Skip
+
+cap = m.energy_cap_per_unit[lt]
+
+T = m.carrier_prod[(f"{loc}::{tech}::heat", t)]
+
+return T == cap*(0.8511*m.wa[lt, t] + 0.0*m.wb[lt, t])
+
+bm.link_T = Constraint(bm.loc_techs, bm.timesteps, rule=link_T)
+
+# 7. Link dispatch to investment decisions
+
+def prevent_dispatch_without_units(m, lt, t):
+
+loc, tech = lt.split("::")
+
+if tech not in tech_list:
+
+return Constraint.Skip
+
+# Can only dispatch (z=1) if units are actually purchased
+
+return m.z[lt, t] <= m.units[lt]
+
+bm.prevent_dispatch = Constraint(bm.loc_techs, bm.timesteps,
+
+rule=prevent_dispatch_without_units)
+
+A9 – Overview of key results
+
+A10 – Supplementary results
+
+Curtailment
+
+Each scenario also allowed for the curtailment of renewable energy sources, meaning renewables can be overplanted to fully utilise their free variable costs during high capacity factor periods. It should be noted that this research assumed transmission capacity scaled to equal the installed capacity size of offshore wind, meaning overplanting is less attractive due to the high costs of transmission infrastructure.
+
+The reference cases show little to no curtailment. Only in the Cost-25% and increased heat demand scenarios are renewables curtailed. This can be explained by the widespread SMR deployment in these cases, leaving curtailment during renewable peaks cheaper than transmitting.
+
+Emissions
+
+The emissions in the model were constrained by setting ETS prices at 177€/tonCO₂ emitted for scenario EV, and discounting this by 40% for scenario KM to 106.2€/tonCO₂ as aligned with the original NBNL Scenario inputs. No cap was placed, and only Gas and Waste Incinerator plants emit CO₂. No CCS was modelled.
+
+The totals range from a minimum of 66 kTon CO₂ for scenario Eigen Vermogen, with 0.1 GWe CHP SMRs and the Heat Demand x5 sensitivity, to a maximum of 1401 kTon CO₂ in the Heat Demand x5 baseline scenario.
+
+The graphs clearly visualise higher emissions in the Koersvaste Middenweg scenario, directly the result of the 40% discount on ETS prices. In both Eigen Vermogen as Koersvaste Middenweg, the baseline scenario shows the highest average emissions across the runs. This is largely due to the bigger share of CCGT Gas installed in the system in SMR runs. This also explains the higher emissions in the SMR Cost x1.5 scenario, as this has the lowest installed capacity of SMRs across the scenarios.
+
+Between SMR configurations, emissions do not differ significantly. Though on average, CHP SMRs see slightly lower emissions compared to CHH₂P scenarios (-2.8%).
+
+A11 – Indicator 2 results
+
+A12 – Indicator 4 results
+
+A13 – Minutes of interview (TATA Steel Europe)
+
+Date: July 2025Location: Online (Microsoft Teams)Participants:
+
+Kevin Hasselaar
+
+Dr. ir. Hans van der Weijde – Director Strategy, Programmes and External Collaborations, Tata Steel Europe
+
+Topic: Industrial perspective on Small Modular Reactors (SMRs), industry-led development, and energy strategy considerations
+
+Context and Purpose
+
+This interview aimed to obtain the perspective of a large industrial energy consumer on:
+
+The potential role of SMRs in industrial decarbonisation;
+
+The feasibility of industry-led SMR development;
+
+Energy security and strategic flexibility considerations;
+
+Future energy carrier demand in heavy industry.
+
+The discussion lasted approximately 30 minutes.
+
+Exposure to SMR Proposals
+
+Dr. Van der Weijde indicated that Tata Steel has been approached by project developers presenting SMR concepts.
+
+However, the relevance of SMRs depends strongly on:
+
+The specific industrial processes requiring heat and/or electricity;
+
+The temperature level (“quality”) of heat demand;
+
+The compatibility of SMR output characteristics with process requirements.
+
+It was noted that industrial suitability cannot be assessed generically but must be evaluated per process stream.
+
+Tata Steel Energy Strategy
+
+The discussion addressed Tata Steel’s broader decarbonisation and energy transition strategy.
+
+Key elements mentioned include:
+
+Ongoing electrification of parts of the thermal demand where technically feasible;
+
+Strategic alignment with renewable electricity supply, including offshore wind integration;
+
+Consideration of hydrogen as a long-term decarbonisation pathway.
+
+Regarding hydrogen:
+
+Hydrogen-based steelmaking is technically feasible;
+
+However, current hydrogen costs were described as too high to maintain international competitiveness under present market conditions.
+
+Energy Security and Congestion Considerations
+
+Questions were raised regarding:
+
+Security of supply risks;
+
+Grid congestion;
+
+Exposure to volatile electricity prices;
+
+Potential shifts toward alternative energy carriers.
+
+The response suggested that while energy price developments and infrastructure constraints are strategic concerns, Tata Steel’s existing energy connections and transition plans currently reduce the immediate relevance of SMR-based behind-the-meter solutions.
+
+Perspective on Industry-Led SMR Development
+
+From Tata Steel’s perspective, two principal considerations limit the attractiveness of SMRs:
+
+1. Strategic Fit
+
+Given existing electrification and renewable supply strategies, SMRs are not presently central to Tata Steel’s transition roadmap.
+
+Long-term viability remains open but uncertain.
+
+2. Societal and Reputational Risk
+
+Nuclear energy remains societally debated in the Netherlands.
+
+Engagement in SMR deployment would introduce additional public relations and stakeholder management challenges.
+
+Given Tata Steel’s existing public and community visibility, additional societal controversy was described as a non-trivial strategic risk factor.
+
+This reputational dimension was indicated as potentially outweighing techno-economic considerations in the short to medium term.
+
+Relevance for This Research
+
+The interview contributed to:
+
+Clarifying the conditional nature of industrial SMR demand;
+
+Highlighting the importance of heat quality (temperature level) in assessing cogeneration suitability;
+
+Emphasising reputational and societal risk as a decision variable in industry-led nuclear deployment;
+
+Contextualising industry-led SMR development within broader corporate decarbonisation strategies.
+
+Documentation Note
+
+These minutes reflect the author’s notes and recollection of the exchange and do not constitute an officially validated record by Tata Steel Europe.

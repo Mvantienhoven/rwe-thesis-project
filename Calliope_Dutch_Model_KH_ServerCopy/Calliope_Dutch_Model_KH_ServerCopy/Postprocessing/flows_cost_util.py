@@ -30,6 +30,8 @@ def extract_tidy(ds, var_name, index_dim, value_label):
     return df[cols]
 
 def extract_cost_om(ds):
+    if "cost_om_con" not in ds:
+        return None
     df = ds["cost_om_con"].to_series().reset_index().rename(
         columns={
             "costs": "cost_category",
@@ -64,29 +66,57 @@ def postprocess(nc_file, output_csv):
         unmet["unmet_demand"] = 0.0
 
 
-    varc = ds["cost_var"].to_series().reset_index().rename(
-        columns={
-            "costs": "var_cost_category",
-            "loc_techs_om_cost": "item",
-            "timesteps": "time",
-            "cost_var": "variable_cost"
-        }
+    base_cost_index = (
+        pd.concat(
+            [
+                prod[["time", "location", "technology"]],
+                con[["time", "location", "technology"]],
+            ],
+            ignore_index=True,
+        )
+        .drop_duplicates()
+        .reset_index(drop=True)
     )
-    varc[["location", "technology"]] = varc["item"].str.split("::", expand=True)
-    varc = varc[["time", "location", "technology", "var_cost_category", "variable_cost"]]
+
+    if "cost_var" in ds:
+        varc = ds["cost_var"].to_series().reset_index().rename(
+            columns={
+                "costs": "var_cost_category",
+                "loc_techs_om_cost": "item",
+                "timesteps": "time",
+                "cost_var": "variable_cost"
+            }
+        )
+        varc[["location", "technology"]] = varc["item"].str.split("::", expand=True)
+        varc = varc[["time", "location", "technology", "var_cost_category", "variable_cost"]]
+    else:
+        print("Warning: 'cost_var' not found. Using zero-filled variable_cost.")
+        varc = base_cost_index.copy()
+        varc["var_cost_category"] = "monetary"
+        varc["variable_cost"] = 0.0
+
     omc = extract_cost_om(ds)
+    if omc is None:
+        print("Warning: 'cost_om_con' not found. Using zero-filled operational_cost.")
+        omc = base_cost_index.copy()
+        omc["operational_cost"] = 0.0
 
     df_cap = ds["energy_cap"].to_series().reset_index()
     df_cap.columns = ["item", "capacity"]
     df_cap[["location", "technology"]] = df_cap["item"].str.split("::", expand=True)
     capacity = df_cap[["location", "technology", "capacity"]]
 
-    coord_array = ds["loc_coordinates"].values
-    coords_idx  = ds.coords["coordinates"].values.tolist()
-    locs        = ds.coords["locs"].values.tolist()
-    df_coords   = pd.DataFrame(coord_array.T, columns=coords_idx)
-    df_coords["location"] = locs
-    coords = df_coords[["location", "lon", "lat"]]
+    if "loc_coordinates" in ds:
+        coord_array = ds["loc_coordinates"].values
+        coords_idx  = ds.coords["coordinates"].values.tolist()
+        locs        = ds.coords["locs"].values.tolist()
+        df_coords   = pd.DataFrame(coord_array.T, columns=coords_idx)
+        df_coords["location"] = locs
+        coords = df_coords[["location", "lon", "lat"]]
+    else:
+        print("Warning: 'loc_coordinates' not found. Using NaN coordinates.")
+        locs = ds.coords["locs"].values.tolist() if "locs" in ds.coords else []
+        coords = pd.DataFrame({"location": locs, "lon": np.nan, "lat": np.nan})
     ds.close()
 
     net = (prod

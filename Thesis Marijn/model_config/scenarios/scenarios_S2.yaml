@@ -1,0 +1,23 @@
+#SCENARIOS
+
+scenarios:
+    base_run_EV: [  
+                    capacities_Scenario2_EV,
+                    demand_EV] 
+
+    base_run_GB: [  
+                    capacities_Scenario2_GB,
+                    demand_GB,
+                    ets_discount] 
+
+    
+    base_run_HA: [  
+                    capacities_Scenario2_HA,
+                    demand_HA,
+                    ets_discount] 
+    
+
+    base_run_KM: [  
+                    capacities_Scenario2_KM,
+                    demand_KM,
+                    ets_discount] 

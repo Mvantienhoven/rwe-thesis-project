@@ -717,8 +717,10 @@ def run_IC(
     output_html_path: str,
     html_title: str = "Energy System Overview"
 ):
-    # Hardcoded paths
+    # Prefer legacy DelftBlue location, but fall back to local Postprocessing folder.
     geojson_path = Path.cwd() / "Research_Runs" / "Postprocessing" / "NUTS2.geojson"
+    if not geojson_path.exists():
+        geojson_path = Path.cwd() / "Postprocessing" / "NUTS2.geojson"
     #output_html_path = Path.cwd() / "analysis_results" / "Installed_Capacities.html"
 
     # Load and process data

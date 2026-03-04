@@ -1,0 +1,302 @@
+#-------------------------------------------------COMMENTS KEVIN------------------------------------------------------#
+# import and export tech classes.
+
+#----------------------------------------------------------------------------------------------------------------------#
+
+techs:
+    export_demand:
+        essentials:
+            name: 'Export - Demand'
+            #color: '#ffc107'
+            parent: demand
+            carrier: sink
+        constraints:
+            force_resource: False
+            resource: -1000 #arbitrary, not enforced and capped out by interconnectors
+
+    # Crossborder
+    import_DIE:
+        essentials:
+            name: 'Import - DIE'
+        #    color: '#ffc107'
+            parent: supply
+            carrier: electricity
+        constraints:
+            force_resource: False
+            energy_cap_equals: 1.200 #same as flow_cap_max of interconnector
+        costs:
+            monetary:
+                om_con: file=import_export/import_price_2040.csv:DE
+    export_DIE:
+        essentials:
+            name: 'Export - DIE'
+        #    color: '#ffc107'
+            parent: conversion
+            carrier_in: electricity
+            carrier_out: sink
+        constraints:
+            energy_cap_equals: 1.200 #same as flow_cap_max of interconnector
+            energy_eff: 1
+        costs:
+            monetary:
+                om_con: file=import_export/export_price_2040.csv:DE
+
+    import_SIE:
+        essentials:
+            name: 'Import - SIE'
+        #    color: '#ffc107'
+            parent: supply
+            carrier: electricity
+        constraints:
+            force_resource: False
+            energy_cap_equals: 1.500 #same as flow_cap_max of interconnector
+        costs:
+            monetary:
+                om_con: file=import_export/import_price_2040.csv:DE
+    export_SIE:
+        essentials:
+            name: 'Export - SIE'
+        #    color: '#ffc107'
+            parent: conversion
+            carrier_in: electricity
+            carrier_out: sink
+        constraints:
+            energy_cap_equals: 1.500 #same as flow_cap_max of interconnector
+            energy_eff: 1
+        costs:
+            monetary:
+                om_con: file=import_export/export_price_2040.csv:DE
+
+    import_DEN:
+        essentials:
+            name: 'Import - DEN'
+        #    color: '#ffc107'
+            parent: supply
+            carrier: electricity
+        constraints:
+            force_resource: False
+            energy_cap_equals: 0.700 #same as flow_cap_max of interconnector
+        costs:
+            monetary:
+                om_con: file=import_export/import_price_2040.csv:DK
+    export_DEN:
+        essentials:
+            name: 'Export - DEN'
+        #    color: '#ffc107'
+            parent: conversion
+            carrier_in: electricity
+            carrier_out: sink
+        constraints:
+            energy_cap_equals: 0.700 #same as flow_cap_max of interconnector
+            energy_eff: 1
+        costs:
+            monetary:
+                om_con: file=import_export/export_price_2040.csv:DK
+
+    import_NOR:
+        essentials:
+            name: 'Import - NOR'
+        #    color: '#ffc107'
+            parent: supply
+            carrier: electricity
+        constraints:
+            force_resource: False
+            energy_cap_equals: 0.700 #same as flow_cap_max of interconnector
+        costs:
+            monetary:
+                om_con: file=import_export/import_price_2040.csv:NO
+    export_NOR:
+        essentials:
+            name: 'Export - NOR'
+        #    color: '#ffc107'
+            parent: conversion
+            carrier_in: electricity
+            carrier_out: sink
+        constraints:
+            energy_cap_equals: 0.700 #same as flow_cap_max of interconnector
+            energy_eff: 1
+        costs:
+            monetary:
+                om_con: file=import_export/export_price_2040.csv:NO
+
+    import_EYC:
+        essentials:
+            name: 'Import - EYC'
+        #    color: '#ffc107'
+            parent: supply
+            carrier: electricity
+        constraints:
+            force_resource: False
+            energy_cap_equals: 1.200 #same as flow_cap_max of interconnector
+        costs:
+            monetary:
+                om_con: file=import_export/import_price_2040.csv:BE
+    export_EYC:
+        essentials:
+            name: 'Export - EYC'
+        #    color: '#ffc107'
+            parent: conversion
+            carrier_in: electricity
+            carrier_out: sink
+        constraints:
+            energy_cap_equals: 1.200 #same as flow_cap_max of interconnector
+            energy_eff: 1
+        costs:
+            monetary:
+                om_con: file=import_export/export_price_2040.csv:BE
+
+    import_WSL:
+        essentials:
+            name: 'Import - WSL'
+        #    color: '#ffc107'
+            parent: supply
+            carrier: electricity
+        constraints:
+            force_resource: False
+            energy_cap_equals: 2.350 #same as flow_cap_max of interconnector
+        costs:
+            monetary:
+                om_con: file=import_export/import_price_2040.csv:DE
+    export_WSL:
+        essentials:
+            name: 'Export - WSL'
+        #    color: '#ffc107'
+            parent: conversion
+            carrier_in: electricity
+            carrier_out: sink
+        constraints:
+            energy_cap_equals: 2.350 #same as flow_cap_max of interconnector
+            energy_eff: 1
+        costs:
+            monetary:
+                om_con: file=import_export/export_price_2040.csv:DE
+
+    import_UK:
+        essentials:
+            name: 'Import - UK'
+        #    color: '#ffc107'
+            parent: supply
+            carrier: electricity
+        constraints:
+            force_resource: False
+            energy_cap_equals: 1.000 #same as flow_cap_max of interconnector
+        costs:
+            monetary:
+                om_con: file=import_export/import_price_2040.csv:UK
+    export_UK:
+        essentials:
+            name: 'Export - UK'
+        #    color: '#ffc107'
+            parent: conversion
+            carrier_in: electricity
+            carrier_out: sink
+        constraints:
+            energy_cap_equals: 1.000 #same as flow_cap_max of interconnector
+            energy_eff: 1
+        costs:
+            monetary:
+                om_con: file=import_export/export_price_2040.csv:UK
+
+    import_GRO:
+        essentials:
+            name: 'Import - GRO'
+        #    color: '#ffc107'
+            parent: supply
+            carrier: electricity
+        constraints:
+            force_resource: False
+            energy_cap_equals: 1.600 #same as flow_cap_max of interconnector
+        costs:
+            monetary:
+                om_con: file=import_export/import_price_2040.csv:DE
+    export_GRO:
+        essentials:
+            name: 'Export - GRO'
+        #    color: '#ffc107'
+            parent: conversion
+            carrier_in: electricity
+            carrier_out: sink
+        constraints:
+            energy_cap_equals: 1.600 #same as flow_cap_max of interconnector
+            energy_eff: 1
+        costs:
+            monetary:
+                om_con: file=import_export/export_price_2040.csv:DE
+
+    import_ZAN:
+        essentials:
+            name: 'Import - ZAN'
+        #    color: '#ffc107'
+            parent: supply
+            carrier: electricity
+        constraints:
+            force_resource: False
+            energy_cap_equals: 2.350 #same as flow_cap_max of interconnector
+        costs:
+            monetary:
+                om_con: file=import_export/import_price_2040.csv:BE
+    export_ZAN:
+        essentials:
+            name: 'Export - ZAN'
+        #    color: '#ffc107'
+            parent: conversion
+            carrier_in: electricity
+            carrier_out: sink
+        constraints:
+            energy_cap_equals: 2.350 #same as flow_cap_max of interconnector
+            energy_eff: 1
+        costs:
+            monetary:
+                om_con: file=import_export/export_price_2040.csv:BE
+
+    interconnector_base:
+        essentials:
+            name: 'Interconnector'
+            #color: '#ffc107'
+            carrier: electricity
+            parent: interconnector
+            energy_eff_per_distance: 0.99965
+        costs:
+            monetary:
+                energy_cap: 364 #M€/GW
+                
+
+    import_hyd_interconnector:
+        essentials:
+            name: 'Import - Hydrogen interconnection'
+            parent: crossborder_import
+            carrier: hydrogen
+        costs:
+            monetary:
+                om_prod: 75e-3 #! MEUR/GWh, assumed hydrogen import price  
+                         
+    import_gas_interconnector:
+        essentials:
+            name: 'Import - Gas interconnection'
+            parent: crossborder_import
+            carrier: gas
+        costs:
+            monetary:
+                om_prod: 36e-3 #! MEUR/GWh
+
+    import_ammonia_cracker:
+        essentials:
+            name: 'Import - Ammonia cracker'
+            parent: terminal_import
+            carrier: hydrogen
+        costs:
+            monetary:
+                energy_cap: 946 #! MEUR/GW, calculated from: https://iopscience.iop.org/article/10.1088/1755-1315/983/1/012051/pdf
+                om_annual_investment_fraction: 0.03  # *100% of CAPEX/yr, TNO estimate
+                om_prod: 153e-3 #! MEUR/GWh
+    
+    import_lng_terminal:
+        essentials:
+            name: 'Import - LNG terminal'
+            parent: terminal_import
+            carrier: gas
+        costs:
+            monetary:
+                energy_cap: 946 #! MEUR/GW, calculated from: https://iopscience.iop.org/article/10.1088/1755-1315/983/1/012051/pdf
+                om_annual_investment_fraction: 0.03  # *100% of CAPEX/yr, TNO estimate
+                om_prod: 21e-3 # MEUR/GWh
