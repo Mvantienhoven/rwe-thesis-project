@@ -37,9 +37,13 @@ model:
 
 
   time:
-    function: resample
+    function: resample #apply_clustering #apply_clustering
     function_options:
       resolution: 1h
+      #clustering_func: kmeans
+      #how: mean
+      #k: 10
+      #storage_inter_cluster: True
 
 
 run:
