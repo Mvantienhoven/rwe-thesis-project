@@ -7,17 +7,23 @@ scenarios:
 
     base_run_GB: [
                     capacities_Scenario1_GB,
-                    demand_GB,
-                    ets_discount] 
+                    demand_GB
+                    # STEP 3d (Option A): ets_discount disabled (no active ets_budget consumers).
+                    # ,ets_discount
+                    ] 
 
     
     base_run_HA: [
                     capacities_Scenario1_HA,
-                    demand_HA,
-                    ets_discount] 
+                    demand_HA
+                    # STEP 3d (Option A): ets_discount disabled (no active ets_budget consumers).
+                    # ,ets_discount
+                    ] 
     
 
     base_run_KM: [
                     capacities_Scenario1_KM,
-                    demand_KM,
-                    ets_discount] 
+                    demand_KM
+                    # STEP 3d (Option A): ets_discount disabled (no active ets_budget consumers).
+                    # ,ets_discount
+                    ] 

@@ -18,34 +18,35 @@ techs:
             force_resource: True
             resource: file=demand/NBNL_EV_2040/EV_Power.csv
 
-    demand_gas:
-        essentials:
-            name: 'Firm demand - Gas'
-            color: '#607d8b'
-            parent: demand
-            carrier: gas
-        constraints:
-            force_resource: True
-            resource: file=demand/NBNL_EV_2040/EV_Gas.csv
+    # STEP 2 (power-only cleanup): disable non-electric demand techs.
+    # demand_gas:
+    #     essentials:
+    #         name: 'Firm demand - Gas'
+    #         color: '#607d8b'
+    #         parent: demand
+    #         carrier: gas
+    #     constraints:
+    #         force_resource: True
+    #         resource: file=demand/NBNL_EV_2040/EV_Gas.csv
 
-    demand_hyd:
-        essentials:
-            name: 'Firm demand - Hydrogen'
-            color: '#3f51b5 '
-            parent: demand
-            carrier: hydrogen
-        constraints:
-            force_resource: True
-            resource: file=demand/NBNL_EV_2040/EV_H2.csv
+    # demand_hyd:
+    #     essentials:
+    #         name: 'Firm demand - Hydrogen'
+    #         color: '#3f51b5 '
+    #         parent: demand
+    #         carrier: hydrogen
+    #     constraints:
+    #         force_resource: True
+    #         resource: file=demand/NBNL_EV_2040/EV_H2.csv
 
-    demand_pth:
-        essentials:
-            name: 'Firm demand - PtH Industry'
-            parent: demand 
-            carrier: heat
-        constraints:
-            force_resource: True
-            resource: file=demand/NBNL_EV_2040/PtH_Demand_EV.csv
+    # demand_pth:
+    #     essentials:
+    #         name: 'Firm demand - PtH Industry'
+    #         parent: demand 
+    #         carrier: heat
+    #     constraints:
+    #         force_resource: True
+    #         resource: file=demand/NBNL_EV_2040/PtH_Demand_EV.csv
 
     # load_shedding_elc:
     #     essentials:

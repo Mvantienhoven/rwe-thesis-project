@@ -4,6 +4,8 @@
 
 
 overrides:
+    # STEP 2 (power-only cleanup): keep electricity demand only.
+    # Non-electric demand overrides are commented out for traceability.
 
     demand_NBNL_EV_2040:
         techs:
@@ -11,17 +13,17 @@ overrides:
                 constraints:
                     resource: file=demand/NBNL_EV_2040/EV_Power.csv
 
-            demand_gas:
-                constraints:
-                    resource: file=demand/NBNL_EV_2040/EV_Gas.csv
+            # demand_gas:
+            #     constraints:
+            #         resource: file=demand/NBNL_EV_2040/EV_Gas.csv
 
-            demand_hyd:
-                constraints:
-                    resource: file=demand/NBNL_EV_2040/EV_H2.csv
+            # demand_hyd:
+            #     constraints:
+            #         resource: file=demand/NBNL_EV_2040/EV_H2.csv
 
-            demand_pth:
-                constraints:   
-                    resource: file=demand/NBNL_EV_2040/PtH_Demand_EV.csv
+            # demand_pth:
+            #     constraints:   
+            #         resource: file=demand/NBNL_EV_2040/PtH_Demand_EV.csv
 
     demand_NBNL_EV_2040_x2:
         techs:
@@ -29,17 +31,17 @@ overrides:
                 constraints:
                     resource: file=demand/NBNL_EV_2040/EV_Power.csv
 
-            demand_gas:
-                constraints:
-                    resource: file=demand/NBNL_EV_2040/EV_Gas.csv
+            # demand_gas:
+            #     constraints:
+            #         resource: file=demand/NBNL_EV_2040/EV_Gas.csv
 
-            demand_hyd:
-                constraints:
-                    resource: file=demand/NBNL_EV_2040/EV_H2.csv
+            # demand_hyd:
+            #     constraints:
+            #         resource: file=demand/NBNL_EV_2040/EV_H2.csv
 
-            demand_pth:
-                constraints:   
-                    resource: file=demand/NBNL_EV_2040/PtH_Demand_EV_x200.csv
+            # demand_pth:
+            #     constraints:   
+            #         resource: file=demand/NBNL_EV_2040/PtH_Demand_EV_x200.csv
 
     demand_NBNL_EV_2040_x5:
         techs:
@@ -47,17 +49,17 @@ overrides:
                 constraints:
                     resource: file=demand/NBNL_EV_2040/EV_Power.csv
 
-            demand_gas:
-                constraints:
-                    resource: file=demand/NBNL_EV_2040/EV_Gas.csv
+            # demand_gas:
+            #     constraints:
+            #         resource: file=demand/NBNL_EV_2040/EV_Gas.csv
 
-            demand_hyd:
-                constraints:
-                    resource: file=demand/NBNL_EV_2040/EV_H2.csv
+            # demand_hyd:
+            #     constraints:
+            #         resource: file=demand/NBNL_EV_2040/EV_H2.csv
 
-            demand_pth:
-                constraints:   
-                    resource: file=demand/NBNL_EV_2040/PtH_Demand_EV_x500.csv
+            # demand_pth:
+            #     constraints:   
+            #         resource: file=demand/NBNL_EV_2040/PtH_Demand_EV_x500.csv
 
     demand_NBNL_GB_2040:
         techs:
@@ -65,17 +67,17 @@ overrides:
                 constraints:
                     resource: file=demand/NBNL_GB_2040/GB_Power.csv
 
-            demand_gas:
-                constraints:
-                    resource: file=demand/NBNL_GB_2040/GB_Gas.csv
+            # demand_gas:
+            #     constraints:
+            #         resource: file=demand/NBNL_GB_2040/GB_Gas.csv
 
-            demand_hyd:
-                constraints:
-                    resource: file=demand/NBNL_GB_2040/GB_H2.csv
+            # demand_hyd:
+            #     constraints:
+            #         resource: file=demand/NBNL_GB_2040/GB_H2.csv
 
-            demand_pth:
-                constraints:   
-                    resource: file=demand/NBNL_GB_2040/PtH_Demand_GB.csv
+            # demand_pth:
+            #     constraints:   
+            #         resource: file=demand/NBNL_GB_2040/PtH_Demand_GB.csv
 
     demand_NBNL_HA_2040:
         techs:
@@ -83,17 +85,17 @@ overrides:
                 constraints:
                     resource: file=demand/NBNL_HA_2040/HA_Power.csv
 
-            demand_gas:
-                constraints:
-                    resource: file=demand/NBNL_HA_2040/HA_Gas.csv
+            # demand_gas:
+            #     constraints:
+            #         resource: file=demand/NBNL_HA_2040/HA_Gas.csv
 
-            demand_hyd:
-                constraints:
-                    resource: file=demand/NBNL_HA_2040/HA_H2.csv
+            # demand_hyd:
+            #     constraints:
+            #         resource: file=demand/NBNL_HA_2040/HA_H2.csv
 
-            demand_pth:
-                constraints:   
-                    resource: file=demand/NBNL_HA_2040/PtH_Demand_HA.csv
+            # demand_pth:
+            #     constraints:   
+            #         resource: file=demand/NBNL_HA_2040/PtH_Demand_HA.csv
 
     demand_NBNL_KM_2040:
         techs:
@@ -101,17 +103,17 @@ overrides:
                 constraints:
                     resource: file=demand/NBNL_KM_2040/KM_Power.csv
 
-            demand_gas:
-                constraints:
-                    resource: file=demand/NBNL_KM_2040/KM_Gas.csv
+            # demand_gas:
+            #     constraints:
+            #         resource: file=demand/NBNL_KM_2040/KM_Gas.csv
 
-            demand_hyd:
-                constraints:
-                    resource: file=demand/NBNL_KM_2040/KM_H2.csv
+            # demand_hyd:
+            #     constraints:
+            #         resource: file=demand/NBNL_KM_2040/KM_H2.csv
 
-            demand_pth:
-                constraints:   
-                    resource: file=demand/NBNL_KM_2040/PtH_Demand_KM.csv
+            # demand_pth:
+            #     constraints:   
+            #         resource: file=demand/NBNL_KM_2040/PtH_Demand_KM.csv
 
     demand_NBNL_KM_2040_x2:
         techs:
@@ -119,17 +121,17 @@ overrides:
                 constraints:
                     resource: file=demand/NBNL_KM_2040/KM_Power.csv
 
-            demand_gas:
-                constraints:
-                    resource: file=demand/NBNL_KM_2040/KM_Gas.csv
+            # demand_gas:
+            #     constraints:
+            #         resource: file=demand/NBNL_KM_2040/KM_Gas.csv
 
-            demand_hyd:
-                constraints:
-                    resource: file=demand/NBNL_KM_2040/KM_H2.csv
+            # demand_hyd:
+            #     constraints:
+            #         resource: file=demand/NBNL_KM_2040/KM_H2.csv
 
-            demand_pth:
-                constraints:   
-                    resource: file=demand/NBNL_KM_2040/PtH_Demand_KM_x200.csv
+            # demand_pth:
+            #     constraints:   
+            #         resource: file=demand/NBNL_KM_2040/PtH_Demand_KM_x200.csv
 
     demand_NBNL_KM_2040_x5:
         techs:
@@ -137,17 +139,17 @@ overrides:
                 constraints:
                     resource: file=demand/NBNL_KM_2040/KM_Power.csv
 
-            demand_gas:
-                constraints:
-                    resource: file=demand/NBNL_KM_2040/KM_Gas.csv
+            # demand_gas:
+            #     constraints:
+            #         resource: file=demand/NBNL_KM_2040/KM_Gas.csv
 
-            demand_hyd:
-                constraints:
-                    resource: file=demand/NBNL_KM_2040/KM_H2.csv
+            # demand_hyd:
+            #     constraints:
+            #         resource: file=demand/NBNL_KM_2040/KM_H2.csv
 
-            demand_pth:
-                constraints:   
-                    resource: file=demand/NBNL_KM_2040/PtH_Demand_KM_x500.csv
+            # demand_pth:
+            #     constraints:   
+            #         resource: file=demand/NBNL_KM_2040/PtH_Demand_KM_x500.csv
 
 
 scenarios:

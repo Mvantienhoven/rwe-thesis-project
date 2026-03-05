@@ -1,4 +1,4 @@
-#-------------------------------------------------COMMENTS KEVIN------------------------------------------------------#
+﻿#-------------------------------------------------COMMENTS KEVIN------------------------------------------------------#
 ### TRANSMISSION do NOT have fixed capacity, but have defined OM_prod per Net Transfer Capacity (NTC)
 #----------------------------------------------------------------------------------------------------------------------#
 
@@ -8,43 +8,43 @@ locations:
         coordinates: {lat: 52.0883, lon: 5.3291}
         techs:
             #import_ammonia_cracker: 
-            saltcavern_hyd: 
-            production_gas_fields:
-                constraints:
-                    energy_cap_equals: 11.4 #GW
-            saltcavern_gas:
-                constraints:
-                    energy_cap_equals: 60 # 60 GW
-                    storage_cap_equals: 9999 # GWh
-            import_lng_terminal:
-                constraints:
-                    energy_cap_equals: 35 # GW
-            import_gas_interconnector:
-            import_hyd_interconnector:
+            # saltcavern_hyd:
+            # production_gas_fields:
+            #     constraints:
+            #         energy_cap_equals: 11.4 #GW
+            # saltcavern_gas:
+                # constraints:
+                    # energy_cap_equals: 60 # 60 GW
+                    # storage_cap_equals: 9999 # GWh
+            # import_lng_terminal:
+            #     constraints:
+            #         energy_cap_equals: 35 # GW
+            # import_gas_interconnector:
+            # import_hyd_interconnector:
             
             #Artificial techs:
             export_demand:
-            fake_supply_solid_fuel:
+            # fake_supply_solid_fuel:
             co2_storage:
-            ets_budget_cap:
+            # ets_budget_cap:
             co2_emissions_sink:
-            ets_exceedance:
-
+            # ets_exceedance:
     E-BGM: #1, Bergum, NL12, Friesland
         coordinates: {lat: 53.2125, lon: 6.0287}
         techs: 
 
             # Demand
             demand_elc:
+            fuel_dummy_supply:
             #load_shedding_elc:
             
-            demand_hyd:
+            # demand_hyd:
             #load_shedding_hyd:
 
-            demand_gas:
+            # demand_gas:
             #load_shedding_gas:
 
-            demand_pth: 
+            # demand_pth:
             ## Renewables
             # Market players
             wind_offshore:
@@ -102,14 +102,14 @@ locations:
             # ## CCGT
             pp_ccgt_gas:
             #pp_ccgt_gas_ccs:
-            pp_ccgt_hyd:
+            # pp_ccgt_hyd:
 
             # # # OCGT
             pp_ocgt_gas:
-            pp_ocgt_hyd:
+            # pp_ocgt_hyd:
 
             #Heat
-            pth_electric_boiler:
+            # pth_electric_boiler:
 
             #CHP
             #pp_chp_gas:
@@ -122,12 +122,12 @@ locations:
             #ES_pumped_hydro:
 
             # ## Salt cavern storage systems
-            saltcavern_gas:
-            saltcavern_hyd:
+            # saltcavern_gas:
+            # saltcavern_hyd:
 
             # ## Electrolyser
-            pp_elektrolyser_onshore:
-            pp_elektrolyser_offshore:
+            # pp_elektrolyser_onshore:
+            # pp_elektrolyser_offshore:
 
             ## Reformers
             #reformer_smr_ccs: 
@@ -135,7 +135,7 @@ locations:
 
             ## Import
             #import_ammonia_cracker:
-            import_lng_terminal:
+            # import_lng_terminal:
 
 
     E-BVW: #2, Beverwijk, NL32, Noord-Holland
@@ -143,15 +143,16 @@ locations:
         techs: 
             # Demand
             demand_elc:
+            fuel_dummy_supply:
             #load_shedding_elc:
             
-            demand_hyd:
+            # demand_hyd:
             #load_shedding_hyd:
 
-            demand_gas:
+            # demand_gas:
             #load_shedding_gas:
 
-            demand_pth: 
+            # demand_pth:
             ## Renewables
             # Market players
             wind_offshore:
@@ -209,14 +210,14 @@ locations:
             # ## CCGT
             pp_ccgt_gas:
             #pp_ccgt_gas_ccs:
-            pp_ccgt_hyd:
+            # pp_ccgt_hyd:
 
             # # # OCGT
             pp_ocgt_gas:
-            pp_ocgt_hyd:
+            # pp_ocgt_hyd:
 
             #Heat
-            pth_electric_boiler:
+            # pth_electric_boiler:
 
             #CHP
             #pp_chp_gas:
@@ -229,12 +230,12 @@ locations:
             #ES_pumped_hydro:
 
             # ## Salt cavern storage systems
-            saltcavern_gas:
-            saltcavern_hyd:
+            # saltcavern_gas:
+            # saltcavern_hyd:
 
             # ## Electrolyser
-            pp_elektrolyser_onshore:
-            pp_elektrolyser_offshore:
+            # pp_elektrolyser_onshore:
+            # pp_elektrolyser_offshore:
 
             ## Reformers
             #reformer_smr_ccs: 
@@ -242,7 +243,7 @@ locations:
 
             ## Import
             #import_ammonia_cracker:
-            import_lng_terminal:
+            # import_lng_terminal:
 
 
 
@@ -253,15 +254,16 @@ locations:
 
             # Demand
             demand_elc:
+            fuel_dummy_supply:
             #load_shedding_elc:
             
-            demand_hyd:
+            # demand_hyd:
             #load_shedding_hyd:
 
-            demand_gas:
+            # demand_gas:
             #load_shedding_gas:
 
-            demand_pth: 
+            # demand_pth:
             ## Renewables
             # Market players
             wind_offshore:
@@ -318,14 +320,14 @@ locations:
             # ## CCGT
             pp_ccgt_gas:
             #pp_ccgt_gas_ccs:
-            pp_ccgt_hyd:
+            # pp_ccgt_hyd:
 
             # # # OCGT
             pp_ocgt_gas:
-            pp_ocgt_hyd:
+            # pp_ocgt_hyd:
 
             #Heat
-            pth_electric_boiler:
+            # pth_electric_boiler:
 
             #CHP
             #pp_chp_gas:
@@ -338,12 +340,12 @@ locations:
             #ES_pumped_hydro:
 
             # ## Salt cavern storage systems
-            saltcavern_gas:
-            saltcavern_hyd:
+            # saltcavern_gas:
+            # saltcavern_hyd:
 
             # ## Electrolyser
-            pp_elektrolyser_onshore:
-            pp_elektrolyser_offshore:
+            # pp_elektrolyser_onshore:
+            # pp_elektrolyser_offshore:
 
             ## Reformers
             #reformer_smr_ccs: 
@@ -351,7 +353,7 @@ locations:
 
             ## Import
             #import_ammonia_cracker:
-            import_lng_terminal:
+            # import_lng_terminal:
 
 
 
@@ -362,15 +364,16 @@ locations:
 
             # Demand
             demand_elc:
+            fuel_dummy_supply:
             #load_shedding_elc:
             
-            demand_hyd:
+            # demand_hyd:
             #load_shedding_hyd:
 
-            demand_gas:
+            # demand_gas:
             #load_shedding_gas:
 
-            demand_pth: 
+            # demand_pth:
             ## Renewables
             # Market players
             wind_offshore:
@@ -428,14 +431,14 @@ locations:
             # ## CCGT
             pp_ccgt_gas:
             #pp_ccgt_gas_ccs:
-            pp_ccgt_hyd:
+            # pp_ccgt_hyd:
 
             # # # OCGT
             pp_ocgt_gas:
-            pp_ocgt_hyd:
+            # pp_ocgt_hyd:
 
             #Heat
-            pth_electric_boiler:
+            # pth_electric_boiler:
 
             #CHP
             #pp_chp_gas:
@@ -448,12 +451,12 @@ locations:
             #ES_pumped_hydro:
 
             # ## Salt cavern storage systems
-            saltcavern_gas:
-            saltcavern_hyd:
+            # saltcavern_gas:
+            # saltcavern_hyd:
 
             # ## Electrolyser
-            pp_elektrolyser_onshore:
-            pp_elektrolyser_offshore:
+            # pp_elektrolyser_onshore:
+            # pp_elektrolyser_offshore:
 
             ## Reformers
             #reformer_smr_ccs: 
@@ -461,7 +464,7 @@ locations:
 
             ## Import
             #import_ammonia_cracker:
-            import_lng_terminal:
+            # import_lng_terminal:
 
 
 
@@ -471,15 +474,16 @@ locations:
         techs: 
             # Demand
             demand_elc:
+            fuel_dummy_supply:
             #load_shedding_elc:
             
-            demand_hyd:
+            # demand_hyd:
             #load_shedding_hyd:
 
-            demand_gas:
+            # demand_gas:
             #load_shedding_gas:
 
-            demand_pth: 
+            # demand_pth:
             ## Renewables
             # Market players
             wind_offshore:
@@ -537,14 +541,14 @@ locations:
             # ## CCGT
             pp_ccgt_gas:
             #pp_ccgt_gas_ccs:
-            pp_ccgt_hyd:
+            # pp_ccgt_hyd:
 
             # # # OCGT
             pp_ocgt_gas:
-            pp_ocgt_hyd:
+            # pp_ocgt_hyd:
 
             #Heat
-            pth_electric_boiler:
+            # pth_electric_boiler:
 
             #CHP
             #pp_chp_gas:
@@ -557,12 +561,12 @@ locations:
             #ES_pumped_hydro:
 
             # ## Salt cavern storage systems
-            saltcavern_gas:
-            saltcavern_hyd:
+            # saltcavern_gas:
+            # saltcavern_hyd:
 
             # ## Electrolyser
-            pp_elektrolyser_onshore:
-            pp_elektrolyser_offshore:
+            # pp_elektrolyser_onshore:
+            # pp_elektrolyser_offshore:
 
             ## Reformers
             #reformer_smr_ccs: 
@@ -570,7 +574,7 @@ locations:
 
             ## Import
             #import_ammonia_cracker:
-            import_lng_terminal:
+            # import_lng_terminal:
 
 
 
@@ -580,15 +584,16 @@ locations:
         techs: 
             # Demand
             demand_elc:
+            fuel_dummy_supply:
             #load_shedding_elc:
             
-            demand_hyd:
+            # demand_hyd:
             #load_shedding_hyd:
 
-            demand_gas:
+            # demand_gas:
             #load_shedding_gas:
 
-            demand_pth: 
+            # demand_pth:
             ## Renewables
             # Market players
             wind_offshore:
@@ -646,14 +651,14 @@ locations:
             # ## CCGT
             pp_ccgt_gas:
             #pp_ccgt_gas_ccs:
-            pp_ccgt_hyd:
+            # pp_ccgt_hyd:
 
             # # # OCGT
             pp_ocgt_gas:
-            pp_ocgt_hyd:
+            # pp_ocgt_hyd:
 
             #Heat
-            pth_electric_boiler:
+            # pth_electric_boiler:
 
             #CHP
             #pp_chp_gas:
@@ -666,12 +671,12 @@ locations:
             #ES_pumped_hydro:
 
             # ## Salt cavern storage systems
-            saltcavern_gas:
-            saltcavern_hyd:
+            # saltcavern_gas:
+            # saltcavern_hyd:
 
             # ## Electrolyser
-            pp_elektrolyser_onshore:
-            pp_elektrolyser_offshore:
+            # pp_elektrolyser_onshore:
+            # pp_elektrolyser_offshore:
 
             ## Reformers
             #reformer_smr_ccs: 
@@ -679,7 +684,7 @@ locations:
 
             ## Import
             #import_ammonia_cracker:
-            import_lng_terminal:
+            # import_lng_terminal:
 
 
 
@@ -688,15 +693,16 @@ locations:
         techs: 
             # Demand
             demand_elc:
+            fuel_dummy_supply:
             #load_shedding_elc:
             
-            demand_hyd:
+            # demand_hyd:
             #load_shedding_hyd:
 
-            demand_gas:
+            # demand_gas:
             #load_shedding_gas:
 
-            demand_pth: 
+            # demand_pth:
             ## Renewables
             # Market players
             wind_offshore:
@@ -754,14 +760,14 @@ locations:
             # ## CCGT
             pp_ccgt_gas:
             #pp_ccgt_gas_ccs:
-            pp_ccgt_hyd:
+            # pp_ccgt_hyd:
 
             # # # OCGT
             pp_ocgt_gas:
-            pp_ocgt_hyd:
+            # pp_ocgt_hyd:
 
             #Heat
-            pth_electric_boiler:
+            # pth_electric_boiler:
 
             #CHP
             #pp_chp_gas:
@@ -774,12 +780,12 @@ locations:
             #ES_pumped_hydro:
 
             # ## Salt cavern storage systems
-            saltcavern_gas:
-            saltcavern_hyd:
+            # saltcavern_gas:
+            # saltcavern_hyd:
 
             # ## Electrolyser
-            pp_elektrolyser_onshore:
-            pp_elektrolyser_offshore:
+            # pp_elektrolyser_onshore:
+            # pp_elektrolyser_offshore:
 
             ## Reformers
             #reformer_smr_ccs: 
@@ -787,7 +793,7 @@ locations:
 
             ## Import
             #import_ammonia_cracker:
-            import_lng_terminal:
+            # import_lng_terminal:
 
 
 
@@ -796,15 +802,16 @@ locations:
         techs: 
             # Demand
             demand_elc:
+            fuel_dummy_supply:
             #load_shedding_elc:
             
-            demand_hyd:
+            # demand_hyd:
             #load_shedding_hyd:
 
-            demand_gas:
+            # demand_gas:
             #load_shedding_gas:
 
-            demand_pth: 
+            # demand_pth:
             ## Renewables
             # Market players
             wind_offshore:
@@ -862,14 +869,14 @@ locations:
             # ## CCGT
             pp_ccgt_gas:
             #pp_ccgt_gas_ccs:
-            pp_ccgt_hyd:
+            # pp_ccgt_hyd:
 
             # # # OCGT
             pp_ocgt_gas:
-            pp_ocgt_hyd:
+            # pp_ocgt_hyd:
 
             #Heat
-            pth_electric_boiler:
+            # pth_electric_boiler:
 
             #CHP
             #pp_chp_gas:
@@ -882,12 +889,12 @@ locations:
             #ES_pumped_hydro:
 
             # ## Salt cavern storage systems
-            saltcavern_gas:
-            saltcavern_hyd:
+            # saltcavern_gas:
+            # saltcavern_hyd:
 
             # ## Electrolyser
-            pp_elektrolyser_onshore:
-            pp_elektrolyser_offshore:
+            # pp_elektrolyser_onshore:
+            # pp_elektrolyser_offshore:
 
             ## Reformers
             #reformer_smr_ccs: 
@@ -895,7 +902,7 @@ locations:
 
             ## Import
             #import_ammonia_cracker:
-            import_lng_terminal:
+            # import_lng_terminal:
 
 
 
@@ -904,15 +911,16 @@ locations:
         techs: 
             # Demand
             demand_elc:
+            fuel_dummy_supply:
             #load_shedding_elc:
             
-            demand_hyd:
+            # demand_hyd:
             #load_shedding_hyd:
 
-            demand_gas:
+            # demand_gas:
             #load_shedding_gas:
 
-            demand_pth: 
+            # demand_pth:
             ## Renewables
             # Market players
             wind_offshore:
@@ -970,14 +978,14 @@ locations:
             # ## CCGT
             pp_ccgt_gas:
             #pp_ccgt_gas_ccs:
-            pp_ccgt_hyd:
+            # pp_ccgt_hyd:
 
             # # # OCGT
             pp_ocgt_gas:
-            pp_ocgt_hyd:
+            # pp_ocgt_hyd:
 
             #Heat
-            pth_electric_boiler:
+            # pth_electric_boiler:
 
             #CHP
             #pp_chp_gas:
@@ -990,12 +998,12 @@ locations:
             #ES_pumped_hydro:
 
             # ## Salt cavern storage systems
-            saltcavern_gas:
-            saltcavern_hyd:
+            # saltcavern_gas:
+            # saltcavern_hyd:
 
             # ## Electrolyser
-            pp_elektrolyser_onshore:
-            pp_elektrolyser_offshore:
+            # pp_elektrolyser_onshore:
+            # pp_elektrolyser_offshore:
 
             ## Reformers
             #reformer_smr_ccs: 
@@ -1003,7 +1011,7 @@ locations:
 
             ## Import
             #import_ammonia_cracker:
-            import_lng_terminal:
+            # import_lng_terminal:
 
 
 
@@ -1012,15 +1020,16 @@ locations:
         techs: 
             # Demand
             demand_elc:
+            fuel_dummy_supply:
             #load_shedding_elc:
             
-            demand_hyd:
+            # demand_hyd:
             #load_shedding_hyd:
 
-            demand_gas:
+            # demand_gas:
             #load_shedding_gas:
 
-            demand_pth: 
+            # demand_pth:
 
 
             ## Renewables
@@ -1080,14 +1089,14 @@ locations:
             # ## CCGT
             pp_ccgt_gas:
             #pp_ccgt_gas_ccs:
-            pp_ccgt_hyd:
+            # pp_ccgt_hyd:
 
             # # # OCGT
             pp_ocgt_gas:
-            pp_ocgt_hyd:
+            # pp_ocgt_hyd:
 
             #Heat
-            pth_electric_boiler:
+            # pth_electric_boiler:
 
             #CHP
             #pp_chp_gas:
@@ -1100,12 +1109,12 @@ locations:
             #ES_pumped_hydro:
 
             # ## Salt cavern storage systems
-            saltcavern_gas:
-            saltcavern_hyd:
+            # saltcavern_gas:
+            # saltcavern_hyd:
 
             # ## Electrolyser
-            pp_elektrolyser_onshore:
-            pp_elektrolyser_offshore:
+            # pp_elektrolyser_onshore:
+            # pp_elektrolyser_offshore:
 
             ## Reformers
             #reformer_smr_ccs: 
@@ -1113,7 +1122,7 @@ locations:
 
             ## Import
             #import_ammonia_cracker:
-            import_lng_terminal:
+            # import_lng_terminal:
 
 
 
@@ -1122,15 +1131,16 @@ locations:
         techs: 
             # Demand
             demand_elc:
+            fuel_dummy_supply:
             #load_shedding_elc:
             
-            demand_hyd:
+            # demand_hyd:
             #load_shedding_hyd:
 
-            demand_gas:
+            # demand_gas:
             #load_shedding_gas:
 
-            demand_pth: 
+            # demand_pth:
             ## Renewables
             # Market players
             wind_offshore:
@@ -1188,14 +1198,14 @@ locations:
             # ## CCGT
             pp_ccgt_gas:
             #pp_ccgt_gas_ccs:
-            pp_ccgt_hyd:
+            # pp_ccgt_hyd:
 
             # # # OCGT
             pp_ocgt_gas:
-            pp_ocgt_hyd:
+            # pp_ocgt_hyd:
 
             #Heat
-            pth_electric_boiler:
+            # pth_electric_boiler:
 
             #CHP
             #pp_chp_gas:
@@ -1208,12 +1218,12 @@ locations:
             #ES_pumped_hydro:
 
             # ## Salt cavern storage systems
-            saltcavern_gas:
-            saltcavern_hyd:
+            # saltcavern_gas:
+            # saltcavern_hyd:
 
             # ## Electrolyser
-            pp_elektrolyser_onshore:
-            pp_elektrolyser_offshore:
+            # pp_elektrolyser_onshore:
+            # pp_elektrolyser_offshore:
 
             ## Reformers
             #reformer_smr_ccs: 
@@ -1221,7 +1231,7 @@ locations:
 
             ## Import
             #import_ammonia_cracker:
-            import_lng_terminal:
+            # import_lng_terminal:
 
 
 
@@ -1230,15 +1240,16 @@ locations:
         techs: 
             # Demand
             demand_elc:
+            fuel_dummy_supply:
             #load_shedding_elc:
             
-            demand_hyd:
+            # demand_hyd:
             #load_shedding_hyd:
 
-            demand_gas:
+            # demand_gas:
             #load_shedding_gas:
 
-            demand_pth: 
+            # demand_pth:
             ## Renewables
             # Market players
             wind_offshore:
@@ -1296,14 +1307,14 @@ locations:
             # ## CCGT
             pp_ccgt_gas:
             #pp_ccgt_gas_ccs:
-            pp_ccgt_hyd:
+            # pp_ccgt_hyd:
 
             # # # OCGT
             pp_ocgt_gas:
-            pp_ocgt_hyd:
+            # pp_ocgt_hyd:
 
             #Heat
-            pth_electric_boiler:
+            # pth_electric_boiler:
 
             #CHP
             #pp_chp_gas:
@@ -1316,12 +1327,12 @@ locations:
             #ES_pumped_hydro:
 
             # ## Salt cavern storage systems
-            saltcavern_gas:
-            saltcavern_hyd:
+            # saltcavern_gas:
+            # saltcavern_hyd:
 
             # ## Electrolyser
-            pp_elektrolyser_onshore:
-            pp_elektrolyser_offshore:
+            # pp_elektrolyser_onshore:
+            # pp_elektrolyser_offshore:
 
             ## Reformers
             #reformer_smr_ccs: 
@@ -1329,7 +1340,7 @@ locations:
 
             ## Import
             #import_ammonia_cracker:
-            import_lng_terminal:
+            # import_lng_terminal:
 
 
 
@@ -1338,15 +1349,16 @@ locations:
         techs: 
             # Demand
             demand_elc:
+            fuel_dummy_supply:
             #load_shedding_elc:
             
-            demand_hyd:
+            # demand_hyd:
             #load_shedding_hyd:
 
-            demand_gas:
+            # demand_gas:
             #load_shedding_gas:
 
-            demand_pth: 
+            # demand_pth:
             ## Renewables
             # Market players
             wind_offshore:
@@ -1404,14 +1416,14 @@ locations:
             # ## CCGT
             pp_ccgt_gas:
             #pp_ccgt_gas_ccs:
-            pp_ccgt_hyd:
+            # pp_ccgt_hyd:
 
             # # # OCGT
             pp_ocgt_gas:
-            pp_ocgt_hyd:
+            # pp_ocgt_hyd:
 
             #Heat
-            pth_electric_boiler:
+            # pth_electric_boiler:
 
             #CHP
             #pp_chp_gas:
@@ -1424,12 +1436,12 @@ locations:
             #ES_pumped_hydro:
 
             # ## Salt cavern storage systems
-            saltcavern_gas:
-            saltcavern_hyd:
+            # saltcavern_gas:
+            # saltcavern_hyd:
 
             # ## Electrolyser
-            pp_elektrolyser_onshore:
-            pp_elektrolyser_offshore:
+            # pp_elektrolyser_onshore:
+            # pp_elektrolyser_offshore:
 
             ## Reformers
             #reformer_smr_ccs: 
@@ -1437,7 +1449,7 @@ locations:
 
             ## Import
             #import_ammonia_cracker:
-            import_lng_terminal:
+            # import_lng_terminal:
 
 
 
@@ -1446,15 +1458,16 @@ locations:
         techs: 
                # Demand
             demand_elc:
+            fuel_dummy_supply:
             #load_shedding_elc:
             
-            demand_hyd:
+            # demand_hyd:
             #load_shedding_hyd:
 
-            demand_gas:
+            # demand_gas:
             #load_shedding_gas:
 
-            demand_pth: 
+            # demand_pth:
 
 
             ## Renewables
@@ -1514,14 +1527,14 @@ locations:
             # ## CCGT
             pp_ccgt_gas:
             #pp_ccgt_gas_ccs:
-            pp_ccgt_hyd:
+            # pp_ccgt_hyd:
 
             # # # OCGT
             pp_ocgt_gas:
-            pp_ocgt_hyd:
+            # pp_ocgt_hyd:
 
             #Heat
-            pth_electric_boiler:
+            # pth_electric_boiler:
 
             #CHP
             #pp_chp_gas:
@@ -1534,12 +1547,12 @@ locations:
             #ES_pumped_hydro:
 
             # ## Salt cavern storage systems
-            saltcavern_gas:
-            saltcavern_hyd:
+            # saltcavern_gas:
+            # saltcavern_hyd:
 
             # ## Electrolyser
-            pp_elektrolyser_onshore:
-            pp_elektrolyser_offshore:
+            # pp_elektrolyser_onshore:
+            # pp_elektrolyser_offshore:
 
             ## Reformers
             #reformer_smr_ccs: 
@@ -1547,7 +1560,7 @@ locations:
 
             ## Import
             #import_ammonia_cracker:
-            import_lng_terminal:
+            # import_lng_terminal:
 
 
 
@@ -1556,15 +1569,16 @@ locations:
         techs: 
             # Demand
             demand_elc:
+            fuel_dummy_supply:
             #load_shedding_elc:
             
-            demand_hyd:
+            # demand_hyd:
             #load_shedding_hyd:
 
-            demand_gas:
+            # demand_gas:
             #load_shedding_gas:
 
-            demand_pth: 
+            # demand_pth:
             ## Renewables
             # Market players
             wind_offshore:
@@ -1622,14 +1636,14 @@ locations:
             # ## CCGT
             pp_ccgt_gas:
             #pp_ccgt_gas_ccs:
-            pp_ccgt_hyd:
+            # pp_ccgt_hyd:
 
             # # # OCGT
             pp_ocgt_gas:
-            pp_ocgt_hyd:
+            # pp_ocgt_hyd:
 
             #Heat
-            pth_electric_boiler:
+            # pth_electric_boiler:
 
             #CHP
             #pp_chp_gas:
@@ -1642,12 +1656,12 @@ locations:
             #ES_pumped_hydro:
 
             # ## Salt cavern storage systems
-            saltcavern_gas:
-            saltcavern_hyd:
+            # saltcavern_gas:
+            # saltcavern_hyd:
 
             # ## Electrolyser
-            pp_elektrolyser_onshore:
-            pp_elektrolyser_offshore:
+            # pp_elektrolyser_onshore:
+            # pp_elektrolyser_offshore:
 
             ## Reformers
             #reformer_smr_ccs: 
@@ -1655,7 +1669,7 @@ locations:
 
             ## Import
             #import_ammonia_cracker:
-            import_lng_terminal:
+            # import_lng_terminal:
 
 
 
@@ -1664,15 +1678,16 @@ locations:
         techs: 
             # Demand
             demand_elc:
+            fuel_dummy_supply:
             #load_shedding_elc:
             
-            demand_hyd:
+            # demand_hyd:
             #load_shedding_hyd:
 
-            demand_gas:
+            # demand_gas:
             #load_shedding_gas:
 
-            demand_pth: 
+            # demand_pth:
             ## Renewables
             # Market players
             wind_offshore:
@@ -1730,14 +1745,14 @@ locations:
             # ## CCGT
             pp_ccgt_gas:
             #pp_ccgt_gas_ccs:
-            pp_ccgt_hyd:
+            # pp_ccgt_hyd:
 
             # # # OCGT
             pp_ocgt_gas:
-            pp_ocgt_hyd:
+            # pp_ocgt_hyd:
 
             #Heat
-            pth_electric_boiler:
+            # pth_electric_boiler:
 
             #CHP
             #pp_chp_gas:
@@ -1750,12 +1765,12 @@ locations:
             #ES_pumped_hydro:
 
             # ## Salt cavern storage systems
-            saltcavern_gas:
-            saltcavern_hyd:
+            # saltcavern_gas:
+            # saltcavern_hyd:
 
             # ## Electrolyser
-            pp_elektrolyser_onshore:
-            pp_elektrolyser_offshore:
+            # pp_elektrolyser_onshore:
+            # pp_elektrolyser_offshore:
 
             ## Reformers
             #reformer_smr_ccs: 
@@ -1763,7 +1778,7 @@ locations:
 
             ## Import
             #import_ammonia_cracker:
-            import_lng_terminal:
+            # import_lng_terminal:
 
 
 
@@ -1772,15 +1787,16 @@ locations:
         techs: 
             # Demand
             demand_elc:
+            fuel_dummy_supply:
             #load_shedding_elc:
             
-            demand_hyd:
+            # demand_hyd:
             #load_shedding_hyd:
 
-            demand_gas:
+            # demand_gas:
             #load_shedding_gas:
 
-            demand_pth: 
+            # demand_pth:
             ## Renewables
             # Market players
             wind_offshore:
@@ -1838,14 +1854,14 @@ locations:
             # ## CCGT
             pp_ccgt_gas:
             #pp_ccgt_gas_ccs:
-            pp_ccgt_hyd:
+            # pp_ccgt_hyd:
 
             # # # OCGT
             pp_ocgt_gas:
-            pp_ocgt_hyd:
+            # pp_ocgt_hyd:
 
             #Heat
-            pth_electric_boiler:
+            # pth_electric_boiler:
 
             #CHP
             #pp_chp_gas:
@@ -1858,12 +1874,12 @@ locations:
             #ES_pumped_hydro:
 
             # ## Salt cavern storage systems
-            saltcavern_gas:
-            saltcavern_hyd:
+            # saltcavern_gas:
+            # saltcavern_hyd:
 
             # ## Electrolyser
-            pp_elektrolyser_onshore:
-            pp_elektrolyser_offshore:
+            # pp_elektrolyser_onshore:
+            # pp_elektrolyser_offshore:
 
             ## Reformers
             #reformer_smr_ccs: 
@@ -1871,7 +1887,7 @@ locations:
 
             ## Import
             #import_ammonia_cracker:
-            import_lng_terminal:
+            # import_lng_terminal:
 
 
 
@@ -1880,15 +1896,16 @@ locations:
         techs: 
             # Demand
             demand_elc:
+            fuel_dummy_supply:
             #load_shedding_elc:
             
-            demand_hyd:
+            # demand_hyd:
             #load_shedding_hyd:
 
-            demand_gas:
+            # demand_gas:
             #load_shedding_gas:
 
-            demand_pth: 
+            # demand_pth:
 
 
             ## Renewables
@@ -1948,14 +1965,14 @@ locations:
             # ## CCGT
             pp_ccgt_gas:
             #pp_ccgt_gas_ccs:
-            pp_ccgt_hyd:
+            # pp_ccgt_hyd:
 
             # # # OCGT
             pp_ocgt_gas:
-            pp_ocgt_hyd:
+            # pp_ocgt_hyd:
 
             #Heat
-            pth_electric_boiler:
+            # pth_electric_boiler:
 
             #CHP
             #pp_chp_gas:
@@ -1968,12 +1985,12 @@ locations:
             #ES_pumped_hydro:
 
             # ## Salt cavern storage systems
-            saltcavern_gas:
-            saltcavern_hyd:
+            # saltcavern_gas:
+            # saltcavern_hyd:
 
             # ## Electrolyser
-            pp_elektrolyser_onshore:
-            pp_elektrolyser_offshore:
+            # pp_elektrolyser_onshore:
+            # pp_elektrolyser_offshore:
 
             ## Reformers
             #reformer_smr_ccs: 
@@ -1981,7 +1998,7 @@ locations:
 
             ## Import
             #import_ammonia_cracker:
-            import_lng_terminal:
+            # import_lng_terminal:
 
 
 
@@ -1990,15 +2007,16 @@ locations:
         techs: 
             # Demand
             demand_elc:
+            fuel_dummy_supply:
             #load_shedding_elc:
             
-            demand_hyd:
+            # demand_hyd:
             #load_shedding_hyd:
 
-            demand_gas:
+            # demand_gas:
             #load_shedding_gas:
 
-            demand_pth: 
+            # demand_pth:
             ## Renewables
             # Market players
             wind_offshore:
@@ -2056,14 +2074,14 @@ locations:
             # ## CCGT
             pp_ccgt_gas:
             #pp_ccgt_gas_ccs:
-            pp_ccgt_hyd:
+            # pp_ccgt_hyd:
 
             # # # OCGT
             pp_ocgt_gas:
-            pp_ocgt_hyd:
+            # pp_ocgt_hyd:
 
             #Heat
-            pth_electric_boiler:
+            # pth_electric_boiler:
 
             #CHP
             #pp_chp_gas:
@@ -2076,12 +2094,12 @@ locations:
             #ES_pumped_hydro:
 
             # ## Salt cavern storage systems
-            saltcavern_gas:
-            saltcavern_hyd:
+            # saltcavern_gas:
+            # saltcavern_hyd:
 
             # ## Electrolyser
-            pp_elektrolyser_onshore:
-            pp_elektrolyser_offshore:
+            # pp_elektrolyser_onshore:
+            # pp_elektrolyser_offshore:
 
             ## Reformers
             #reformer_smr_ccs: 
@@ -2089,7 +2107,7 @@ locations:
 
             ## Import
             #import_ammonia_cracker:
-            import_lng_terminal:
+            # import_lng_terminal:
 
 
 
@@ -2098,15 +2116,16 @@ locations:
         techs: 
             # Demand
             demand_elc:
+            fuel_dummy_supply:
             #load_shedding_elc:
             
-            demand_hyd:
+            # demand_hyd:
             #load_shedding_hyd:
 
-            demand_gas:
+            # demand_gas:
             #load_shedding_gas:
 
-            demand_pth: 
+            # demand_pth:
             ## Renewables
             # Market players
             wind_offshore:
@@ -2164,14 +2183,14 @@ locations:
             # ## CCGT
             pp_ccgt_gas:
             #pp_ccgt_gas_ccs:
-            pp_ccgt_hyd:
+            # pp_ccgt_hyd:
 
             # # # OCGT
             pp_ocgt_gas:
-            pp_ocgt_hyd:
+            # pp_ocgt_hyd:
 
             #Heat
-            pth_electric_boiler:
+            # pth_electric_boiler:
 
             #CHP
             #pp_chp_gas:
@@ -2184,12 +2203,12 @@ locations:
             #ES_pumped_hydro:
 
             # ## Salt cavern storage systems
-            saltcavern_gas:
-            saltcavern_hyd:
+            # saltcavern_gas:
+            # saltcavern_hyd:
 
             # ## Electrolyser
-            pp_elektrolyser_onshore:
-            pp_elektrolyser_offshore:
+            # pp_elektrolyser_onshore:
+            # pp_elektrolyser_offshore:
 
             ## Reformers
             #reformer_smr_ccs: 
@@ -2197,7 +2216,7 @@ locations:
 
             ## Import
             #import_ammonia_cracker:
-            import_lng_terminal:
+            # import_lng_terminal:
 
 
 
@@ -2206,15 +2225,16 @@ locations:
         techs: 
             # Demand
             demand_elc:
+            fuel_dummy_supply:
             #load_shedding_elc:
             
-            demand_hyd:
+            # demand_hyd:
             #load_shedding_hyd:
 
-            demand_gas:
+            # demand_gas:
             #load_shedding_gas:
 
-            demand_pth: 
+            # demand_pth:
             ## Renewables
             # Market players
             wind_offshore:
@@ -2272,14 +2292,14 @@ locations:
             # ## CCGT
             pp_ccgt_gas:
             #pp_ccgt_gas_ccs:
-            pp_ccgt_hyd:
+            # pp_ccgt_hyd:
 
             # # # OCGT
             pp_ocgt_gas:
-            pp_ocgt_hyd:
+            # pp_ocgt_hyd:
 
             #Heat
-            pth_electric_boiler:
+            # pth_electric_boiler:
 
             #CHP
             #pp_chp_gas:
@@ -2292,12 +2312,12 @@ locations:
             #ES_pumped_hydro:
 
             # ## Salt cavern storage systems
-            saltcavern_gas:
-            saltcavern_hyd:
+            # saltcavern_gas:
+            # saltcavern_hyd:
 
             # ## Electrolyser
-            pp_elektrolyser_onshore:
-            pp_elektrolyser_offshore:
+            # pp_elektrolyser_onshore:
+            # pp_elektrolyser_offshore:
 
             ## Reformers
             #reformer_smr_ccs: 
@@ -2305,7 +2325,7 @@ locations:
 
             ## Import
             #import_ammonia_cracker:
-            import_lng_terminal:
+            # import_lng_terminal:
 
 
 
@@ -2314,15 +2334,16 @@ locations:
         techs: 
             # Demand
             demand_elc:
+            fuel_dummy_supply:
             #load_shedding_elc:
             
-            demand_hyd:
+            # demand_hyd:
             #load_shedding_hyd:
 
-            demand_gas:
+            # demand_gas:
             #load_shedding_gas:
 
-            demand_pth: 
+            # demand_pth:
             ## Renewables
             # Market players
             wind_offshore:
@@ -2380,14 +2401,14 @@ locations:
             # ## CCGT
             pp_ccgt_gas:
             #pp_ccgt_gas_ccs:
-            pp_ccgt_hyd:
+            # pp_ccgt_hyd:
 
             # # # OCGT
             pp_ocgt_gas:
-            pp_ocgt_hyd:
+            # pp_ocgt_hyd:
 
             #Heat
-            pth_electric_boiler:
+            # pth_electric_boiler:
 
             #CHP
             #pp_chp_gas:
@@ -2400,12 +2421,12 @@ locations:
             #ES_pumped_hydro:
 
             # ## Salt cavern storage systems
-            saltcavern_gas:
-            saltcavern_hyd:
+            # saltcavern_gas:
+            # saltcavern_hyd:
 
             # ## Electrolyser
-            pp_elektrolyser_onshore:
-            pp_elektrolyser_offshore:
+            # pp_elektrolyser_onshore:
+            # pp_elektrolyser_offshore:
 
             ## Reformers
             #reformer_smr_ccs: 
@@ -2413,7 +2434,7 @@ locations:
 
             ## Import
             #import_ammonia_cracker:
-            import_lng_terminal:
+            # import_lng_terminal:
 
 
 
@@ -2422,15 +2443,16 @@ locations:
         techs: 
             # Demand
             demand_elc:
+            fuel_dummy_supply:
             #load_shedding_elc:
             
-            demand_hyd:
+            # demand_hyd:
             #load_shedding_hyd:
 
-            demand_gas:
+            # demand_gas:
             #load_shedding_gas:
 
-            demand_pth: 
+            # demand_pth:
             ## Renewables
             # Market players
             wind_offshore:
@@ -2488,14 +2510,14 @@ locations:
             # ## CCGT
             pp_ccgt_gas:
             #pp_ccgt_gas_ccs:
-            pp_ccgt_hyd:
+            # pp_ccgt_hyd:
 
             # # # OCGT
             pp_ocgt_gas:
-            pp_ocgt_hyd:
+            # pp_ocgt_hyd:
 
             #Heat
-            pth_electric_boiler:
+            # pth_electric_boiler:
 
             #CHP
             #pp_chp_gas:
@@ -2508,12 +2530,12 @@ locations:
             #ES_pumped_hydro:
 
             # ## Salt cavern storage systems
-            saltcavern_gas:
-            saltcavern_hyd:
+            # saltcavern_gas:
+            # saltcavern_hyd:
 
             # ## Electrolyser
-            pp_elektrolyser_onshore:
-            pp_elektrolyser_offshore:
+            # pp_elektrolyser_onshore:
+            # pp_elektrolyser_offshore:
 
             ## Reformers
             #reformer_smr_ccs: 
@@ -2521,7 +2543,7 @@ locations:
 
             ## Import
             #import_ammonia_cracker:
-            import_lng_terminal:
+            # import_lng_terminal:
 
 
 
@@ -2530,15 +2552,16 @@ locations:
         techs: 
             # Demand
             demand_elc:
+            fuel_dummy_supply:
             #load_shedding_elc:
             
-            demand_hyd:
+            # demand_hyd:
             #load_shedding_hyd:
 
-            demand_gas:
+            # demand_gas:
             #load_shedding_gas:
 
-            demand_pth: 
+            # demand_pth:
             ## Renewables
             # Market players
             wind_offshore:
@@ -2596,14 +2619,14 @@ locations:
             # ## CCGT
             pp_ccgt_gas:
             #pp_ccgt_gas_ccs:
-            pp_ccgt_hyd:
+            # pp_ccgt_hyd:
 
             # # # OCGT
             pp_ocgt_gas:
-            pp_ocgt_hyd:
+            # pp_ocgt_hyd:
 
             #Heat
-            pth_electric_boiler:
+            # pth_electric_boiler:
 
             #CHP
             #pp_chp_gas:
@@ -2616,12 +2639,12 @@ locations:
             #ES_pumped_hydro:
 
             # ## Salt cavern storage systems
-            saltcavern_gas:
-            saltcavern_hyd:
+            # saltcavern_gas:
+            # saltcavern_hyd:
 
             # ## Electrolyser
-            pp_elektrolyser_onshore:
-            pp_elektrolyser_offshore:
+            # pp_elektrolyser_onshore:
+            # pp_elektrolyser_offshore:
 
             ## Reformers
             #reformer_smr_ccs: 
@@ -2629,7 +2652,7 @@ locations:
 
             ## Import
             #import_ammonia_cracker:
-            import_lng_terminal:
+            # import_lng_terminal:
 
 
 
@@ -2638,15 +2661,16 @@ locations:
         techs: 
             # Demand
             demand_elc:
+            fuel_dummy_supply:
             #load_shedding_elc:
             
-            demand_hyd:
+            # demand_hyd:
             #load_shedding_hyd:
 
-            demand_gas:
+            # demand_gas:
             #load_shedding_gas:
 
-            demand_pth: 
+            # demand_pth:
             ## Renewables
             # Market players
             wind_offshore:
@@ -2704,14 +2728,14 @@ locations:
             # ## CCGT
             pp_ccgt_gas:
             #pp_ccgt_gas_ccs:
-            pp_ccgt_hyd:
+            # pp_ccgt_hyd:
 
             # # # OCGT
             pp_ocgt_gas:
-            pp_ocgt_hyd:
+            # pp_ocgt_hyd:
 
             #Heat
-            pth_electric_boiler:
+            # pth_electric_boiler:
 
             #CHP
             #pp_chp_gas:
@@ -2724,12 +2748,12 @@ locations:
             #ES_pumped_hydro:
 
             # ## Salt cavern storage systems
-            saltcavern_gas:
-            saltcavern_hyd:
+            # saltcavern_gas:
+            # saltcavern_hyd:
 
             # ## Electrolyser
-            pp_elektrolyser_onshore:
-            pp_elektrolyser_offshore:
+            # pp_elektrolyser_onshore:
+            # pp_elektrolyser_offshore:
 
             ## Reformers
             #reformer_smr_ccs: 
@@ -2737,7 +2761,7 @@ locations:
 
             ## Import
             #import_ammonia_cracker:
-            import_lng_terminal:
+            # import_lng_terminal:
 
 
 
@@ -2746,15 +2770,16 @@ locations:
         techs: 
             # Demand
             demand_elc:
+            fuel_dummy_supply:
             #load_shedding_elc:
             
-            demand_hyd:
+            # demand_hyd:
             #load_shedding_hyd:
 
-            demand_gas:
+            # demand_gas:
             #load_shedding_gas:
 
-            demand_pth: 
+            # demand_pth:
             ## Renewables
             # Market players
             wind_offshore:
@@ -2812,14 +2837,14 @@ locations:
             # ## CCGT
             pp_ccgt_gas:
             #pp_ccgt_gas_ccs:
-            pp_ccgt_hyd:
+            # pp_ccgt_hyd:
 
             # # # OCGT
             pp_ocgt_gas:
-            pp_ocgt_hyd:
+            # pp_ocgt_hyd:
 
             #Heat
-            pth_electric_boiler:
+            # pth_electric_boiler:
 
             #CHP
             #pp_chp_gas:
@@ -2832,12 +2857,12 @@ locations:
             #ES_pumped_hydro:
 
             # ## Salt cavern storage systems
-            saltcavern_gas:
-            saltcavern_hyd:
+            # saltcavern_gas:
+            # saltcavern_hyd:
 
             # ## Electrolyser
-            pp_elektrolyser_onshore:
-            pp_elektrolyser_offshore:
+            # pp_elektrolyser_onshore:
+            # pp_elektrolyser_offshore:
 
             ## Reformers
             #reformer_smr_ccs: 
@@ -2845,7 +2870,7 @@ locations:
 
             ## Import
             #import_ammonia_cracker:
-            import_lng_terminal:
+            # import_lng_terminal:
 
 
 
@@ -2854,15 +2879,16 @@ locations:
         techs: 
             # Demand
             demand_elc:
+            fuel_dummy_supply:
             #load_shedding_elc:
             
-            demand_hyd:
+            # demand_hyd:
             #load_shedding_hyd:
 
-            demand_gas:
+            # demand_gas:
             #load_shedding_gas:
 
-            demand_pth: 
+            # demand_pth:
             ## Renewables
             # Market players
             wind_offshore:
@@ -2920,14 +2946,14 @@ locations:
             # ## CCGT
             pp_ccgt_gas:
             #pp_ccgt_gas_ccs:
-            pp_ccgt_hyd:
+            # pp_ccgt_hyd:
 
             # # # OCGT
             pp_ocgt_gas:
-            pp_ocgt_hyd:
+            # pp_ocgt_hyd:
 
             #Heat
-            pth_electric_boiler:
+            # pth_electric_boiler:
 
             #CHP
             #pp_chp_gas:
@@ -2940,12 +2966,12 @@ locations:
             #ES_pumped_hydro:
 
             # ## Salt cavern storage systems
-            saltcavern_gas:
-            saltcavern_hyd:
+            # saltcavern_gas:
+            # saltcavern_hyd:
 
             # ## Electrolyser
-            pp_elektrolyser_onshore:
-            pp_elektrolyser_offshore:
+            # pp_elektrolyser_onshore:
+            # pp_elektrolyser_offshore:
 
             ## Reformers
             #reformer_smr_ccs: 
@@ -2953,7 +2979,7 @@ locations:
 
             ## Import
             #import_ammonia_cracker:
-            import_lng_terminal:
+            # import_lng_terminal:
 
 
 
@@ -2962,15 +2988,16 @@ locations:
         techs: 
             # Demand
             demand_elc:
+            fuel_dummy_supply:
             #load_shedding_elc:
             
-            demand_hyd:
+            # demand_hyd:
             #load_shedding_hyd:
 
-            demand_gas:
+            # demand_gas:
             #load_shedding_gas:
 
-            demand_pth: 
+            # demand_pth:
             ## Renewables
             # Market players
             wind_offshore:
@@ -3028,14 +3055,14 @@ locations:
             # ## CCGT
             pp_ccgt_gas:
             #pp_ccgt_gas_ccs:
-            pp_ccgt_hyd:
+            # pp_ccgt_hyd:
 
             # # # OCGT
             pp_ocgt_gas:
-            pp_ocgt_hyd:
+            # pp_ocgt_hyd:
 
             #Heat
-            pth_electric_boiler:
+            # pth_electric_boiler:
 
             #CHP
             #pp_chp_gas:
@@ -3048,12 +3075,12 @@ locations:
             #ES_pumped_hydro:
 
             # ## Salt cavern storage systems
-            saltcavern_gas:
-            saltcavern_hyd:
+            # saltcavern_gas:
+            # saltcavern_hyd:
 
             # ## Electrolyser
-            pp_elektrolyser_onshore:
-            pp_elektrolyser_offshore:
+            # pp_elektrolyser_onshore:
+            # pp_elektrolyser_offshore:
 
             ## Reformers
             #reformer_smr_ccs: 
@@ -3061,7 +3088,7 @@ locations:
 
             ## Import
             #import_ammonia_cracker:
-            import_lng_terminal:
+            # import_lng_terminal:
 
 
 
@@ -3070,15 +3097,16 @@ locations:
         techs: 
             # Demand
             demand_elc:
+            fuel_dummy_supply:
             #load_shedding_elc:
             
-            demand_hyd:
+            # demand_hyd:
             #load_shedding_hyd:
 
-            demand_gas:
+            # demand_gas:
             #load_shedding_gas:
 
-            demand_pth: 
+            # demand_pth:
             ## Renewables
             # Market players
             wind_offshore:
@@ -3136,14 +3164,14 @@ locations:
             # ## CCGT
             pp_ccgt_gas:
             #pp_ccgt_gas_ccs:
-            pp_ccgt_hyd:
+            # pp_ccgt_hyd:
 
             # # # OCGT
             pp_ocgt_gas:
-            pp_ocgt_hyd:
+            # pp_ocgt_hyd:
 
             #Heat
-            pth_electric_boiler:
+            # pth_electric_boiler:
 
             #CHP
             #pp_chp_gas:
@@ -3156,12 +3184,12 @@ locations:
             #ES_pumped_hydro:
 
             # ## Salt cavern storage systems
-            saltcavern_gas:
-            saltcavern_hyd:
+            # saltcavern_gas:
+            # saltcavern_hyd:
 
             # ## Electrolyser
-            pp_elektrolyser_onshore:
-            pp_elektrolyser_offshore:
+            # pp_elektrolyser_onshore:
+            # pp_elektrolyser_offshore:
 
             ## Reformers
             #reformer_smr_ccs: 
@@ -3169,7 +3197,7 @@ locations:
 
             ## Import
             #import_ammonia_cracker:
-            import_lng_terminal:
+            # import_lng_terminal:
 
 
 
@@ -3178,15 +3206,16 @@ locations:
         techs: 
             # Demand
             demand_elc:
+            fuel_dummy_supply:
             #load_shedding_elc:
             
-            demand_hyd:
+            # demand_hyd:
             #load_shedding_hyd:
 
-            demand_gas:
+            # demand_gas:
             #load_shedding_gas:
 
-            demand_pth: 
+            # demand_pth:
             ## Renewables
             # Market players
             wind_offshore:
@@ -3244,14 +3273,14 @@ locations:
             # ## CCGT
             pp_ccgt_gas:
             #pp_ccgt_gas_ccs:
-            pp_ccgt_hyd:
+            # pp_ccgt_hyd:
 
             # # # OCGT
             pp_ocgt_gas:
-            pp_ocgt_hyd:
+            # pp_ocgt_hyd:
 
             #Heat
-            pth_electric_boiler:
+            # pth_electric_boiler:
 
             #CHP
             #pp_chp_gas:
@@ -3264,12 +3293,12 @@ locations:
             #ES_pumped_hydro:
 
             # ## Salt cavern storage systems
-            saltcavern_gas:
-            saltcavern_hyd:
+            # saltcavern_gas:
+            # saltcavern_hyd:
 
             # ## Electrolyser
-            pp_elektrolyser_onshore:
-            pp_elektrolyser_offshore:
+            # pp_elektrolyser_onshore:
+            # pp_elektrolyser_offshore:
 
             ## Reformers
             #reformer_smr_ccs: 
@@ -3277,7 +3306,7 @@ locations:
 
             ## Import
             #import_ammonia_cracker:
-            import_lng_terminal:
+            # import_lng_terminal:
 
 
 
@@ -3286,15 +3315,16 @@ locations:
         techs: 
             # Demand
             demand_elc:
+            fuel_dummy_supply:
             #load_shedding_elc:
             
-            demand_hyd:
+            # demand_hyd:
             #load_shedding_hyd:
 
-            demand_gas:
+            # demand_gas:
             #load_shedding_gas:
 
-            demand_pth: 
+            # demand_pth:
             ## Renewables
             # Market players
             wind_offshore:
@@ -3352,14 +3382,14 @@ locations:
             # ## CCGT
             pp_ccgt_gas:
             #pp_ccgt_gas_ccs:
-            pp_ccgt_hyd:
+            # pp_ccgt_hyd:
 
             # # # OCGT
             pp_ocgt_gas:
-            pp_ocgt_hyd:
+            # pp_ocgt_hyd:
 
             #Heat
-            pth_electric_boiler:
+            # pth_electric_boiler:
 
             #CHP
             #pp_chp_gas:
@@ -3372,12 +3402,12 @@ locations:
             #ES_pumped_hydro:
 
             # ## Salt cavern storage systems
-            saltcavern_gas:
-            saltcavern_hyd:
+            # saltcavern_gas:
+            # saltcavern_hyd:
 
             # ## Electrolyser
-            pp_elektrolyser_onshore:
-            pp_elektrolyser_offshore:
+            # pp_elektrolyser_onshore:
+            # pp_elektrolyser_offshore:
 
             ## Reformers
             #reformer_smr_ccs: 
@@ -3385,7 +3415,7 @@ locations:
 
             ## Import
             #import_ammonia_cracker:
-            import_lng_terminal:
+            # import_lng_terminal:
 
 
 
@@ -3394,15 +3424,16 @@ locations:
         techs: 
             # Demand
             demand_elc:
+            fuel_dummy_supply:
             #load_shedding_elc:
             
-            demand_hyd:
+            # demand_hyd:
             #load_shedding_hyd:
 
-            demand_gas:
+            # demand_gas:
             #load_shedding_gas:
 
-            demand_pth: 
+            # demand_pth:
             ## Renewables
             # Market players
             wind_offshore:
@@ -3460,14 +3491,14 @@ locations:
             # ## CCGT
             pp_ccgt_gas:
             #pp_ccgt_gas_ccs:
-            pp_ccgt_hyd:
+            # pp_ccgt_hyd:
 
             # # # OCGT
             pp_ocgt_gas:
-            pp_ocgt_hyd:
+            # pp_ocgt_hyd:
 
             #Heat
-            pth_electric_boiler:
+            # pth_electric_boiler:
 
             #CHP
             #pp_chp_gas:
@@ -3480,12 +3511,12 @@ locations:
             #ES_pumped_hydro:
 
             # ## Salt cavern storage systems
-            saltcavern_gas:
-            saltcavern_hyd:
+            # saltcavern_gas:
+            # saltcavern_hyd:
 
             # ## Electrolyser
-            pp_elektrolyser_onshore:
-            pp_elektrolyser_offshore:
+            # pp_elektrolyser_onshore:
+            # pp_elektrolyser_offshore:
 
             ## Reformers
             #reformer_smr_ccs: 
@@ -3493,7 +3524,7 @@ locations:
 
             ## Import
             #import_ammonia_cracker:
-            import_lng_terminal:
+            # import_lng_terminal:
 
 
 
@@ -3502,15 +3533,16 @@ locations:
         techs: 
             # Demand
             demand_elc:
+            fuel_dummy_supply:
             #load_shedding_elc:
             
-            demand_hyd:
+            # demand_hyd:
             #load_shedding_hyd:
 
-            demand_gas:
+            # demand_gas:
             #load_shedding_gas:
 
-            demand_pth: 
+            # demand_pth:
             ## Renewables
             # Market players
             wind_offshore:
@@ -3568,14 +3600,14 @@ locations:
             # ## CCGT
             pp_ccgt_gas:
             #pp_ccgt_gas_ccs:
-            pp_ccgt_hyd:
+            # pp_ccgt_hyd:
 
             # # # OCGT
             pp_ocgt_gas:
-            pp_ocgt_hyd:
+            # pp_ocgt_hyd:
 
             #Heat
-            pth_electric_boiler:
+            # pth_electric_boiler:
 
             #CHP
             #pp_chp_gas:
@@ -3588,12 +3620,12 @@ locations:
             #ES_pumped_hydro:
 
             # ## Salt cavern storage systems
-            saltcavern_gas:
-            saltcavern_hyd:
+            # saltcavern_gas:
+            # saltcavern_hyd:
 
             # ## Electrolyser
-            pp_elektrolyser_onshore:
-            pp_elektrolyser_offshore:
+            # pp_elektrolyser_onshore:
+            # pp_elektrolyser_offshore:
 
             ## Reformers
             #reformer_smr_ccs: 
@@ -3601,7 +3633,7 @@ locations:
 
             ## Import
             #import_ammonia_cracker:
-            import_lng_terminal:
+            # import_lng_terminal:
 
 
 
@@ -4197,364 +4229,364 @@ links:
 ##--------------------------------------------Dummy nodes gas & hydrogen-----------------------------------------------------##
     NL,E-BGM:
         techs:
-            free_gas_transmission:
-            free_hyd_transmission:
-            free_solid_fuel_transmission:
+            # free_gas_transmission:
+            # free_hyd_transmission:
+            # free_solid_fuel_transmission:
             free_co2_transmission:
-            free_ets_budget_transmission:
-            free_ets_penalty_transmission:
+            # free_ets_budget_transmission:
+            # free_ets_penalty_transmission:
             free_co2_stored_transmission:
 
 
     NL,E-BVW:
         techs:
-            free_gas_transmission:
-            free_hyd_transmission:
-            free_solid_fuel_transmission:
+            # free_gas_transmission:
+            # free_hyd_transmission:
+            # free_solid_fuel_transmission:
             free_co2_transmission:
-            free_ets_budget_transmission:
-            free_ets_penalty_transmission:
+            # free_ets_budget_transmission:
+            # free_ets_penalty_transmission:
             free_co2_stored_transmission:
 
 
     NL,E-BWK:
         techs:
-            free_gas_transmission:
-            free_hyd_transmission:
-            free_solid_fuel_transmission:
+            # free_gas_transmission:
+            # free_hyd_transmission:
+            # free_solid_fuel_transmission:
             free_co2_transmission:
-            free_ets_budget_transmission:
-            free_ets_penalty_transmission:
+            # free_ets_budget_transmission:
+            # free_ets_penalty_transmission:
             free_co2_stored_transmission:
 
 
     NL,E-BSL:
         techs:
-            free_gas_transmission:
-            free_hyd_transmission:
-            free_solid_fuel_transmission:
+            # free_gas_transmission:
+            # free_hyd_transmission:
+            # free_solid_fuel_transmission:
             free_co2_transmission:
-            free_ets_budget_transmission:
-            free_ets_penalty_transmission:
+            # free_ets_budget_transmission:
+            # free_ets_penalty_transmission:
             free_co2_stored_transmission:
 
             
     NL,E-BMR:
         techs:
-            free_gas_transmission:
-            free_hyd_transmission:
-            free_solid_fuel_transmission:
+            # free_gas_transmission:
+            # free_hyd_transmission:
+            # free_solid_fuel_transmission:
             free_co2_transmission:
-            free_ets_budget_transmission:
-            free_ets_penalty_transmission:
+            # free_ets_budget_transmission:
+            # free_ets_penalty_transmission:
             free_co2_stored_transmission:
 
 
     NL,E-BRK:
         techs:
-            free_gas_transmission:
-            free_hyd_transmission:
-            free_solid_fuel_transmission:
+            # free_gas_transmission:
+            # free_hyd_transmission:
+            # free_solid_fuel_transmission:
             free_co2_transmission:
-            free_ets_budget_transmission:
-            free_ets_penalty_transmission:
+            # free_ets_budget_transmission:
+            # free_ets_penalty_transmission:
             free_co2_stored_transmission:
 
             
     NL,E-CST:
         techs:
-            free_gas_transmission:
-            free_hyd_transmission:
-            free_solid_fuel_transmission:
+            # free_gas_transmission:
+            # free_hyd_transmission:
+            # free_solid_fuel_transmission:
             free_co2_transmission:
-            free_ets_budget_transmission:
-            free_ets_penalty_transmission:
+            # free_ets_budget_transmission:
+            # free_ets_penalty_transmission:
             free_co2_stored_transmission:
 
 
     NL,E-DIM:
         techs:
-            free_gas_transmission:
-            free_hyd_transmission:
-            free_solid_fuel_transmission:
+            # free_gas_transmission:
+            # free_hyd_transmission:
+            # free_solid_fuel_transmission:
             free_co2_transmission:
-            free_ets_budget_transmission:
-            free_ets_penalty_transmission:
+            # free_ets_budget_transmission:
+            # free_ets_penalty_transmission:
             free_co2_stored_transmission:
 
 
     NL,E-DOD:
         techs:
-            free_gas_transmission:
-            free_hyd_transmission:
-            free_solid_fuel_transmission:
+            # free_gas_transmission:
+            # free_hyd_transmission:
+            # free_solid_fuel_transmission:
             free_co2_transmission:
-            free_ets_budget_transmission:
-            free_ets_penalty_transmission:
+            # free_ets_budget_transmission:
+            # free_ets_penalty_transmission:
             free_co2_stored_transmission:
 
 
     NL,E-DTC:
         techs:
-            free_gas_transmission:
-            free_hyd_transmission:
-            free_solid_fuel_transmission:
+            # free_gas_transmission:
+            # free_hyd_transmission:
+            # free_solid_fuel_transmission:
             free_co2_transmission:
-            free_ets_budget_transmission:
-            free_ets_penalty_transmission:
+            # free_ets_budget_transmission:
+            # free_ets_penalty_transmission:
             free_co2_stored_transmission:
 
 
     NL,E-EEM:
         techs:
-            free_gas_transmission:
-            free_hyd_transmission:
-            free_solid_fuel_transmission:
+            # free_gas_transmission:
+            # free_hyd_transmission:
+            # free_solid_fuel_transmission:
             free_co2_transmission:
-            free_ets_budget_transmission:
-            free_ets_penalty_transmission:
+            # free_ets_budget_transmission:
+            # free_ets_penalty_transmission:
             free_co2_stored_transmission:
 
 
     NL,E-EHV:
         techs:
-            free_gas_transmission:
-            free_hyd_transmission:
-            free_solid_fuel_transmission:
+            # free_gas_transmission:
+            # free_hyd_transmission:
+            # free_solid_fuel_transmission:
             free_co2_transmission:
-            free_ets_budget_transmission:
-            free_ets_penalty_transmission:
+            # free_ets_budget_transmission:
+            # free_ets_penalty_transmission:
             free_co2_stored_transmission:
 
 
     NL,E-ENS:
         techs:
-            free_gas_transmission:
-            free_hyd_transmission:
-            free_solid_fuel_transmission:
+            # free_gas_transmission:
+            # free_hyd_transmission:
+            # free_solid_fuel_transmission:
             free_co2_transmission:
-            free_ets_budget_transmission:
-            free_ets_penalty_transmission:
+            # free_ets_budget_transmission:
+            # free_ets_penalty_transmission:
             free_co2_stored_transmission:
 
 
     NL,E-GER:
         techs:
-            free_gas_transmission:
-            free_hyd_transmission:
-            free_solid_fuel_transmission:
+            # free_gas_transmission:
+            # free_hyd_transmission:
+            # free_solid_fuel_transmission:
             free_co2_transmission:
-            free_ets_budget_transmission:
-            free_ets_penalty_transmission:
+            # free_ets_budget_transmission:
+            # free_ets_penalty_transmission:
             free_co2_stored_transmission:
 
 
     NL,E-HGL:
         techs:
-            free_gas_transmission:
-            free_hyd_transmission:
-            free_solid_fuel_transmission:
+            # free_gas_transmission:
+            # free_hyd_transmission:
+            # free_solid_fuel_transmission:
             free_co2_transmission:
-            free_ets_budget_transmission:
-            free_ets_penalty_transmission:
+            # free_ets_budget_transmission:
+            # free_ets_penalty_transmission:
             free_co2_stored_transmission:
 
 
     NL,E-KIJ:
         techs:
-            free_gas_transmission:
-            free_hyd_transmission:
-            free_solid_fuel_transmission:
+            # free_gas_transmission:
+            # free_hyd_transmission:
+            # free_solid_fuel_transmission:
             free_co2_transmission:
-            free_ets_budget_transmission:
-            free_ets_penalty_transmission:
+            # free_ets_budget_transmission:
+            # free_ets_penalty_transmission:
             free_co2_stored_transmission:
 
 
     NL,E-LLS:
         techs:
-            free_gas_transmission:
-            free_hyd_transmission:
-            free_solid_fuel_transmission:
+            # free_gas_transmission:
+            # free_hyd_transmission:
+            # free_solid_fuel_transmission:
             free_co2_transmission:
-            free_ets_budget_transmission:
-            free_ets_penalty_transmission:
+            # free_ets_budget_transmission:
+            # free_ets_penalty_transmission:
             free_co2_stored_transmission:
 
 
     NL,E-LSM:
         techs:
-            free_gas_transmission:
-            free_hyd_transmission:
-            free_solid_fuel_transmission:
+            # free_gas_transmission:
+            # free_hyd_transmission:
+            # free_solid_fuel_transmission:
             free_co2_transmission:
-            free_ets_budget_transmission:
-            free_ets_penalty_transmission:
+            # free_ets_budget_transmission:
+            # free_ets_penalty_transmission:
             free_co2_stored_transmission:
 
 
     NL,E-MBT:
         techs:
-            free_gas_transmission:
-            free_hyd_transmission:
-            free_solid_fuel_transmission:
+            # free_gas_transmission:
+            # free_hyd_transmission:
+            # free_solid_fuel_transmission:
             free_co2_transmission:
-            free_ets_budget_transmission:
-            free_ets_penalty_transmission:
+            # free_ets_budget_transmission:
+            # free_ets_penalty_transmission:
             free_co2_stored_transmission:
 
 
     NL,E-MVL:
         techs:
-            free_gas_transmission:
-            free_hyd_transmission:
-            free_solid_fuel_transmission:
+            # free_gas_transmission:
+            # free_hyd_transmission:
+            # free_solid_fuel_transmission:
             free_co2_transmission:
-            free_ets_budget_transmission:
-            free_ets_penalty_transmission:
+            # free_ets_budget_transmission:
+            # free_ets_penalty_transmission:
             free_co2_stored_transmission:
 
 
     NL,E-MEE:
         techs:
-            free_gas_transmission:
-            free_hyd_transmission:
-            free_solid_fuel_transmission:
+            # free_gas_transmission:
+            # free_hyd_transmission:
+            # free_solid_fuel_transmission:
             free_co2_transmission:
-            free_ets_budget_transmission:
-            free_ets_penalty_transmission:
+            # free_ets_budget_transmission:
+            # free_ets_penalty_transmission:
             free_co2_stored_transmission:
 
 
     NL,E-OZN:
         techs:
-            free_gas_transmission:
-            free_hyd_transmission:
-            free_solid_fuel_transmission:
+            # free_gas_transmission:
+            # free_hyd_transmission:
+            # free_solid_fuel_transmission:
             free_co2_transmission:
-            free_ets_budget_transmission:
-            free_ets_penalty_transmission:
+            # free_ets_budget_transmission:
+            # free_ets_penalty_transmission:
             free_co2_stored_transmission:
 
 
     NL,E-OHK:
         techs:
-            free_gas_transmission:
-            free_hyd_transmission:
-            free_solid_fuel_transmission:
+            # free_gas_transmission:
+            # free_hyd_transmission:
+            # free_solid_fuel_transmission:
             free_co2_transmission:
-            free_ets_budget_transmission:
-            free_ets_penalty_transmission:
+            # free_ets_budget_transmission:
+            # free_ets_penalty_transmission:
             free_co2_stored_transmission:
 
 
     NL,E-RIL:
         techs:
-            free_gas_transmission:
-            free_hyd_transmission:
-            free_solid_fuel_transmission:
+            # free_gas_transmission:
+            # free_hyd_transmission:
+            # free_solid_fuel_transmission:
             free_co2_transmission:
-            free_ets_budget_transmission:
-            free_ets_penalty_transmission:
+            # free_ets_budget_transmission:
+            # free_ets_penalty_transmission:
             free_co2_stored_transmission:
 
 
     NL,E-SMH:
         techs:
-            free_gas_transmission:
-            free_hyd_transmission:
-            free_solid_fuel_transmission:
+            # free_gas_transmission:
+            # free_hyd_transmission:
+            # free_solid_fuel_transmission:
             free_co2_transmission:
-            free_ets_budget_transmission:
-            free_ets_penalty_transmission:
+            # free_ets_budget_transmission:
+            # free_ets_penalty_transmission:
             free_co2_stored_transmission:
 
 
     NL,E-TIL:
         techs:
-            free_gas_transmission:
-            free_hyd_transmission:
-            free_solid_fuel_transmission:
+            # free_gas_transmission:
+            # free_hyd_transmission:
+            # free_solid_fuel_transmission:
             free_co2_transmission:
-            free_ets_budget_transmission:
-            free_ets_penalty_transmission:
+            # free_ets_budget_transmission:
+            # free_ets_penalty_transmission:
             free_co2_stored_transmission:
 
 
     NL,E-VVL:
         techs:
-            free_gas_transmission:
-            free_hyd_transmission:
-            free_solid_fuel_transmission:
+            # free_gas_transmission:
+            # free_hyd_transmission:
+            # free_solid_fuel_transmission:
             free_co2_transmission:
-            free_ets_budget_transmission:
-            free_ets_penalty_transmission:
+            # free_ets_budget_transmission:
+            # free_ets_penalty_transmission:
             free_co2_stored_transmission:
 
 
     NL,E-VHZ:
         techs:
-            free_gas_transmission:
-            free_hyd_transmission:
-            free_solid_fuel_transmission:
+            # free_gas_transmission:
+            # free_hyd_transmission:
+            # free_solid_fuel_transmission:
             free_co2_transmission:
-            free_ets_budget_transmission:
-            free_ets_penalty_transmission:
+            # free_ets_budget_transmission:
+            # free_ets_penalty_transmission:
             free_co2_stored_transmission:
 
 
     NL,E-WTR:
         techs:
-            free_gas_transmission:
-            free_hyd_transmission:
-            free_solid_fuel_transmission:
+            # free_gas_transmission:
+            # free_hyd_transmission:
+            # free_solid_fuel_transmission:
             free_co2_transmission:
-            free_ets_budget_transmission:
-            free_ets_penalty_transmission:
+            # free_ets_budget_transmission:
+            # free_ets_penalty_transmission:
             free_co2_stored_transmission:
 
 
     NL,E-WEW:
         techs:
-            free_gas_transmission:
-            free_hyd_transmission:
-            free_solid_fuel_transmission:
+            # free_gas_transmission:
+            # free_hyd_transmission:
+            # free_solid_fuel_transmission:
             free_co2_transmission:
-            free_ets_budget_transmission:
-            free_ets_penalty_transmission:
+            # free_ets_budget_transmission:
+            # free_ets_penalty_transmission:
             free_co2_stored_transmission:
 
 
     NL,E-WES:
         techs:
-            free_gas_transmission:
-            free_hyd_transmission:
-            free_solid_fuel_transmission:
+            # free_gas_transmission:
+            # free_hyd_transmission:
+            # free_solid_fuel_transmission:
             free_co2_transmission:
-            free_ets_budget_transmission:
-            free_ets_penalty_transmission:
+            # free_ets_budget_transmission:
+            # free_ets_penalty_transmission:
             free_co2_stored_transmission:
 
 
     NL,E-ZYV:
         techs:
-            free_gas_transmission:
-            free_hyd_transmission:
-            free_solid_fuel_transmission:
+            # free_gas_transmission:
+            # free_hyd_transmission:
+            # free_solid_fuel_transmission:
             free_co2_transmission:
-            free_ets_budget_transmission:
-            free_ets_penalty_transmission:
+            # free_ets_budget_transmission:
+            # free_ets_penalty_transmission:
             free_co2_stored_transmission:
 
 
     NL,E-ZWO:
         techs:
-            free_gas_transmission:
-            free_hyd_transmission:
-            free_solid_fuel_transmission:
+            # free_gas_transmission:
+            # free_hyd_transmission:
+            # free_solid_fuel_transmission:
             free_co2_transmission:
-            free_ets_budget_transmission:
-            free_ets_penalty_transmission:
+            # free_ets_budget_transmission:
+            # free_ets_penalty_transmission:
             free_co2_stored_transmission:
 
     NL,E-BE-EYC:
@@ -4664,3 +4696,6 @@ links:
                 constraints:
                     energy_cap_equals: 0.700 #GW https://www.tennet.eu/nl/projecten/cobracable
                     energy_eff_per_distance: 0.99965
+
+
+

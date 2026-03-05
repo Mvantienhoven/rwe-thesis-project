@@ -1,4 +1,4 @@
-techs:
+﻿techs:
 
     # Nuclear
     pp_nuclear_conventional:
@@ -16,96 +16,94 @@ techs:
                 om_annual: 108 #TNO estimate 2040 #91.77 # Meur/GW/yr
                 om_prod: 19e-3 #TNO estimate 2040 #2.5e-3 # Meur/GWh
 
-    ##SMRs
-    pp_nuclear_smr:
-        essentials:
-            name: 'Nuclear - SMR'
-            color: '#009688' #
-            parent: nuclear_power_plants
-            carrier: electricity
-        constraints:
-            lifetime: 60 # years
-           # energy_eff: 0.28
-        costs:
-            monetary:
-                energy_cap: 6301 #TNO SMR estimate 2040 #6460  # Meur/GW
-                om_annual: 124 #TNO SMR estimate #129.2  # Meur/GW/yr
-                om_prod: 20e-3 #TNO SMR esimtate #2.5e-3 # Meur/GWh 
+    # STEP 3 (power-only cleanup): disable SMR and hydrogen-based power plants.
+    # ##SMRs
+    # pp_nuclear_smr:
+    #     essentials:
+    #         name: 'Nuclear - SMR'
+    #         color: '#009688' #
+    #         parent: nuclear_power_plants
+    #         carrier: electricity
+    #     constraints:
+    #         lifetime: 60 # years
+    #        # energy_eff: 0.28
+    #     costs:
+    #         monetary:
+    #             energy_cap: 6301 #TNO SMR estimate 2040 #6460  # Meur/GW
+    #             om_annual: 124 #TNO SMR estimate #129.2  # Meur/GW/yr
+    #             om_prod: 20e-3 #TNO SMR esimtate #2.5e-3 # Meur/GWh 
 
-    pp_SMR_CHP_generic:
-        essentials:
-            name: 'Scaleable CHP SMR'
-            color: '#009688' #
-            parent: SMR_power_plants
-            carrier_in: solid_fuel
-            primary_carrier_in: solid_fuel
-            carrier_out: electricity
-            primary_carrier_out: electricity
-            carrier_out_2: heat
-        constraints:
-            lifetime: 60 # years
-            #energy_cap_per_unit: 0.470 #GWe/unit
-            carrier_ratios:
-                carrier_in: 
-                    solid_fuel: 1
-                carrier_out: 
-                    electricity: 0.6383
-                carrier_out_2:
-                    heat: 0.8511
-        costs:
-            monetary:
-                energy_cap: 6301 #TNO SMR estimate 2040 #6460  # Meur/GW
-                om_annual: 124 #TNO SMR estimate #129.2  # Meur/GW/yr
-                om_prod: 20e-3 #TNO SMR estimate #2.5e-3 # Meur/GWh
-                interest_rate: 0.07 #WACC
+    # pp_SMR_CHP_generic:
+    #     essentials:
+    #         name: 'Scaleable CHP SMR'
+    #         color: '#009688' #
+    #         parent: SMR_power_plants
+    #         carrier_in: solid_fuel
+    #         primary_carrier_in: solid_fuel
+    #         carrier_out: electricity
+    #         primary_carrier_out: electricity
+    #         carrier_out_2: heat
+    #     constraints:
+    #         lifetime: 60 # years
+    #         #energy_cap_per_unit: 0.470 #GWe/unit
+    #         carrier_ratios:
+    #             carrier_in: 
+    #                 solid_fuel: 1
+    #             carrier_out: 
+    #                 electricity: 0.6383
+    #             carrier_out_2:
+    #                 heat: 0.8511
+    #     costs:
+    #         monetary:
+    #             energy_cap: 6301 #TNO SMR estimate 2040 #6460  # Meur/GW
+    #             om_annual: 124 #TNO SMR estimate #129.2  # Meur/GW/yr
+    #             om_prod: 20e-3 #TNO SMR estimate #2.5e-3 # Meur/GWh
+    #             interest_rate: 0.07 #WACC
 
+    # STEP 3d (power-only + hard-CO2-cap): Option A with dummy fuel input
+    # No gas/solid_fuel market network; carrier_ratios kept via conversion_plus parents.
+    # Hydrogen and broader fuel/storage stacks remain disabled.
     # CCGT
     pp_ccgt_gas:
         essentials:
             name: 'CCGT - Gas'
             # color: '#b8bd20' #!
             parent: gas_fired_power_plants
-            carrier_in: gas
-            carrier_in_2: ets_budget
-            primary_carrier_in: gas
+            carrier_in: fuel_dummy
+            primary_carrier_in: fuel_dummy
             carrier_out: electricity
             carrier_out_2: co2_emitted
             primary_carrier_out: electricity
         constraints:
             lifetime: 30 # years
-            #energy_eff: 0.6
-            #energy_cap_min_use: 0.25 # force operational lower limit of 40% for CCGTs
             carrier_ratios:
                 carrier_in:
-                    gas: 1.0
-                carrier_in_2:
-                    ets_budget: 0.33666
-                carrier_out: 
-                    electricity: 0.6
+                    fuel_dummy: 1.0
+                carrier_out:
+                    electricity: 1.0
                 carrier_out_2:
-                    co2_emitted: 0.33666 #
+                    co2_emitted: 0.5611 # kton/GWh_e
         costs:
             monetary:
                 energy_cap: 750  # Meur/GW
                 om_annual: 11.33  # Meur/GW/yr
-                om_prod: 2.5e-3 #Meur/GWh
-
-    pp_ccgt_hyd:
-        essentials:
-            name: 'CCGT - Hydrogen'
-            # color: '#b8bd20' #!
-            parent: conversion
-            carrier_in: hydrogen
-            carrier_out: electricity
-        constraints:
-            lifetime: 30 # years
-            energy_eff: 0.6
-        costs:
-            monetary:
-                energy_cap: 749.4  # Meur/GW
-                om_annual: 11.33  # Meur/GW/yr
-                om_prod: 2.5e-3 #Meur/GWh
-                interest_rate: 0.07 #WACC
+                om_prod: 130.148e-3 # Meur/GWh_e (all-in fuel+ETS+VOM)
+    # pp_ccgt_hyd:
+    #     essentials:
+    #         name: 'CCGT - Hydrogen'
+    #         # color: '#b8bd20' #!
+    #         parent: conversion
+    #         carrier_in: hydrogen
+    #         carrier_out: electricity
+    #     constraints:
+    #         lifetime: 30 # years
+    #         energy_eff: 0.6
+    #     costs:
+    #         monetary:
+    #             energy_cap: 749.4  # Meur/GW
+    #             om_annual: 11.33  # Meur/GW/yr
+    #             om_prod: 2.5e-3 #Meur/GWh
+    #             interest_rate: 0.07 #WACC
 
     # OCGT
     pp_ocgt_gas:
@@ -113,46 +111,41 @@ techs:
             name: 'OCGT - Gas'
             # color: '#b8bd20' #!
             parent: gas_fired_power_plants
-            carrier_in: gas
-            carrier_in_2: ets_budget
-            primary_carrier_in: gas
+            carrier_in: fuel_dummy
+            primary_carrier_in: fuel_dummy
             carrier_out: electricity
             carrier_out_2: co2_emitted
             primary_carrier_out: electricity
         constraints:
             lifetime: 40 # years
-            #energy_eff: 0.36
             carrier_ratios:
                 carrier_in:
-                    gas: 1.0
-                carrier_in_2:
-                    ets_budget: 0.56111
+                    fuel_dummy: 1.0
                 carrier_out:
-                    electricity: 0.36
+                    electricity: 1.0
                 carrier_out_2:
-                    co2_emitted: 0.56111 #
+                    co2_emitted: 1.55864 # kton/GWh_e
         costs:
             monetary:
                 energy_cap: 749  # Meur/GW
                 om_annual: 7.5  # Meur/GW/yr
-                om_prod: 3.76e-3 # Meur/GWh
-
-    pp_ocgt_hyd:
-        essentials:
-            name: 'OCGT - Hydrogen'
-            # color: '#b8bd20' #!
-            parent: conversion
-            carrier_in: hydrogen
-            carrier_out: electricity
-        constraints:
-            lifetime: 50 # years
-            energy_eff: 0.34
-        costs:
-            monetary:
-                interest_rate: 0.07 # WACC
-                energy_cap: 535.921  # Meur/GW
-                om_annual: 6.181  # Meur/GW/yr. 
-                om_prod: 3.76e-3 # Meur/GWh
+                om_prod: 326.861e-3 # Meur/GWh_e (all-in fuel+ETS+VOM)
+    # pp_ocgt_hyd:
+    #     essentials:
+    #         name: 'OCGT - Hydrogen'
+    #         # color: '#b8bd20' #!
+    #         parent: conversion
+    #         carrier_in: hydrogen
+    #         carrier_out: electricity
+    #     constraints:
+    #         lifetime: 50 # years
+    #         energy_eff: 0.34
+    #     costs:
+    #         monetary:
+    #             interest_rate: 0.07 # WACC
+    #             energy_cap: 535.921  # Meur/GW
+    #             om_annual: 6.181  # Meur/GW/yr. 
+    #             om_prod: 3.76e-3 # Meur/GWh
 
     # biomass/waste
     pp_biomass_standalone:
@@ -160,47 +153,41 @@ techs:
             name: 'Biomass - Standalone'
             color: '#795548' #
             parent: conversion
-            carrier_in: solid_fuel
+            carrier_in: fuel_dummy
             carrier_out: electricity
         constraints:
             lifetime: 40 # years
-            energy_eff: 0.64
+            energy_eff: 1.0
         costs:
             monetary:
+                interest_rate: 0.04 #WACC
                 energy_cap: 1400  # Meur/GW
                 om_annual: 20  # Meur/GW/yr
-                om_prod: 53.33e-3 # Meur/GWh
-                interest_rate: 0.04 #WACC
-
+                om_prod: 53.33e-3 # Meur/GWh_e (all-in)
     pp_waste_incinerator:
         essentials:
             name: 'Waste incinerator'
             color: '#795548' #
             parent: solid_fuel_power_plants
-            carrier_in: solid_fuel
-            carrier_in_2: ets_budget
-            primary_carrier_in: solid_fuel
+            carrier_in: fuel_dummy
+            primary_carrier_in: fuel_dummy
             carrier_out: electricity
             carrier_out_2: co2_emitted
             primary_carrier_out: electricity
         constraints:
             lifetime: 20 # years
-            #energy_eff: 0.25 
             carrier_ratios:
                 carrier_in:
-                    solid_fuel: 1.0
-                carrier_in_2:
-                    ets_budget: 1.66
+                    fuel_dummy: 1.0
                 carrier_out:
-                    electricity: 0.25
+                    electricity: 1.0
                 carrier_out_2:
-                    co2_emitted: 1.66 # 0,415 mg CO2/mg of waste div by 25% efficiency, ref: https://www.ipcc-nggip.iges.or.jp/public/gp/bgp/5_3_Waste_Incineration.pdf
+                    co2_emitted: 6.64 # kton/GWh_e
         costs:
             monetary:
                 energy_cap: 1400  # Meur/GW
-                om_annual: 0 
-                om_prod: 1.1699 #Meur/GWh
-
+                om_annual: 0
+                om_prod: 2.34518 # Meur/GWh_e (all-in fuel+ETS+VOM)
     # pp_chp_biomass: 
     #     essentials:
     #         name: 'CHP - Biomass'
@@ -239,3 +226,5 @@ techs:
     #             energy_cap: 1050  # Meur/GW
     #             om_annual: 9.698  # Meur/GW/yr 
     #             om_prod: 3e-3 # Meur/GWh
+
+

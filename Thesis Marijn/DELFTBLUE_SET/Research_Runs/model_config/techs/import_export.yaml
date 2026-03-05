@@ -261,42 +261,43 @@ techs:
                 energy_cap: 364 #M€/GW
                 
 
-    import_hyd_interconnector:
-        essentials:
-            name: 'Import - Hydrogen interconnection'
-            parent: crossborder_import
-            carrier: hydrogen
-        costs:
-            monetary:
-                om_prod: 75e-3 #! MEUR/GWh, assumed hydrogen import price  
-                         
-    import_gas_interconnector:
-        essentials:
-            name: 'Import - Gas interconnection'
-            parent: crossborder_import
-            carrier: gas
-        costs:
-            monetary:
-                om_prod: 36e-3 #! MEUR/GWh
+    # STEP 3b (power-only simplification): disable gas/hydrogen import fuel infrastructure.
+    # import_hyd_interconnector:
+    #     essentials:
+    #         name: 'Import - Hydrogen interconnection'
+    #         parent: crossborder_import
+    #         carrier: hydrogen
+    #     costs:
+    #         monetary:
+    #             om_prod: 75e-3 #! MEUR/GWh, assumed hydrogen import price  
+    #                      
+    # import_gas_interconnector:
+    #     essentials:
+    #         name: 'Import - Gas interconnection'
+    #         parent: crossborder_import
+    #         carrier: gas
+    #     costs:
+    #         monetary:
+    #             om_prod: 36e-3 #! MEUR/GWh
 
-    import_ammonia_cracker:
-        essentials:
-            name: 'Import - Ammonia cracker'
-            parent: terminal_import
-            carrier: hydrogen
-        costs:
-            monetary:
-                energy_cap: 946 #! MEUR/GW, calculated from: https://iopscience.iop.org/article/10.1088/1755-1315/983/1/012051/pdf
-                om_annual_investment_fraction: 0.03  # *100% of CAPEX/yr, TNO estimate
-                om_prod: 153e-3 #! MEUR/GWh
-    
-    import_lng_terminal:
-        essentials:
-            name: 'Import - LNG terminal'
-            parent: terminal_import
-            carrier: gas
-        costs:
-            monetary:
-                energy_cap: 946 #! MEUR/GW, calculated from: https://iopscience.iop.org/article/10.1088/1755-1315/983/1/012051/pdf
-                om_annual_investment_fraction: 0.03  # *100% of CAPEX/yr, TNO estimate
-                om_prod: 21e-3 # MEUR/GWh
+    # import_ammonia_cracker:
+    #     essentials:
+    #         name: 'Import - Ammonia cracker'
+    #         parent: terminal_import
+    #         carrier: hydrogen
+    #     costs:
+    #         monetary:
+    #             energy_cap: 946 #! MEUR/GW, calculated from: https://iopscience.iop.org/article/10.1088/1755-1315/983/1/012051/pdf
+    #             om_annual_investment_fraction: 0.03  # *100% of CAPEX/yr, TNO estimate
+    #             om_prod: 153e-3 #! MEUR/GWh
+    # 
+    # import_lng_terminal:
+    #     essentials:
+    #         name: 'Import - LNG terminal'
+    #         parent: terminal_import
+    #         carrier: gas
+    #     costs:
+    #         monetary:
+    #             energy_cap: 946 #! MEUR/GW, calculated from: https://iopscience.iop.org/article/10.1088/1755-1315/983/1/012051/pdf
+    #             om_annual_investment_fraction: 0.03  # *100% of CAPEX/yr, TNO estimate
+    #             om_prod: 21e-3 # MEUR/GWh

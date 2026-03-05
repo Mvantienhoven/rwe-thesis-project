@@ -1,24 +1,38 @@
 techs:
-    production_gas_fields:
+    # STEP 3d (power-only + hard-CO2-cap): use one dummy fuel carrier.
+    fuel_dummy_supply:
         essentials:
-            name: 'Production - Gas fields'
-            parent: firm_supply
-            carrier: gas
-        constraints:
-            lifetime: 100 # years
-        costs:
-            monetary:
-                om_prod: 17e-3 # MEUR/GWh, Longterm avg TTF price, ref: https://www.investing.com/commodities/dutch-ttf-gas-c1-futures-streaming-chart
-
-    fake_supply_solid_fuel:
-        essentials:
-            name: 'dummy supply solid_fuel'
+            name: 'Dummy fuel supply'
             parent: supply
-            carrier: solid_fuel
+            carrier: fuel_dummy
         constraints:
             resource: inf
             lifetime: 100
         costs:
             monetary:
-                interest_rate: 0
+                om_prod: 0
+
+    # STEP 3d: disable explicit gas/solid_fuel sources.
+    # production_gas_fields:
+    #     essentials:
+    #         name: 'Production - Gas fields'
+    #         parent: firm_supply
+    #         carrier: gas
+    #     constraints:
+    #         lifetime: 100 # years
+    #     costs:
+    #         monetary:
+    #             om_prod: 17e-3 # MEUR/GWh, Longterm avg TTF price
+
+    # fake_supply_solid_fuel:
+    #     essentials:
+    #         name: 'dummy supply solid_fuel'
+    #         parent: supply
+    #         carrier: solid_fuel
+    #     constraints:
+    #         resource: inf
+    #         lifetime: 100
+    #     costs:
+    #         monetary:
+    #             interest_rate: 0
 

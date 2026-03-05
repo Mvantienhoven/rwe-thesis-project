@@ -10,10 +10,11 @@ import:
   - 'model_config/techs/transmission.yaml'
   - 'model_config/techs/import_export.yaml'
   - 'model_config/techs/storage.yaml'
-  - 'model_config/techs/electrolysers.yaml'
+  # STEP 1 (power-only cleanup): disable non-electric conversion tech stacks.
+  # - 'model_config/techs/electrolysers.yaml'
   - 'model_config/techs/emissions.yaml'
-  - 'model_config/techs/heat_techs.yaml'
-  - 'model_config/techs/SMRs.yaml'
+  # - 'model_config/techs/heat_techs.yaml'
+  # - 'model_config/techs/SMRs.yaml'
 
   ## Location definitions
   - 'model_config/locs/locations_BL.yaml'

@@ -75,38 +75,39 @@ techs:
     #            om_annual: 14.142 # Meur/GW/yr
     #            interest_rate: 0.07 #WACC
 
-    saltcavern_gas:
-        essentials:
-            name: 'Salt cavern - Gas'
-            parent: saltcavern_systems
-            carrier: gas
-        constraints:
-            lifetime: 30 #years
-            energy_eff: 1
-            energy_cap_per_storage_cap_max: 0.01  # GW/GWh, limit production capacity to prevent structural stress in salt cavern, assume max double value of current design, ref:
-            force_asynchronous_prod_con: false  
-            storage_initial: 1 
-        costs:
-            monetary:
-                energy_cap: 265.75 # Meur/GW
-                storage_cap: 0.55 # Meur/GWh
-                om_annual: 10.567 # Meur/GW/yr: 
-                om_prod: 3.03 #! Meur/GWh
+    # STEP 3 (power-only cleanup): disable methane/hydrogen storage infrastructure.
+    # saltcavern_gas:
+    #     essentials:
+    #         name: 'Salt cavern - Gas'
+    #         parent: saltcavern_systems
+    #         carrier: gas
+    #     constraints:
+    #         lifetime: 30 #years
+    #         energy_eff: 1
+    #         energy_cap_per_storage_cap_max: 0.01  # GW/GWh, limit production capacity to prevent structural stress in salt cavern, assume max double value of current design, ref:
+    #         force_asynchronous_prod_con: false  
+    #         storage_initial: 1 
+    #     costs:
+    #         monetary:
+    #             energy_cap: 265.75 # Meur/GW
+    #             storage_cap: 0.55 # Meur/GWh
+    #             om_annual: 10.567 # Meur/GW/yr: 
+    #             om_prod: 3.03 #! Meur/GWh
 
-    saltcavern_hyd:
-        essentials:
-            name: 'Salt cavern - Hydrogen'
-            parent: saltcavern_systems
-            carrier: hydrogen
-        constraints:
-            lifetime: 30 # years
-            energy_eff: 1            
-            energy_cap_per_storage_cap_max: 0.01  # GW/GWh, limit production capacity to prevent structural stress in salt cavern, assume max double value of current design.
-            force_asynchronous_prod_con: false  
-            storage_initial: 1 
-        costs:
-            monetary:
-                energy_cap: 265.75 # Meur/GW
-                storage_cap: 0.55 # Meur/GWh
-                om_annual: 10.567 # Meur/GW/yr: 
-                om_prod: 3.03 #! Meur/GWh
+    # saltcavern_hyd:
+    #     essentials:
+    #         name: 'Salt cavern - Hydrogen'
+    #         parent: saltcavern_systems
+    #         carrier: hydrogen
+    #     constraints:
+    #         lifetime: 30 # years
+    #         energy_eff: 1            
+    #         energy_cap_per_storage_cap_max: 0.01  # GW/GWh, limit production capacity to prevent structural stress in salt cavern, assume max double value of current design.
+    #         force_asynchronous_prod_con: false  
+    #         storage_initial: 1 
+    #     costs:
+    #         monetary:
+    #             energy_cap: 265.75 # Meur/GW
+    #             storage_cap: 0.55 # Meur/GWh
+    #             om_annual: 10.567 # Meur/GW/yr: 
+    #             om_prod: 3.03 #! Meur/GWh

@@ -13,29 +13,30 @@ techs:
             monetary:
                 energy_cap: 364 # Meur/GW (CE Delft 2017, ook bron van NBNL2025)
     
-    free_gas_transmission:
-        essentials:
-            name: 'Free gas transmission'
-            parent: gas_transmission
-            carrier: gas
-            #color: '#808080'
-        constraints:
-            energy_eff_per_distance: 1
-            force_asynchronous_prod_con: false
-            lifetime: 1
-            energy_cap_equals: 1000 # GW
+    # STEP 3d (power-only + hard-CO2-cap): disable gas/solid_fuel links again.
+    # free_gas_transmission:
+    #     essentials:
+    #         name: 'Free gas transmission'
+    #         parent: gas_transmission
+    #         carrier: gas
+    #         #color: '#808080'
+    #     constraints:
+    #         energy_eff_per_distance: 1
+    #         force_asynchronous_prod_con: false
+    #         lifetime: 1
+    #         energy_cap_equals: 1000 # GW
 
-    free_hyd_transmission:
-        essentials:
-            name: 'Free hydrogen transmission'
-            parent: gas_transmission
-            carrier: hydrogen
-            #color: '#808080'
-        constraints:
-            energy_eff_per_distance: 1
-            force_asynchronous_prod_con: false
-            lifetime: 1
-            energy_cap_equals: 1000 # GW
+    # free_hyd_transmission:
+    #     essentials:
+    #         name: 'Free hydrogen transmission'
+    #         parent: gas_transmission
+    #         carrier: hydrogen
+    #         #color: '#808080'
+    #     constraints:
+    #         energy_eff_per_distance: 1
+    #         force_asynchronous_prod_con: false
+    #         lifetime: 1
+    #         energy_cap_equals: 1000 # GW
 
     free_sink_transmission:
         essentials:
@@ -49,17 +50,17 @@ techs:
             lifetime: 1
             energy_cap_equals: 9999 # GW
 
-    free_solid_fuel_transmission:
-        essentials:
-            name: 'Artificial solid_fuel transmission'
-            parent: gas_transmission
-            carrier: solid_fuel
-           # color: '#808080'
-        constraints:
-            energy_eff_per_distance: 1
-            force_asynchronous_prod_con: false
-            energy_cap_equals: 9999 # dummy
-            lifetime: 1
+    # free_solid_fuel_transmission:
+    #     essentials:
+    #         name: 'Artificial solid_fuel transmission'
+    #         parent: gas_transmission
+    #         carrier: solid_fuel
+    #        # color: '#808080'
+    #     constraints:
+    #         energy_eff_per_distance: 1
+    #         force_asynchronous_prod_con: false
+    #         energy_cap_equals: 9999 # dummy
+    #         lifetime: 1
     
     free_co2_transmission:
         essentials:
