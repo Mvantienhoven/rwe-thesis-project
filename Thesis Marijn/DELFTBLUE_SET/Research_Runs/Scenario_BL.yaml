@@ -33,7 +33,7 @@ model:
   random_seed: 987654321
   subset_time:
     - '2040-01-01 00:00:00'
-    - '2040-01-31 23:00:00'
+    - '2040-01-01 23:00:00'
 
 
   time:
@@ -51,7 +51,7 @@ run:
   mode: plan
   solver: gurobi
   solver_options:
-    Threads: 24
+    Threads: 14
     FeasibilityTol: 1e-3
     OptimalityTol: 1e-3
     BarConvTol: 1e-4
