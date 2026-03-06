@@ -88,6 +88,10 @@
                 energy_cap: 750  # Meur/GW
                 om_annual: 11.33  # Meur/GW/yr
                 om_prod: 130.148e-3 # Meur/GWh_e (all-in fuel+ETS+VOM)
+                # fuel: 17 €/MWh_fuel / 0.60 = 28.33 €/MWh_e
+                # CO2: (0.33666 kton/GWh_fuel)*(1/0.60)=0.5611 t/MWh_e; *177 €/t = 99.32 €/MWh_e
+                # VOM: 2.50 €/MWh_e  (your old om_prod)
+                # total = 130.15 €/MWh_e  => 130.15e-3 MEUR/GWh_e
     # pp_ccgt_hyd:
     #     essentials:
     #         name: 'CCGT - Hydrogen'
@@ -130,6 +134,11 @@
                 energy_cap: 749  # Meur/GW
                 om_annual: 7.5  # Meur/GW/yr
                 om_prod: 326.861e-3 # Meur/GWh_e (all-in fuel+ETS+VOM)
+                # fuel: 17 €/MWh_fuel / 0.36 = 47.22 €/MWh_e
+                # CO2: (0.56111 kton/GWh_fuel)*(1/0.36)=1.5586 t/MWh_e; *177 €/t = 275.87 €/MWh_e
+                # VOM: 3.76 €/MWh_e (your old om_prod)
+                # total = 326.85 €/MWh_e => 326.85e-3 MEUR/GWh_e
+
     # pp_ocgt_hyd:
     #     essentials:
     #         name: 'OCGT - Hydrogen'

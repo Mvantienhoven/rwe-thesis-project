@@ -101,7 +101,8 @@ overrides:
         techs:
             demand_elc:
                 constraints:
-                    resource: file=demand/NBNL_KM_2040/KM_Power.csv
+                    # STEP 6 (KM demand): include PtH directly in electricity demand.
+                    resource: file=demand/NBNL_KM_2040/KM_Power_plus_PtH.csv
 
             # demand_gas:
             #     constraints:

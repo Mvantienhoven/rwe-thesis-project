@@ -22,8 +22,8 @@ techs:
             force_resource: False
         costs:
             monetary:
-                energy_cap: 2985.789 #incl. 1159 M€/GW offshore net (aanname T-cap == wind-cap) #1826.789  #Meur/GW
-                om_annual: 72.67      # Meur/GW/yr
+                energy_cap: 2500 #previously: 2985.789 incl. 1159 M€/GW offshore net (aanname T-cap == wind-cap) #1826.789  #Meur/GW
+                om_annual: 65.625     # Meur/GW/yr
 
     wind_onshore:
         essentials:
