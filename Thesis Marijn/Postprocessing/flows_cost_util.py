@@ -537,7 +537,7 @@ def plot_utilization(df):
         "free_gas_transmission","free_hyd_transmission","free_sink_transmission",
         "interconnector_"
     ]
-    df = df[~df.technology.str.startswith(tuple(TRANSMISSION_PREFIXES))]
+    df = df[~df.technology.str.startswith(tuple(TRANSMISSION_PREFIXES))].copy()
     TECH_LABELS = {
         "curtailment_elc": "Curtailment",
         "demand_elc": "Demand",
@@ -590,10 +590,24 @@ def plot_utilization(df):
         "wind_offshore": "Wind Offshore",
         "wind_onshore": "Wind Onshore"
     }
+    # Keep import/export names consistent with TECH_GROUPS labels.
+    crossborder_codes = ["DIE", "SIE", "DEN", "NOR", "EYC", "WSL", "UK", "GRO", "ZAN"]
+    for code in crossborder_codes:
+        TECH_LABELS[f"import_{code}"] = f"Import {code}"
+        TECH_LABELS[f"export_{code}"] = f"Export {code}"
+
     df["tech_label"] = df["technology"].map(TECH_LABELS).fillna(df["technology"])
-    util = df[["time","location","tech_label","prod_utilization","con_utilization","capacity"]].copy()
-    util.rename(columns={"prod_utilization":"prod_util","con_utilization":"con_util"}, inplace=True)
-    util = util.drop_duplicates(subset=["time","location","tech_label"])
+    # Utilization in this report should reflect power-system operation, so use electricity carrier only.
+    util = df[df["carrier"] == "electricity"][
+        ["time", "location", "tech_label", "prod_utilization", "con_utilization", "capacity"]
+    ].copy()
+    util.rename(columns={"prod_utilization": "prod_util", "con_utilization": "con_util"}, inplace=True)
+    util = (
+        util.groupby(["time", "location", "tech_label"], as_index=False)
+        .agg(prod_util=("prod_util", "max"),
+             con_util=("con_util", "max"),
+             capacity=("capacity", "max"))
+    )
     mask = util.capacity > 0
     agg_prod = (
         util[mask]
@@ -703,6 +717,13 @@ def plot_utilization(df):
             args=[{"visible": vis},
                   {"title": f"{grp} Utilization (%)"}]
         ))
+    max_prod = agg_prod["prod_util"].max() if not agg_prod.empty else 0.0
+    max_con = agg_con["con_util"].max() if not agg_con.empty else 0.0
+    max_util_pct = max(max_prod, max_con) * 100
+    # Keep 100% as baseline, but auto-extend if utilization exceeds 100%.
+    y_max = 100.0
+    if max_util_pct > 100:
+        y_max = float(np.ceil((max_util_pct * 1.05) / 5.0) * 5.0)
     fig.update_layout(
         updatemenus=[dict(
             active=groups.index("Nuclear"),
@@ -714,7 +735,7 @@ def plot_utilization(df):
         )],
         title="Nuclear Utilization (%)",
         xaxis=dict(title="Time", tickformat="%Y-%m-%d\n%H:%M"),
-        yaxis=dict(title="Utilization (%)", range=[0, 100]),
+        yaxis=dict(title="Utilization (%)", range=[0, y_max]),
         legend_title="Tech & Flow",
         height=600,
         margin=dict(t=100, l=60, r=20, b=40)
