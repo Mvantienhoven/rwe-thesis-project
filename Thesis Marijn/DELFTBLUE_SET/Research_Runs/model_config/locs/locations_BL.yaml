@@ -1,4 +1,4 @@
-﻿#-------------------------------------------------COMMENTS KEVIN------------------------------------------------------#
+#-------------------------------------------------COMMENTS KEVIN------------------------------------------------------#
 ### TRANSMISSION do NOT have fixed capacity, but have defined OM_prod per Net Transfer Capacity (NTC)
 #----------------------------------------------------------------------------------------------------------------------#
 
@@ -47,7 +47,7 @@ locations:
             # demand_pth:
             ## Renewables
             # Market players
-            wind_offshore:
+#            wind_offshore:
             wind_onshore:
             pv_utility:
             hydro_RoR:
@@ -155,7 +155,7 @@ locations:
             # demand_pth:
             ## Renewables
             # Market players
-            wind_offshore:
+#            wind_offshore:
             wind_onshore:
             pv_utility:
             hydro_RoR:
@@ -266,7 +266,7 @@ locations:
             # demand_pth:
             ## Renewables
             # Market players
-            wind_offshore:
+#            wind_offshore:
             wind_onshore:
             pv_utility:
             hydro_RoR:
@@ -376,7 +376,7 @@ locations:
             # demand_pth:
             ## Renewables
             # Market players
-            wind_offshore:
+#            wind_offshore:
             wind_onshore:
             pv_utility:
             hydro_RoR:
@@ -486,7 +486,7 @@ locations:
             # demand_pth:
             ## Renewables
             # Market players
-            wind_offshore:
+#            wind_offshore:
             wind_onshore:
             pv_utility:
             hydro_RoR:
@@ -596,7 +596,7 @@ locations:
             # demand_pth:
             ## Renewables
             # Market players
-            wind_offshore:
+#            wind_offshore:
             wind_onshore:
             pv_utility:
             hydro_RoR:
@@ -705,7 +705,7 @@ locations:
             # demand_pth:
             ## Renewables
             # Market players
-            wind_offshore:
+#            wind_offshore:
             wind_onshore:
             pv_utility:
             hydro_RoR:
@@ -814,7 +814,7 @@ locations:
             # demand_pth:
             ## Renewables
             # Market players
-            wind_offshore:
+#            wind_offshore:
             wind_onshore:
             pv_utility:
             hydro_RoR:
@@ -923,7 +923,7 @@ locations:
             # demand_pth:
             ## Renewables
             # Market players
-            wind_offshore:
+#            wind_offshore:
             wind_onshore:
             pv_utility:
             hydro_RoR:
@@ -1034,7 +1034,7 @@ locations:
 
             ## Renewables
             # Market players
-            wind_offshore:
+#            wind_offshore:
             wind_onshore:
             pv_utility:
             hydro_RoR:
@@ -1143,7 +1143,7 @@ locations:
             # demand_pth:
             ## Renewables
             # Market players
-            wind_offshore:
+#            wind_offshore:
             wind_onshore:
             pv_utility:
             hydro_RoR:
@@ -1252,7 +1252,7 @@ locations:
             # demand_pth:
             ## Renewables
             # Market players
-            wind_offshore:
+#            wind_offshore:
             wind_onshore:
             pv_utility:
             hydro_RoR:
@@ -1361,7 +1361,7 @@ locations:
             # demand_pth:
             ## Renewables
             # Market players
-            wind_offshore:
+#            wind_offshore:
             wind_onshore:
             pv_utility:
             hydro_RoR:
@@ -1472,7 +1472,7 @@ locations:
 
             ## Renewables
             # Market players
-            wind_offshore:
+#            wind_offshore:
             wind_onshore:
             pv_utility:
             hydro_RoR:
@@ -1581,7 +1581,7 @@ locations:
             # demand_pth:
             ## Renewables
             # Market players
-            wind_offshore:
+#            wind_offshore:
             wind_onshore:
             pv_utility:
             hydro_RoR:
@@ -1690,7 +1690,7 @@ locations:
             # demand_pth:
             ## Renewables
             # Market players
-            wind_offshore:
+#            wind_offshore:
             wind_onshore:
             pv_utility:
             hydro_RoR:
@@ -1799,7 +1799,7 @@ locations:
             # demand_pth:
             ## Renewables
             # Market players
-            wind_offshore:
+#            wind_offshore:
             wind_onshore:
             pv_utility:
             hydro_RoR:
@@ -1910,7 +1910,7 @@ locations:
 
             ## Renewables
             # Market players
-            wind_offshore:
+#            wind_offshore:
             wind_onshore:
             pv_utility:
             hydro_RoR:
@@ -2003,7 +2003,7 @@ locations:
 
 
     E-MVL: #22, Maasvlakte, NL33, Zuid-Holland
-        coordinates: {lat: 51.9557, lon: 4.0220}
+        coordinates: {lat: 51.938, lon: 4.146}
         techs: 
             # Demand
             demand_elc:
@@ -2019,7 +2019,7 @@ locations:
             # demand_pth:
             ## Renewables
             # Market players
-            wind_offshore:
+#            wind_offshore:
             wind_onshore:
             pv_utility:
             hydro_RoR:
@@ -2128,7 +2128,7 @@ locations:
             # demand_pth:
             ## Renewables
             # Market players
-            wind_offshore:
+#            wind_offshore:
             wind_onshore:
             pv_utility:
             hydro_RoR:
@@ -2237,7 +2237,7 @@ locations:
             # demand_pth:
             ## Renewables
             # Market players
-            wind_offshore:
+#            wind_offshore:
             wind_onshore:
             pv_utility:
             hydro_RoR:
@@ -2346,7 +2346,7 @@ locations:
             # demand_pth:
             ## Renewables
             # Market players
-            wind_offshore:
+#            wind_offshore:
             wind_onshore:
             pv_utility:
             hydro_RoR:
@@ -2455,7 +2455,7 @@ locations:
             # demand_pth:
             ## Renewables
             # Market players
-            wind_offshore:
+#            wind_offshore:
             wind_onshore:
             pv_utility:
             hydro_RoR:
@@ -2564,7 +2564,7 @@ locations:
             # demand_pth:
             ## Renewables
             # Market players
-            wind_offshore:
+#            wind_offshore:
             wind_onshore:
             pv_utility:
             hydro_RoR:
@@ -2673,7 +2673,7 @@ locations:
             # demand_pth:
             ## Renewables
             # Market players
-            wind_offshore:
+#            wind_offshore:
             wind_onshore:
             pv_utility:
             hydro_RoR:
@@ -2782,7 +2782,7 @@ locations:
             # demand_pth:
             ## Renewables
             # Market players
-            wind_offshore:
+#            wind_offshore:
             wind_onshore:
             pv_utility:
             hydro_RoR:
@@ -2891,7 +2891,7 @@ locations:
             # demand_pth:
             ## Renewables
             # Market players
-            wind_offshore:
+#            wind_offshore:
             wind_onshore:
             pv_utility:
             hydro_RoR:
@@ -3000,7 +3000,7 @@ locations:
             # demand_pth:
             ## Renewables
             # Market players
-            wind_offshore:
+#            wind_offshore:
             wind_onshore:
             pv_utility:
             hydro_RoR:
@@ -3109,7 +3109,7 @@ locations:
             # demand_pth:
             ## Renewables
             # Market players
-            wind_offshore:
+#            wind_offshore:
             wind_onshore:
             pv_utility:
             hydro_RoR:
@@ -3218,7 +3218,7 @@ locations:
             # demand_pth:
             ## Renewables
             # Market players
-            wind_offshore:
+#            wind_offshore:
             wind_onshore:
             pv_utility:
             hydro_RoR:
@@ -3327,7 +3327,7 @@ locations:
             # demand_pth:
             ## Renewables
             # Market players
-            wind_offshore:
+#            wind_offshore:
             wind_onshore:
             pv_utility:
             hydro_RoR:
@@ -3436,7 +3436,7 @@ locations:
             # demand_pth:
             ## Renewables
             # Market players
-            wind_offshore:
+#            wind_offshore:
             wind_onshore:
             pv_utility:
             hydro_RoR:
@@ -3545,7 +3545,7 @@ locations:
             # demand_pth:
             ## Renewables
             # Market players
-            wind_offshore:
+#            wind_offshore:
             wind_onshore:
             pv_utility:
             hydro_RoR:
@@ -3707,8 +3707,74 @@ locations:
             import_DEN:
             export_DEN:
 
-##---------------------------------------------------Links-----------------------------------------------------------##
 
+
+
+
+
+##---------------------------------------------------Offshore hubs & Landing points-----------------------------------------------------------##
+
+    # Offshore hubs
+    O-NWD: # Noorden waddeneilanden + Doordewind
+        coordinates: {lat: 54.14, lon: 5.68}
+        techs:
+            wind_offshore:
+
+    O-NEW: # Nederwiek
+        coordinates: {lat: 53.25, lon: 3.215}
+        techs:
+            wind_offshore:
+
+    O-IJL: # IJmuiden ver + Lagelander
+        coordinates: {lat: 53.05333, lon: 3.776667}
+        techs:
+            wind_offshore:
+
+    O-HOK: # Hollandse kust
+        coordinates: {lat: 52.53, lon: 4.006667}
+        techs:
+            wind_offshore:
+
+    O-BOR: # Borssele
+        coordinates: {lat: 51.69, lon: 2.99}
+        techs:
+            wind_offshore:
+
+    O-G67: # gebied 6/7
+        coordinates: {lat: 54.31, lon: 4.13}
+        techs:
+            wind_offshore:
+
+    # Landing points
+    L-EEM: # Eemshaven
+        coordinates: {lat: 53.454, lon: 6.845}
+        techs: {}
+
+    L-NOH: # Noord-Holland
+        coordinates: {lat: 52.45325, lon: 4.64}
+        techs: {}
+
+    L-ROT: # Rotterdam
+        coordinates: {lat: 51.952, lon: 4.022}
+        techs: {}
+
+    L-GEE: # Geertruidenberg
+        coordinates: {lat: 51.709, lon: 4.838}
+        techs: {}
+
+    L-BOR: # Borssele
+        coordinates: {lat: 51.432, lon: 3.712}
+        techs: {}
+
+
+
+
+
+
+
+
+
+##---------------------------------------------------Links-----------------------------------------------------------##
 links:
     E-BGM,E-LSM: #1, Status: In Operation
         techs:
@@ -4698,4 +4764,182 @@ links:
                     energy_eff_per_distance: 0.99965
 
 
+
+##---------------------------------------------------Offshore cable additions-----------------------------------------------------------##
+
+    # Offshore cables
+    O-NWD,L-EEM: #Noorden waddeneilanden + doordewind - Eemshaven landing point
+        techs:
+            offshore_cable_hvdc:
+                distance: 124.2 #km 
+                constraints: 
+                    energy_eff_per_distance: 0.99965
+                    energy_cap_min:  5.300 #GW 
+                    energy_cap_max:  5.300 #GW 
+
+    O-NEW,L-BOR: # Nederwiek - Borssele landing
+        techs:
+            offshore_cable_hvdc:
+                distance: 235.75 #km
+                constraints:
+                    energy_eff_per_distance: 0.99965
+                    energy_cap_min: 2.0 #GW
+                    energy_cap_max: 2.0 #GW
+
+    O-NEW,L-ROT: # Nederwiek - Rotterdam landing
+        techs:
+            offshore_cable_hvdc:
+                distance: 177.445 #km
+                constraints:
+                    energy_eff_per_distance: 0.99965
+                    energy_cap_min: 2.0 #GW
+                    energy_cap_max: 2.0 #GW
+
+    O-NEW,L-GEE: # Nederwiek - Geertruidenberg landing
+        techs:
+            offshore_cable_hvdc:
+                distance: 234.14 #km
+                constraints:
+                    energy_eff_per_distance: 0.99965
+                    energy_cap_min: 2.0 #GW
+                    energy_cap_max: 2.0 #GW
+
+    O-IJL,L-BOR: # IJmuiden ver+Lagelander - Borssele landing
+        techs:
+            offshore_cable_hvdc:
+                distance: 207.345 #km
+                constraints:
+                    energy_eff_per_distance: 0.99965
+                    energy_cap_min: 2.0 #GW
+                    energy_cap_max: 6.0 #GW
+
+    O-IJL,L-ROT: # IJmuiden ver+Lagelander - Rotterdam landing
+        techs:
+            offshore_cable_hvdc:
+                distance: 142.14 #km
+                constraints:
+                    energy_eff_per_distance: 0.99965
+                    energy_cap_min: 4.0 #GW
+                    energy_cap_max: 4.7 #GW
+
+    O-HOK,L-ROT: # Hollandse kust - Rotterdam landing
+        techs:
+            offshore_cable_hvdc:
+                distance: 73.945 #km
+                constraints:
+                    energy_eff_per_distance: 0.99965
+                    energy_cap_min: 1.5 #GW
+                    energy_cap_max: 2.2 #GW
+
+    O-HOK,L-NOH: # Hollandse kust - Noord-Holland landing
+        techs:
+            offshore_cable_hvdc:
+                distance: 50.255 #km
+                constraints:
+                    energy_eff_per_distance: 0.99965
+                    energy_cap_min: 2.1 #GW
+                    energy_cap_max: 2.1 #GW
+
+    O-BOR,L-BOR: # Borssele - Borssele landing
+        techs:
+            offshore_cable_hvdc:
+                distance: 66.24 #km
+                constraints:
+                    energy_eff_per_distance: 0.99965
+                    energy_cap_min: 1.4 #GW
+                    energy_cap_max: 1.4 #GW
+
+    O-G67,L-EEM: # gebied 6/7 - Eemshaven landing
+        techs:
+            offshore_cable_hvdc:
+                distance: 232.07 #km
+                constraints:
+                    energy_eff_per_distance: 0.99965
+                    energy_cap_min: 2.0 #GW
+                    energy_cap_max: 6.0 #GW
+
+    O-G67,L-NOH: # gebied 6/7 - Noord-Holland landing
+        techs:
+            offshore_cable_hvdc:
+                distance: 240.58 #km
+                constraints:
+                    energy_eff_per_distance: 0.99965
+                    energy_cap_min: 2.0 #GW
+                    energy_cap_max: 6.0 #GW
+
+    O-G67,L-ROT: # gebied 6/7 - Rotterdam landing
+        techs:
+            offshore_cable_hvdc:
+                distance: 301.645 #km
+                constraints:
+                    energy_eff_per_distance: 0.99965
+                    energy_cap_min: 4.0 #GW
+                    energy_cap_max: 10.0 #GW
+
+
+
+#Landing point constraints
+
+    L-EEM,E-EEM: # Eemshaven landing - E-EEM
+        techs:
+            transmission_hvac:
+                distance: 2.5 #km
+                constraints:
+                    energy_eff_per_distance: 0.99965
+                    energy_cap_min: 7.3 #GW
+                    energy_cap_max: 9.3 #GW
+
+    L-BOR,E-BSL: # Borssele landing - E-BSL
+        techs:
+            transmission_hvac:
+                distance: 2.5 #km
+                constraints:
+                    energy_eff_per_distance: 0.99965
+                    energy_cap_min: 5.4 #GW
+                    energy_cap_max: 7.4 #GW
+
+    L-ROT,E-SMH: # Rotterdam landing - E-SMH
+        techs:
+            transmission_hvac:
+                distance: 2.5 #km
+                constraints:
+                    energy_eff_per_distance: 0.99965
+                    energy_cap_min: 2.0 #GW
+                    energy_cap_max: 4.0 #GW
+
+    L-ROT,E-MVL: # Rotterdam landing - E-MVL
+        techs:
+            transmission_hvac:
+                distance: 2.5 #km
+                constraints:
+                    energy_eff_per_distance: 0.99965
+                    energy_cap_min: 9.5 #GW
+                    energy_cap_max: 11.5 #GW
+
+    L-NOH,E-BVW: # Noord-Holland landing - E-BVW
+        techs:
+            transmission_hvac:
+                distance: 2.5 #km
+                constraints:
+                    energy_eff_per_distance: 0.99965
+                    energy_cap_min: 2.1 #GW
+                    energy_cap_max: 2.1 #GW
+
+    L-NOH,E-VHZ: # Noord-Holland landing - E-VHZ
+        techs:
+            transmission_hvac:
+                distance: 2.5 #km
+                constraints:
+                    energy_eff_per_distance: 0.99965
+                    energy_cap_min: 2.0 #GW
+                    energy_cap_max: 4.0 #GW
+
+    L-GEE,E-GER: # Geertruidenberg landing - E-GER
+        techs:
+            transmission_hvac:
+                distance: 2.5 #km
+                constraints:
+                    energy_eff_per_distance: 0.99965
+                    energy_cap_min: 2.0 #GW
+                    energy_cap_max: 2.0 #GW
 

@@ -109,3 +109,16 @@ techs:
             force_asynchronous_prod_con: false
             energy_cap_equals: 9999 # dummy  
             lifetime: 1
+
+
+    offshore_cable_hvdc:
+        essentials:
+            name: 'Offshore cable'
+            color: '#795548'
+            carrier: electricity
+            parent: offshore_transmission
+        constraints:
+            energy_eff_per_distance: 0.99965
+        costs:
+            monetary:
+                energy_cap: 364 #M€/GW

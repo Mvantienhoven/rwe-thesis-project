@@ -10,50 +10,69 @@ from folium.plugins import PolyLineTextPath
 
 def process_primary_energy_flows(input_csv_path, exclude_prefixes=None):
     df = pd.read_csv(input_csv_path, parse_dates=["time"])
-    is_interconnector = df["technology"].str.startswith("interconnector_base:")
-    df_interconnectors = df[is_interconnector].copy()
-    df_other = df[~is_interconnector].copy()
-    if "var_cost_category" in df_other.columns:
-        df_other = df_other[df_other["var_cost_category"] == "primary_energy"].copy()
-    df_combined = pd.concat([df_other, df_interconnectors], ignore_index=True)
+    if exclude_prefixes is None:
+        exclude_prefixes = []
+
+    # If cost categories are present in the CSV, keep only one physical flow row.
+    flow_cols = ["time", "location", "technology", "carrier", "production", "consumption"]
+    if "var_cost_category" in df.columns:
+        has_primary = (df["var_cost_category"] == "primary_energy").any()
+        if has_primary:
+            df = df[df["var_cost_category"] == "primary_energy"].copy()
+        else:
+            df = df.drop_duplicates(subset=flow_cols).copy()
+
     cols = [
         "time", "location", "technology", "carrier",
         "production", "consumption"
     ]
-    # Some postprocessing files may have extra columns
-    existing_cols = [c for c in cols if c in df_combined.columns]
-    df_combined = df_combined[existing_cols]
-    link_prefixes = ("transmission_hvac:", "interconnector_base:")
-    if exclude_prefixes is None:
-        exclude_prefixes = []
-    is_link = df_combined["technology"].str.startswith(link_prefixes)
-    df_links = df_combined[is_link].copy()
+    existing_cols = [c for c in cols if c in df.columns]
+    df = df[existing_cols]
+
+    link_prefixes = ("transmission_hvac:", "interconnector_base:", "offshore_cable_hvdc:")
+    is_link = df["technology"].str.startswith(link_prefixes)
+    df_links = df[is_link].copy()
     for prefix in exclude_prefixes:
         df_links = df_links[~df_links.technology.str.startswith(prefix)]
-    df_nodes = df_combined[~is_link].copy()
-    df_links[["tech_prefix", "target_node"]] = df_links["technology"].str.split(":", n=1, expand=True)
-    df_links["location"] = df_links.apply(
-        lambda row: ":".join(sorted([row["location"], row["target_node"]])), axis=1
-    )
-    def merge_pair(group):
-        if len(group) == 2:
-            a, b = group.iloc
-            prod, cons = (a, b) if a.production > 0 else (b, a)
-        else:
-            prod = group.iloc[0]
-            cons = prod
-        n1, n2 = group.name[1].split(":")
-        tech = f"{prod.tech_prefix}:{n1}:{n2}"
-        return {
-            "time": prod.time,
-            "location": group.name[1],
-            "technology": tech,
-            "carrier": prod.carrier,
-            "production": prod.production,
-            "consumption": cons.consumption
-        }
-    merged = df_links.groupby(["time", "location", "carrier"]).apply(merge_pair)
-    df_links = pd.DataFrame(list(merged))
+    df_nodes = df[~is_link].copy()
+
+    if not df_links.empty:
+        df_links[["tech_prefix", "target_node"]] = df_links["technology"].str.split(":", n=1, expand=True)
+        df_links["signed_flow"] = df_links["production"] + df_links["consumption"]
+        df_links = df_links[df_links["signed_flow"].abs() > 1e-9].copy()
+
+        # signed_flow < 0 => exporter at `location`, signed_flow > 0 => importer at `location`
+        df_links["origin"] = df_links.apply(
+            lambda row: row["location"] if row["signed_flow"] < 0 else row["target_node"], axis=1
+        )
+        df_links["dest"] = df_links.apply(
+            lambda row: row["target_node"] if row["signed_flow"] < 0 else row["location"], axis=1
+        )
+        df_links["pair"] = df_links.apply(
+            lambda row: ":".join(sorted([row["location"], row["target_node"]])), axis=1
+        )
+        df_links["abs_flow"] = df_links["signed_flow"].abs()
+
+        group_cols = ["time", "pair", "carrier", "tech_prefix"]
+        df_dir = (
+            df_links.sort_values("abs_flow", ascending=False)
+            .drop_duplicates(subset=group_cols)
+            [group_cols + ["origin", "dest", "abs_flow"]]
+        )
+        df_stats = (
+            df_links.groupby(group_cols, as_index=False)
+            .agg(production=("production", "max"), consumption=("consumption", "min"))
+        )
+        df_links = df_stats.merge(df_dir, on=group_cols, how="left")
+        df_links = df_links.rename(columns={"pair": "location"})
+        df_links["technology"] = df_links["tech_prefix"]
+
+        keep_cols = [
+            "time", "location", "technology", "carrier",
+            "production", "consumption", "origin", "dest", "abs_flow"
+        ]
+        df_links = df_links[keep_cols]
+
     return pd.concat([df_nodes, df_links], ignore_index=True)
 
 
@@ -116,15 +135,19 @@ def draw_nodes_and_links(m, locations, exclude_prefixes):
 
 def overlay_arrows(m, locations, flows, exclude_prefixes):
     fg = folium.FeatureGroup(name="Arrows", show=False)
-    df_links = flows[flows.technology.str.contains("transmission_hvac:|interconnector_base:")]
+    link_techs = {"transmission_hvac", "interconnector_base", "offshore_cable_hvdc"}
+    df_links = flows[flows["technology"].isin(link_techs)].copy()
     for prefix in exclude_prefixes:
         df_links = df_links[~df_links.technology.str.startswith(prefix)]
-    df_links["origin"], df_links["dest"] = zip(*df_links.location.str.split(":", n=1))
     for _, row in df_links.iterrows():
-        lat1, lon1 = locations[row.origin]["coordinates"].values()
-        lat2, lon2 = locations[row.dest]["coordinates"].values()
+        origin = row.get("origin")
+        dest = row.get("dest")
+        if origin not in locations or dest not in locations:
+            continue
+        lat1, lon1 = locations[origin]["coordinates"].values()
+        lat2, lon2 = locations[dest]["coordinates"].values()
         line = folium.PolyLine([(lat1, lon1), (lat2, lon2)], color="transparent", weight=2).add_to(fg)
-        PolyLineTextPath(line, "➤", repeat=True, offset=7,
+        PolyLineTextPath(line, ">", repeat=True, offset=7,
                          attributes={"fill": "#9B9494", "font-size": "8px"}).add_to(fg)
     fg.add_to(m)
 
@@ -187,10 +210,11 @@ def run_energy_flow_visualization(
     per_map_dir = Path(output_html_path).parent / "maps"
     per_map_dir.mkdir(parents=True, exist_ok=True)
     for i, t in enumerate(times):
+        df_t = df_flows[df_flows.time == t]
         stats = aggregate_by_carrier_for_time(df_flows, df_demand, t)
         m = build_base_map(locations, geojson_path)
         draw_nodes_and_links(m, locations, exclude_prefixes)
-        overlay_arrows(m, locations, df_flows, exclude_prefixes)
+        overlay_arrows(m, locations, df_t, exclude_prefixes)
         overlay_carrier_layers(m, locations, stats)
         folium.LayerControl(collapsed=False).add_to(m)
         m.save(per_map_dir / f"map_t{i}.html")
@@ -296,3 +320,4 @@ if __name__ == "__main__":
     run_energy_flow_visualization(
         args.title, args.netcdf, args.flow_csv, args.yaml, args.geojson, args.output_html
     )
+

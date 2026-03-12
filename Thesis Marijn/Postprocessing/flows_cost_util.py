@@ -79,15 +79,17 @@ def postprocess(nc_file, output_csv):
     )
 
     if "cost_var" in ds:
-        varc = ds["cost_var"].to_series().reset_index().rename(
+        # Keep only the monetary slice to avoid duplicating each physical flow
+        # once per cost category during merge.
+        varc = ds["cost_var"].sel(costs="monetary").to_series().reset_index().rename(
             columns={
-                "costs": "var_cost_category",
                 "loc_techs_om_cost": "item",
                 "timesteps": "time",
                 "cost_var": "variable_cost"
             }
         )
         varc[["location", "technology"]] = varc["item"].str.split("::", expand=True)
+        varc["var_cost_category"] = "monetary"
         varc = varc[["time", "location", "technology", "var_cost_category", "variable_cost"]]
     else:
         print("Warning: 'cost_var' not found. Using zero-filled variable_cost.")
@@ -277,7 +279,8 @@ def plot_carrier_flows(df):
         "free_co2_transmission", "free_co2_stored_transmission",
         "transmission_hvac", "free_gas_transmission",
         "free_hyd_transmission", "free_sink_transmission",
-        "interconnector_", "co2_emissions_sink", "co2_storage",
+        "interconnector_", "offshore_cable_hvdc",
+        "co2_emissions_sink", "co2_storage",
     ]
     def should_drop_tech(tech: str) -> bool:
         return any(tech.startswith(p) for p in OMIT_TECH_PREFIXES)

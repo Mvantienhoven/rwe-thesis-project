@@ -1,4 +1,4 @@
-﻿overrides:
+overrides:
 #   Scenario_S1_EV:
 #     locations:
 #       E-BGM:
@@ -8199,10 +8199,10 @@
             constraints:
               energy_cap_max: 1.424523
               energy_cap_min: 0.26226542
-          wind_offshore:
-            constraints:
-              energy_cap_max: 0
-              energy_cap_min: 0
+#          wind_offshore:
+#            constraints:
+#              energy_cap_max: 0
+#              energy_cap_min: 0
           wind_onshore:
             constraints:
               energy_cap_max: 0.060301
@@ -8281,10 +8281,10 @@
             constraints:
               energy_cap_max: 2.798368
               energy_cap_min: 0.53834878
-          wind_offshore:
-            constraints:
-              energy_cap_max: 0
-              energy_cap_min: 0
+#          wind_offshore:
+#            constraints:
+#              energy_cap_max: 0
+#              energy_cap_min: 0
           wind_onshore:
             constraints:
               energy_cap_max: 0.13801
@@ -8363,10 +8363,10 @@
             constraints:
               energy_cap_max: 1.067335
               energy_cap_min: 0.16988144
-          wind_offshore:
-            constraints:
-              energy_cap_max: 0
-              energy_cap_min: 0
+#          wind_offshore:
+#            constraints:
+#              energy_cap_max: 0
+#              energy_cap_min: 0
           wind_onshore:
             constraints:
               energy_cap_max: 0.623515
@@ -8445,10 +8445,10 @@
             constraints:
               energy_cap_max: 0.841517
               energy_cap_min: 0.2477436
-          wind_offshore:
-            constraints:
-              energy_cap_max: 15.999333
-              energy_cap_min: 5.503
+#          wind_offshore:
+#            constraints:
+#              energy_cap_max: 15.999333
+#              energy_cap_min: 5.503
           wind_onshore:
             constraints:
               energy_cap_max: 0.991053
@@ -8527,10 +8527,10 @@
             constraints:
               energy_cap_max: 1.736153
               energy_cap_min: 0.2745527
-          wind_offshore:
-            constraints:
-              energy_cap_max: 5.928
-              energy_cap_min: 2.372
+#          wind_offshore:
+#            constraints:
+#              energy_cap_max: 5.928
+#              energy_cap_min: 2.372
           wind_onshore:
             constraints:
               energy_cap_max: 1.218622
@@ -8609,10 +8609,10 @@
             constraints:
               energy_cap_max: 1.357626
               energy_cap_min: 0.14250609
-          wind_offshore:
-            constraints:
-              energy_cap_max: 0.129
-              energy_cap_min: 0.129
+#          wind_offshore:
+#            constraints:
+#              energy_cap_max: 0.129
+#              energy_cap_min: 0.129
           wind_onshore:
             constraints:
               energy_cap_max: 0.444873
@@ -8691,10 +8691,10 @@
             constraints:
               energy_cap_max: 0.886202
               energy_cap_min: 0.10077241
-          wind_offshore:
-            constraints:
-              energy_cap_max: 0
-              energy_cap_min: 0
+#          wind_offshore:
+#            constraints:
+#              energy_cap_max: 0
+#              energy_cap_min: 0
           wind_onshore:
             constraints:
               energy_cap_max: 0.27574
@@ -8773,10 +8773,10 @@
             constraints:
               energy_cap_max: 0.639414
               energy_cap_min: 0.10834772
-          wind_offshore:
-            constraints:
-              energy_cap_max: 0
-              energy_cap_min: 0
+#          wind_offshore:
+#            constraints:
+#              energy_cap_max: 0
+#              energy_cap_min: 0
           wind_onshore:
             constraints:
               energy_cap_max: 0.415309
@@ -8855,10 +8855,10 @@
             constraints:
               energy_cap_max: 2.586196
               energy_cap_min: 0.66705778
-          wind_offshore:
-            constraints:
-              energy_cap_max: 0
-              energy_cap_min: 0
+#          wind_offshore:
+#            constraints:
+#              energy_cap_max: 0
+#              energy_cap_min: 0
           wind_onshore:
             constraints:
               energy_cap_max: 0.804259
@@ -8937,10 +8937,10 @@
             constraints:
               energy_cap_max: 1.665498
               energy_cap_min: 0.3176138
-          wind_offshore:
-            constraints:
-              energy_cap_max: 0
-              energy_cap_min: 0
+#          wind_offshore:
+#            constraints:
+#              energy_cap_max: 0
+#              energy_cap_min: 0
           wind_onshore:
             constraints:
               energy_cap_max: 0.622955
@@ -9019,10 +9019,10 @@
             constraints:
               energy_cap_max: 1.123605
               energy_cap_min: 0.26211091
-          wind_offshore:
-            constraints:
-              energy_cap_max: 19.678571
-              energy_cap_min: 0.6
+#          wind_offshore:
+#            constraints:
+#              energy_cap_max: 19.678571
+#              energy_cap_min: 0.6
           wind_onshore:
             constraints:
               energy_cap_max: 1.517671
@@ -9101,10 +9101,10 @@
             constraints:
               energy_cap_max: 2.530516
               energy_cap_min: 0.47878667
-          wind_offshore:
-            constraints:
-              energy_cap_max: 0
-              energy_cap_min: 0
+#          wind_offshore:
+#            constraints:
+#              energy_cap_max: 0
+#              energy_cap_min: 0
           wind_onshore:
             constraints:
               energy_cap_max: 0.360438
@@ -9183,10 +9183,10 @@
             constraints:
               energy_cap_max: 1.491441
               energy_cap_min: 0.30573646
-          wind_offshore:
-            constraints:
-              energy_cap_max: 0
-              energy_cap_min: 0
+#          wind_offshore:
+#            constraints:
+#              energy_cap_max: 0
+#              energy_cap_min: 0
           wind_onshore:
             constraints:
               energy_cap_max: 1.594359
@@ -9265,10 +9265,10 @@
             constraints:
               energy_cap_max: 1.117057
               energy_cap_min: 0.15641269
-          wind_offshore:
-            constraints:
-              energy_cap_max: 4.0
-              energy_cap_min: 0
+#          wind_offshore:
+#            constraints:
+#              energy_cap_max: 4.0
+#              energy_cap_min: 0
           wind_onshore:
             constraints:
               energy_cap_max: 1.474304
@@ -9347,10 +9347,10 @@
             constraints:
               energy_cap_max: 1.704616
               energy_cap_min: 0.39385334
-          wind_offshore:
-            constraints:
-              energy_cap_max: 0
-              energy_cap_min: 0
+#          wind_offshore:
+#            constraints:
+#              energy_cap_max: 0
+#              energy_cap_min: 0
           wind_onshore:
             constraints:
               energy_cap_max: 0.622307
@@ -9429,10 +9429,10 @@
             constraints:
               energy_cap_max: 0.354504
               energy_cap_min: 0.02015448
-          wind_offshore:
-            constraints:
-              energy_cap_max: 0
-              energy_cap_min: 0
+#          wind_offshore:
+#            constraints:
+#              energy_cap_max: 0
+#              energy_cap_min: 0
           wind_onshore:
             constraints:
               energy_cap_max: 0.032664
@@ -9511,10 +9511,10 @@
             constraints:
               energy_cap_max: 2.022893
               energy_cap_min: 0.40176273
-          wind_offshore:
-            constraints:
-              energy_cap_max: 0
-              energy_cap_min: 0
+#          wind_offshore:
+#            constraints:
+#              energy_cap_max: 0
+#              energy_cap_min: 0
           wind_onshore:
             constraints:
               energy_cap_max: 4.726142
@@ -9593,10 +9593,10 @@
             constraints:
               energy_cap_max: 0.702266
               energy_cap_min: 0.12658405
-          wind_offshore:
-            constraints:
-              energy_cap_max: 0
-              energy_cap_min: 0
+#          wind_offshore:
+#            constraints:
+#              energy_cap_max: 0
+#              energy_cap_min: 0
           wind_onshore:
             constraints:
               energy_cap_max: 0.152337
@@ -9675,10 +9675,10 @@
             constraints:
               energy_cap_max: 2.353194
               energy_cap_min: 0.46091217
-          wind_offshore:
-            constraints:
-              energy_cap_max: 3.06
-              energy_cap_min: 0
+#          wind_offshore:
+#            constraints:
+#              energy_cap_max: 3.06
+#              energy_cap_min: 0
           wind_onshore:
             constraints:
               energy_cap_max: 0.542408
@@ -9757,10 +9757,10 @@
             constraints:
               energy_cap_max: 5.519549
               energy_cap_min: 1.27022757
-          wind_offshore:
-            constraints:
-              energy_cap_max: 0
-              energy_cap_min: 0
+#          wind_offshore:
+#            constraints:
+#              energy_cap_max: 0
+#              energy_cap_min: 0
           wind_onshore:
             constraints:
               energy_cap_max: 0.763914
@@ -9839,10 +9839,10 @@
             constraints:
               energy_cap_max: 0.048674
               energy_cap_min: 0.00903477
-          wind_offshore:
-            constraints:
-              energy_cap_max: 0
-              energy_cap_min: 0
+#          wind_offshore:
+#            constraints:
+#              energy_cap_max: 0
+#              energy_cap_min: 0
           wind_onshore:
             constraints:
               energy_cap_max: 0.020334
@@ -9921,10 +9921,10 @@
             constraints:
               energy_cap_max: 2.589819
               energy_cap_min: 0.46795683
-          wind_offshore:
-            constraints:
-              energy_cap_max: 0
-              energy_cap_min: 0
+#          wind_offshore:
+#            constraints:
+#              energy_cap_max: 0
+#              energy_cap_min: 0
           wind_onshore:
             constraints:
               energy_cap_max: 1.513404
@@ -10003,10 +10003,10 @@
             constraints:
               energy_cap_max: 0.259997
               energy_cap_min: 0.02150275
-          wind_offshore:
-            constraints:
-              energy_cap_max: 4.993333
-              energy_cap_min: 0
+#          wind_offshore:
+#            constraints:
+#              energy_cap_max: 4.993333
+#              energy_cap_min: 0
           wind_onshore:
             constraints:
               energy_cap_max: 0.141425
@@ -10085,10 +10085,10 @@
             constraints:
               energy_cap_max: 1.118039
               energy_cap_min: 0.28779211
-          wind_offshore:
-            constraints:
-              energy_cap_max: 14.478571
-              energy_cap_min: 0
+#          wind_offshore:
+#            constraints:
+#              energy_cap_max: 14.478571
+#              energy_cap_min: 0
           wind_onshore:
             constraints:
               energy_cap_max: 0.57635
@@ -10167,10 +10167,10 @@
             constraints:
               energy_cap_max: 0.429977
               energy_cap_min: 0.09382259
-          wind_offshore:
-            constraints:
-              energy_cap_max: 0
-              energy_cap_min: 0
+#          wind_offshore:
+#            constraints:
+#              energy_cap_max: 0
+#              energy_cap_min: 0
           wind_onshore:
             constraints:
               energy_cap_max: 0.861414
@@ -10249,10 +10249,10 @@
             constraints:
               energy_cap_max: 0.677746
               energy_cap_min: 0.12120489
-          wind_offshore:
-            constraints:
-              energy_cap_max: 0
-              energy_cap_min: 0
+#          wind_offshore:
+#            constraints:
+#              energy_cap_max: 0
+#              energy_cap_min: 0
           wind_onshore:
             constraints:
               energy_cap_max: 0.285478
@@ -10331,10 +10331,10 @@
             constraints:
               energy_cap_max: 0.653121
               energy_cap_min: 0.18269691
-          wind_offshore:
-            constraints:
-              energy_cap_max: 14.478571
-              energy_cap_min: 0
+#          wind_offshore:
+#            constraints:
+#              energy_cap_max: 14.478571
+#              energy_cap_min: 0
           wind_onshore:
             constraints:
               energy_cap_max: 0.170096
@@ -10413,10 +10413,10 @@
             constraints:
               energy_cap_max: 1.89193
               energy_cap_min: 0.37422728
-          wind_offshore:
-            constraints:
-              energy_cap_max: 0
-              energy_cap_min: 0
+#          wind_offshore:
+#            constraints:
+#              energy_cap_max: 0
+#              energy_cap_min: 0
           wind_onshore:
             constraints:
               energy_cap_max: 0.00035
@@ -10495,10 +10495,10 @@
             constraints:
               energy_cap_max: 0.805676
               energy_cap_min: 0.05698854
-          wind_offshore:
-            constraints:
-              energy_cap_max: 22.279286
-              energy_cap_min: 3.52
+#          wind_offshore:
+#            constraints:
+#              energy_cap_max: 22.279286
+#              energy_cap_min: 3.52
           wind_onshore:
             constraints:
               energy_cap_max: 0.80552
@@ -10577,10 +10577,10 @@
             constraints:
               energy_cap_max: 0.739538
               energy_cap_min: 0.15060263
-          wind_offshore:
-            constraints:
-              energy_cap_max: 0
-              energy_cap_min: 0
+#          wind_offshore:
+#            constraints:
+#              energy_cap_max: 0
+#              energy_cap_min: 0
           wind_onshore:
             constraints:
               energy_cap_max: 0.868693
@@ -10659,10 +10659,10 @@
             constraints:
               energy_cap_max: 0.292739
               energy_cap_min: 0.00416989
-          wind_offshore:
-            constraints:
-              energy_cap_max: 0
-              energy_cap_min: 0
+#          wind_offshore:
+#            constraints:
+#              energy_cap_max: 0
+#              energy_cap_min: 0
           wind_onshore:
             constraints:
               energy_cap_max: 0.027672
@@ -10741,10 +10741,10 @@
             constraints:
               energy_cap_max: 1.894298
               energy_cap_min: 0.35878454
-          wind_offshore:
-            constraints:
-              energy_cap_max: 0
-              energy_cap_min: 0
+#          wind_offshore:
+#            constraints:
+#              energy_cap_max: 0
+#              energy_cap_min: 0
           wind_onshore:
             constraints:
               energy_cap_max: 0.566087
@@ -10823,14 +10823,54 @@
             constraints:
               energy_cap_max: 4.235972
               energy_cap_min: 0.91758545
-          wind_offshore:
-            constraints:
-              energy_cap_max: 0
-              energy_cap_min: 0
+#          wind_offshore:
+#            constraints:
+#              energy_cap_max: 0
+#              energy_cap_min: 0
           wind_onshore:
             constraints:
               energy_cap_max: 0.279996
               energy_cap_min: 0.09094159
+
+      
+      O-NWD:
+        techs:
+          wind_offshore:
+            constraints:
+              energy_cap_max: 5.3
+              energy_cap_min: 5.3
+      O-NEW:
+        techs:
+          wind_offshore:
+            constraints:
+              energy_cap_max: 6.0
+              energy_cap_min: 6.0
+      O-IJL:
+        techs:
+          wind_offshore:
+            constraints:
+              energy_cap_max: 10.7
+              energy_cap_min: 6.0
+      O-HOK:
+        techs:
+          wind_offshore:
+            constraints:
+              energy_cap_max: 4.5
+              energy_cap_min: 3.8
+      O-BOR:
+        techs:
+          wind_offshore:
+            constraints:
+              energy_cap_max: 1.483
+              energy_cap_min: 1.483
+      O-G67:
+        techs:
+          wind_offshore:
+            constraints:
+              energy_cap_max: 22.0
+              energy_cap_min: 8.0
+
+
 scenarios:
   # capacities_Scenario1_EV:
   # - Scenario_S1_EV
@@ -10840,4 +10880,5 @@ scenarios:
   # - Scenario_S1_HA
   capacities_Scenario1_KM:
   - Scenario_S1_KM
+
 
