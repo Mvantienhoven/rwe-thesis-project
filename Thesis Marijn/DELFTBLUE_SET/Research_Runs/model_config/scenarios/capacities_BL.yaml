@@ -8131,14 +8131,14 @@ overrides:
             constraints:
               energy_cap_max: 1.0
               energy_cap_min: 0.14038082
-          ES_BESS_MDES:
-            constraints:
-              energy_cap_max: 1.0
-              energy_cap_min: 0
-          ES_BESS_households:
-            constraints:
-              energy_cap_max: 0.287701
-              energy_cap_min: 0.0115651
+#          ES_BESS_MDES:
+#            constraints:
+#              energy_cap_max: 1.0
+#              energy_cap_min: 0
+#          ES_BESS_households:
+#            constraints:
+#              energy_cap_max: 0.287701
+#              energy_cap_min: 0.0115651
           hydro_RoR:
             constraints:
               energy_cap_max: 0
@@ -8213,14 +8213,14 @@ overrides:
             constraints:
               energy_cap_max: 1.0
               energy_cap_min: 0.29934675
-          ES_BESS_MDES:
-            constraints:
-              energy_cap_max: 1.0
-              energy_cap_min: 0
-          ES_BESS_households:
-            constraints:
-              energy_cap_max: 0.564534
-              energy_cap_min: 0.02364624
+#          ES_BESS_MDES:
+#            constraints:
+#              energy_cap_max: 1.0
+#              energy_cap_min: 0
+#          ES_BESS_households:
+#            constraints:
+#              energy_cap_max: 0.564534
+#              energy_cap_min: 0.02364624
           hydro_RoR:
             constraints:
               energy_cap_max: 0
@@ -8295,14 +8295,14 @@ overrides:
             constraints:
               energy_cap_max: 1.0
               energy_cap_min: 0.2167084
-          ES_BESS_MDES:
-            constraints:
-              energy_cap_max: 1.0
-              energy_cap_min: 0
-          ES_BESS_households:
-            constraints:
-              energy_cap_max: 1.181164
-              energy_cap_min: 0.04405434
+#          ES_BESS_MDES:
+#            constraints:
+#              energy_cap_max: 1.0
+#              energy_cap_min: 0
+#          ES_BESS_households:
+#            constraints:
+#              energy_cap_max: 1.181164
+#              energy_cap_min: 0.04405434
           hydro_RoR:
             constraints:
               energy_cap_max: 0
@@ -8377,14 +8377,14 @@ overrides:
             constraints:
               energy_cap_max: 2.0
               energy_cap_min: 0.5202636
-          ES_BESS_MDES:
-            constraints:
-              energy_cap_max: 1.0
-              energy_cap_min: 0
-          ES_BESS_households:
-            constraints:
-              energy_cap_max: 0.514705
-              energy_cap_min: 0.01827437
+#          ES_BESS_MDES:
+#            constraints:
+#              energy_cap_max: 1.0
+#              energy_cap_min: 0
+#          ES_BESS_households:
+#            constraints:
+#              energy_cap_max: 0.514705
+#              energy_cap_min: 0.01827437
           hydro_RoR:
             constraints:
               energy_cap_max: 0.001275
@@ -8459,14 +8459,14 @@ overrides:
             constraints:
               energy_cap_max: 1.0
               energy_cap_min: 0.21575603
-          ES_BESS_MDES:
-            constraints:
-              energy_cap_max: 1.0
-              energy_cap_min: 0
-          ES_BESS_households:
-            constraints:
-              energy_cap_max: 0.873345
-              energy_cap_min: 0.03417145
+#          ES_BESS_MDES:
+#            constraints:
+#              energy_cap_max: 1.0
+#              energy_cap_min: 0
+#          ES_BESS_households:
+#            constraints:
+#              energy_cap_max: 0.873345
+#              energy_cap_min: 0.03417145
           hydro_RoR:
             constraints:
               energy_cap_max: 0
@@ -8541,14 +8541,14 @@ overrides:
             constraints:
               energy_cap_max: 1.0
               energy_cap_min: 0.29308259
-          ES_BESS_MDES:
-            constraints:
-              energy_cap_max: 1.0
-              energy_cap_min: 0
-          ES_BESS_households:
-            constraints:
-              energy_cap_max: 0.925555
-              energy_cap_min: 0.03582834
+#          ES_BESS_MDES:
+#            constraints:
+#              energy_cap_max: 1.0
+#              energy_cap_min: 0
+#          ES_BESS_households:
+#            constraints:
+#              energy_cap_max: 0.925555
+#              energy_cap_min: 0.03582834
           hydro_RoR:
             constraints:
               energy_cap_max: 0
@@ -8623,14 +8623,14 @@ overrides:
             constraints:
               energy_cap_max: 1.0
               energy_cap_min: 0.13607843
-          ES_BESS_MDES:
-            constraints:
-              energy_cap_max: 1.0
-              energy_cap_min: 0
-          ES_BESS_households:
-            constraints:
-              energy_cap_max: 0.499686
-              energy_cap_min: 0.01873252
+#          ES_BESS_MDES:
+#            constraints:
+#              energy_cap_max: 1.0
+#              energy_cap_min: 0
+#          ES_BESS_households:
+#            constraints:
+#              energy_cap_max: 0.499686
+#              energy_cap_min: 0.01873252
           hydro_RoR:
             constraints:
               energy_cap_max: 0
@@ -8705,14 +8705,14 @@ overrides:
             constraints:
               energy_cap_max: 1.0
               energy_cap_min: 0.09897623
-          ES_BESS_MDES:
-            constraints:
-              energy_cap_max: 1.0
-              energy_cap_min: 0
-          ES_BESS_households:
-            constraints:
-              energy_cap_max: 0.703015
-              energy_cap_min: 0.02706221
+#          ES_BESS_MDES:
+#            constraints:
+#              energy_cap_max: 1.0
+#              energy_cap_min: 0
+#          ES_BESS_households:
+#            constraints:
+#              energy_cap_max: 0.703015
+#              energy_cap_min: 0.02706221
           hydro_RoR:
             constraints:
               energy_cap_max: 0
@@ -8787,14 +8787,14 @@ overrides:
             constraints:
               energy_cap_max: 1.0
               energy_cap_min: 0.71915679
-          ES_BESS_MDES:
-            constraints:
-              energy_cap_max: 1.0
-              energy_cap_min: 0
-          ES_BESS_households:
-            constraints:
-              energy_cap_max: 1.575948
-              energy_cap_min: 0.06133584
+#          ES_BESS_MDES:
+#            constraints:
+#              energy_cap_max: 1.0
+#              energy_cap_min: 0
+#          ES_BESS_households:
+#            constraints:
+#              energy_cap_max: 1.575948
+#              energy_cap_min: 0.06133584
           hydro_RoR:
             constraints:
               energy_cap_max: 0.0102053
@@ -8869,14 +8869,14 @@ overrides:
             constraints:
               energy_cap_max: 1.0
               energy_cap_min: 0.23490741
-          ES_BESS_MDES:
-            constraints:
-              energy_cap_max: 1.0
-              energy_cap_min: 0
-          ES_BESS_households:
-            constraints:
-              energy_cap_max: 0.751944
-              energy_cap_min: 0.02991633
+#          ES_BESS_MDES:
+#            constraints:
+#              energy_cap_max: 1.0
+#              energy_cap_min: 0
+#          ES_BESS_households:
+#            constraints:
+#              energy_cap_max: 0.751944
+#              energy_cap_min: 0.02991633
           hydro_RoR:
             constraints:
               energy_cap_max: 0
@@ -8951,14 +8951,14 @@ overrides:
             constraints:
               energy_cap_max: 1.08
               energy_cap_min: 0.12408996
-          ES_BESS_MDES:
-            constraints:
-              energy_cap_max: 1.28
-              energy_cap_min: 0
-          ES_BESS_households:
-            constraints:
-              energy_cap_max: 0.103642
-              energy_cap_min: 0.00458457
+#          ES_BESS_MDES:
+#            constraints:
+#              energy_cap_max: 1.28
+#              energy_cap_min: 0
+#          ES_BESS_households:
+#            constraints:
+#              energy_cap_max: 0.103642
+#              energy_cap_min: 0.00458457
           hydro_RoR:
             constraints:
               energy_cap_max: 0
@@ -9033,14 +9033,14 @@ overrides:
             constraints:
               energy_cap_max: 1.0
               energy_cap_min: 0.31176434
-          ES_BESS_MDES:
-            constraints:
-              energy_cap_max: 1.0
-              energy_cap_min: 0
-          ES_BESS_households:
-            constraints:
-              energy_cap_max: 1.376724
-              energy_cap_min: 0.05163591
+#          ES_BESS_MDES:
+#            constraints:
+#              energy_cap_max: 1.0
+#              energy_cap_min: 0
+#          ES_BESS_households:
+#            constraints:
+#              energy_cap_max: 1.376724
+#              energy_cap_min: 0.05163591
           hydro_RoR:
             constraints:
               energy_cap_max: 0
@@ -9115,14 +9115,14 @@ overrides:
             constraints:
               energy_cap_max: 1.0
               energy_cap_min: 0.25559454
-          ES_BESS_MDES:
-            constraints:
-              energy_cap_max: 1.0
-              energy_cap_min: 0
-          ES_BESS_households:
-            constraints:
-              energy_cap_max: 0.217777
-              energy_cap_min: 0.00863924
+#          ES_BESS_MDES:
+#            constraints:
+#              energy_cap_max: 1.0
+#              energy_cap_min: 0
+#          ES_BESS_households:
+#            constraints:
+#              energy_cap_max: 0.217777
+#              energy_cap_min: 0.00863924
           hydro_RoR:
             constraints:
               energy_cap_max: 0
@@ -9197,14 +9197,14 @@ overrides:
             constraints:
               energy_cap_max: 1.0
               energy_cap_min: 0.3670779
-          ES_BESS_MDES:
-            constraints:
-              energy_cap_max: 1.0
-              energy_cap_min: 0
-          ES_BESS_households:
-            constraints:
-              energy_cap_max: 0.861164
-              energy_cap_min: 0.03429232
+#          ES_BESS_MDES:
+#            constraints:
+#              energy_cap_max: 1.0
+#              energy_cap_min: 0
+#          ES_BESS_households:
+#            constraints:
+#              energy_cap_max: 0.861164
+#              energy_cap_min: 0.03429232
           hydro_RoR:
             constraints:
               energy_cap_max: 0
@@ -9279,14 +9279,14 @@ overrides:
             constraints:
               energy_cap_max: 1.0
               energy_cap_min: 0.24543459
-          ES_BESS_MDES:
-            constraints:
-              energy_cap_max: 1.0
-              energy_cap_min: 0
-          ES_BESS_households:
-            constraints:
-              energy_cap_max: 0.820791
-              energy_cap_min: 0.0346293
+#          ES_BESS_MDES:
+#            constraints:
+#              energy_cap_max: 1.0
+#              energy_cap_min: 0
+#          ES_BESS_households:
+#            constraints:
+#              energy_cap_max: 0.820791
+#              energy_cap_min: 0.0346293
           hydro_RoR:
             constraints:
               energy_cap_max: 0
@@ -9361,14 +9361,14 @@ overrides:
             constraints:
               energy_cap_max: 1.0
               energy_cap_min: 0.02578677
-          ES_BESS_MDES:
-            constraints:
-              energy_cap_max: 1.0
-              energy_cap_min: 0
-          ES_BESS_households:
-            constraints:
-              energy_cap_max: 0.231278
-              energy_cap_min: 0.00870194
+#          ES_BESS_MDES:
+#            constraints:
+#              energy_cap_max: 1.0
+#              energy_cap_min: 0
+#          ES_BESS_households:
+#            constraints:
+#              energy_cap_max: 0.231278
+#              energy_cap_min: 0.00870194
           hydro_RoR:
             constraints:
               energy_cap_max: 0
@@ -9443,14 +9443,14 @@ overrides:
             constraints:
               energy_cap_max: 1.296853
               energy_cap_min: 1.05519863
-          ES_BESS_MDES:
-            constraints:
-              energy_cap_max: 1.0
-              energy_cap_min: 0
-          ES_BESS_households:
-            constraints:
-              energy_cap_max: 0.386847
-              energy_cap_min: 0.01560712
+#          ES_BESS_MDES:
+#            constraints:
+#              energy_cap_max: 1.0
+#              energy_cap_min: 0
+#          ES_BESS_households:
+#            constraints:
+#              energy_cap_max: 0.386847
+#              energy_cap_min: 0.01560712
           hydro_RoR:
             constraints:
               energy_cap_max: 0
@@ -9525,14 +9525,14 @@ overrides:
             constraints:
               energy_cap_max: 1.0
               energy_cap_min: 0.11563414
-          ES_BESS_MDES:
-            constraints:
-              energy_cap_max: 1.0
-              energy_cap_min: 0
-          ES_BESS_households:
-            constraints:
-              energy_cap_max: 0.183136
-              energy_cap_min: 0.007483
+#          ES_BESS_MDES:
+#            constraints:
+#              energy_cap_max: 1.0
+#              energy_cap_min: 0
+#          ES_BESS_households:
+#            constraints:
+#              energy_cap_max: 0.183136
+#              energy_cap_min: 0.007483
           hydro_RoR:
             constraints:
               energy_cap_max: 0
@@ -9607,14 +9607,14 @@ overrides:
             constraints:
               energy_cap_max: 1.0
               energy_cap_min: 0.43207812
-          ES_BESS_MDES:
-            constraints:
-              energy_cap_max: 1.0
-              energy_cap_min: 0
-          ES_BESS_households:
-            constraints:
-              energy_cap_max: 1.304679
-              energy_cap_min: 0.05777579
+#          ES_BESS_MDES:
+#            constraints:
+#              energy_cap_max: 1.0
+#              energy_cap_min: 0
+#          ES_BESS_households:
+#            constraints:
+#              energy_cap_max: 1.304679
+#              energy_cap_min: 0.05777579
           hydro_RoR:
             constraints:
               energy_cap_max: 0.011618
@@ -9689,14 +9689,14 @@ overrides:
             constraints:
               energy_cap_max: 1.836323
               energy_cap_min: 1.64678437
-          ES_BESS_MDES:
-            constraints:
-              energy_cap_max: 6.4
-              energy_cap_min: 0.32
-          ES_BESS_households:
-            constraints:
-              energy_cap_max: 0.274673
-              energy_cap_min: 0.01228579
+#          ES_BESS_MDES:
+#            constraints:
+#              energy_cap_max: 6.4
+#              energy_cap_min: 0.32
+#          ES_BESS_households:
+#            constraints:
+#              energy_cap_max: 0.274673
+#              energy_cap_min: 0.01228579
           hydro_RoR:
             constraints:
               energy_cap_max: 0
@@ -9771,14 +9771,14 @@ overrides:
             constraints:
               energy_cap_max: 1.0
               energy_cap_min: 0.00353905
-          ES_BESS_MDES:
-            constraints:
-              energy_cap_max: 1.0
-              energy_cap_min: 0
-          ES_BESS_households:
-            constraints:
-              energy_cap_max: 0
-              energy_cap_min: 0
+#          ES_BESS_MDES:
+#            constraints:
+#              energy_cap_max: 1.0
+#              energy_cap_min: 0
+#          ES_BESS_households:
+#            constraints:
+#              energy_cap_max: 0
+#              energy_cap_min: 0
           hydro_RoR:
             constraints:
               energy_cap_max: 0
@@ -9853,14 +9853,14 @@ overrides:
             constraints:
               energy_cap_max: 1.0
               energy_cap_min: 0.2752967
-          ES_BESS_MDES:
-            constraints:
-              energy_cap_max: 1.0
-              energy_cap_min: 0
-          ES_BESS_households:
-            constraints:
-              energy_cap_max: 0.345833
-              energy_cap_min: 0.01365062
+#          ES_BESS_MDES:
+#            constraints:
+#              energy_cap_max: 1.0
+#              energy_cap_min: 0
+#          ES_BESS_households:
+#            constraints:
+#              energy_cap_max: 0.345833
+#              energy_cap_min: 0.01365062
           hydro_RoR:
             constraints:
               energy_cap_max: 0
@@ -9935,14 +9935,14 @@ overrides:
             constraints:
               energy_cap_max: 1.0
               energy_cap_min: 0.12737471
-          ES_BESS_MDES:
-            constraints:
-              energy_cap_max: 1.0
-              energy_cap_min: 0
-          ES_BESS_households:
-            constraints:
-              energy_cap_max: 0.267484
-              energy_cap_min: 0.01053275
+#          ES_BESS_MDES:
+#            constraints:
+#              energy_cap_max: 1.0
+#              energy_cap_min: 0
+#          ES_BESS_households:
+#            constraints:
+#              energy_cap_max: 0.267484
+#              energy_cap_min: 0.01053275
           hydro_RoR:
             constraints:
               energy_cap_max: 0
@@ -10017,14 +10017,14 @@ overrides:
             constraints:
               energy_cap_max: 1.0
               energy_cap_min: 0.16394421
-          ES_BESS_MDES:
-            constraints:
-              energy_cap_max: 1.0
-              energy_cap_min: 0
-          ES_BESS_households:
-            constraints:
-              energy_cap_max: 0.356388
-              energy_cap_min: 0.0145624
+#          ES_BESS_MDES:
+#            constraints:
+#              energy_cap_max: 1.0
+#              energy_cap_min: 0
+#          ES_BESS_households:
+#            constraints:
+#              energy_cap_max: 0.356388
+#              energy_cap_min: 0.0145624
           hydro_RoR:
             constraints:
               energy_cap_max: 0
@@ -10099,14 +10099,14 @@ overrides:
             constraints:
               energy_cap_max: 1.0
               energy_cap_min: 0.1371763
-          ES_BESS_MDES:
-            constraints:
-              energy_cap_max: 1.0
-              energy_cap_min: 0
-          ES_BESS_households:
-            constraints:
-              energy_cap_max: 0.242985
-              energy_cap_min: 0.00915647
+#          ES_BESS_MDES:
+#            constraints:
+#              energy_cap_max: 1.0
+#              energy_cap_min: 0
+#          ES_BESS_households:
+#            constraints:
+#              energy_cap_max: 0.242985
+#              energy_cap_min: 0.00915647
           hydro_RoR:
             constraints:
               energy_cap_max: 0
@@ -10181,14 +10181,14 @@ overrides:
             constraints:
               energy_cap_max: 1.0
               energy_cap_min: 0.12600591
-          ES_BESS_MDES:
-            constraints:
-              energy_cap_max: 1.0
-              energy_cap_min: 0
-          ES_BESS_households:
-            constraints:
-              energy_cap_max: 0.760217
-              energy_cap_min: 0.02854729
+#          ES_BESS_MDES:
+#            constraints:
+#              energy_cap_max: 1.0
+#              energy_cap_min: 0
+#          ES_BESS_households:
+#            constraints:
+#              energy_cap_max: 0.760217
+#              energy_cap_min: 0.02854729
           hydro_RoR:
             constraints:
               energy_cap_max: 0.014775
@@ -10263,14 +10263,14 @@ overrides:
             constraints:
               energy_cap_max: 1.0
               energy_cap_min: 0.16599036
-          ES_BESS_MDES:
-            constraints:
-              energy_cap_max: 1.0
-              energy_cap_min: 0
-          ES_BESS_households:
-            constraints:
-              energy_cap_max: 0.298012
-              energy_cap_min: 0.01152019
+#          ES_BESS_MDES:
+#            constraints:
+#              energy_cap_max: 1.0
+#              energy_cap_min: 0
+#          ES_BESS_households:
+#            constraints:
+#              energy_cap_max: 0.298012
+#              energy_cap_min: 0.01152019
           hydro_RoR:
             constraints:
               energy_cap_max: 0
@@ -10345,14 +10345,14 @@ overrides:
             constraints:
               energy_cap_max: 1.0
               energy_cap_min: 0.20347047
-          ES_BESS_MDES:
-            constraints:
-              energy_cap_max: 1.0
-              energy_cap_min: 0
-          ES_BESS_households:
-            constraints:
-              energy_cap_max: 0.426625
-              energy_cap_min: 0.01674377
+#          ES_BESS_MDES:
+#            constraints:
+#              energy_cap_max: 1.0
+#              energy_cap_min: 0
+#          ES_BESS_households:
+#            constraints:
+#              energy_cap_max: 0.426625
+#              energy_cap_min: 0.01674377
           hydro_RoR:
             constraints:
               energy_cap_max: 0
@@ -10427,14 +10427,14 @@ overrides:
             constraints:
               energy_cap_max: 2.0
               energy_cap_min: 0.1279269
-          ES_BESS_MDES:
-            constraints:
-              energy_cap_max: 1.0
-              energy_cap_min: 0
-          ES_BESS_households:
-            constraints:
-              energy_cap_max: 0.496266
-              energy_cap_min: 0.01869846
+#          ES_BESS_MDES:
+#            constraints:
+#              energy_cap_max: 1.0
+#              energy_cap_min: 0
+#          ES_BESS_households:
+#            constraints:
+#              energy_cap_max: 0.496266
+#              energy_cap_min: 0.01869846
           hydro_RoR:
             constraints:
               energy_cap_max: 0
@@ -10509,14 +10509,14 @@ overrides:
             constraints:
               energy_cap_max: 1.0
               energy_cap_min: 0.0784264
-          ES_BESS_MDES:
-            constraints:
-              energy_cap_max: 1.0
-              energy_cap_min: 0
-          ES_BESS_households:
-            constraints:
-              energy_cap_max: 0.137909
-              energy_cap_min: 0.00610371
+#          ES_BESS_MDES:
+#            constraints:
+#              energy_cap_max: 1.0
+#              energy_cap_min: 0
+#          ES_BESS_households:
+#            constraints:
+#              energy_cap_max: 0.137909
+#              energy_cap_min: 0.00610371
           hydro_RoR:
             constraints:
               energy_cap_max: 0
@@ -10591,14 +10591,14 @@ overrides:
             constraints:
               energy_cap_max: 1.0
               energy_cap_min: 0.01363623
-          ES_BESS_MDES:
-            constraints:
-              energy_cap_max: 1.0
-              energy_cap_min: 0
-          ES_BESS_households:
-            constraints:
-              energy_cap_max: 0.316527
-              energy_cap_min: 0.01192861
+#          ES_BESS_MDES:
+#            constraints:
+#              energy_cap_max: 1.0
+#              energy_cap_min: 0
+#          ES_BESS_households:
+#            constraints:
+#              energy_cap_max: 0.316527
+#              energy_cap_min: 0.01192861
           hydro_RoR:
             constraints:
               energy_cap_max: 0
@@ -10673,14 +10673,14 @@ overrides:
             constraints:
               energy_cap_max: 1.0
               energy_cap_min: 0.25224468
-          ES_BESS_MDES:
-            constraints:
-              energy_cap_max: 1.0
-              energy_cap_min: 0
-          ES_BESS_households:
-            constraints:
-              energy_cap_max: 0.946543
-              energy_cap_min: 0.03630549
+#          ES_BESS_MDES:
+#            constraints:
+#              energy_cap_max: 1.0
+#              energy_cap_min: 0
+#          ES_BESS_households:
+#            constraints:
+#              energy_cap_max: 0.946543
+#              energy_cap_min: 0.03630549
           hydro_RoR:
             constraints:
               energy_cap_max: 0
@@ -10755,14 +10755,14 @@ overrides:
             constraints:
               energy_cap_max: 1.0
               energy_cap_min: 0.44086767
-          ES_BESS_MDES:
-            constraints:
-              energy_cap_max: 1.0
-              energy_cap_min: 0
-          ES_BESS_households:
-            constraints:
-              energy_cap_max: 0.53973
-              energy_cap_min: 0.02331196
+#          ES_BESS_MDES:
+#            constraints:
+#              energy_cap_max: 1.0
+#              energy_cap_min: 0
+#          ES_BESS_households:
+#            constraints:
+#              energy_cap_max: 0.53973
+#              energy_cap_min: 0.02331196
           hydro_RoR:
             constraints:
               energy_cap_max: 0
@@ -10842,36 +10842,55 @@ overrides:
             constraints:
               energy_cap_max: 5.3
               energy_cap_min: 5.3
+          ES_BESS_offshore:
+            constraints:
+              energy_cap_max: 1.0
+              energy_cap_min: 1.0
       O-NEW:
         techs:
           wind_offshore:
             constraints:
               energy_cap_max: 6.0
               energy_cap_min: 6.0
+          ES_BESS_offshore:
+            constraints:
+              energy_cap_max: 1.0
       O-IJL:
         techs:
           wind_offshore:
             constraints:
               energy_cap_max: 10.7
               energy_cap_min: 6.0
+          ES_BESS_offshore:
+            constraints:
+              energy_cap_max: 1.0
       O-HOK:
         techs:
           wind_offshore:
             constraints:
               energy_cap_max: 4.5
               energy_cap_min: 3.8
+          ES_BESS_offshore:
+            constraints:
+              energy_cap_max: 1.0
       O-BOR:
         techs:
           wind_offshore:
             constraints:
               energy_cap_max: 1.483
               energy_cap_min: 1.483
+          ES_BESS_offshore:
+            constraints:
+              energy_cap_max: 1.0
       O-G67:
         techs:
           wind_offshore:
             constraints:
               energy_cap_max: 22.0
               energy_cap_min: 8.0
+          ES_BESS_offshore:
+            constraints:
+              energy_cap_max: 1.0
 
 
 scenarios:
@@ -10883,5 +10902,6 @@ scenarios:
   # - Scenario_S1_HA
   capacities_Scenario1_KM:
   - Scenario_S1_KM
+
 
 

@@ -258,7 +258,8 @@ techs:
             energy_eff_per_distance: 0.99965
         costs:
             monetary:
-                energy_cap: 364 #M€/GW
+                energy_cap: 0 #M€/GW
+                energy_cap_per_distance: 0.4 #M€/GW/km
                 
 
     # STEP 3b (power-only simplification): disable gas/hydrogen import fuel infrastructure.

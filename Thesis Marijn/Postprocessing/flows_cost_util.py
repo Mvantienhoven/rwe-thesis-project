@@ -155,6 +155,7 @@ def plot_carrier_flows(df):
         "demand_elc": "Demand",
         "ES_BESS_households": "BESS Households",
         "ES_BESS_IDES": "BESS IDES",
+        "ES_BESS_offshore": "BESS Offshore",
         "ES_BESS_MDES": "BESS MDES",
         "ES_pumped_hydro": "Pumped Hydro",
         "pp_biomass_standalone": "Biomass",
@@ -251,6 +252,7 @@ def plot_carrier_flows(df):
         "Wind Onshore": "#d9ed92",
         "BESS Households": "#d2b7e5",
         "BESS IDES": "#d2b7e5",
+        "BESS Offshore": "#d2b7e5",
         "BESS MDES": "#c19ee0",
         "Elektrolyser - Onshore": "#02cecb",
         "Elektrolyser - Offshore": "#02cecb"
@@ -270,7 +272,7 @@ def plot_carrier_flows(df):
         "CCGT Gas", "CCGT Hydrogen",
         "Biomass", "Waste Incinerator", "Hydro RoR", "OCGT Gas", "OCGT Hydrogen",
         "Wind Offshore", "Wind Onshore", "PV Utility", "PV Rooftop",
-        "Pumped Hydro", "BESS IDES", "BESS MDES", "BESS Households",
+        "Pumped Hydro", "BESS IDES", "BESS Offshore", "BESS MDES", "BESS Households",
         "Elektrolyser - Onshore", "Elektrolyser - Offshore",
         "Electric Boiler", "Curtailment"
     ]
@@ -384,6 +386,7 @@ def plot_variable_costs(df):
         "demand_elc": "Demand",
         "ES_BESS_households": "BESS Households",
         "ES_BESS_IDES": "BESS IDES",
+        "ES_BESS_offshore": "BESS Offshore",
         "ES_BESS_MDES": "BESS MDES",
         "ES_pumped_hydro": "Pumped Hydro",
         "pp_biomass_standalone": "Biomass",
@@ -445,7 +448,7 @@ def plot_variable_costs(df):
         "CCGT Gas", "CCGT Hydrogen",
         "Biomass", "Waste Incinerator", "Hydro RoR", "OCGT Gas", "OCGT Hydrogen",
         "Wind Offshore", "Wind Onshore", "PV Utility", "PV Rooftop",
-        "Pumped Hydro", "BESS IDES", "BESS MDES", "BESS Households",
+        "Pumped Hydro", "BESS IDES", "BESS Offshore", "BESS MDES", "BESS Households",
         "Elektrolyser - Onshore", "Elektrolyser - Offshore",
         "Electric Boiler", "Curtailment"
     ]
@@ -498,6 +501,7 @@ def plot_variable_costs(df):
         "Wind Onshore": "#d9ed92",
         "BESS Households": "#d2b7e5",
         "BESS IDES": "#d2b7e5",
+        "BESS Offshore": "#d2b7e5",
         "BESS MDES": "#c19ee0",
         "Elektrolyser - Onshore": "#02cecb",
         "Elektrolyser - Offshore": "#02cecb"
@@ -546,6 +550,7 @@ def plot_utilization(df):
         "demand_elc": "Demand",
         "ES_BESS_households": "BESS Households",
         "ES_BESS_IDES": "BESS IDES",
+        "ES_BESS_offshore": "BESS Offshore",
         "ES_BESS_MDES": "BESS MDES",
         "ES_pumped_hydro": "Pumped Hydro",
         "pp_biomass_standalone": "Biomass",
@@ -639,7 +644,7 @@ def plot_utilization(df):
         "Hydrogen":      ["CCGT Hydrogen","OCGT Hydrogen"],
         "VRE":           ["Wind Offshore","Wind Onshore","PV Utility","PV Rooftop"],
         "Other RES":     ["Biomass","Waste Incinerator","Pumped Hydro"],
-        "Storage":       ["BESS IDES","BESS MDES","BESS Households","Pumped Hydro"],
+        "Storage":       ["BESS IDES","BESS Offshore","BESS MDES","BESS Households","Pumped Hydro"],
         "Conversion":    ["Elektrolyser - Onshore","Elektrolyser - Offshore"],
         "Heat":          ["Electric Boiler"],
         "Import":        ["Import DIE","Import SIE","Import DEN","Import NOR","Import EYC","Import WSL","Import UK","Import GRO","Import ZAN"],
@@ -682,7 +687,7 @@ def plot_utilization(df):
         "Wind Offshore":"#b5e48c","Wind Onshore":"#d9ed92",
         "PV Utility":"#ffc300","PV Rooftop":"#ffd000",
         "Biomass":"#76c893","Waste Incinerator":"#76c893","Pumped Hydro":"#c19ee0",
-        "BESS IDES":"#d2b7e5","BESS MDES":"#c19ee0","BESS Households":"#d2b7e5",
+        "BESS IDES":"#d2b7e5","BESS Offshore":"#d2b7e5","BESS MDES":"#c19ee0","BESS Households":"#d2b7e5",
         "Elektrolyser - Onshore":"#02cecb","Elektrolyser - Offshore":"#02cecb",
         "Electric Boiler":"#ffb4a2",
         "Import DIE":"#888888","Export DIE":"#555555"

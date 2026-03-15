@@ -11,7 +11,8 @@ techs:
             force_asynchronous_prod_con: false
         costs:
             monetary:
-                energy_cap: 364 # Meur/GW (CE Delft 2017, ook bron van NBNL2025)
+                energy_cap: 0 # Meur/GW (CE Delft 2017, ook bron van NBNL2025)
+                energy_cap_per_distance: 0.4 # M€/GW/km
     
     # STEP 3d (power-only + hard-CO2-cap): disable gas/solid_fuel links again.
     # free_gas_transmission:
@@ -117,8 +118,3 @@ techs:
             color: '#795548'
             carrier: electricity
             parent: offshore_transmission
-        constraints:
-            energy_eff_per_distance: 0.99965
-        costs:
-            monetary:
-                energy_cap: 364 #M€/GW

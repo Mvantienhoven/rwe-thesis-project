@@ -1,4 +1,4 @@
-tech_groups:
+﻿tech_groups:
 
     # Demand
 
@@ -244,7 +244,8 @@ tech_groups:
         costs:
             monetary:
                 interest_rate: 0.03 #WACC
-                energy_cap: 364 #M€/GW
+                energy_cap: 0 #M€/GW
+                energy_cap_per_distance: 0.4 #M€/GW/km
             line_load:
                 interest_rate: 1
                 om_prod: 
@@ -262,7 +263,8 @@ tech_groups:
         costs:
             monetary:
                 interest_rate: 0.03 #WACC
-                energy_cap: 364 #M€/GW
+                energy_cap: 0 #M€/GW
+                energy_cap_per_distance: 0.4 #M€/GW/km
                 
     crossborder_import:
         essentials:
@@ -357,4 +359,7 @@ tech_groups:
         costs:
             monetary:
                 interest_rate: 0.03 #WACC
-                energy_cap: 364 #M€/GW
+                energy_cap: 174 # M€/GW
+                energy_cap_per_distance: 2.6 # M€/GW-km
+                om_annual: 3.48 # M€/GW/year
+

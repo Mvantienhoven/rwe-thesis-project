@@ -17,7 +17,7 @@ techs:
             carrier: electricity
         constraints:
             lifetime: 20 # years
-            resource: file=renewables/wind_offshore_nodes_2040.csv
+            resource: file=renewables/wind_offshore_6nodes_2040.csv
             #resource_area_per_energy_cap: 167 #km² per GW
             force_resource: False
         costs:
