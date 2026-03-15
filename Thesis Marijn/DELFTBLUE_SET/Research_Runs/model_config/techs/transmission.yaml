@@ -7,7 +7,7 @@ techs:
             carrier: electricity
         constraints:
             lifetime: 30
-            energy_eff_per_distance: 0.99965 # 0.0035%/km https://iea-etsap.org/E-TechDS/PDF/E12_el-t&d_KV_Apr2014_GSOK.pdf
+            energy_eff_per_distance: 0.999933 # 0.0067%/km
             force_asynchronous_prod_con: false
         costs:
             monetary:

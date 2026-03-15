@@ -240,7 +240,7 @@ tech_groups:
             parent: transmission
         constraints:
             force_asynchronous_prod_con: false # prevent dissipation of energy through nonphysical flows
-            energy_eff_per_distance: 0.99965
+            energy_eff_per_distance: 0.999933
         costs:
             monetary:
                 interest_rate: 0.03 #WACC
@@ -258,7 +258,7 @@ tech_groups:
         constraints:
             lifetime: 30
             force_asynchronous_prod_con: false # prevent dissipation of energy through nonphysical flows
-            energy_eff_per_distance: 0.99965
+            energy_eff_per_distance: 0.999933
         costs:
             monetary:
                 interest_rate: 0.03 #WACC

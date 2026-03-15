@@ -1,4 +1,4 @@
-#-------------------------------------------------COMMENTS KEVIN------------------------------------------------------#
+﻿#-------------------------------------------------COMMENTS KEVIN------------------------------------------------------#
 ### TRANSMISSION do NOT have fixed capacity, but have defined OM_prod per Net Transfer Capacity (NTC)
 #----------------------------------------------------------------------------------------------------------------------#
 
@@ -3781,7 +3781,7 @@ links:
             transmission_hvac:
                 distance: 10.9 #km
                 constraints: 
-                    energy_eff_per_distance: 0.99965
+                    energy_eff_per_distance: 0.999933
                     energy_cap_min:  1.90525588832576 #GW IO2050 - 2017 data
                     energy_cap_max: 1.90525588832576 #GW IO2050 all measures 2050#
 #                costs:
@@ -3793,7 +3793,7 @@ links:
             transmission_hvac:
                 distance: 32.5 #km
                 constraints: 
-                    energy_eff_per_distance: 0.99965
+                    energy_eff_per_distance: 0.999933
                     energy_cap_min:  1.905255888325765 #GW IO2050 - 2017 data
                     energy_cap_max: 1.905255888325765 #GW IO2050 all measures 2050#
 #                costs:
@@ -3805,7 +3805,7 @@ links:
             transmission_hvac:
                 distance: 42.0 #km
                 constraints: 
-                    energy_eff_per_distance: 0.99965
+                    energy_eff_per_distance: 0.999933
                     energy_cap_min:  3.290896534380867 #GW IO2050 - 2017 data
                     energy_cap_max: 3.464101615137754 #GW IO2050 all measures 2050#
 #                costs:
@@ -3817,7 +3817,7 @@ links:
             transmission_hvac:
                 distance: 58.0 #km
                 constraints: 
-                    energy_eff_per_distance: 0.99965
+                    energy_eff_per_distance: 0.999933
                     energy_cap_min:  3.290896534380867 #GW IO2050 - 2017 data
                     energy_cap_max: 3.464101615137754 #GW IO2050 all measures 2050#
 #                costs:
@@ -3829,7 +3829,7 @@ links:
             transmission_hvac:
                 distance: 39.1 #km
                 constraints: 
-                    energy_eff_per_distance: 0.99965
+                    energy_eff_per_distance: 0.999933
                     energy_cap_min:  3.290896534380867 #GW IO2050 - 2017 data
                     energy_cap_max: 11.08512516844081 #GW IO2050 all measures 2050#
 #                costs:
@@ -3841,7 +3841,7 @@ links:
             transmission_hvac:
                 distance: 60.0 #km
                 constraints: 
-                    energy_eff_per_distance: 0.99965
+                    energy_eff_per_distance: 0.999933
                     energy_cap_min:  3.94907584125704 #GW IO2050 - 2017 data
                     energy_cap_max: 4.156921938165306 #GW IO2050 all measures 2050#
 #                costs:
@@ -3853,7 +3853,7 @@ links:
             transmission_hvac:
                 distance: 16.1 #km
                 constraints: 
-                    energy_eff_per_distance: 0.99965
+                    energy_eff_per_distance: 0.999933
                     energy_cap_min:  3.817439979881805 #GW IO2050 - 2017 data
                     energy_cap_max: 4.156921938165306 #GW IO2050 all measures 2050#
 #                costs:
@@ -3865,7 +3865,7 @@ links:
             transmission_hvac:
                 distance: 15.0 #km
                 constraints: 
-                    energy_eff_per_distance: 0.99965
+                    energy_eff_per_distance: 0.999933
                     energy_cap_min:  3.94907584125704 #GW IO2050 - 2017 data
                     energy_cap_max: 4.156921938165306 #GW IO2050 all measures 2050#
 #                costs:
@@ -3877,7 +3877,7 @@ links:
             transmission_hvac:
                 distance: 17.5 #km
                 constraints:    
-                    energy_eff_per_distance: 0.99965
+                    energy_eff_per_distance: 0.999933
                     energy_cap_min:  5.265434455009387 #GW IO2050 - 2017 data
                     energy_cap_max: 5.542562584220407 #GW IO2050 all measures 2050#
 #                costs:
@@ -3889,7 +3889,7 @@ links:
             transmission_hvac:
                 distance: 45.0 #km
                 constraints: 
-                    energy_eff_per_distance: 0.99965
+                    energy_eff_per_distance: 0.999933
                     energy_cap_min:  3.94907584125704 #GW IO2050 - 2017 data
                     energy_cap_max: 4.156921938165306 #GW IO2050 all measures 2050#
 #                costs:
@@ -3901,7 +3901,7 @@ links:
             transmission_hvac:
                 distance: 21.9 #km
                 constraints: 
-                    energy_eff_per_distance: 0.99965
+                    energy_eff_per_distance: 0.999933
                     energy_cap_min:  5.265434455009387 #GW IO2050 - 2017 data
                     energy_cap_max: 5.542562584220407 #GW IO2050 all measures 2050#
 #                costs:
@@ -3913,7 +3913,7 @@ links:
             transmission_hvac:
                 distance: 14.8 #km
                 constraints: 
-                    energy_eff_per_distance: 0.99965
+                    energy_eff_per_distance: 0.999933
                     energy_cap_min:  5.265434455009387 #GW IO2050 - 2017 data
                     energy_cap_max: 5.542562584220407 #GW IO2050 all measures 2050#
 #                costs:
@@ -3925,7 +3925,7 @@ links:
             transmission_hvac:
                 distance: 43.0 #km
                 constraints: 
-                    energy_eff_per_distance: 0.99965
+                    energy_eff_per_distance: 0.999933
                     energy_cap_min:  5.265434455009387 #GW IO2050 - 2017 data
                     energy_cap_max: 5.542562584220407 #GW IO2050 all measures 2050#
 #                costs:
@@ -3937,7 +3937,7 @@ links:
             transmission_hvac:
                 distance: 57.5 #km
                 constraints: 
-                    energy_eff_per_distance: 0.99965
+                    energy_eff_per_distance: 0.999933
                     energy_cap_min:  3.290896534380867 #GW IO2050 - 2017 data
                     energy_cap_max: 3.464101615137754 #GW IO2050 all measures 2050#
 #                costs:
@@ -3949,7 +3949,7 @@ links:
             transmission_hvac:
                 distance: 51.7 #km
                 constraints: 
-                    energy_eff_per_distance: 0.99965
+                    energy_eff_per_distance: 0.999933
                     energy_cap_min:  3.290896534380867 #GW IO2050 - 2017 data
                     energy_cap_max: 11.08512516844081 #GW IO2050 all measures 2050#
 #                costs:
@@ -3961,7 +3961,7 @@ links:
             transmission_hvac:
                 distance: 15.5 #km
                 constraints: 
-                    energy_eff_per_distance: 0.99965
+                    energy_eff_per_distance: 0.999933
                     energy_cap_min:  3.817439979881805 #GW IO2050 - 2017 data
                     energy_cap_max: 4.156921938165306 #GW IO2050 all measures 2050#
 #                costs:
@@ -3973,7 +3973,7 @@ links:
             transmission_hvac:
                 distance: 44.6 #km
                 constraints: 
-                    energy_eff_per_distance: 0.99965
+                    energy_eff_per_distance: 0.999933
                     energy_cap_min:  3.290896534380867 #GW IO2050 - 2017 data
                     energy_cap_max: 4.156921938165306 #GW IO2050 all measures 2050#
 #                costs:
@@ -3985,7 +3985,7 @@ links:
             transmission_hvac:
                 distance: 58.7 #km
                 constraints: 
-                    energy_eff_per_distance: 0.99965
+                    energy_eff_per_distance: 0.999933
                     energy_cap_min:  3.290896534380867 #GW IO2050 - 2017 data
                     energy_cap_max: 4.156921938165306 #GW IO2050 all measures 2050#
 #                costs:
@@ -3997,7 +3997,7 @@ links:
             transmission_hvac:
                 distance: 37.6 #km
                 constraints: 
-                    energy_eff_per_distance: 0.99965
+                    energy_eff_per_distance: 0.999933
                     energy_cap_min:  5.265434455009387 #GW IO2050 - 2017 data
                     energy_cap_max: 5.542562584220407 #GW IO2050 all measures 2050#
 #                costs:
@@ -4009,7 +4009,7 @@ links:
             transmission_hvac:
                 distance: 39.9 #km
                 constraints: 
-                    energy_eff_per_distance: 0.99965
+                    energy_eff_per_distance: 0.999933
                     energy_cap_min:  3.505670834519407 #GW IO2050 - 2017 data
                     energy_cap_max: 11.08512516844081 #GW IO2050 all measures 2050#
 #                costs:
@@ -4021,7 +4021,7 @@ links:
             transmission_hvac:
                 distance: 24.3 #km
                 constraints: 
-                    energy_eff_per_distance: 0.99965
+                    energy_eff_per_distance: 0.999933
                     energy_cap_min:  1.752835417259704 #GW IO2050 - 2017 data
                     energy_cap_max: 1.752835417259704 #GW IO2050 all measures 2050#
 #                costs:
@@ -4033,7 +4033,7 @@ links:
             transmission_hvac:
                 distance: 48.8 #km
                 constraints: 
-                    energy_eff_per_distance: 0.99965
+                    energy_eff_per_distance: 0.999933
                     energy_cap_min:  3.94907584125704 #GW IO2050 - 2017 data
                     energy_cap_max: 5.542562584220407 #GW IO2050 all measures 2050#
 #                costs:
@@ -4045,7 +4045,7 @@ links:
             transmission_hvac:
                 distance: 40.0 #km
                 constraints: 
-                    energy_eff_per_distance: 0.99965
+                    energy_eff_per_distance: 0.999933
                     energy_cap_min:  0.001 #GW IO2050 - 2017 data
                     energy_cap_max: 5.196152422706632 #GW IO2050 all measures 2050#
 #                costs:
@@ -4057,7 +4057,7 @@ links:
             transmission_hvac:
                 distance: 20.0 #km
                 constraints: 
-                    energy_eff_per_distance: 0.99965
+                    energy_eff_per_distance: 0.999933
                     energy_cap_min:  3.94907584125704 #GW IO2050 - 2017 data
                     energy_cap_max: 11.08512516844081 #GW IO2050 all measures 2050#
 #                costs:
@@ -4069,7 +4069,7 @@ links:
             transmission_hvac:
                 distance: 43.4 #km
                 constraints: 
-                    energy_eff_per_distance: 0.99965
+                    energy_eff_per_distance: 0.999933
                     energy_cap_min:  1.905255888325765 #GW IO2050 - 2017 data
                     energy_cap_max: 1.905255888325765 #GW IO2050 all measures 2050#
 #                costs:
@@ -4081,7 +4081,7 @@ links:
             transmission_hvac:
                 distance: 115.0 #km
                 constraints: 
-                    energy_eff_per_distance: 0.99965
+                    energy_eff_per_distance: 0.999933
                     energy_cap_min:  0.001 #MW IO2050 - 2017 data
                     energy_cap_max: 5.542562584220407 #GW IO2050 all measures 2050#
 #                costs:
@@ -4093,7 +4093,7 @@ links:
             transmission_hvac:
                 distance: 31.7 #km
                 constraints: 
-                    energy_eff_per_distance: 0.99965
+                    energy_eff_per_distance: 0.999933
                     energy_cap_min:  5.200 #GW IO2050 - 2017 data [ENS-ZWO + 1900 ENS-HSW]
                     energy_cap_max: 7.500 #GW IO2050 all measures 2050#
 #                costs:
@@ -4117,7 +4117,7 @@ links:
             transmission_hvac:
                 distance: 34.0 #km
                 constraints: 
-                    energy_eff_per_distance: 0.99965
+                    energy_eff_per_distance: 0.999933
                     energy_cap_min:  3.94907584125704 #GW IO2050 - 2017 data
                     energy_cap_max: 11.08512516844081 #GW IO2050 all measures 2050#
 #                costs:
@@ -4129,7 +4129,7 @@ links:
             transmission_hvac:
                 distance: 60.3 #km
                 constraints: 
-                    energy_eff_per_distance: 0.99965
+                    energy_eff_per_distance: 0.999933
                     energy_cap_min:  3.290896534380867 #GW IO2050 - 2017 data
                     energy_cap_max: 5.542562584220407 #GW IO2050 all measures 2050#
 #                costs:
@@ -4141,7 +4141,7 @@ links:
             transmission_hvac:
                 distance: 24.0 #km
                 constraints: 
-                    energy_eff_per_distance: 0.99965
+                    energy_eff_per_distance: 0.999933
                     energy_cap_min:  0.001 #MW IO2050 - 2017 data
                     energy_cap_max: 5.196152422706632 #GW IO2050 all measures 2050#
 #                costs:
@@ -4153,7 +4153,7 @@ links:
             transmission_hvac:
                 distance: 60.7 #km
                 constraints: 
-                    energy_eff_per_distance: 0.99965
+                    energy_eff_per_distance: 0.999933
                     energy_cap_min:  3.290896534380867 #GW IO2050 - 2017 data
                     energy_cap_max: 5.542562584220407 #GW IO2050 all measures 2050#
 #                costs:
@@ -4165,7 +4165,7 @@ links:
             transmission_hvac:
                 distance: 63.9 #km
                 constraints: 
-                    energy_eff_per_distance: 0.99965
+                    energy_eff_per_distance: 0.999933
                     energy_cap_min:  1.905255888325765 #GW IO2050 - 2017 data
                     energy_cap_max: 1.905255888325765 #GW IO2050 all measures 2050#
 #                costs:
@@ -4177,7 +4177,7 @@ links:
             transmission_hvac:
                 distance: 28.5 #km
                 constraints: 
-                    energy_eff_per_distance: 0.99965
+                    energy_eff_per_distance: 0.999933
                     energy_cap_min:  1.905255888325765 #GW IO2050 - 2017 data
                     energy_cap_max: 1.905255888325765 #GW IO2050 all measures 2050#
 #                costs:
@@ -4189,7 +4189,7 @@ links:
             transmission_hvac:
                 distance: 29.3 #km
                 constraints: 
-                    energy_eff_per_distance: 0.99965
+                    energy_eff_per_distance: 0.999933
                     energy_cap_min:  1.752835417259704 #GW IO2050 - 2017 data
                     energy_cap_max: 1.752835417259704 #GW IO2050 all measures 2050#
 #                costs:
@@ -4201,7 +4201,7 @@ links:
             transmission_hvac:
                 distance: 107.8 #km
                 constraints: 
-                    energy_eff_per_distance: 0.99965
+                    energy_eff_per_distance: 0.999933
                     energy_cap_min:  5.265434455009387 #GW IO2050 - 2017 data
                     energy_cap_max: 5.542562584220407 #GW IO2050 all measures 2050#
 #                costs:
@@ -4213,7 +4213,7 @@ links:
             transmission_hvac:
                 distance: 23.0 #km
                 constraints: 
-                    energy_eff_per_distance: 0.99965
+                    energy_eff_per_distance: 0.999933
                     energy_cap_min:  5.265434455009387 #GW IO2050 - 2017 data
                     energy_cap_max: 5.542562584220407 #GW IO2050 all measures 2050#
 #                costs:
@@ -4225,7 +4225,7 @@ links:
             transmission_hvac:
                 distance: 20.2 #km
                 constraints: 
-                    energy_eff_per_distance: 0.99965
+                    energy_eff_per_distance: 0.999933
                     energy_cap_min:  5.265434455009387 #GW IO2050 - 2017 data
                     energy_cap_max: 5.542562584220407 #GW IO2050 all measures 2050#
 #                costs:
@@ -4237,7 +4237,7 @@ links:
             transmission_hvac:
                 distance: 85.0 #km
                 constraints: 
-                    energy_eff_per_distance: 0.99965
+                    energy_eff_per_distance: 0.999933
                     energy_cap_min:  0.001 #MW IO2050 - 2017 data
                     energy_cap_max: 5.542562584220407 #GW IO2050 all measures 2050#
 #                costs:
@@ -4249,7 +4249,7 @@ links:
             transmission_hvac:
                 distance: 23.7 #km
                 constraints: 
-                    energy_eff_per_distance: 0.99965
+                    energy_eff_per_distance: 0.999933
                     energy_cap_min:  1.905255888325765 #GW IO2050 - 2017 data
                     energy_cap_max: 1.905255888325765 #GW IO2050 all measures 2050#
 #                costs:
@@ -4261,7 +4261,7 @@ links:
             transmission_hvac:
                 distance: 6.8 #km
                 constraints: 
-                    energy_eff_per_distance: 0.99965
+                    energy_eff_per_distance: 0.999933
                     energy_cap_min:  5.265434455009387 #GW IO2050 - 2017 data
                     energy_cap_max: 5.542562584220407 #GW IO2050 all measures 2050#
 #                costs:
@@ -4273,7 +4273,7 @@ links:
             transmission_hvac:
                 distance: 37.61 #km https://webkaart.hoogspanningsnet.com/index2.php#14/52.1476/4.9990
                 constraints: 
-                    energy_eff_per_distance: 0.99965
+                    energy_eff_per_distance: 0.999933
                     energy_cap_min:  1.500 #GW https://webkaart.hoogspanningsnet.com/index2.php#14/52.1476/4.9990
                     energy_cap_max:  2.000 #GW Arbitrary#
 #                costs:
@@ -4285,7 +4285,7 @@ links:
             transmission_hvac:
                 distance: 20.07 #km https://webkaart.hoogspanningsnet.com/index2.php#14/52.1476/4.9990
                 constraints: 
-                    energy_eff_per_distance: 0.99965
+                    energy_eff_per_distance: 0.999933
                     energy_cap_min:  1.500 #GW https://webkaart.hoogspanningsnet.com/index2.php#14/52.1476/4.9990
                     energy_cap_max:  2.000 #GW Arbitrary#
 #                costs:
@@ -4697,7 +4697,7 @@ links:
                 distance: 28.0 #km
                 constraints:
                     energy_cap_equals: 1.200 #GW https://www.hoogspanningsnet.com/artikel/mvdm-01-2021/
-                    energy_eff_per_distance: 0.99965
+                    energy_eff_per_distance: 0.999933
                 
     E-BE-ZAN,E-RIL: #2, Status: In Planning - BELGIUM
         techs:
@@ -4705,7 +4705,7 @@ links:
                 distance: 6.7 #km
                 constraints:
                     energy_cap_equals: 2.350 #GW https://webkaart.hoogspanningsnet.com/index2.php#12/51.3944/4.2864
-                    energy_eff_per_distance: 0.99965
+                    energy_eff_per_distance: 0.999933
 
     E-DE-SIE,E-MBT: #3, Status: In Operation GERMANY
         techs:
@@ -4713,7 +4713,7 @@ links:
                 distance: 27.23 #km https://webkaart.hoogspanningsnet.com/index2.php#11/51.0874/5.7925
                 constraints:
                     energy_cap_equals: 1.500 #GW https://webkaart.hoogspanningsnet.com/index2.php#11/51.0874/5.7925
-                    energy_eff_per_distance: 0.99965
+                    energy_eff_per_distance: 0.999933
 
     E-DE-GRO,E-HGL: #4, Status: In Operation GERMANY
         techs:
@@ -4721,7 +4721,7 @@ links:
                 distance: 16.51 #km https://webkaart.hoogspanningsnet.com/index2.php#11/52.1286/6.8665
                 constraints:
                     energy_cap_equals: 1.600 #GW https://webkaart.hoogspanningsnet.com/index2.php#11/52.1286/6.8665
-                    energy_eff_per_distance: 0.99965
+                    energy_eff_per_distance: 0.999933
 
     E-BE-EYC,E-MBT: #5, Status: In Operation | BELGIUM
         techs:
@@ -4729,7 +4729,7 @@ links:
                 distance: 8.51 #km
                 constraints:
                     energy_cap_equals: 1.200 #GW https://www.tvl.be/nieuws/ondergrondse-kabel-van-kinrooi-tot-maasbracht-levert-nederlandse-stroom-aan-ons-land-73724
-                    energy_eff_per_distance: 0.99965
+                    energy_eff_per_distance: 0.999933
 
     E-DE-WSL,E-DTC: #6, Status: In Operation | GERMANY
         techs:
@@ -4737,7 +4737,7 @@ links:
                 distance: 22.56 #km
                 constraints:
                     energy_cap_equals: 2.350 #GW ?? 
-                    energy_eff_per_distance: 0.99965
+                    energy_eff_per_distance: 0.999933
 
     E-UK,E-MVL: #7, Status: In Operation | UK
         techs:
@@ -4745,7 +4745,7 @@ links:
                 distance: 260.0 #km https://www.tennet.eu/nl/projecten/britned
                 constraints:
                     energy_cap_equals: 1.0 #GW https://www.tennet.eu/nl/projecten/britned
-                    energy_eff_per_distance: 0.99965
+                    energy_eff_per_distance: 0.999933
 
     E-NOR,E-EEM: #8, Status: In Operation | NORWAY
         techs:
@@ -4753,7 +4753,7 @@ links:
                 distance: 580 #km https://www.tennet.eu/nl/projecten/norned
                 constraints:
                     energy_cap_equals: 0.700 #GW https://www.tennet.eu/nl/projecten/norned
-                    energy_eff_per_distance: 0.99965
+                    energy_eff_per_distance: 0.999933
 
     E-DEN,E-EEM: #9, Status: In Operation | DENMARK
         techs:
@@ -4761,7 +4761,7 @@ links:
                 distance: 325 #km https://www.tennet.eu/nl/projecten/cobracable
                 constraints:
                     energy_cap_equals: 0.700 #GW https://www.tennet.eu/nl/projecten/cobracable
-                    energy_eff_per_distance: 0.99965
+                    energy_eff_per_distance: 0.999933
 
 
 
@@ -4885,7 +4885,7 @@ links:
             transmission_hvac:
                 distance: 2.5 #km
                 constraints:
-                    energy_eff_per_distance: 0.99965
+                    energy_eff_per_distance: 0.999933
                     energy_cap_min: 7.3 #GW
                     energy_cap_max: 9.3 #GW
 
@@ -4894,7 +4894,7 @@ links:
             transmission_hvac:
                 distance: 2.5 #km
                 constraints:
-                    energy_eff_per_distance: 0.99965
+                    energy_eff_per_distance: 0.999933
                     energy_cap_min: 5.4 #GW
                     energy_cap_max: 7.4 #GW
 
@@ -4903,7 +4903,7 @@ links:
             transmission_hvac:
                 distance: 2.5 #km
                 constraints:
-                    energy_eff_per_distance: 0.99965
+                    energy_eff_per_distance: 0.999933
                     energy_cap_min: 2.0 #GW
                     energy_cap_max: 4.0 #GW
 
@@ -4912,7 +4912,7 @@ links:
             transmission_hvac:
                 distance: 2.5 #km
                 constraints:
-                    energy_eff_per_distance: 0.99965
+                    energy_eff_per_distance: 0.999933
                     energy_cap_min: 9.5 #GW
                     energy_cap_max: 11.5 #GW
 
@@ -4921,7 +4921,7 @@ links:
             transmission_hvac:
                 distance: 2.5 #km
                 constraints:
-                    energy_eff_per_distance: 0.99965
+                    energy_eff_per_distance: 0.999933
                     energy_cap_min: 2.1 #GW
                     energy_cap_max: 2.1 #GW
 
@@ -4930,7 +4930,7 @@ links:
             transmission_hvac:
                 distance: 2.5 #km
                 constraints:
-                    energy_eff_per_distance: 0.99965
+                    energy_eff_per_distance: 0.999933
                     energy_cap_min: 2.0 #GW
                     energy_cap_max: 4.0 #GW
 
@@ -4939,7 +4939,8 @@ links:
             transmission_hvac:
                 distance: 2.5 #km
                 constraints:
-                    energy_eff_per_distance: 0.99965
+                    energy_eff_per_distance: 0.999933
                     energy_cap_min: 2.0 #GW
                     energy_cap_max: 2.0 #GW
+
 
