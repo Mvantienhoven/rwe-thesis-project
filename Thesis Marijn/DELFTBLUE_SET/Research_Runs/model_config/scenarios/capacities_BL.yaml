@@ -8129,8 +8129,10 @@ overrides:
         techs:
           ES_BESS_IDES:
             constraints:
-              energy_cap_max: 1.0
-              energy_cap_min: 0.14038082
+              energy_cap_max: 2
+
+              energy_cap_min: 0
+
 #          ES_BESS_MDES:
 #            constraints:
 #              energy_cap_max: 1.0
@@ -8194,11 +8196,13 @@ overrides:
           pv_rooftop:
             constraints:
               energy_cap_max: 2.796471
-              energy_cap_min: 0.67831449
+              energy_cap_min: 0.443332
+
           pv_utility:
             constraints:
               energy_cap_max: 1.424523
-              energy_cap_min: 0.26226542
+              energy_cap_min: 0.185565
+
 #          wind_offshore:
 #            constraints:
 #              energy_cap_max: 0
@@ -8211,8 +8215,10 @@ overrides:
         techs:
           ES_BESS_IDES:
             constraints:
-              energy_cap_max: 1.0
-              energy_cap_min: 0.29934675
+              energy_cap_max: 2
+
+              energy_cap_min: 0
+
 #          ES_BESS_MDES:
 #            constraints:
 #              energy_cap_max: 1.0
@@ -8276,11 +8282,13 @@ overrides:
           pv_rooftop:
             constraints:
               energy_cap_max: 5.573772
-              energy_cap_min: 1.29944505
+              energy_cap_min: 0.849289
+
           pv_utility:
             constraints:
               energy_cap_max: 2.798368
-              energy_cap_min: 0.53834878
+              energy_cap_min: 0.380907
+
 #          wind_offshore:
 #            constraints:
 #              energy_cap_max: 0
@@ -8293,8 +8301,10 @@ overrides:
         techs:
           ES_BESS_IDES:
             constraints:
-              energy_cap_max: 1.0
-              energy_cap_min: 0.2167084
+              energy_cap_max: 2
+
+              energy_cap_min: 0
+
 #          ES_BESS_MDES:
 #            constraints:
 #              energy_cap_max: 1.0
@@ -8358,11 +8368,13 @@ overrides:
           pv_rooftop:
             constraints:
               energy_cap_max: 8.431764
-              energy_cap_min: 2.00910641
+              energy_cap_min: 1.313109
+
           pv_utility:
             constraints:
               energy_cap_max: 1.067335
-              energy_cap_min: 0.16988144
+              energy_cap_min: 0.120199
+
 #          wind_offshore:
 #            constraints:
 #              energy_cap_max: 0
@@ -8375,8 +8387,10 @@ overrides:
         techs:
           ES_BESS_IDES:
             constraints:
-              energy_cap_max: 2.0
-              energy_cap_min: 0.5202636
+              energy_cap_max: 3
+
+              energy_cap_min: 1.457
+
 #          ES_BESS_MDES:
 #            constraints:
 #              energy_cap_max: 1.0
@@ -8440,11 +8454,13 @@ overrides:
           pv_rooftop:
             constraints:
               energy_cap_max: 5.779034
-              energy_cap_min: 1.30685829
+              energy_cap_min: 0.854134
+
           pv_utility:
             constraints:
               energy_cap_max: 0.841517
-              energy_cap_min: 0.2477436
+              energy_cap_min: 0.17529
+
 #          wind_offshore:
 #            constraints:
 #              energy_cap_max: 15.999333
@@ -8457,8 +8473,10 @@ overrides:
         techs:
           ES_BESS_IDES:
             constraints:
-              energy_cap_max: 1.0
-              energy_cap_min: 0.21575603
+              energy_cap_max: 2
+
+              energy_cap_min: 0
+
 #          ES_BESS_MDES:
 #            constraints:
 #              energy_cap_max: 1.0
@@ -8522,11 +8540,13 @@ overrides:
           pv_rooftop:
             constraints:
               energy_cap_max: 8.000114
-              energy_cap_min: 1.93661125
+              energy_cap_min: 1.265727
+
           pv_utility:
             constraints:
               energy_cap_max: 1.736153
-              energy_cap_min: 0.2745527
+              energy_cap_min: 0.194259
+
 #          wind_offshore:
 #            constraints:
 #              energy_cap_max: 5.928
@@ -8539,8 +8559,10 @@ overrides:
         techs:
           ES_BESS_IDES:
             constraints:
-              energy_cap_max: 1.0
-              energy_cap_min: 0.29308259
+              energy_cap_max: 2
+
+              energy_cap_min: 0.2
+
 #          ES_BESS_MDES:
 #            constraints:
 #              energy_cap_max: 1.0
@@ -8604,11 +8626,13 @@ overrides:
           pv_rooftop:
             constraints:
               energy_cap_max: 8.536517
-              energy_cap_min: 1.89330345
+              energy_cap_min: 1.237428
+
           pv_utility:
             constraints:
               energy_cap_max: 1.357626
-              energy_cap_min: 0.14250609
+              energy_cap_min: 0.100857
+
 #          wind_offshore:
 #            constraints:
 #              energy_cap_max: 0.129
@@ -8621,8 +8645,10 @@ overrides:
         techs:
           ES_BESS_IDES:
             constraints:
-              energy_cap_max: 1.0
-              energy_cap_min: 0.13607843
+              energy_cap_max: 2
+
+              energy_cap_min: 0
+
 #          ES_BESS_MDES:
 #            constraints:
 #              energy_cap_max: 1.0
@@ -8686,11 +8712,13 @@ overrides:
           pv_rooftop:
             constraints:
               energy_cap_max: 3.913312
-              energy_cap_min: 1.06547733
+              energy_cap_min: 0.696337
+
           pv_utility:
             constraints:
               energy_cap_max: 0.886202
-              energy_cap_min: 0.10077241
+              energy_cap_min: 0.071299
+
 #          wind_offshore:
 #            constraints:
 #              energy_cap_max: 0
@@ -8703,8 +8731,10 @@ overrides:
         techs:
           ES_BESS_IDES:
             constraints:
-              energy_cap_max: 1.0
-              energy_cap_min: 0.09897623
+              energy_cap_max: 2
+
+              energy_cap_min: 0
+
 #          ES_BESS_MDES:
 #            constraints:
 #              energy_cap_max: 1.0
@@ -8768,11 +8798,13 @@ overrides:
           pv_rooftop:
             constraints:
               energy_cap_max: 7.128079
-              energy_cap_min: 1.67769484
+              energy_cap_min: 1.096529
+
           pv_utility:
             constraints:
               energy_cap_max: 0.639414
-              energy_cap_min: 0.10834772
+              energy_cap_min: 0.07666
+
 #          wind_offshore:
 #            constraints:
 #              energy_cap_max: 0
@@ -8785,8 +8817,10 @@ overrides:
         techs:
           ES_BESS_IDES:
             constraints:
-              energy_cap_max: 1.0
-              energy_cap_min: 0.71915679
+              energy_cap_max: 2
+
+              energy_cap_min: 0
+
 #          ES_BESS_MDES:
 #            constraints:
 #              energy_cap_max: 1.0
@@ -8850,11 +8884,13 @@ overrides:
           pv_rooftop:
             constraints:
               energy_cap_max: 13.692318
-              energy_cap_min: 3.30654994
+              energy_cap_min: 2.161132
+
           pv_utility:
             constraints:
               energy_cap_max: 2.586196
-              energy_cap_min: 0.66705778
+              energy_cap_min: 0.471967
+
 #          wind_offshore:
 #            constraints:
 #              energy_cap_max: 0
@@ -8867,8 +8903,10 @@ overrides:
         techs:
           ES_BESS_IDES:
             constraints:
-              energy_cap_max: 1.0
-              energy_cap_min: 0.23490741
+              energy_cap_max: 2
+
+              energy_cap_min: 0
+
 #          ES_BESS_MDES:
 #            constraints:
 #              energy_cap_max: 1.0
@@ -8932,11 +8970,13 @@ overrides:
           pv_rooftop:
             constraints:
               energy_cap_max: 7.144571
-              energy_cap_min: 1.64404264
+              energy_cap_min: 1.074532
+
           pv_utility:
             constraints:
               energy_cap_max: 1.665498
-              energy_cap_min: 0.3176138
+              energy_cap_min: 0.224726
+
 #          wind_offshore:
 #            constraints:
 #              energy_cap_max: 0
@@ -8949,8 +8989,10 @@ overrides:
         techs:
           ES_BESS_IDES:
             constraints:
-              energy_cap_max: 1.08
-              energy_cap_min: 0.12408996
+              energy_cap_max: 2.36
+
+              energy_cap_min: 0
+
 #          ES_BESS_MDES:
 #            constraints:
 #              energy_cap_max: 1.28
@@ -9014,11 +9056,13 @@ overrides:
           pv_rooftop:
             constraints:
               energy_cap_max: 0.838013
-              energy_cap_min: 0.21690469
+              energy_cap_min: 0.141754
+
           pv_utility:
             constraints:
               energy_cap_max: 1.123605
-              energy_cap_min: 0.26211091
+              energy_cap_min: 0.185456
+
 #          wind_offshore:
 #            constraints:
 #              energy_cap_max: 19.678571
@@ -9031,8 +9075,10 @@ overrides:
         techs:
           ES_BESS_IDES:
             constraints:
-              energy_cap_max: 1.0
-              energy_cap_min: 0.31176434
+              energy_cap_max: 2
+
+              energy_cap_min: 0
+
 #          ES_BESS_MDES:
 #            constraints:
 #              energy_cap_max: 1.0
@@ -9096,11 +9142,13 @@ overrides:
           pv_rooftop:
             constraints:
               energy_cap_max: 11.587072
-              energy_cap_min: 2.7461933
+              energy_cap_min: 1.795124
+
           pv_utility:
             constraints:
               energy_cap_max: 2.530516
-              energy_cap_min: 0.47878667
+              energy_cap_min: 0.338822
+
 #          wind_offshore:
 #            constraints:
 #              energy_cap_max: 0
@@ -9113,8 +9161,10 @@ overrides:
         techs:
           ES_BESS_IDES:
             constraints:
-              energy_cap_max: 1.0
-              energy_cap_min: 0.25559454
+              energy_cap_max: 2
+
+              energy_cap_min: 0
+
 #          ES_BESS_MDES:
 #            constraints:
 #              energy_cap_max: 1.0
@@ -9178,11 +9228,13 @@ overrides:
           pv_rooftop:
             constraints:
               energy_cap_max: 2.211071
-              energy_cap_min: 0.52805783
+              energy_cap_min: 0.34512
+
           pv_utility:
             constraints:
               energy_cap_max: 1.491441
-              energy_cap_min: 0.30573646
+              energy_cap_min: 0.216331
+
 #          wind_offshore:
 #            constraints:
 #              energy_cap_max: 0
@@ -9195,8 +9247,10 @@ overrides:
         techs:
           ES_BESS_IDES:
             constraints:
-              energy_cap_max: 1.0
-              energy_cap_min: 0.3670779
+              energy_cap_max: 2
+
+              energy_cap_min: 0
+
 #          ES_BESS_MDES:
 #            constraints:
 #              energy_cap_max: 1.0
@@ -9260,11 +9314,13 @@ overrides:
           pv_rooftop:
             constraints:
               energy_cap_max: 8.892582
-              energy_cap_min: 2.02324572
+              energy_cap_min: 1.322128
+
           pv_utility:
             constraints:
               energy_cap_max: 1.117057
-              energy_cap_min: 0.15641269
+              energy_cap_min: 0.110663
+
 #          wind_offshore:
 #            constraints:
 #              energy_cap_max: 4.0
@@ -9277,8 +9333,10 @@ overrides:
         techs:
           ES_BESS_IDES:
             constraints:
-              energy_cap_max: 1.0
-              energy_cap_min: 0.24543459
+              energy_cap_max: 2
+
+              energy_cap_min: 0
+
 #          ES_BESS_MDES:
 #            constraints:
 #              energy_cap_max: 1.0
@@ -9342,11 +9400,13 @@ overrides:
           pv_rooftop:
             constraints:
               energy_cap_max: 7.23849
-              energy_cap_min: 1.70139946
+              energy_cap_min: 1.112022
+
           pv_utility:
             constraints:
               energy_cap_max: 1.704616
-              energy_cap_min: 0.39385334
+              energy_cap_min: 0.278701
+
 #          wind_offshore:
 #            constraints:
 #              energy_cap_max: 0
@@ -9359,8 +9419,10 @@ overrides:
         techs:
           ES_BESS_IDES:
             constraints:
-              energy_cap_max: 1.0
-              energy_cap_min: 0.02578677
+              energy_cap_max: 2
+
+              energy_cap_min: 0
+
 #          ES_BESS_MDES:
 #            constraints:
 #              energy_cap_max: 1.0
@@ -9424,11 +9486,13 @@ overrides:
           pv_rooftop:
             constraints:
               energy_cap_max: 1.948084
-              energy_cap_min: 0.50706068
+              energy_cap_min: 0.331384
+
           pv_utility:
             constraints:
               energy_cap_max: 0.354504
-              energy_cap_min: 0.02015448
+              energy_cap_min: 0.014261
+
 #          wind_offshore:
 #            constraints:
 #              energy_cap_max: 0
@@ -9441,8 +9505,10 @@ overrides:
         techs:
           ES_BESS_IDES:
             constraints:
-              energy_cap_max: 1.296853
-              energy_cap_min: 1.05519863
+              energy_cap_max: 2.296853
+
+              energy_cap_min: 0
+
 #          ES_BESS_MDES:
 #            constraints:
 #              energy_cap_max: 1.0
@@ -9506,11 +9572,13 @@ overrides:
           pv_rooftop:
             constraints:
               energy_cap_max: 4.344334
-              energy_cap_min: 0.99708411
+              energy_cap_min: 0.651672
+
           pv_utility:
             constraints:
               energy_cap_max: 2.022893
-              energy_cap_min: 0.40176273
+              energy_cap_min: 0.284291
+
 #          wind_offshore:
 #            constraints:
 #              energy_cap_max: 0
@@ -9523,8 +9591,10 @@ overrides:
         techs:
           ES_BESS_IDES:
             constraints:
-              energy_cap_max: 1.0
-              energy_cap_min: 0.11563414
+              energy_cap_max: 2
+
+              energy_cap_min: 0
+
 #          ES_BESS_MDES:
 #            constraints:
 #              energy_cap_max: 1.0
@@ -9588,11 +9658,13 @@ overrides:
           pv_rooftop:
             constraints:
               energy_cap_max: 1.828666
-              energy_cap_min: 0.43132861
+              energy_cap_min: 0.281918
+
           pv_utility:
             constraints:
               energy_cap_max: 0.702266
-              energy_cap_min: 0.12658405
+              energy_cap_min: 0.089569
+
 #          wind_offshore:
 #            constraints:
 #              energy_cap_max: 0
@@ -9605,8 +9677,10 @@ overrides:
         techs:
           ES_BESS_IDES:
             constraints:
-              energy_cap_max: 1.0
-              energy_cap_min: 0.43207812
+              energy_cap_max: 2
+
+              energy_cap_min: 0
+
 #          ES_BESS_MDES:
 #            constraints:
 #              energy_cap_max: 1.0
@@ -9670,11 +9744,13 @@ overrides:
           pv_rooftop:
             constraints:
               energy_cap_max: 11.957108
-              energy_cap_min: 2.83174784
+              energy_cap_min: 1.850586
+
           pv_utility:
             constraints:
               energy_cap_max: 2.353194
-              energy_cap_min: 0.46091217
+              energy_cap_min: 0.326123
+
 #          wind_offshore:
 #            constraints:
 #              energy_cap_max: 3.06
@@ -9687,8 +9763,10 @@ overrides:
         techs:
           ES_BESS_IDES:
             constraints:
-              energy_cap_max: 1.836323
-              energy_cap_min: 1.64678437
+              energy_cap_max: 8.236323
+
+              energy_cap_min: 0
+
 #          ES_BESS_MDES:
 #            constraints:
 #              energy_cap_max: 6.4
@@ -9752,11 +9830,13 @@ overrides:
           pv_rooftop:
             constraints:
               energy_cap_max: 2.599595
-              energy_cap_min: 0.71975669
+              energy_cap_min: 0.470475
+
           pv_utility:
             constraints:
               energy_cap_max: 5.519549
-              energy_cap_min: 1.27022757
+              energy_cap_min: 0.898713
+
 #          wind_offshore:
 #            constraints:
 #              energy_cap_max: 0
@@ -9769,8 +9849,10 @@ overrides:
         techs:
           ES_BESS_IDES:
             constraints:
-              energy_cap_max: 1.0
-              energy_cap_min: 0.00353905
+              energy_cap_max: 2
+
+              energy_cap_min: 0
+
 #          ES_BESS_MDES:
 #            constraints:
 #              energy_cap_max: 1.0
@@ -9834,11 +9916,13 @@ overrides:
           pv_rooftop:
             constraints:
               energy_cap_max: 0.026971
-              energy_cap_min: 0.0050526
+              energy_cap_min: 0.003303
+
           pv_utility:
             constraints:
               energy_cap_max: 0.048674
-              energy_cap_min: 0.00903477
+              energy_cap_min: 0.006392
+
 #          wind_offshore:
 #            constraints:
 #              energy_cap_max: 0
@@ -9851,8 +9935,10 @@ overrides:
         techs:
           ES_BESS_IDES:
             constraints:
-              energy_cap_max: 1.0
-              energy_cap_min: 0.2752967
+              energy_cap_max: 2
+
+              energy_cap_min: 0
+
 #          ES_BESS_MDES:
 #            constraints:
 #              energy_cap_max: 1.0
@@ -9916,11 +10002,13 @@ overrides:
           pv_rooftop:
             constraints:
               energy_cap_max: 3.895636
-              energy_cap_min: 0.8257004
+              energy_cap_min: 0.539708
+
           pv_utility:
             constraints:
               energy_cap_max: 2.589819
-              energy_cap_min: 0.46795683
+              energy_cap_min: 0.33116
+
 #          wind_offshore:
 #            constraints:
 #              energy_cap_max: 0
@@ -9933,8 +10021,10 @@ overrides:
         techs:
           ES_BESS_IDES:
             constraints:
-              energy_cap_max: 1.0
-              energy_cap_min: 0.12737471
+              energy_cap_max: 2
+
+              energy_cap_min: 0
+
 #          ES_BESS_MDES:
 #            constraints:
 #              energy_cap_max: 1.0
@@ -9998,11 +10088,13 @@ overrides:
           pv_rooftop:
             constraints:
               energy_cap_max: 2.228236
-              energy_cap_min: 0.49627239
+              energy_cap_min: 0.324333
+
           pv_utility:
             constraints:
               energy_cap_max: 0.259997
-              energy_cap_min: 0.02150275
+              energy_cap_min: 0.015216
+
 #          wind_offshore:
 #            constraints:
 #              energy_cap_max: 4.993333
@@ -10015,8 +10107,10 @@ overrides:
         techs:
           ES_BESS_IDES:
             constraints:
-              energy_cap_max: 1.0
-              energy_cap_min: 0.16394421
+              energy_cap_max: 2
+
+              energy_cap_min: 0
+
 #          ES_BESS_MDES:
 #            constraints:
 #              energy_cap_max: 1.0
@@ -10080,11 +10174,13 @@ overrides:
           pv_rooftop:
             constraints:
               energy_cap_max: 3.61381
-              energy_cap_min: 0.88672653
+              energy_cap_min: 0.579593
+
           pv_utility:
             constraints:
               energy_cap_max: 1.118039
-              energy_cap_min: 0.28779211
+              energy_cap_min: 0.203635
+
 #          wind_offshore:
 #            constraints:
 #              energy_cap_max: 14.478571
@@ -10097,8 +10193,10 @@ overrides:
         techs:
           ES_BESS_IDES:
             constraints:
-              energy_cap_max: 1.0
-              energy_cap_min: 0.1371763
+              energy_cap_max: 2
+
+              energy_cap_min: 0
+
 #          ES_BESS_MDES:
 #            constraints:
 #              energy_cap_max: 1.0
@@ -10162,11 +10260,13 @@ overrides:
           pv_rooftop:
             constraints:
               energy_cap_max: 1.834662
-              energy_cap_min: 0.50798053
+              energy_cap_min: 0.331986
+
           pv_utility:
             constraints:
               energy_cap_max: 0.429977
-              energy_cap_min: 0.09382259
+              energy_cap_min: 0.066384
+
 #          wind_offshore:
 #            constraints:
 #              energy_cap_max: 0
@@ -10179,8 +10279,10 @@ overrides:
         techs:
           ES_BESS_IDES:
             constraints:
-              energy_cap_max: 1.0
-              energy_cap_min: 0.12600591
+              energy_cap_max: 2
+
+              energy_cap_min: 0
+
 #          ES_BESS_MDES:
 #            constraints:
 #              energy_cap_max: 1.0
@@ -10244,11 +10346,13 @@ overrides:
           pv_rooftop:
             constraints:
               energy_cap_max: 6.317348
-              energy_cap_min: 1.46516426
+              energy_cap_min: 0.957605
+
           pv_utility:
             constraints:
               energy_cap_max: 0.677746
-              energy_cap_min: 0.12120489
+              energy_cap_min: 0.085758
+
 #          wind_offshore:
 #            constraints:
 #              energy_cap_max: 0
@@ -10261,8 +10365,10 @@ overrides:
         techs:
           ES_BESS_IDES:
             constraints:
-              energy_cap_max: 1.0
-              energy_cap_min: 0.16599036
+              energy_cap_max: 2
+
+              energy_cap_min: 0
+
 #          ES_BESS_MDES:
 #            constraints:
 #              energy_cap_max: 1.0
@@ -10326,11 +10432,13 @@ overrides:
           pv_rooftop:
             constraints:
               energy_cap_max: 3.162491
-              energy_cap_min: 0.70769433
+              energy_cap_min: 0.462568
+
           pv_utility:
             constraints:
               energy_cap_max: 0.653121
-              energy_cap_min: 0.18269691
+              energy_cap_min: 0.129277
+
 #          wind_offshore:
 #            constraints:
 #              energy_cap_max: 14.478571
@@ -10343,8 +10451,10 @@ overrides:
         techs:
           ES_BESS_IDES:
             constraints:
-              energy_cap_max: 1.0
-              energy_cap_min: 0.20347047
+              energy_cap_max: 2
+
+              energy_cap_min: 0
+
 #          ES_BESS_MDES:
 #            constraints:
 #              energy_cap_max: 1.0
@@ -10408,11 +10518,13 @@ overrides:
           pv_rooftop:
             constraints:
               energy_cap_max: 2.738208
-              energy_cap_min: 0.69399989
+              energy_cap_min: 0.453617
+
           pv_utility:
             constraints:
               energy_cap_max: 1.89193
-              energy_cap_min: 0.37422728
+              energy_cap_min: 0.264782
+
 #          wind_offshore:
 #            constraints:
 #              energy_cap_max: 0
@@ -10425,8 +10537,10 @@ overrides:
         techs:
           ES_BESS_IDES:
             constraints:
-              energy_cap_max: 2.0
-              energy_cap_min: 0.1279269
+              energy_cap_max: 3
+
+              energy_cap_min: 0
+
 #          ES_BESS_MDES:
 #            constraints:
 #              energy_cap_max: 1.0
@@ -10490,11 +10604,13 @@ overrides:
           pv_rooftop:
             constraints:
               energy_cap_max: 6.327711
-              energy_cap_min: 1.29690638
+              energy_cap_min: 0.847629
+
           pv_utility:
             constraints:
               energy_cap_max: 0.805676
-              energy_cap_min: 0.05698854
+              energy_cap_min: 0.040329
+
 #          wind_offshore:
 #            constraints:
 #              energy_cap_max: 22.279286
@@ -10507,8 +10623,10 @@ overrides:
         techs:
           ES_BESS_IDES:
             constraints:
-              energy_cap_max: 1.0
-              energy_cap_min: 0.0784264
+              energy_cap_max: 3
+
+              energy_cap_min: 1.2
+
 #          ES_BESS_MDES:
 #            constraints:
 #              energy_cap_max: 1.0
@@ -10572,11 +10690,13 @@ overrides:
           pv_rooftop:
             constraints:
               energy_cap_max: 1.139545
-              energy_cap_min: 0.27457649
+              energy_cap_min: 0.179479
+
           pv_utility:
             constraints:
               energy_cap_max: 0.739538
-              energy_cap_min: 0.15060263
+              energy_cap_min: 0.106578
+
 #          wind_offshore:
 #            constraints:
 #              energy_cap_max: 0
@@ -10589,8 +10709,10 @@ overrides:
         techs:
           ES_BESS_IDES:
             constraints:
-              energy_cap_max: 1.0
-              energy_cap_min: 0.01363623
+              energy_cap_max: 2
+
+              energy_cap_min: 0
+
 #          ES_BESS_MDES:
 #            constraints:
 #              energy_cap_max: 1.0
@@ -10654,11 +10776,13 @@ overrides:
           pv_rooftop:
             constraints:
               energy_cap_max: 3.352219
-              energy_cap_min: 0.69018238
+              energy_cap_min: 0.451898
+
           pv_utility:
             constraints:
               energy_cap_max: 0.292739
-              energy_cap_min: 0.00416989
+              energy_cap_min: 0.00295
+
 #          wind_offshore:
 #            constraints:
 #              energy_cap_max: 0
@@ -10671,8 +10795,10 @@ overrides:
         techs:
           ES_BESS_IDES:
             constraints:
-              energy_cap_max: 1.0
-              energy_cap_min: 0.25224468
+              energy_cap_max: 2
+
+              energy_cap_min: 0
+
 #          ES_BESS_MDES:
 #            constraints:
 #              energy_cap_max: 1.0
@@ -10736,11 +10862,13 @@ overrides:
           pv_rooftop:
             constraints:
               energy_cap_max: 7.170556
-              energy_cap_min: 1.59937823
+              energy_cap_min: 1.045498
+
           pv_utility:
             constraints:
               energy_cap_max: 1.894298
-              energy_cap_min: 0.35878454
+              energy_cap_min: 0.253923
+
 #          wind_offshore:
 #            constraints:
 #              energy_cap_max: 0
@@ -10753,8 +10881,10 @@ overrides:
         techs:
           ES_BESS_IDES:
             constraints:
-              energy_cap_max: 1.0
-              energy_cap_min: 0.44086767
+              energy_cap_max: 2
+
+              energy_cap_min: 0
+
 #          ES_BESS_MDES:
 #            constraints:
 #              energy_cap_max: 1.0
@@ -10818,11 +10948,13 @@ overrides:
           pv_rooftop:
             constraints:
               energy_cap_max: 4.337641
-              energy_cap_min: 0.96418299
+              energy_cap_min: 0.630173
+
           pv_utility:
             constraints:
               energy_cap_max: 4.235972
-              energy_cap_min: 0.91758545
+              energy_cap_min: 0.649226
+
 #          wind_offshore:
 #            constraints:
 #              energy_cap_max: 0
