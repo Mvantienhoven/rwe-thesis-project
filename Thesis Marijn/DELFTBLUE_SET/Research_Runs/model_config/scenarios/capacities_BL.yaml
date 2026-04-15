@@ -10970,59 +10970,265 @@ overrides:
 ##---------------------------------------------------Offshore hubs-----------------------------------------------------------##
       O-NWD:
         techs:
-          wind_offshore:
-            constraints:
-              energy_cap_max: 5.3
-              energy_cap_min: 5.3
           ES_BESS_offshore:
             constraints:
-              energy_cap_max: 1.0
-              energy_cap_min: 1.0
+              energy_cap_max: 1
       O-NEW:
         techs:
-          wind_offshore:
-            constraints:
-              energy_cap_max: 6.0
-              energy_cap_min: 6.0
           ES_BESS_offshore:
             constraints:
-              energy_cap_max: 1.0
+              energy_cap_max: 1
       O-IJL:
         techs:
-          wind_offshore:
-            constraints:
-              energy_cap_max: 10.7
-              energy_cap_min: 6.0
           ES_BESS_offshore:
             constraints:
-              energy_cap_max: 1.0
+              energy_cap_max: 1
       O-HOK:
         techs:
-          wind_offshore:
-            constraints:
-              energy_cap_max: 4.5
-              energy_cap_min: 3.8
           ES_BESS_offshore:
             constraints:
-              energy_cap_max: 1.0
+              energy_cap_max: 1
       O-BOR:
+        techs:
+          ES_BESS_offshore:
+            constraints:
+              energy_cap_max: 1
+      O-G67:
+        techs:
+          ES_BESS_offshore:
+            constraints:
+              energy_cap_max: 1
+
+  # Wind-capacity dimension overrides (W1/W2/W3)
+  # Values are in GW and follow the thesis hub table:
+  # W1 total min = 30.583 GW, W2 total min = 37.583 GW, W3 total min = 44.583 GW
+  # Upper-bound sum stays 49.983 GW.
+  wind_dim_W1:
+    locations:
+      O-NWD:
         techs:
           wind_offshore:
             constraints:
-              energy_cap_max: 1.483
-              energy_cap_min: 1.483
-          ES_BESS_offshore:
-            constraints:
-              energy_cap_max: 1.0
+              energy_cap_min: 5.3
+              energy_cap_max: 5.3
       O-G67:
         techs:
           wind_offshore:
             constraints:
-              energy_cap_max: 22.0
               energy_cap_min: 8.0
-          ES_BESS_offshore:
+              energy_cap_max: 22.0
+      O-NEW:
+        techs:
+          wind_offshore:
             constraints:
-              energy_cap_max: 1.0
+              energy_cap_min: 6.0
+              energy_cap_max: 6.0
+      O-IJL:
+        techs:
+          wind_offshore:
+            constraints:
+              energy_cap_min: 6.0
+              energy_cap_max: 10.7
+      O-HOK:
+        techs:
+          wind_offshore:
+            constraints:
+              energy_cap_min: 3.8
+              energy_cap_max: 4.5
+      O-BOR:
+        techs:
+          wind_offshore:
+            constraints:
+              energy_cap_min: 1.483
+              energy_cap_max: 1.483
+
+  wind_dim_W2:
+    locations:
+      O-NWD:
+        techs:
+          wind_offshore:
+            constraints:
+              energy_cap_min: 5.3
+              energy_cap_max: 5.3
+      O-G67:
+        techs:
+          wind_offshore:
+            constraints:
+              energy_cap_min: 13.0
+              energy_cap_max: 22.0
+      O-NEW:
+        techs:
+          wind_offshore:
+            constraints:
+              energy_cap_min: 6.0
+              energy_cap_max: 6.0
+      O-IJL:
+        techs:
+          wind_offshore:
+            constraints:
+              energy_cap_min: 8.0
+              energy_cap_max: 10.7
+      O-HOK:
+        techs:
+          wind_offshore:
+            constraints:
+              energy_cap_min: 3.8
+              energy_cap_max: 4.5
+      O-BOR:
+        techs:
+          wind_offshore:
+            constraints:
+              energy_cap_min: 1.483
+              energy_cap_max: 1.483
+
+  wind_dim_W3:
+    locations:
+      O-NWD:
+        techs:
+          wind_offshore:
+            constraints:
+              energy_cap_min: 5.3
+              energy_cap_max: 5.3
+      O-G67:
+        techs:
+          wind_offshore:
+            constraints:
+              energy_cap_min: 18.0
+              energy_cap_max: 22.0
+      O-NEW:
+        techs:
+          wind_offshore:
+            constraints:
+              energy_cap_min: 6.0
+              energy_cap_max: 6.0
+      O-IJL:
+        techs:
+          wind_offshore:
+            constraints:
+              energy_cap_min: 10.0
+              energy_cap_max: 10.7
+      O-HOK:
+        techs:
+          wind_offshore:
+            constraints:
+              energy_cap_min: 3.8
+              energy_cap_max: 4.5
+      O-BOR:
+        techs:
+          wind_offshore:
+            constraints:
+              energy_cap_min: 1.483
+              energy_cap_max: 1.483
+
+  # Landing-point storage dimension overrides (L1/L2/L3)
+  # IMPORTANT: storage cap is energy (GWh), not power (GW).
+  # L2 = 560 MWh per landing node = 0.56 GWh.
+  landing_dim_L1:
+    locations:
+      L-EEM:
+        techs:
+          ES_BESS_IDES:
+            constraints:
+              storage_cap_max: 0
+      L-NOH:
+        techs:
+          ES_BESS_IDES:
+            constraints:
+              storage_cap_max: 0
+      L-ROT:
+        techs:
+          ES_BESS_IDES:
+            constraints:
+              storage_cap_max: 0
+      L-GEE:
+        techs:
+          ES_BESS_IDES:
+            constraints:
+              storage_cap_max: 0
+      L-BOR:
+        techs:
+          ES_BESS_IDES:
+            constraints:
+              storage_cap_max: 0
+
+  landing_dim_L2:
+    locations:
+      L-EEM:
+        techs:
+          ES_BESS_IDES:
+            constraints:
+              storage_cap_max: 0.56
+      L-NOH:
+        techs:
+          ES_BESS_IDES:
+            constraints:
+              storage_cap_max: 0.56
+      L-ROT:
+        techs:
+          ES_BESS_IDES:
+            constraints:
+              storage_cap_max: 0.56
+      L-GEE:
+        techs:
+          ES_BESS_IDES:
+            constraints:
+              storage_cap_max: 0.56
+      L-BOR:
+        techs:
+          ES_BESS_IDES:
+            constraints:
+              storage_cap_max: 0.56
+
+  landing_dim_L3:
+    locations:
+      L-EEM:
+        techs:
+          ES_BESS_IDES:
+      L-NOH:
+        techs:
+          ES_BESS_IDES:
+      L-ROT:
+        techs:
+          ES_BESS_IDES:
+      L-GEE:
+        techs:
+          ES_BESS_IDES:
+      L-BOR:
+        techs:
+          ES_BESS_IDES:
+
+  # Offshore storage premium dimension overrides (P1/P2/P3)
+  # Base onshore battery costs (from storage.yaml):
+  # energy_cap = 300 MEUR/GW, storage_cap = 200 MEUR/GWh.
+  # Premium levels on offshore battery:
+  # P1 = +25%, P2 = +50%, P3 = +100%.
+  # OPEX rule: om_annual = 2% of offshore energy_cap.
+  premium_dim_P1:
+    techs:
+      ES_BESS_offshore:
+        costs:
+          monetary:
+            energy_cap: 375
+            storage_cap: 250
+            om_annual: 7.5
+
+  premium_dim_P2:
+    techs:
+      ES_BESS_offshore:
+        costs:
+          monetary:
+            energy_cap: 450
+            storage_cap: 300
+            om_annual: 9
+
+  premium_dim_P3:
+    techs:
+      ES_BESS_offshore:
+        costs:
+          monetary:
+            energy_cap: 600
+            storage_cap: 400
+            om_annual: 12
 
 
 scenarios:
@@ -11032,8 +11238,48 @@ scenarios:
   # - Scenario_S1_GB
   # capacities_Scenario1_HA:
   # - Scenario_S1_HA
+  #
+  # 27-scenario scaffold (3x3x3):
+  # W = offshore wind level placeholder (W1/W2/W3)
+  # L = near-landing storage level placeholder (L1/L2/L3)
+  # P = offshore storage premium level placeholder (P1/P2/P3)
+  #
+  # NOTE:
+  # All three dimensions are now active in these composite scenario mappings.
+  capacities_KM_W1_L1_P1: [Scenario_S1_KM, wind_dim_W1, landing_dim_L1, premium_dim_P1]
+  capacities_KM_W1_L1_P2: [Scenario_S1_KM, wind_dim_W1, landing_dim_L1, premium_dim_P2]
+  capacities_KM_W1_L1_P3: [Scenario_S1_KM, wind_dim_W1, landing_dim_L1, premium_dim_P3]
+  capacities_KM_W1_L2_P1: [Scenario_S1_KM, wind_dim_W1, landing_dim_L2, premium_dim_P1]
+  capacities_KM_W1_L2_P2: [Scenario_S1_KM, wind_dim_W1, landing_dim_L2, premium_dim_P2]
+  capacities_KM_W1_L2_P3: [Scenario_S1_KM, wind_dim_W1, landing_dim_L2, premium_dim_P3]
+  capacities_KM_W1_L3_P1: [Scenario_S1_KM, wind_dim_W1, landing_dim_L3, premium_dim_P1]
+  capacities_KM_W1_L3_P2: [Scenario_S1_KM, wind_dim_W1, landing_dim_L3, premium_dim_P2]
+  capacities_KM_W1_L3_P3: [Scenario_S1_KM, wind_dim_W1, landing_dim_L3, premium_dim_P3]
+
+  capacities_KM_W2_L1_P1: [Scenario_S1_KM, wind_dim_W2, landing_dim_L1, premium_dim_P1]
+  capacities_KM_W2_L1_P2: [Scenario_S1_KM, wind_dim_W2, landing_dim_L1, premium_dim_P2]
+  capacities_KM_W2_L1_P3: [Scenario_S1_KM, wind_dim_W2, landing_dim_L1, premium_dim_P3]
+  capacities_KM_W2_L2_P1: [Scenario_S1_KM, wind_dim_W2, landing_dim_L2, premium_dim_P1]
+  capacities_KM_W2_L2_P2: [Scenario_S1_KM, wind_dim_W2, landing_dim_L2, premium_dim_P2]
+  capacities_KM_W2_L2_P3: [Scenario_S1_KM, wind_dim_W2, landing_dim_L2, premium_dim_P3]
+  capacities_KM_W2_L3_P1: [Scenario_S1_KM, wind_dim_W2, landing_dim_L3, premium_dim_P1]
+  capacities_KM_W2_L3_P2: [Scenario_S1_KM, wind_dim_W2, landing_dim_L3, premium_dim_P2]
+  capacities_KM_W2_L3_P3: [Scenario_S1_KM, wind_dim_W2, landing_dim_L3, premium_dim_P3]
+
+  capacities_KM_W3_L1_P1: [Scenario_S1_KM, wind_dim_W3, landing_dim_L1, premium_dim_P1]
+  capacities_KM_W3_L1_P2: [Scenario_S1_KM, wind_dim_W3, landing_dim_L1, premium_dim_P2]
+  capacities_KM_W3_L1_P3: [Scenario_S1_KM, wind_dim_W3, landing_dim_L1, premium_dim_P3]
+  capacities_KM_W3_L2_P1: [Scenario_S1_KM, wind_dim_W3, landing_dim_L2, premium_dim_P1]
+  capacities_KM_W3_L2_P2: [Scenario_S1_KM, wind_dim_W3, landing_dim_L2, premium_dim_P2]
+  capacities_KM_W3_L2_P3: [Scenario_S1_KM, wind_dim_W3, landing_dim_L2, premium_dim_P3]
+  capacities_KM_W3_L3_P1: [Scenario_S1_KM, wind_dim_W3, landing_dim_L3, premium_dim_P1]
+  capacities_KM_W3_L3_P2: [Scenario_S1_KM, wind_dim_W3, landing_dim_L3, premium_dim_P2]
+  capacities_KM_W3_L3_P3: [Scenario_S1_KM, wind_dim_W3, landing_dim_L3, premium_dim_P3]
+
+  # Legacy single-case alias (kept for backward compatibility)
   capacities_Scenario1_KM:
   - Scenario_S1_KM
+  - wind_dim_W1
 
 
 

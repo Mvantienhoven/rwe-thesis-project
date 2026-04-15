@@ -40,7 +40,7 @@ model:
   time:
     function: resample #apply_clustering #apply_clustering
     function_options:
-      resolution: 1h
+      resolution: 3h
       #clustering_func: kmeans
       #how: mean
       #k: 10
@@ -52,7 +52,7 @@ run:
   mode: plan
   solver: gurobi
   solver_options:
-    Threads: 14
+    Threads: 4
     FeasibilityTol: 1e-3
     OptimalityTol: 1e-3
     BarConvTol: 1e-4

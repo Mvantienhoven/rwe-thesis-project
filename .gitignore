@@ -35,3 +35,7 @@ Calliope_Model_Original/SMR/pyvenv.cfg
 # Outputs
 Thesis Marijn/analysis_results/maps/
 Thesis Marijn/analysis_results/*.csv
+
+# DelftBlue / solver output files
+Thesis Marijn/DELFTBLUE_SET/Research_Runs/outputs/
+*.lp

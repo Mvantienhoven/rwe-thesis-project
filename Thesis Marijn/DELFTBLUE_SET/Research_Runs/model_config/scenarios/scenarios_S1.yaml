@@ -26,4 +26,38 @@ scenarios:
                     demand_KM
                     # STEP 3d (Option A): ets_discount disabled (no active ets_budget consumers).
                     # ,ets_discount
-                    ] 
+                    ]
+
+    # 27-scenario scaffold (3x3x3):
+    # W = offshore wind level placeholder (W1/W2/W3)
+    # L = near-landing storage level placeholder (L1/L2/L3)
+    # P = offshore storage premium level placeholder (P1/P2/P3)
+    base_run_KM_W1_L1_P1: [capacities_KM_W1_L1_P1, demand_KM]
+    base_run_KM_W1_L1_P2: [capacities_KM_W1_L1_P2, demand_KM]
+    base_run_KM_W1_L1_P3: [capacities_KM_W1_L1_P3, demand_KM]
+    base_run_KM_W1_L2_P1: [capacities_KM_W1_L2_P1, demand_KM]
+    base_run_KM_W1_L2_P2: [capacities_KM_W1_L2_P2, demand_KM]
+    base_run_KM_W1_L2_P3: [capacities_KM_W1_L2_P3, demand_KM]
+    base_run_KM_W1_L3_P1: [capacities_KM_W1_L3_P1, demand_KM]
+    base_run_KM_W1_L3_P2: [capacities_KM_W1_L3_P2, demand_KM]
+    base_run_KM_W1_L3_P3: [capacities_KM_W1_L3_P3, demand_KM]
+
+    base_run_KM_W2_L1_P1: [capacities_KM_W2_L1_P1, demand_KM]
+    base_run_KM_W2_L1_P2: [capacities_KM_W2_L1_P2, demand_KM]
+    base_run_KM_W2_L1_P3: [capacities_KM_W2_L1_P3, demand_KM]
+    base_run_KM_W2_L2_P1: [capacities_KM_W2_L2_P1, demand_KM]
+    base_run_KM_W2_L2_P2: [capacities_KM_W2_L2_P2, demand_KM]
+    base_run_KM_W2_L2_P3: [capacities_KM_W2_L2_P3, demand_KM]
+    base_run_KM_W2_L3_P1: [capacities_KM_W2_L3_P1, demand_KM]
+    base_run_KM_W2_L3_P2: [capacities_KM_W2_L3_P2, demand_KM]
+    base_run_KM_W2_L3_P3: [capacities_KM_W2_L3_P3, demand_KM]
+
+    base_run_KM_W3_L1_P1: [capacities_KM_W3_L1_P1, demand_KM]
+    base_run_KM_W3_L1_P2: [capacities_KM_W3_L1_P2, demand_KM]
+    base_run_KM_W3_L1_P3: [capacities_KM_W3_L1_P3, demand_KM]
+    base_run_KM_W3_L2_P1: [capacities_KM_W3_L2_P1, demand_KM]
+    base_run_KM_W3_L2_P2: [capacities_KM_W3_L2_P2, demand_KM]
+    base_run_KM_W3_L2_P3: [capacities_KM_W3_L2_P3, demand_KM]
+    base_run_KM_W3_L3_P1: [capacities_KM_W3_L3_P1, demand_KM]
+    base_run_KM_W3_L3_P2: [capacities_KM_W3_L3_P2, demand_KM]
+    base_run_KM_W3_L3_P3: [capacities_KM_W3_L3_P3, demand_KM]

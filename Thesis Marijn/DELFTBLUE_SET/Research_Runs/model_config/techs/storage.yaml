@@ -36,7 +36,7 @@
             monetary:
                 energy_cap: 450 #2400  # Meur/GW
                 storage_cap: 300 #400  # Meur/GWh
-                om_annual: 7.5 #6.45  Meur/GW/yr (based on input/flow MW not storage MWh)
+                om_annual: 9 #6.45  Meur/GW/yr (based on input/flow MW not storage MWh)
                 interest_rate: 0.04 #WACC
 
 #    ES_BESS_MDES:
