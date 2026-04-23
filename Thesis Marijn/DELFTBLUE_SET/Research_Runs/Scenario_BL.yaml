@@ -34,13 +34,13 @@ model:
   random_seed: 987654321
   subset_time:
     - '2040-01-01 0:00:00'
-    - '2040-01-14 23:00:00'
+    - '2040-12-31 23:00:00'
 
 
   time:
     function: resample #apply_clustering #apply_clustering
     function_options:
-      resolution: 3h
+      resolution: 1h
       #clustering_func: kmeans
       #how: mean
       #k: 10
@@ -52,7 +52,7 @@ run:
   mode: plan
   solver: gurobi
   solver_options:
-    Threads: 4
+    Threads: 16
     FeasibilityTol: 1e-3
     OptimalityTol: 1e-3
     BarConvTol: 1e-4
