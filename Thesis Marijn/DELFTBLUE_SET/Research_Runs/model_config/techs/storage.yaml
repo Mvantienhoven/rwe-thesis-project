@@ -14,9 +14,9 @@
             storage_initial: 1 
         costs:
             monetary:
-                energy_cap: 300 #2400  # Meur/GW
-                storage_cap: 200 #400  # Meur/GWh
-                om_annual: 5 #6.45  Meur/GW/yr (based on input/flow MW not storage MWh)
+                energy_cap: 6.0 #2400  # Meur/GW
+                storage_cap: 54.03 #400  # Meur/GWh
+                om_annual: 1.2 #6.45  Meur/GW/yr (based on input/flow MW not storage MWh)
                 interest_rate: 0.04 #WACC
 
 
@@ -34,9 +34,9 @@
             storage_initial: 1 
         costs:
             monetary:
-                energy_cap: 450 #2400  # Meur/GW
-                storage_cap: 300 #400  # Meur/GWh
-                om_annual: 9 #6.45  Meur/GW/yr (based on input/flow MW not storage MWh)
+                energy_cap: 6.0 #2400  # Meur/GW
+                storage_cap: 54.03 #400  # Meur/GWh
+                om_annual: 1.2 #6.45  Meur/GW/yr (based on input/flow MW not storage MWh)
                 interest_rate: 0.04 #WACC
 
 #    ES_BESS_MDES:

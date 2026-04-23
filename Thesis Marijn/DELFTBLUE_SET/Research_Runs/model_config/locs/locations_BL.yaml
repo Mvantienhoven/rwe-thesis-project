@@ -4770,6 +4770,14 @@ links:
                     energy_eff_per_distance: 0.999933
 
 
+    E-UK,O-NEW: #9, Status: In Operation | DENMARK
+        techs:
+            interconnector_base:
+                distance: 150 #km https://www.tennet.eu/nl/projecten/cobracable
+                constraints:
+                    energy_cap_equals: 2.0 #GW https://www.tennet.eu/nl/projecten/cobracable
+                    energy_eff_per_distance: 0.999933
+
 
 ##---------------------------------------------------Offshore cable additions-----------------------------------------------------------##
 

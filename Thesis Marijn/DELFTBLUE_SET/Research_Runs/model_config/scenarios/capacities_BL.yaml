@@ -10972,32 +10972,32 @@ overrides:
         techs:
           ES_BESS_offshore:
             constraints:
-              energy_cap_max: 1
+              
       O-NEW:
         techs:
           ES_BESS_offshore:
             constraints:
-              energy_cap_max: 1
+              
       O-IJL:
         techs:
           ES_BESS_offshore:
             constraints:
-              energy_cap_max: 1
+              
       O-HOK:
         techs:
           ES_BESS_offshore:
             constraints:
-              energy_cap_max: 1
+              
       O-BOR:
         techs:
           ES_BESS_offshore:
             constraints:
-              energy_cap_max: 1
+              
       O-G67:
         techs:
           ES_BESS_offshore:
             constraints:
-              energy_cap_max: 1
+              
 
   # Wind-capacity dimension overrides (W1/W2/W3)
   # Values are in GW and follow the thesis hub table:
@@ -11208,27 +11208,27 @@ overrides:
       ES_BESS_offshore:
         costs:
           monetary:
-            energy_cap: 375
-            storage_cap: 250
-            om_annual: 7.5
+            energy_cap: 6.0
+            storage_cap: 54.03
+            om_annual: 1.2
 
   premium_dim_P2:
     techs:
       ES_BESS_offshore:
         costs:
           monetary:
-            energy_cap: 450
-            storage_cap: 300
-            om_annual: 9
+            energy_cap: 7.5
+            storage_cap: 67.53
+            om_annual: 1.5
 
   premium_dim_P3:
     techs:
       ES_BESS_offshore:
         costs:
           monetary:
-            energy_cap: 600
-            storage_cap: 400
-            om_annual: 12
+            energy_cap: 10.5
+            storage_cap: 94.55
+            om_annual: 2.1
 
 
 scenarios:

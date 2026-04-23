@@ -16,7 +16,7 @@ techs:
             carrier: electricity
         constraints:
             force_resource: True
-            resource: file=demand/NBNL_EV_2040/EV_Power.csv
+            resource: file=demand/NBNL_KM_2040/KM_Power_final.csv
 
     # STEP 2 (power-only cleanup): disable non-electric demand techs.
     # demand_gas:
