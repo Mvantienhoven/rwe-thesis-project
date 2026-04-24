@@ -4,9 +4,9 @@
 #SBATCH --partition=compute-p1
 #SBATCH --ntasks=1
 #SBATCH --cpus-per-task=16
-#SBATCH --mem-per-cpu=3968M
-#SBATCH --time=08:00:00
-#SBATCH --array=1-27%3
+#SBATCH --mem=180G
+#SBATCH --time=12:00:00
+#SBATCH --array=1-27%1
 
 cd "$HOME/Thesis Marijn/DELFTBLUE_SET" || exit 1
 
