@@ -3,8 +3,8 @@
 #SBATCH --account=Education-TPM-MSc-CoSEM
 #SBATCH --partition=compute-p1
 #SBATCH --ntasks=1
-#SBATCH --cpus-per-task=16
-#SBATCH --mem=180G
+#SBATCH --cpus-per-task=47
+#SBATCH --mem-per-cpu=3968M
 #SBATCH --time=12:00:00
 #SBATCH --array=1-27%1
 

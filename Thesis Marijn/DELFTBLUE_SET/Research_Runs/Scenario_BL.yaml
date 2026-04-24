@@ -61,7 +61,7 @@ run:
     InfUnbdInfo: 1
     ScaleFlag: 2
     MIPGap: 0.01
-    SoftMemLimit: 165 #GB
+    SoftMemLimit: 170 #GB
 
 
   ensure_feasibility: False
