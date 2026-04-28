@@ -4,6 +4,7 @@ from datetime import datetime
 from pathlib import Path
 
 import calliope
+from calliope_async_patch import apply_async_binary_patch
 
 # ── Paths ────────────────────────────────────────────────────────────────────
 base_dir = Path.cwd()
@@ -36,6 +37,7 @@ def main() -> None:
     output_dir = OUTPUT_ROOT / scenario_name
 
     calliope.set_log_verbosity(LOG_VERBOSITY, include_solver_output=True)
+    apply_async_binary_patch()
 
     print(f"\n{'=' * 50}")
     print("RUNNING MODEL")

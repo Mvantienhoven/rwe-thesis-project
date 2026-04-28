@@ -5,6 +5,7 @@ from pathlib import Path
 import logging
 from pathlib import Path
 import pandas as pd
+from calliope_async_patch import apply_async_binary_patch
 
 base_dir = Path.cwd()  
 MODEL_FILE = base_dir / "Research_Runs" / "Scenario_BL.yaml"
@@ -20,6 +21,7 @@ def create_versioned_filename(base_name, extension, output_dir=OUTPUT_DIR):
 
 if __name__ == "__main__":
     calliope.set_log_verbosity(LOG_VERBOSITY, include_solver_output=True)
+    apply_async_binary_patch()
     
     scenario_string = ",".join(SCENARIOS)
     print(f"\n{'='*50}")
