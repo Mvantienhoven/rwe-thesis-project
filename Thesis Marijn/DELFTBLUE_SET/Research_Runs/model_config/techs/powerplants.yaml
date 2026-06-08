@@ -131,7 +131,7 @@
                     co2_emitted: 1.55864 # kton/GWh_e
         costs:
             monetary:
-                energy_cap: 749  # Meur/GW
+                energy_cap: 536  # Meur/GW
                 om_annual: 7.5  # Meur/GW/yr
                 om_prod: 326.861e-3 # Meur/GWh_e (all-in fuel+ETS+VOM)
                 # fuel: 17 €/MWh_fuel / 0.36 = 47.22 €/MWh_e
