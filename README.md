@@ -125,33 +125,7 @@ The 27 offshore-storage-**disabled** runs behind the SQ3 results are not defined
 
 **Always verify.** `Runfile_BL_generic.py` writes the fully merged model via `save_commented_model_yaml()` alongside the results — grep that file for `ES_BESS_offshore` to confirm no offshore loc_techs survived. A silently-still-enabled "disabled" run is indistinguishable from a real one except by a near-zero cost difference.
 
-#### Recommended: replace this with an override
 
-Manual commenting is not reproducible from version control — the repository can only ever be in one of the two states, and which state produced a given result is not recorded. The Calliope-idiomatic fix is a **capacity-zero override**, which is equivalent in results (it forces zero build) and needs no file edits:
-
-```yaml
-# in scenarios/capacities_BL.yaml, under `overrides:`
-  offshore_storage_disabled:
-    locations:
-      O-NWD.techs.ES_BESS_offshore.constraints: {energy_cap_max: 0, storage_cap_max: 0}
-      O-NEW.techs.ES_BESS_offshore.constraints: {energy_cap_max: 0, storage_cap_max: 0}
-      O-IJL.techs.ES_BESS_offshore.constraints: {energy_cap_max: 0, storage_cap_max: 0}
-      O-HOK.techs.ES_BESS_offshore.constraints: {energy_cap_max: 0, storage_cap_max: 0}
-      O-BOR.techs.ES_BESS_offshore.constraints: {energy_cap_max: 0, storage_cap_max: 0}
-      O-G67.techs.ES_BESS_offshore.constraints: {energy_cap_max: 0, storage_cap_max: 0}
-```
-
-Then add disabled twins in `scenarios_S1.yaml`:
-
-```yaml
-    base_run_KM_W1_L1_P1_off: [capacities_KM_W1_L1_P1, demand_KM, offshore_storage_disabled]
-```
-
-and extend `scenario_list.txt` to 54 lines with `--array=1-54%1`. All 54 runs then come from one unmodified checkout.
-
-> **Untested.** This snippet has not been run against Calliope 0.6.10 — verify the merged YAML and confirm the resulting offshore capacity is zero before trusting it. It is a suggestion for future work, not a validated part of the published model.
-
----
 
 ## Repository layout
 
