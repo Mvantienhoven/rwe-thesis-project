@@ -208,13 +208,7 @@ This runs a SLURM array (`--array=1-27%1`, one at a time) reading scenario names
 
 > **Note:** `run_array.sh` requests `--cpus-per-task=47` while `Scenario_BL.yaml` sets Gurobi `Threads: 16`. The thesis reports runs at 16 threads / 170 GB RAM. Reconcile these before relying on the resource request.
 
-### The async patch — do not skip this
 
-`calliope_async_patch.py` must be applied **before** building the model (both runfiles call `apply_async_binary_patch()` already).
-
-Calliope 0.6.x adds storage and transmission techs to `loc_techs_asynchronous_prod_con` whenever the key `force_asynchronous_prod_con` is *present*, even when set to `false`. That creates a `prod_con_switch` **binary variable** per loc_tech — silently turning this LP into a MILP that does not solve in available wall-time. The patch keeps techs in the async set only when the flag is actually truthy.
-
-If you see unexpected binaries or a model that never converges, check this patch is applied first.
 
 ### Solver configuration
 
