@@ -218,16 +218,7 @@ Set in `Scenario_BL.yaml` under `run.solver_options`. Barrier with crossover dis
 
 ---
 
-## Key results
 
-- Offshore storage is selected at scale **only when the cost premium is low (≤25%) and offshore wind is high (≥37.5 GW)**. Landing-point storage availability barely matters.
-- Allocation ranges from negligible up to **~112 GWh** at W45+P0, collapsing by 80–90% at P25 and to near zero at P75.
-- It concentrates at **O-G67 and O-IJL** — the two hubs the model is free to overplant relative to export cable capacity. This is a consequence of cable-sizing freedom, not of the locations themselves; giving all hubs the same freedom spreads the allocation out.
-- Where allocation is largest, the system cost saving is **78–79 M€/yr (~0.3% of total system cost)** — robust but modest. It substitutes for onshore storage, cuts offshore wind curtailment, and at 45 GW also displaces export cable expansion and gas dispatch, lowering CO₂ by ~2–2.5%.
-
-**Conclusion:** offshore storage is a *conditional upstream response* whose value comes from co-optimisation with offshore wind overplanting and export cable sizing — not from being a cheaper battery.
-
----
 
 ## Reproducibility status
 
@@ -245,24 +236,11 @@ What this repository does and does not reproduce from the thesis:
 
 The robustness checks in Chapter 4.4 were run by editing parameters directly, in the same way as the disabled runs. Reproducing them means re-applying those edits by hand from the descriptions in the thesis text.
 
-Since every model variant was produced by editing this checkout in place, **the repository can only ever represent one of the 54+ configurations at a time, and which one is not recorded.** Treat the thesis text as the authoritative description of each variant, and the archived merged YAML written alongside each run's `.nc` as the record of what was actually solved.
 
-> **Solver settings differ from the thesis.** This repository has `BarConvTol: 1e-3` and `SoftMemLimit: 90`; Appendix C.3 reports `1e-4` and `170`. The ~6 M€/yr solver-noise band used to judge significance in Section 4.3.1 is derived from `BarConvTol: 1e-4`, so **set it to `1e-4` before reproducing any cost-difference result.** Also note `sh/run_array.sh` requests 47 CPUs while the solver is configured for 16 threads.
 
 ---
 
-## Known limitations
 
-Documented in full in Chapter 5.2 of the thesis. The ones that most affect how you should read model output:
-
-- **3-hourly resolution.** Hourly exceeded available memory on DelftBlue during matrix construction. This smooths short peaks and likely *understates* the upstream peak-shaving role that is offshore storage's distinctive value.
-- **LP, not MILP.** A full-year MILP did not complete within the 24h limit available. Integer constraints on transmission directionality and storage operation are relaxed, so export cables are sized continuously (in reality they come in 2 GW HVDC / 700 MW AC blocks) and offshore HVDC links are bidirectional. The reverse-flow diagnostic (thesis D.5.3) shows reverse flow is <1.3% of forward flow, so the relaxation does not materially distort results.
-- **kmeans clustering was rejected**, not merely unused. Preliminary 2–3 week tests showed substantial deviation in system cost and storage deployment vs. MILP; full-year LP tracked the MILP tests closely. The clustering options are left commented in `Scenario_BL.yaml` for reproducibility.
-- **One weather year, one demand profile, exogenous import prices, perfect foresight.**
-- **No land-use, permitting or acceptance costs**, and no ancillary-service value streams. Both omissions likely understate offshore storage's relative value.
-- **OCGT dispatch is zero everywhere.** Expected: without ramp constraints the model fully uses more efficient CCGT capacity, and at 3h resolution a CCGT covers any ramp event within one timestep anyway.
-
----
 
 ## Legacy code and provenance
 
