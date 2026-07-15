@@ -104,7 +104,7 @@ Offshore wind upper bound is fixed at ~50 GW across all runs. Export cable capac
 | `premium_dim_P2` | **P25** | +25% |
 | `premium_dim_P3` | **P75** | +75% |
 
-> **Stale comments:** the header above `premium_dim_P1` in `capacities_BL.yaml` still reads *"P1 = +25%, P2 = +50%, P3 = +100%"* and quotes base onshore costs of *"300 MEUR/GW / 200 MEUR/GWh"*. **Both are out of date.** The actual parameter values in that file are correct and match the thesis: P1 = 6.0/54.03/1.2 (identical to `ES_BESS_IDES` in `techs/storage.yaml`, i.e. a 0% premium), P2 = ×1.25, P3 = ×1.75. Trust the numbers, not the comment.
+
 
 ### Reproducing the disabled runs
 
